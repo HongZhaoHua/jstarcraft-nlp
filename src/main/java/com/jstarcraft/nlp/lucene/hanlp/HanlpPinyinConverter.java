@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.lucene.hanlp;
 
 import com.hankcs.hanlp.dictionary.py.Pinyin;
 

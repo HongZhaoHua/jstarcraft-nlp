@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.lucene.hanlp;
 
 import java.util.ArrayList;
 import java.util.List;

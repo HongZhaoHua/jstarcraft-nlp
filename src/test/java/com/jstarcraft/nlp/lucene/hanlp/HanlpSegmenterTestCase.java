@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.lucene.hanlp;
 
 import java.io.StringReader;
 import java.util.HashMap;
@@ -14,6 +14,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.hankcs.hanlp.HanLP;
+import com.jstarcraft.nlp.lucene.hanlp.HanlpPinyinTokenFilterFactory;
+import com.jstarcraft.nlp.lucene.hanlp.HanlpSegmenter;
 
 public class HanlpSegmenterTestCase {
 

@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.lucene.hanlp;
 
 import java.io.BufferedReader;
 import java.io.IOException;

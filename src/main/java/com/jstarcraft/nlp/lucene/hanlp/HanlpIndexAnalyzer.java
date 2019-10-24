@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.lucene.hanlp;
 
 import java.util.Set;
 
@@ -11,33 +11,30 @@ import org.apache.lucene.analysis.en.PorterStemFilter;
 import com.hankcs.hanlp.HanLP;
 
 /**
- * HanLP查询分析器(仅用于查询)
+ * HanLP索引分析器(仅用于索引)
  * 
  * @author Birdy
  *
  */
-public class HanlpQueryAnalyzer extends Analyzer {
+public class HanlpIndexAnalyzer extends Analyzer {
 
     private String algorithm;
-
+    
     private Set<String> filter;
 
-    public HanlpQueryAnalyzer(String algorithm, Set<String> filter) {
+    public HanlpIndexAnalyzer(String algorithm, Set<String> filter) {
         this.algorithm = algorithm;
         this.filter = filter;
     }
 
-    public HanlpQueryAnalyzer(String algorithm) {
+    public HanlpIndexAnalyzer(String algorithm) {
         super();
         this.algorithm = algorithm;
     }
 
-    /**
-     * 重载Analyzer接口,构造分词组件
-     */
     @Override
     protected TokenStreamComponents createComponents(String fieldName) {
-        Tokenizer from = new HanlpSegmenter(HanLP.newSegment(algorithm).enableOffset(true), filter);
+        Tokenizer from = new HanlpSegmenter(HanLP.newSegment(algorithm).enableIndexMode(true), filter);
         TokenStream to = new LowerCaseFilter(from);
         to = new PorterStemFilter(to);
         return new TokenStreamComponents(from, to);

@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.lucene.hanlp;
 
 import java.io.StringReader;
 import java.util.Map;
@@ -11,6 +11,8 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.analysis.util.TokenizerFactory;
 import org.junit.Test;
+
+import com.jstarcraft.nlp.lucene.hanlp.HanlpSegmenterFactory;
 
 public class HanlpSegmenterFactoryTestCase {
 

@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.lucene.hanlp;
 
 import java.io.StringReader;
 import java.util.Map;
@@ -26,6 +26,9 @@ import org.apache.lucene.store.ByteBuffersDirectory;
 import org.apache.lucene.store.Directory;
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.jstarcraft.nlp.lucene.hanlp.HanlpQueryAnalyzer;
+import com.jstarcraft.nlp.lucene.hanlp.HanlpSegmenterFactory;
 
 public class HanlpQueryAnalyzerTestCase {
 

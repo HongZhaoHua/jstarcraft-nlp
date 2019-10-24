@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp;
+package com.jstarcraft.nlp.tokenization;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.Segment;

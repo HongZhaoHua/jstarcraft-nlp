@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp;
+package com.jstarcraft.nlp.tokenization;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp;
+package com.jstarcraft.nlp.tokenization;
 
 import org.lionsoul.jcseg.tokenizer.core.ADictionary;
 import org.lionsoul.jcseg.tokenizer.core.DictionaryFactory;

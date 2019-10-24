@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp;
+package com.jstarcraft.nlp.tokenization;
 
 import org.ansj.splitWord.analysis.BaseAnalysis;
 

@@ -9,12 +9,14 @@ import com.jstarcraft.nlp.tokenization.Token;
 public class WordToken implements Iterable<Token>, Iterator<Token>, Token {
 
     private Iterator<Word> iterator;
-    
+
     private String text;
 
     private Word word;
 
-    private int offset;
+    private int begin;
+
+    private int end;
 
     public WordToken(Iterator<Word> iterator, String text) {
         this.iterator = iterator;
@@ -34,7 +36,8 @@ public class WordToken implements Iterable<Token>, Iterator<Token>, Token {
     @Override
     public Token next() {
         word = iterator.next();
-        offset = text.indexOf(word.getText(), offset);
+        begin = text.indexOf(word.getText(), end);
+        end = begin + word.getText().length();
         return this;
     }
 
@@ -45,12 +48,12 @@ public class WordToken implements Iterable<Token>, Iterator<Token>, Token {
 
     @Override
     public int getBegin() {
-        return offset;
+        return begin;
     }
 
     @Override
     public int getEnd() {
-        return getBegin() + getTerm().length();
+        return end;
     }
 
 }

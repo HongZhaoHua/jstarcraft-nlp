@@ -9,10 +9,12 @@ public class ThulacToken implements Iterable<Token>, Iterator<Token>, Token {
     private Iterator<String> iterator;
 
     private String text;
-    
+
     private String word;
 
-    private int offset;
+    private int begin;
+    
+    private int end;
 
     public ThulacToken(Iterator<String> iterator, String text) {
         this.iterator = iterator;
@@ -32,7 +34,8 @@ public class ThulacToken implements Iterable<Token>, Iterator<Token>, Token {
     @Override
     public Token next() {
         word = iterator.next();
-        offset = text.indexOf(word, offset);
+        begin = text.indexOf(word, end);
+        end = begin + word.length();
         return this;
     }
 
@@ -43,12 +46,12 @@ public class ThulacToken implements Iterable<Token>, Iterator<Token>, Token {
 
     @Override
     public int getBegin() {
-        return offset;
+        return begin;
     }
 
     @Override
     public int getEnd() {
-        return getBegin() + getTerm().length();
+        return end;
     }
 
 }

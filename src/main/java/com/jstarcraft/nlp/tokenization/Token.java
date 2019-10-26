@@ -8,6 +8,11 @@ package com.jstarcraft.nlp.tokenization;
  */
 public interface Token {
 
+    /**
+     * 获取词项
+     * 
+     * @return
+     */
     String getTerm();
 
     /**

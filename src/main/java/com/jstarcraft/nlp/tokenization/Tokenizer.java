@@ -6,8 +6,8 @@ package com.jstarcraft.nlp.tokenization;
  * @author Birdy
  *
  */
-public interface Tokenizer {
+public interface Tokenizer<T extends Token> {
 
-    Iterable<Token> tokenize(CharSequence text);
+    Iterable<T> tokenize(CharSequence text);
 
 }

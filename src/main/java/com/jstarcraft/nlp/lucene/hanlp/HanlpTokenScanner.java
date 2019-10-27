@@ -15,7 +15,7 @@ import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.utility.TextUtility;
 
-public class HanlpSegmenter extends Tokenizer {
+public class HanlpTokenScanner extends Tokenizer {
 
     // 当前词
     private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
@@ -39,7 +39,7 @@ public class HanlpSegmenter extends Tokenizer {
      * @param filter               停用词
      * @param enablePorterStemming 英文原型转换
      */
-    public HanlpSegmenter(Segment segment, Set<String> filter) {
+    public HanlpTokenScanner(Segment segment, Set<String> filter) {
         super();
         this.segment = new SegmentWrapper(this.input, segment);
         if (filter != null && filter.size() > 0) {

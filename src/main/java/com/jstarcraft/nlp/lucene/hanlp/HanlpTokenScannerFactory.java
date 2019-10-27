@@ -15,7 +15,7 @@ import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.TraditionalChineseTokenizer;
 
-public class HanlpSegmenterFactory extends TokenizerFactory {
+public class HanlpTokenScannerFactory extends TokenizerFactory {
 
     private boolean enableIndexMode;
     private boolean enableNumberQuantifierRecognize;
@@ -35,7 +35,7 @@ public class HanlpSegmenterFactory extends TokenizerFactory {
      *
      * @param args 通过这个Map保存xml中的配置项
      */
-    public HanlpSegmenterFactory(Map<String, String> args) {
+    public HanlpTokenScannerFactory(Map<String, String> args) {
         super(args);
         enableIndexMode = getBoolean(args, "enableIndexMode", true);
         enableNumberQuantifierRecognize = getBoolean(args, "enableNumberQuantifierRecognize", false);
@@ -84,7 +84,7 @@ public class HanlpSegmenterFactory extends TokenizerFactory {
             };
         }
 
-        return new HanlpSegmenter(segment, stopWordDictionary);
+        return new HanlpTokenScanner(segment, stopWordDictionary);
     }
 
 }

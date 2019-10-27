@@ -27,9 +27,6 @@ import org.apache.lucene.store.Directory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.jstarcraft.nlp.lucene.hanlp.HanlpQueryAnalyzer;
-import com.jstarcraft.nlp.lucene.hanlp.HanlpSegmenterFactory;
-
 public class HanlpQueryAnalyzerTestCase {
 
     @Test
@@ -95,7 +92,7 @@ public class HanlpQueryAnalyzerTestCase {
         Map<String, String> args = new TreeMap<>();
         args.put("enableTraditionalChineseMode", "true");
         args.put("enableNormalization", "true");
-        HanlpSegmenterFactory factory = new HanlpSegmenterFactory(args);
+        HanlpTokenScannerFactory factory = new HanlpTokenScannerFactory(args);
         Tokenizer tokenizer = factory.create();
         String text = "會辦台星保證最低價的原因？";
 

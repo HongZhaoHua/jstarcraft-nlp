@@ -4,6 +4,9 @@ https://www.jianshu.com/p/d80b065bdcf0
 NLP分析技术的三个层面:
 https://blog.csdn.net/puqutogether/article/details/41510977
 
+信息抽取(Information Extraction)涵盖了哪些内容:
+https://blog.csdn.net/blueorris/article/details/96633591
+
 项目是一个基本包.封装了大多数nlp项目中常用工具:
 https://github.com/NLPchina/nlp-lang
 

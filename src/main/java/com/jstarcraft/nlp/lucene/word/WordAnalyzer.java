@@ -19,15 +19,15 @@ import org.slf4j.LoggerFactory;
  * 
  * @author 杨尚川
  */
-public class ChineseWordAnalyzer extends Analyzer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ChineseWordAnalyzer.class);
+public class WordAnalyzer extends Analyzer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WordAnalyzer.class);
     private Segmentation segmentation = null;
 
-    public ChineseWordAnalyzer() {
+    public WordAnalyzer() {
         this.segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMinimumMatching);
     }
 
-    public ChineseWordAnalyzer(String segmentationAlgorithm) {
+    public WordAnalyzer(String segmentationAlgorithm) {
         try {
             SegmentationAlgorithm sa = SegmentationAlgorithm.valueOf(segmentationAlgorithm);
             this.segmentation = SegmentationFactory.getSegmentation(sa);
@@ -36,22 +36,22 @@ public class ChineseWordAnalyzer extends Analyzer {
         }
     }
 
-    public ChineseWordAnalyzer(SegmentationAlgorithm segmentationAlgorithm) {
+    public WordAnalyzer(SegmentationAlgorithm segmentationAlgorithm) {
         this.segmentation = SegmentationFactory.getSegmentation(segmentationAlgorithm);
     }
 
-    public ChineseWordAnalyzer(Segmentation segmentation) {
+    public WordAnalyzer(Segmentation segmentation) {
         this.segmentation = segmentation;
     }
 
     @Override
     protected TokenStreamComponents createComponents(String fieldName) {
-        Tokenizer tokenizer = new ChineseWordTokenizer(segmentation);
+        Tokenizer tokenizer = new WordTokenizer(segmentation);
         return new TokenStreamComponents(tokenizer);
     }
 
     public static void main(String args[]) throws IOException {
-        Analyzer analyzer = new ChineseWordAnalyzer();
+        Analyzer analyzer = new WordAnalyzer();
         TokenStream tokenStream = analyzer.tokenStream("text", "杨尚川是APDPlat应用级产品开发平台的作者");
         tokenStream.reset();
         while (tokenStream.incrementToken()) {

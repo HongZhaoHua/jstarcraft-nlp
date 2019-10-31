@@ -1,5 +1,7 @@
 package com.jstarcraft.nlp.lucene.ik;
 
+import java.io.IOException;
+
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
@@ -7,8 +9,6 @@ import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeFactory;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
-
-import java.io.IOException;
 
 /**
  * IK分词器 Lucene Tokenizer适配器类 兼容Lucene 4.0版本
@@ -35,7 +35,7 @@ public final class IkTokenizer extends Tokenizer {
         this(false);
     }
 
-    IkTokenizer(boolean useSmart) {
+    public IkTokenizer(boolean useSmart) {
         super();
         init(useSmart);
     }
@@ -44,7 +44,7 @@ public final class IkTokenizer extends Tokenizer {
         this(factory, false);
     }
 
-    IkTokenizer(AttributeFactory factory, boolean useSmart) {
+    public IkTokenizer(AttributeFactory factory, boolean useSmart) {
         super(factory);
         init(useSmart);
     }

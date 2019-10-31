@@ -26,8 +26,8 @@ import org.slf4j.LoggerFactory;
  * 
  * @author 杨尚川
  */
-public class ChineseWordTokenizer extends Tokenizer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ChineseWordTokenizer.class);
+public class WordTokenizer extends Tokenizer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WordTokenizer.class);
 
     private final CharTermAttribute charTermAttribute = addAttribute(CharTermAttribute.class);
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
@@ -44,11 +44,11 @@ public class ChineseWordTokenizer extends Tokenizer {
     private final Queue<String> tokens = new LinkedTransferQueue<>();
     private int startOffset = 0;
 
-    public ChineseWordTokenizer() {
+    public WordTokenizer() {
         segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.BidirectionalMinimumMatching);
     }
 
-    public ChineseWordTokenizer(String segmentationAlgorithm) {
+    public WordTokenizer(String segmentationAlgorithm) {
         try {
             SegmentationAlgorithm sa = SegmentationAlgorithm.valueOf(segmentationAlgorithm);
             this.segmentation = SegmentationFactory.getSegmentation(sa);
@@ -57,11 +57,11 @@ public class ChineseWordTokenizer extends Tokenizer {
         }
     }
 
-    public ChineseWordTokenizer(SegmentationAlgorithm segmentationAlgorithm) {
+    public WordTokenizer(SegmentationAlgorithm segmentationAlgorithm) {
         this.segmentation = SegmentationFactory.getSegmentation(segmentationAlgorithm);
     }
 
-    public ChineseWordTokenizer(Segmentation segmentation) {
+    public WordTokenizer(Segmentation segmentation) {
         this.segmentation = segmentation;
     }
 

@@ -16,7 +16,7 @@ public class ChineseWordAnalyzerTest {
     @Test
     public void test1() {
         try {
-            Analyzer analyzer = new ChineseWordAnalyzer();
+            Analyzer analyzer = new WordAnalyzer();
             TokenStream tokenStream = analyzer.tokenStream("text", "杨尚川是APDPlat应用级产品开发平台的作者");
             List<String> words = new ArrayList<>();
             tokenStream.reset();
@@ -38,7 +38,7 @@ public class ChineseWordAnalyzerTest {
     @Test
     public void test2() {
         try {
-            Analyzer analyzer = new ChineseWordAnalyzer();
+            Analyzer analyzer = new WordAnalyzer();
             TokenStream tokenStream = analyzer.tokenStream("text", "叔叔亲了我妈妈也亲了我");
             List<String> words = new ArrayList<>();
             tokenStream.reset();

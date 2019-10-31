@@ -35,13 +35,13 @@ public class CoreNlpTokenizer extends Tokenizer {
     // 词性
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
-    AnnotationPipeline pipeline;
+    private AnnotationPipeline pipeline;
 
-    Iterator<CoreMap> sentences = null;
+    private Iterator<CoreMap> sentences = null;
 
-    Iterator<CoreLabel> tokens = null;
+    private Iterator<CoreLabel> tokens = null;
 
-    int skippedTokens;
+    private int skippedTokens;
 
     final static int SENTENCE_GAP = 10;
 

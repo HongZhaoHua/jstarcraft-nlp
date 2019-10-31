@@ -37,8 +37,8 @@ public final class AnsjTokenizer extends Tokenizer {
 
     private int finalOffset;
 
-    public AnsjTokenizer(Analysis ta, List<StopRecognition> stops, List<SynonymsRecgnition> synonyms) {
-        this.analysis = ta;
+    public AnsjTokenizer(Analysis analysis, List<StopRecognition> stops, List<SynonymsRecgnition> synonyms) {
+        this.analysis = analysis;
         this.stops = stops;
         this.synonyms = synonyms;
     }

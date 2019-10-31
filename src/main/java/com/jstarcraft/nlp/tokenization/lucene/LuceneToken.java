@@ -13,11 +13,26 @@ public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>
     private TokenStream stream;
 
     private CharTermAttribute term;
-    // 偏移量
+    // 偏移
     private OffsetAttribute offset;
+
+    private String word;
+
+    private int begin;
+
+    private int end;
+
+    private boolean flag;
 
     public LuceneToken(TokenStream stream) {
         this.stream = stream;
+        this.term = stream.getAttribute(CharTermAttribute.class);
+        this.offset = stream.getAttribute(OffsetAttribute.class);
+        try {
+            this.flag = this.stream.incrementToken();
+        } catch (Exception exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
     @Override
@@ -27,33 +42,35 @@ public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>
 
     @Override
     public boolean hasNext() {
-        try {
-            return stream.incrementToken();
-        } catch (Exception exception) {
-            throw new RuntimeException(exception);
-        }
+        return flag;
     }
 
     @Override
     public LuceneToken next() {
-        term = stream.getAttribute(CharTermAttribute.class);
-        offset = stream.getAttribute(OffsetAttribute.class);
+        try {
+            word = term.toString();
+            begin = offset.startOffset();
+            end = offset.endOffset();
+            flag = stream.incrementToken();
+        } catch (Exception exception) {
+            throw new RuntimeException(exception);
+        }
         return this;
     }
 
     @Override
     public String getTerm() {
-        return term.toString();
+        return word;
     }
 
     @Override
     public int getBegin() {
-        return offset.startOffset();
+        return begin;
     }
 
     @Override
     public int getEnd() {
-        return offset.endOffset();
+        return end;
     }
 
 }

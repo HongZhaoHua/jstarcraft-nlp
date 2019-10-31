@@ -19,13 +19,13 @@ import java.util.*;
 /**
  * @author <a href="magese@live.cn">Magese</a>
  */
-public class IKTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware, UpdateThread.UpdateJob {
+public class IkTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware, UpdateThread.UpdateJob {
     private boolean useSmart;
     private ResourceLoader loader;
     private long lastUpdateTime = -1L;
     private String conf = "ik.conf";
 
-    public IKTokenizerFactory(Map<String, String> args) {
+    public IkTokenizerFactory(Map<String, String> args) {
         super(args);
         String useSmartArg = args.get("useSmart");
         String confArg = args.get("conf");
@@ -35,7 +35,7 @@ public class IKTokenizerFactory extends TokenizerFactory implements ResourceLoad
 
     @Override
     public Tokenizer create(AttributeFactory factory) {
-        return new IKTokenizer(factory, useSmart());
+        return new IkTokenizer(factory, useSmart());
     }
 
     /**

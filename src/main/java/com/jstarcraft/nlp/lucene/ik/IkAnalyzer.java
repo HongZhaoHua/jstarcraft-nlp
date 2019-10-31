@@ -7,7 +7,7 @@ import org.apache.lucene.analysis.Tokenizer;
  * IK分词器，Lucene Analyzer接口实现
  */
 @SuppressWarnings("unused")
-public final class IKAnalyzer extends Analyzer {
+public final class IkAnalyzer extends Analyzer {
 
     private boolean useSmart;
 
@@ -24,7 +24,7 @@ public final class IKAnalyzer extends Analyzer {
      * 
      * 默认细粒度切分算法
      */
-    public IKAnalyzer() {
+    public IkAnalyzer() {
         this(false);
     }
 
@@ -33,7 +33,7 @@ public final class IKAnalyzer extends Analyzer {
      * 
      * @param useSmart 当为true时，分词器进行智能切分
      */
-    public IKAnalyzer(boolean useSmart) {
+    public IkAnalyzer(boolean useSmart) {
         super();
         this.useSmart = useSmart;
     }
@@ -43,7 +43,7 @@ public final class IKAnalyzer extends Analyzer {
      */
     @Override
     protected TokenStreamComponents createComponents(String fieldName) {
-        Tokenizer _IKTokenizer = new IKTokenizer(this.useSmart());
+        Tokenizer _IKTokenizer = new IkTokenizer(this.useSmart());
         return new TokenStreamComponents(_IKTokenizer);
     }
 

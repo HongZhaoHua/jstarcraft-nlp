@@ -14,7 +14,7 @@ import java.io.IOException;
  * IK分词器 Lucene Tokenizer适配器类 兼容Lucene 4.0版本
  */
 @SuppressWarnings("unused")
-public final class IKTokenizer extends Tokenizer {
+public final class IkTokenizer extends Tokenizer {
 
     // IK分词器实现
     private IKSegmenter _IKImplement;
@@ -31,20 +31,20 @@ public final class IKTokenizer extends Tokenizer {
     /**
      * Lucene 7.6 Tokenizer适配器类构造函数
      */
-    public IKTokenizer() {
+    public IkTokenizer() {
         this(false);
     }
 
-    IKTokenizer(boolean useSmart) {
+    IkTokenizer(boolean useSmart) {
         super();
         init(useSmart);
     }
 
-    public IKTokenizer(AttributeFactory factory) {
+    public IkTokenizer(AttributeFactory factory) {
         this(factory, false);
     }
 
-    IKTokenizer(AttributeFactory factory, boolean useSmart) {
+    IkTokenizer(AttributeFactory factory, boolean useSmart) {
         super(factory);
         init(useSmart);
     }

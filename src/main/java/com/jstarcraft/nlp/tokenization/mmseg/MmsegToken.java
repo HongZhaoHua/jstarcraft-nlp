@@ -5,7 +5,7 @@ import java.util.Iterator;
 import com.chenlb.mmseg4j.Word;
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class MmsegToken implements Iterable<Token>, Iterator<Token>, Token {
+public class MmsegToken implements Iterable<MmsegToken>, Iterator<MmsegToken>, Token {
 
     private Iterator<Word> iterator;
 
@@ -16,7 +16,7 @@ public class MmsegToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<MmsegToken> iterator() {
         return this;
     }
 
@@ -26,7 +26,7 @@ public class MmsegToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public MmsegToken next() {
         word = iterator.next();
         return this;
     }

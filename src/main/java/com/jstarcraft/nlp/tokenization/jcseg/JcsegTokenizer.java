@@ -6,10 +6,9 @@ import java.util.LinkedList;
 import org.lionsoul.jcseg.tokenizer.core.ISegment;
 import org.lionsoul.jcseg.tokenizer.core.IWord;
 
-import com.jstarcraft.nlp.tokenization.Token;
 import com.jstarcraft.nlp.tokenization.Tokenizer;
 
-public class JcsegTokenizer implements Tokenizer {
+public class JcsegTokenizer implements Tokenizer<JcsegToken> {
 
     private ISegment segment;
 
@@ -18,7 +17,7 @@ public class JcsegTokenizer implements Tokenizer {
     }
 
     @Override
-    public Iterable<Token> tokenize(CharSequence text) {
+    public Iterable<JcsegToken> tokenize(CharSequence text) {
         try {
             segment.reset(new StringReader(text.toString()));
             LinkedList<IWord> iterator = new LinkedList<>();

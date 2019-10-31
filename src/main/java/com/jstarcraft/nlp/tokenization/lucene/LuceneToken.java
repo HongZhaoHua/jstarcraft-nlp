@@ -8,7 +8,7 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class LuceneToken implements Iterable<Token>, Iterator<Token>, Token {
+public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>, Token {
 
     private TokenStream stream;
 
@@ -21,7 +21,7 @@ public class LuceneToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<LuceneToken> iterator() {
         return this;
     }
 
@@ -35,7 +35,7 @@ public class LuceneToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public LuceneToken next() {
         term = stream.getAttribute(CharTermAttribute.class);
         offset = stream.getAttribute(OffsetAttribute.class);
         return this;

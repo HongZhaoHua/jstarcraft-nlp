@@ -5,7 +5,7 @@ import java.util.Iterator;
 import com.hankcs.hanlp.seg.common.Term;
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class HanlpToken implements Iterable<Token>, Iterator<Token>, Token {
+public class HanlpToken implements Iterable<HanlpToken>, Iterator<HanlpToken>, Token {
 
     private Iterator<Term> iterator;
 
@@ -16,7 +16,7 @@ public class HanlpToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<HanlpToken> iterator() {
         return this;
     }
 
@@ -26,7 +26,7 @@ public class HanlpToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public HanlpToken next() {
         term = iterator.next();
         return this;
     }

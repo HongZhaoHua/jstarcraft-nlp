@@ -6,18 +6,18 @@ import org.ansj.domain.Term;
 
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class AnsjToken implements Iterable<Token>, Iterator<Token>, Token {
+public class AnsjToken implements Iterable<AnsjToken>, Iterator<AnsjToken>, Token {
 
     private Iterator<Term> iterator;
 
     private Term term;
-    
+
     public AnsjToken(Iterator<Term> iterator) {
         this.iterator = iterator;
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<AnsjToken> iterator() {
         return this;
     }
 
@@ -27,7 +27,7 @@ public class AnsjToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public AnsjToken next() {
         term = iterator.next();
         return this;
     }

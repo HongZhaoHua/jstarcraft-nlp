@@ -3,10 +3,9 @@ package com.jstarcraft.nlp.tokenization.lucene;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 
-import com.jstarcraft.nlp.tokenization.Token;
 import com.jstarcraft.nlp.tokenization.Tokenizer;
 
-public class LuceneTokenizer implements Tokenizer {
+public class LuceneTokenizer implements Tokenizer<LuceneToken> {
 
     private Analyzer analyzer;
 
@@ -15,7 +14,7 @@ public class LuceneTokenizer implements Tokenizer {
     }
 
     @Override
-    public Iterable<Token> tokenize(CharSequence text) {
+    public Iterable<LuceneToken> tokenize(CharSequence text) {
         try {
             TokenStream stream = analyzer.tokenStream("text", text.toString());
             stream.reset();

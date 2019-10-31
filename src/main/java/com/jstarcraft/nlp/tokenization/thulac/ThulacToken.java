@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class ThulacToken implements Iterable<Token>, Iterator<Token>, Token {
+public class ThulacToken implements Iterable<ThulacToken>, Iterator<ThulacToken>, Token {
 
     private Iterator<String> iterator;
 
@@ -22,7 +22,7 @@ public class ThulacToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<ThulacToken> iterator() {
         return this;
     }
 
@@ -32,7 +32,7 @@ public class ThulacToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public ThulacToken next() {
         word = iterator.next();
         begin = text.indexOf(word, end);
         end = begin + word.length();

@@ -5,10 +5,9 @@ import java.util.LinkedList;
 
 import com.chenlb.mmseg4j.MMSeg;
 import com.chenlb.mmseg4j.Word;
-import com.jstarcraft.nlp.tokenization.Token;
 import com.jstarcraft.nlp.tokenization.Tokenizer;
 
-public class MmsegTokenizer implements Tokenizer {
+public class MmsegTokenizer implements Tokenizer<MmsegToken> {
 
     private MMSeg mmSeg;
 
@@ -17,7 +16,7 @@ public class MmsegTokenizer implements Tokenizer {
     }
 
     @Override
-    public Iterable<Token> tokenize(CharSequence text) {
+    public Iterable<MmsegToken> tokenize(CharSequence text) {
         try {
             mmSeg.reset(new StringReader(text.toString()));
             LinkedList<Word> iterator = new LinkedList<>();

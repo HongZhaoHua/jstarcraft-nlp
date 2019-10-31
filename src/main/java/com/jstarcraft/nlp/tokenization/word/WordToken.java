@@ -6,7 +6,7 @@ import org.apdplat.word.segmentation.Word;
 
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class WordToken implements Iterable<Token>, Iterator<Token>, Token {
+public class WordToken implements Iterable<WordToken>, Iterator<WordToken>, Token {
 
     private Iterator<Word> iterator;
 
@@ -24,7 +24,7 @@ public class WordToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<WordToken> iterator() {
         return this;
     }
 
@@ -34,7 +34,7 @@ public class WordToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public WordToken next() {
         word = iterator.next();
         begin = text.indexOf(word.getText(), end);
         end = begin + word.getText().length();

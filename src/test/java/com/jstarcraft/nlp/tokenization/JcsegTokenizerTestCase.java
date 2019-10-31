@@ -6,13 +6,12 @@ import org.lionsoul.jcseg.tokenizer.core.ISegment;
 import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
 import org.lionsoul.jcseg.tokenizer.core.SegmentFactory;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
 import com.jstarcraft.nlp.tokenization.jcseg.JcsegTokenizer;
 
 public class JcsegTokenizerTestCase extends TokenizerTestCase {
 
     @Override
-    protected Tokenizer getTokenizer() {
+    protected Tokenizer<? extends Token> getTokenizer() {
         try {
             // 自动查找jcseg.properties配置
             JcsegTaskConfig configuration = new JcsegTaskConfig(true);

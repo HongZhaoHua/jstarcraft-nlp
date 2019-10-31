@@ -5,7 +5,7 @@ import java.util.Iterator;
 import com.huaban.analysis.jieba.SegToken;
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class JiebaToken implements Iterable<Token>, Iterator<Token>, Token {
+public class JiebaToken implements Iterable<JiebaToken>, Iterator<JiebaToken>, Token {
 
     private Iterator<SegToken> iterator;
 
@@ -16,7 +16,7 @@ public class JiebaToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<JiebaToken> iterator() {
         return this;
     }
 
@@ -26,7 +26,7 @@ public class JiebaToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public JiebaToken next() {
         token = iterator.next();
         return this;
     }

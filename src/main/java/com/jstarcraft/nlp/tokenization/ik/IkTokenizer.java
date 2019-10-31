@@ -6,10 +6,9 @@ import java.util.LinkedList;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
-import com.jstarcraft.nlp.tokenization.Token;
 import com.jstarcraft.nlp.tokenization.Tokenizer;
 
-public class IkTokenizer implements Tokenizer {
+public class IkTokenizer implements Tokenizer<IkToken> {
 
     private IKSegmenter segmenter;
 
@@ -18,7 +17,7 @@ public class IkTokenizer implements Tokenizer {
     }
 
     @Override
-    public Iterable<Token> tokenize(CharSequence text) {
+    public Iterable<IkToken> tokenize(CharSequence text) {
         try {
             segmenter.reset(new StringReader(text.toString()));
             LinkedList<Lexeme> iterator = new LinkedList<>();

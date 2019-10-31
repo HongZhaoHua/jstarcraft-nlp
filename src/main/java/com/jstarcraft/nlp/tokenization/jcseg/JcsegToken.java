@@ -6,7 +6,7 @@ import org.lionsoul.jcseg.tokenizer.core.IWord;
 
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class JcsegToken implements Iterable<Token>, Iterator<Token>, Token {
+public class JcsegToken implements Iterable<JcsegToken>, Iterator<JcsegToken>, Token {
 
     private Iterator<IWord> iterator;
 
@@ -17,7 +17,7 @@ public class JcsegToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<JcsegToken> iterator() {
         return this;
     }
 
@@ -27,7 +27,7 @@ public class JcsegToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public JcsegToken next() {
         word = iterator.next();
         return this;
     }

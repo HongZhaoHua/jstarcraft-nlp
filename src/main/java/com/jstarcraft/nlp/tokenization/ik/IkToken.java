@@ -6,7 +6,7 @@ import org.wltea.analyzer.core.Lexeme;
 
 import com.jstarcraft.nlp.tokenization.Token;
 
-public class IkToken implements Iterable<Token>, Iterator<Token>, Token {
+public class IkToken implements Iterable<IkToken>, Iterator<IkToken>, Token {
 
     private Iterator<Lexeme> iterator;
 
@@ -17,7 +17,7 @@ public class IkToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<IkToken> iterator() {
         return this;
     }
 
@@ -27,7 +27,7 @@ public class IkToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public IkToken next() {
         lexeme = iterator.next();
         return this;
     }

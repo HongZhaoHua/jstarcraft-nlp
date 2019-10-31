@@ -3,10 +3,9 @@ package com.jstarcraft.nlp.tokenization.jieba;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.JiebaSegmenter.SegMode;
 import com.huaban.analysis.jieba.SegToken;
-import com.jstarcraft.nlp.tokenization.Token;
 import com.jstarcraft.nlp.tokenization.Tokenizer;
 
-public class JiebaTokenizer implements Tokenizer {
+public class JiebaTokenizer implements Tokenizer<JiebaToken> {
 
     private JiebaSegmenter segmenter;
 
@@ -18,7 +17,7 @@ public class JiebaTokenizer implements Tokenizer {
     }
 
     @Override
-    public Iterable<Token> tokenize(CharSequence text) {
+    public Iterable<JiebaToken> tokenize(CharSequence text) {
         Iterable<SegToken> iterator = segmenter.process(text.toString(), mode);
         JiebaToken iterable = new JiebaToken(iterator.iterator());
         return iterable;

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import com.jstarcraft.nlp.tokenization.Token;
 import com.mayabot.nlp.segment.WordTerm;
 
-public class MynlpToken implements Iterable<Token>, Iterator<Token>, Token {
+public class MynlpToken implements Iterable<MynlpToken>, Iterator<MynlpToken>, Token {
 
     private Iterator<WordTerm> iterator;
 
@@ -16,7 +16,7 @@ public class MynlpToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<MynlpToken> iterator() {
         return this;
     }
 
@@ -26,7 +26,7 @@ public class MynlpToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public MynlpToken next() {
         word = iterator.next();
         return this;
     }

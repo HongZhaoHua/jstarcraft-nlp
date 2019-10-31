@@ -7,7 +7,7 @@ import com.jstarcraft.nlp.tokenization.Token;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 
-public class CoreNlpToken implements Iterable<Token>, Iterator<Token>, Token {
+public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpToken>, Token {
 
     private Iterator<CoreLabel> iterator;
 
@@ -22,7 +22,7 @@ public class CoreNlpToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Iterator<Token> iterator() {
+    public Iterator<CoreNlpToken> iterator() {
         return this;
     }
 
@@ -32,7 +32,7 @@ public class CoreNlpToken implements Iterable<Token>, Iterator<Token>, Token {
     }
 
     @Override
-    public Token next() {
+    public CoreNlpToken next() {
         CoreLabel label = iterator.next();
         text = label.get(CoreAnnotations.TextAnnotation.class);
         begin = label.beginPosition();

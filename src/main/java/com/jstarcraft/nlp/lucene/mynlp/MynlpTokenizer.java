@@ -37,14 +37,14 @@ final public class MynlpTokenizer extends Tokenizer {
     /**
      * 当前词
      */
-    private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
 
-    private final TypeAttribute typeAtt = addAttribute(TypeAttribute.class);
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     /**
      * 偏移量
      */
-    private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
 
     /**
      * Position Increment
@@ -88,12 +88,12 @@ final public class MynlpTokenizer extends Tokenizer {
             WordTerm next = iterator.next();
 
             if (Nature.w == next.getNature()) {
-                typeAtt.setType("Punctuation");
+                typeAttribute.setType("Punctuation");
             }
 
             positionAttr.setPositionIncrement(next.getPosInc());
-            termAtt.setEmpty().append(next.word);
-            offsetAtt.setOffset(next.offset, next.offset + next.length());
+            termAttribute.setEmpty().append(next.word);
+            offsetAttribute.setOffset(next.offset, next.offset + next.length());
 
 //            if (mode == IterableMode.GRAPH) {
 //                if (next.hasSubword()) {

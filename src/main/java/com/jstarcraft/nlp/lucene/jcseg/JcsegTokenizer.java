@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttributeImpl;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.lionsoul.jcseg.tokenizer.core.ADictionary;
@@ -44,9 +43,9 @@ public class JcsegTokenizer extends Tokenizer {
     // The default Jcseg segmentor
     private final ISegment segmentor;
 
-    private final CharTermAttributeImpl termAtt = (CharTermAttributeImpl) addAttribute(CharTermAttribute.class);
-    private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
-    private final TypeAttribute typeAtt = addAttribute(TypeAttribute.class);
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     /**
      * field level offset tracker for multiple-value field like the Array field in
@@ -66,16 +65,16 @@ public class JcsegTokenizer extends Tokenizer {
 
         final IWord word = segmentor.next();
         if (word == null) {
-            fieldOffset = offsetAtt.endOffset();
+            fieldOffset = offsetAttribute.endOffset();
             return false;
         }
 
         // char[] token = word.getValue().toCharArray();
         // termAtt.copyBuffer(token, 0, token.length);
-        termAtt.clear();
-        termAtt.append(word.getValue());
-        offsetAtt.setOffset(correctOffset(fieldOffset + word.getPosition()), correctOffset(fieldOffset + word.getPosition() + word.getLength()));
-        typeAtt.setType("word");
+        termAttribute.setLength(0);
+        termAttribute.append(word.getValue());
+        offsetAttribute.setOffset(correctOffset(fieldOffset + word.getPosition()), correctOffset(fieldOffset + word.getPosition() + word.getLength()));
+        typeAttribute.setType("word");
 
         return true;
     }
@@ -83,7 +82,7 @@ public class JcsegTokenizer extends Tokenizer {
     @Override
     public void end() throws IOException {
         super.end();
-        offsetAtt.setOffset(correctOffset(fieldOffset), correctOffset(fieldOffset));
+        offsetAttribute.setOffset(correctOffset(fieldOffset), correctOffset(fieldOffset));
         fieldOffset = 0;
     }
 

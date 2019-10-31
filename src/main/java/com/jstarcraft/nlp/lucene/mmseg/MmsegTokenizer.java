@@ -1,32 +1,32 @@
 package com.jstarcraft.nlp.lucene.mmseg;
 
-import com.chenlb.mmseg4j.MMSeg;
-import com.chenlb.mmseg4j.Seg;
-import com.chenlb.mmseg4j.Word;
+import java.io.IOException;
+
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 
-import java.io.IOException;
-import java.io.Reader;
+import com.chenlb.mmseg4j.MMSeg;
+import com.chenlb.mmseg4j.Seg;
+import com.chenlb.mmseg4j.Word;
 
 public class MmsegTokenizer extends Tokenizer {
 
     private ThreadLocal<MMSeg> mmSeg;
 
-    private CharTermAttribute termAtt;
-    private OffsetAttribute offsetAtt;
-    private TypeAttribute typeAtt;
+    private CharTermAttribute termAttribute;
+    private OffsetAttribute offsetAttribute;
+    private TypeAttribute typeAttribute;
 
     public MmsegTokenizer(Seg seg) {
         super();
         mmSeg = new ThreadLocal<>();
         mmSeg.set(new MMSeg(input, seg));
 
-        termAtt = addAttribute(CharTermAttribute.class);
-        offsetAtt = addAttribute(OffsetAttribute.class);
-        typeAtt = addAttribute(TypeAttribute.class);
+        termAttribute = addAttribute(CharTermAttribute.class);
+        offsetAttribute = addAttribute(OffsetAttribute.class);
+        typeAttribute = addAttribute(TypeAttribute.class);
     }
 
     public void reset() throws IOException {
@@ -59,9 +59,9 @@ public class MmsegTokenizer extends Tokenizer {
             // lucene 3.0
             // termAtt.setTermBuffer(word.getSen(), word.getWordOffset(), word.getLength());
             // lucene 3.1
-            termAtt.copyBuffer(word.getSen(), word.getWordOffset(), word.getLength());
-            offsetAtt.setOffset(word.getStartOffset(), word.getEndOffset());
-            typeAtt.setType(word.getType());
+            termAttribute.copyBuffer(word.getSen(), word.getWordOffset(), word.getLength());
+            offsetAttribute.setOffset(word.getStartOffset(), word.getEndOffset());
+            typeAttribute.setType(word.getType());
             return true;
         } else {
             end();

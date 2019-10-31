@@ -10,11 +10,11 @@ import org.apache.lucene.util.AttributeFactory;
 import edu.stanford.nlp.pipeline.AnnotationPipeline;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
-public class CoreNLPTokenizerFactory extends TokenizerFactory {
+public class CoreNlpTokenizerFactory extends TokenizerFactory {
 
     AnnotationPipeline pipeline;
 
-    public CoreNLPTokenizerFactory(Map<String, String> args) {
+    public CoreNlpTokenizerFactory(Map<String, String> args) {
         super(args);
         Properties p = new Properties();
         for (Map.Entry<String, String> ent : args.entrySet())
@@ -24,7 +24,7 @@ public class CoreNLPTokenizerFactory extends TokenizerFactory {
 
     @Override
     public Tokenizer create(AttributeFactory factory) {
-        return new CoreNLPTokenizer(factory, pipeline);
+        return new CoreNlpTokenizer(factory, pipeline);
     }
 
 }

@@ -9,7 +9,7 @@ import edu.stanford.nlp.pipeline.AnnotationPipeline;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.PropertiesUtils;
 
-public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
+public class CoreNlpTokenStreamTest extends BaseTokenStreamTestCase {
 
     @Test
     public void testTokenizerOnly() throws IOException {
@@ -20,7 +20,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                 "tokenize.options", "americanize=true,asciiQuotes=true,ptb3Dashes=true,ptb3Ellipsis=true,untokenizable=noneKeep" //
         ));
 
-        CoreNLPTokenStream tokenizer = new CoreNLPTokenStream(pipeline);
+        CoreNlpTokenStream tokenizer = new CoreNlpTokenStream(pipeline);
         tokenizer.addText("Mary had a little lamb. And everywhere that Mary went, the lamb was sure to go.");
         assertTokenStreamContents(tokenizer, //
                 new String[] { "Mary", "had", "a", "little", "lamb", ".", //
@@ -36,7 +36,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                         58, 63, 67, 72, 75, 78, 79 },
                 // Increments:
                 new int[] { 1, 1, 1, 1, 1, 1, //
-                        1 + CoreNLPTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
+                        1 + CoreNlpTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
                         1, 1, 1, 1, 1, 1, 1, 1 } //
         );
         tokenizer.reinit();
@@ -57,7 +57,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                         58, 63, 67, 72, 75, 78, 79 },
                 // Increments:
                 new int[] { 1, 1, 1, 1, 1, 1, //
-                        1 + CoreNLPTokenStream.FRAGMENT_GAP + CoreNLPTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
+                        1 + CoreNlpTokenStream.FRAGMENT_GAP + CoreNlpTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
                         1, 1, 1, 1, 1, 1, 1, 1 } //
         );
     }
@@ -71,7 +71,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                 "tokenize.options", "americanize=true,asciiQuotes=true,ptb3Dashes=true,ptb3Ellipsis=true,untokenizable=noneKeep" //
         ));
 
-        CoreNLPTokenStream tokenizer = new CoreNLPTokenStream(pipeline);
+        CoreNlpTokenStream tokenizer = new CoreNlpTokenStream(pipeline);
         tokenizer.addText("Mary had a little lamb. And everywhere that Mary went, the lamb was sure to go.");
         assertTokenStreamContents(tokenizer, //
                 new String[] { "Mary", "have", "a", "little", "lamb", ".", //
@@ -91,7 +91,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                         "DT", "NN", "VBD", "JJ", "TO", "VB", "." },
                 // Increments:
                 new int[] { 1, 1, 1, 1, 1, 1, //
-                        1 + CoreNLPTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
+                        1 + CoreNlpTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
                         1, 1, 1, 1, 1, 1, 1, 1 } //
         );
         tokenizer.reinit();
@@ -116,7 +116,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                         "DT", "NN", "VBD", "JJ", "TO", "VB", "." },
                 // Increments:
                 new int[] { 1, 1, 1, 1, 1, 1, //
-                        1 + CoreNLPTokenStream.FRAGMENT_GAP + CoreNLPTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
+                        1 + CoreNlpTokenStream.FRAGMENT_GAP + CoreNlpTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
                         1, 1, 1, 1, 1, 1, 1, 1 } //
         );
     }
@@ -130,7 +130,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                 "tokenize.options", "americanize=true,asciiQuotes=true,ptb3Dashes=true,ptb3Ellipsis=true,untokenizable=noneKeep" //
         ));
 
-        CoreNLPTokenStream tokenizer = new CoreNLPTokenStream(pipeline);
+        CoreNlpTokenStream tokenizer = new CoreNlpTokenStream(pipeline);
         tokenizer.addText("Mary had a little lamb. And everywhere that Mary went, the lamb was sure to go.");
         assertTokenStreamContents(tokenizer, //
                 new String[] { "Mary", "have", "a", "little", "lamb", ".", //
@@ -150,7 +150,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                         "DT", "NN", "VBD", "JJ", "TO", "VB", "." },
                 // Increments:
                 new int[] { 1, 1, 1, 1, 1, 1, //
-                        1 + CoreNLPTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
+                        1 + CoreNlpTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
                         1, 1, 1, 1, 1, 1, 1, 1 } //
         );
         tokenizer.reinit();
@@ -175,7 +175,7 @@ public class CoreNLPTokenStreamTest extends BaseTokenStreamTestCase {
                         "DT", "NN", "VBD", "JJ", "TO", "VB", "." },
                 // Increments:
                 new int[] { 1, 1, 1, 1, 1, 1, //
-                        1 + CoreNLPTokenStream.FRAGMENT_GAP + CoreNLPTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
+                        1 + CoreNlpTokenStream.FRAGMENT_GAP + CoreNlpTokenStream.SENTENCE_GAP, 1, 1, 1, 1, 1, //
                         1, 1, 1, 1, 1, 1, 1, 1 } //
         );
     }

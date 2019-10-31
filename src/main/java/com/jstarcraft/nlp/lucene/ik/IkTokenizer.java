@@ -20,11 +20,11 @@ public final class IkTokenizer extends Tokenizer {
     private IKSegmenter _IKImplement;
 
     // 词元文本属性
-    private CharTermAttribute termAtt;
+    private CharTermAttribute termAttribute;
     // 词元位移属性
-    private OffsetAttribute offsetAtt;
+    private OffsetAttribute offsetAttribute;
     // 词元分类属性（该属性分类参考org.wltea.analyzer.core.Lexeme中的分类常量）
-    private TypeAttribute typeAtt;
+    private TypeAttribute typeAttribute;
     // 记录最后一个词元的结束位置
     private int endPosition;
 
@@ -50,9 +50,9 @@ public final class IkTokenizer extends Tokenizer {
     }
 
     private void init(boolean useSmart) {
-        offsetAtt = addAttribute(OffsetAttribute.class);
-        termAtt = addAttribute(CharTermAttribute.class);
-        typeAtt = addAttribute(TypeAttribute.class);
+        offsetAttribute = addAttribute(OffsetAttribute.class);
+        termAttribute = addAttribute(CharTermAttribute.class);
+        typeAttribute = addAttribute(TypeAttribute.class);
         _IKImplement = new IKSegmenter(input, useSmart);
     }
 
@@ -69,15 +69,15 @@ public final class IkTokenizer extends Tokenizer {
         if (nextLexeme != null) {
             // 将Lexeme转成Attributes
             // 设置词元文本
-            termAtt.append(nextLexeme.getLexemeText());
+            termAttribute.append(nextLexeme.getLexemeText());
             // 设置词元长度
-            termAtt.setLength(nextLexeme.getLength());
+            termAttribute.setLength(nextLexeme.getLength());
             // 设置词元位移
-            offsetAtt.setOffset(nextLexeme.getBeginPosition(), nextLexeme.getEndPosition());
+            offsetAttribute.setOffset(nextLexeme.getBeginPosition(), nextLexeme.getEndPosition());
             // 记录分词的最后位置
             endPosition = nextLexeme.getEndPosition();
             // 记录词元分类
-            typeAtt.setType(nextLexeme.getLexemeTypeString());
+            typeAttribute.setType(nextLexeme.getLexemeTypeString());
             // 返会true告知还有下个词元
             return true;
         }
@@ -100,7 +100,7 @@ public final class IkTokenizer extends Tokenizer {
     public final void end() {
         // set final offset
         int finalOffset = correctOffset(this.endPosition);
-        offsetAtt.setOffset(finalOffset, finalOffset);
+        offsetAttribute.setOffset(finalOffset, finalOffset);
     }
 
 }

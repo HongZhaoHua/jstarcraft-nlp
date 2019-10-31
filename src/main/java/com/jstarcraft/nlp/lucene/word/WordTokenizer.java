@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 public class WordTokenizer extends Tokenizer {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordTokenizer.class);
 
-    private final CharTermAttribute charTermAttribute = addAttribute(CharTermAttribute.class);
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
     private final PositionIncrementAttribute positionIncrementAttribute = addAttribute(PositionIncrementAttribute.class);
 
@@ -141,7 +141,7 @@ public class WordTokenizer extends Tokenizer {
     public final boolean incrementToken() throws IOException {
         String token = getToken();
         if (token != null) {
-            charTermAttribute.setEmpty().append(token);
+            termAttribute.setEmpty().append(token);
             return true;
         }
         return false;

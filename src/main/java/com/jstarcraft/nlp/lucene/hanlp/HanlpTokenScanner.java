@@ -18,13 +18,13 @@ import com.hankcs.hanlp.utility.TextUtility;
 public class HanlpTokenScanner extends Tokenizer {
 
     // 当前词
-    private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
     // 偏移量
-    private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
     // 距离
-    private final PositionIncrementAttribute positionAttr = addAttribute(PositionIncrementAttribute.class);
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
     // 词性
-    private TypeAttribute typeAtt = addAttribute(TypeAttribute.class);
+    private TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     private SegmentWrapper segment;
     private BinTrie<String> filter;
@@ -75,10 +75,10 @@ public class HanlpTokenScanner extends Tokenizer {
         } while (un_increased);
 
         if (term != null) {
-            positionAttr.setPositionIncrement(position);
-            termAtt.setEmpty().append(term.word);
-            offsetAtt.setOffset(correctOffset(totalOffset + term.offset), correctOffset(totalOffset + term.offset + term.word.length()));
-            typeAtt.setType(term.nature == null ? "null" : term.nature.toString());
+            positionAttribute.setPositionIncrement(position);
+            termAttribute.setEmpty().append(term.word);
+            offsetAttribute.setOffset(correctOffset(totalOffset + term.offset), correctOffset(totalOffset + term.offset + term.word.length()));
+            typeAttribute.setType(term.nature == null ? "null" : term.nature.toString());
             return true;
         } else {
             totalOffset += segment.offset;
@@ -89,7 +89,7 @@ public class HanlpTokenScanner extends Tokenizer {
     @Override
     public void end() throws IOException {
         super.end();
-        offsetAtt.setOffset(totalOffset, totalOffset);
+        offsetAttribute.setOffset(totalOffset, totalOffset);
         totalOffset = 0;
     }
 

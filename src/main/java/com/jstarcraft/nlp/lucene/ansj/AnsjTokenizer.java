@@ -17,16 +17,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 public final class AnsjTokenizer extends Tokenizer {
-    // 当前词
-    private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
-    // 偏移量
-    private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
-    // 距离
-    private final PositionIncrementAttribute positionAttr = addAttribute(PositionIncrementAttribute.class);
-    // 分词词性
-    private final TypeAttribute typeAtt = addAttribute(TypeAttribute.class);
 
-    protected Analysis ta = null;
+    // 词元
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    // 偏移量
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    // 距离
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 词性
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
+
+    private Analysis analysis;
 
     private LinkedList<Object> result;
 
@@ -37,7 +38,7 @@ public final class AnsjTokenizer extends Tokenizer {
     private int finalOffset;
 
     public AnsjTokenizer(Analysis ta, List<StopRecognition> stops, List<SynonymsRecgnition> synonyms) {
-        this.ta = ta;
+        this.analysis = ta;
         this.stops = stops;
         this.synonyms = synonyms;
     }
@@ -80,15 +81,15 @@ public final class AnsjTokenizer extends Tokenizer {
                 rName = term.getName();
             }
             position++;
-            offsetAtt.setOffset(correctOffset(term.getOffe()), finalOffset = correctOffset(term.getOffe() + term.getName().length()));
-            typeAtt.setType(term.getNatureStr());
+            offsetAttribute.setOffset(correctOffset(term.getOffe()), finalOffset = correctOffset(term.getOffe() + term.getName().length()));
+            typeAttribute.setType(term.getNatureStr());
 
-            positionAttr.setPositionIncrement(position);
-            termAtt.setEmpty().append(rName);
+            positionAttribute.setPositionIncrement(position);
+            termAttribute.setEmpty().append(rName);
 
         } else {
-            positionAttr.setPositionIncrement(position);
-            termAtt.setEmpty().append(obj.toString());
+            positionAttribute.setPositionIncrement(position);
+            termAttribute.setEmpty().append(obj.toString());
         }
 
         return true;
@@ -109,7 +110,7 @@ public final class AnsjTokenizer extends Tokenizer {
     public void end() throws IOException {
         super.end();
         // set final offset
-        offsetAtt.setOffset(finalOffset, finalOffset);
+        offsetAttribute.setOffset(finalOffset, finalOffset);
     }
 
     /**
@@ -118,12 +119,12 @@ public final class AnsjTokenizer extends Tokenizer {
     @Override
     public void reset() throws IOException {
         super.reset();
-        ta.resetContent(new AnsjReader(this.input));
+        analysis.resetContent(new AnsjReader(this.input));
         parse();
     }
 
     private void parse() throws IOException {
-        Result parse = ta.parse();
+        Result parse = analysis.parse();
         if (synonyms != null) {
             for (SynonymsRecgnition sr : synonyms) {
                 parse.recognition(sr);

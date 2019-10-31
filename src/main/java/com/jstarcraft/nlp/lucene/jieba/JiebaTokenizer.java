@@ -23,9 +23,9 @@ public class JiebaTokenizer extends SegmentingTokenizerBase {
     /** used for breaking the text into sentences */
     private static final BreakIterator sentenceProto = BreakIterator.getSentenceInstance(Locale.ROOT);
 
-    private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
-    private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
-    private final TypeAttribute typeAtt = addAttribute(TypeAttribute.class);
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     /** Jieba Segmenter and tokens */
     private final JiebaSegmenter wordSegmenter = new JiebaSegmenter();
@@ -103,12 +103,12 @@ public class JiebaTokenizer extends SegmentingTokenizerBase {
         } else {
             SegToken token = tokens.next();
             clearAttributes();
-            termAtt.copyBuffer(token.word.toCharArray(), 0, token.word.length());
+            termAttribute.copyBuffer(token.word.toCharArray(), 0, token.word.length());
             int startOffset = sentenceStart + token.startOffset;
             int endOffset = sentenceStart + token.endOffset;
 
-            offsetAtt.setOffset(startOffset, endOffset);
-            typeAtt.setType("word");
+            offsetAttribute.setOffset(startOffset, endOffset);
+            typeAttribute.setType("word");
             return true;
         }
     }

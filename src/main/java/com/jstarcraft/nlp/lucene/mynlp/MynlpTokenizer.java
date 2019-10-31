@@ -24,6 +24,15 @@ import com.mayabot.nlp.segment.WordTermIterableMode;
  */
 final public class MynlpTokenizer extends Tokenizer {
 
+    // 词元
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    // 位移
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    // 距离
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 词性
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
+
     private WordTermIterableMode mode = WordTermIterableMode.TOP;
 
     public static Tokenizer fromLexer(LexerReader lexerReader) {
@@ -33,23 +42,6 @@ final public class MynlpTokenizer extends Tokenizer {
     public static Tokenizer fromLexer(Lexer lexer) {
         return new MynlpTokenizer(lexer.reader());
     }
-
-    /**
-     * 当前词
-     */
-    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-
-    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
-
-    /**
-     * 偏移量
-     */
-    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-
-    /**
-     * Position Increment
-     */
-    private final PositionIncrementAttribute positionAttr = addAttribute(PositionIncrementAttribute.class);
 
 //    private final PositionLengthAttribute positionLenAttr = addAttribute(PositionLengthAttribute.class);
 
@@ -91,7 +83,7 @@ final public class MynlpTokenizer extends Tokenizer {
                 typeAttribute.setType("Punctuation");
             }
 
-            positionAttr.setPositionIncrement(next.getPosInc());
+            positionAttribute.setPositionIncrement(next.getPosInc());
             termAttribute.setEmpty().append(next.word);
             offsetAttribute.setOffset(next.offset, next.offset + next.length());
 

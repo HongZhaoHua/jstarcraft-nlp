@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
+import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeFactory;
 import org.wltea.analyzer.core.IKSegmenter;
@@ -19,12 +20,15 @@ public final class IkTokenizer extends Tokenizer {
     // IK分词器实现
     private IKSegmenter _IKImplement;
 
-    // 词元文本属性
-    private CharTermAttribute termAttribute;
-    // 词元位移属性
-    private OffsetAttribute offsetAttribute;
-    // 词元分类属性（该属性分类参考org.wltea.analyzer.core.Lexeme中的分类常量）
-    private TypeAttribute typeAttribute;
+    // 词元
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    // 位移
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    // 距离
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 词性
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
+
     // 记录最后一个词元的结束位置
     private int endPosition;
 
@@ -50,9 +54,6 @@ public final class IkTokenizer extends Tokenizer {
     }
 
     private void init(boolean useSmart) {
-        offsetAttribute = addAttribute(OffsetAttribute.class);
-        termAttribute = addAttribute(CharTermAttribute.class);
-        typeAttribute = addAttribute(TypeAttribute.class);
         _IKImplement = new IKSegmenter(input, useSmart);
     }
 

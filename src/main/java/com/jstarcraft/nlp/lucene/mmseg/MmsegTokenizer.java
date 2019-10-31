@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
+import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 
 import com.chenlb.mmseg4j.MMSeg;
@@ -13,20 +14,21 @@ import com.chenlb.mmseg4j.Word;
 
 public class MmsegTokenizer extends Tokenizer {
 
-    private ThreadLocal<MMSeg> mmSeg;
+    // 词元
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    // 位移
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    // 距离
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 词性
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
-    private CharTermAttribute termAttribute;
-    private OffsetAttribute offsetAttribute;
-    private TypeAttribute typeAttribute;
+    private ThreadLocal<MMSeg> mmSeg;
 
     public MmsegTokenizer(Seg seg) {
         super();
         mmSeg = new ThreadLocal<>();
         mmSeg.set(new MMSeg(input, seg));
-
-        termAttribute = addAttribute(CharTermAttribute.class);
-        offsetAttribute = addAttribute(OffsetAttribute.class);
-        typeAttribute = addAttribute(TypeAttribute.class);
     }
 
     public void reset() throws IOException {

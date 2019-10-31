@@ -5,14 +5,16 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Queue;
 import java.util.concurrent.LinkedTransferQueue;
+
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
+import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+import org.apdplat.word.recognition.StopWord;
 import org.apdplat.word.segmentation.Segmentation;
 import org.apdplat.word.segmentation.SegmentationAlgorithm;
 import org.apdplat.word.segmentation.SegmentationFactory;
-import org.apdplat.word.recognition.StopWord;
 import org.apdplat.word.segmentation.Word;
 import org.apdplat.word.tagging.AntonymTagging;
 import org.apdplat.word.tagging.PinyinTagging;
@@ -27,11 +29,17 @@ import org.slf4j.LoggerFactory;
  * @author 杨尚川
  */
 public class WordTokenizer extends Tokenizer {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(WordTokenizer.class);
 
+    // 词元
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    // 位移
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    private final PositionIncrementAttribute positionIncrementAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 距离
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 词性
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     private static final boolean FULL_PINYIN = WordConfTools.getBoolean("tagging.pinyin.full", false);
     private static final boolean ACRONYM_PINYIN = WordConfTools.getBoolean("tagging.pinyin.acronym", false);
@@ -100,7 +108,7 @@ public class WordTokenizer extends Tokenizer {
                     }
                 }
                 offsetAttribute.setOffset(startOffset, startOffset + word.getText().length());
-                positionIncrementAttribute.setPositionIncrement(positionIncrement);
+                positionAttribute.setPositionIncrement(positionIncrement);
                 startOffset += word.getText().length();
                 tokens.offer(word.getText());
                 // 拼音标注

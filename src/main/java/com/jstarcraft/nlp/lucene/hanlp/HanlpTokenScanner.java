@@ -17,14 +17,14 @@ import com.hankcs.hanlp.utility.TextUtility;
 
 public class HanlpTokenScanner extends Tokenizer {
 
-    // 当前词
+    // 词元
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    // 偏移量
+    // 位移
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
     // 距离
     private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
     // 词性
-    private TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     private SegmentWrapper segment;
     private BinTrie<String> filter;

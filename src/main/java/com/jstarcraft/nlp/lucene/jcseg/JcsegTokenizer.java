@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
+import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.lionsoul.jcseg.tokenizer.core.ADictionary;
 import org.lionsoul.jcseg.tokenizer.core.ISegment;
@@ -40,12 +41,18 @@ import org.lionsoul.jcseg.tokenizer.core.SegmentFactory;
  * @author chenxin<chenxin619315@gmail.com>
  */
 public class JcsegTokenizer extends Tokenizer {
+
+    // 词元
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    // 位移
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    // 距离
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 词性
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
+
     // The default Jcseg segmentor
     private final ISegment segmentor;
-
-    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     /**
      * field level offset tracker for multiple-value field like the Array field in

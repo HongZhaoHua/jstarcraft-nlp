@@ -4,6 +4,7 @@ import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
+import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.analysis.util.SegmentingTokenizerBase;
 import org.apache.lucene.util.AttributeFactory;
@@ -20,12 +21,18 @@ import java.util.*;
  * this Tokenizer test pass with lucene 7.2.1
  */
 public class JiebaTokenizer extends SegmentingTokenizerBase {
+
+    // 词元
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    // 位移
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    // 距离
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    // 词性
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
+
     /** used for breaking the text into sentences */
     private static final BreakIterator sentenceProto = BreakIterator.getSentenceInstance(Locale.ROOT);
-
-    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     /** Jieba Segmenter and tokens */
     private final JiebaSegmenter wordSegmenter = new JiebaSegmenter();

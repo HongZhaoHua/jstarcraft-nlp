@@ -2,9 +2,9 @@ package com.jstarcraft.nlp.tokenization.thulac;
 
 import java.util.Iterator;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class ThulacToken implements Iterable<ThulacToken>, Iterator<ThulacToken>, Token {
+public class ThulacToken implements Iterable<ThulacToken>, Iterator<ThulacToken>, NlpToken {
 
     private Iterator<String> iterator;
 

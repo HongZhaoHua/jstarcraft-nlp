@@ -6,7 +6,7 @@ package com.jstarcraft.nlp.tokenization;
  * @author Birdy
  *
  */
-public interface Token {
+public interface NlpToken {
 
     /**
      * 获取词项

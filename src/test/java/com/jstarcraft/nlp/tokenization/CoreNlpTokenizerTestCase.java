@@ -6,10 +6,10 @@ import com.jstarcraft.nlp.tokenization.corenlp.CoreNlpTokenizer;
 
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
-public class CoreNlpTokenizerTestCase extends TokenizerTestCase {
+public class CoreNlpTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected Tokenizer<? extends Token> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         try {
             Properties properties = new Properties();
             properties.load(this.getClass().getResourceAsStream("/StanfordCoreNLP-chinese.properties"));

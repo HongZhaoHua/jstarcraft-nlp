@@ -4,9 +4,9 @@ import java.util.Iterator;
 
 import org.apdplat.word.segmentation.Word;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class WordToken implements Iterable<WordToken>, Iterator<WordToken>, Token {
+public class WordToken implements Iterable<WordToken>, Iterator<WordToken>, NlpToken {
 
     private Iterator<Word> iterator;
 

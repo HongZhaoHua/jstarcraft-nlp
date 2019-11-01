@@ -2,10 +2,10 @@ package com.jstarcraft.nlp.tokenization;
 
 import com.jstarcraft.nlp.tokenization.thulac.ThulacTokenizer;
 
-public class ThulacTokenizerTestCase extends TokenizerTestCase {
+public class ThulacTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected Tokenizer<? extends Token> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         return new ThulacTokenizer();
     }
 

@@ -3,9 +3,9 @@ package com.jstarcraft.nlp.tokenization.jieba;
 import java.util.Iterator;
 
 import com.huaban.analysis.jieba.SegToken;
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class JiebaToken implements Iterable<JiebaToken>, Iterator<JiebaToken>, Token {
+public class JiebaToken implements Iterable<JiebaToken>, Iterator<JiebaToken>, NlpToken {
 
     private Iterator<SegToken> iterator;
 

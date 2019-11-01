@@ -5,9 +5,9 @@ import java.util.List;
 import org.apdplat.word.segmentation.Segmentation;
 import org.apdplat.word.segmentation.Word;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class WordTokenizer implements Tokenizer<WordToken> {
+public class WordTokenizer implements NlpTokenizer<WordToken> {
 
     private Segmentation segmentation;
 

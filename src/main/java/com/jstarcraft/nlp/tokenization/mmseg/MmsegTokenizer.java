@@ -5,9 +5,9 @@ import java.util.LinkedList;
 
 import com.chenlb.mmseg4j.MMSeg;
 import com.chenlb.mmseg4j.Word;
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class MmsegTokenizer implements Tokenizer<MmsegToken> {
+public class MmsegTokenizer implements NlpTokenizer<MmsegToken> {
 
     private MMSeg mmSeg;
 

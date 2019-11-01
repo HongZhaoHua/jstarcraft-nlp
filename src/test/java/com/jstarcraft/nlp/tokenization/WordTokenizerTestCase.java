@@ -6,10 +6,10 @@ import org.apdplat.word.segmentation.SegmentationFactory;
 
 import com.jstarcraft.nlp.tokenization.word.WordTokenizer;
 
-public class WordTokenizerTestCase extends TokenizerTestCase {
+public class WordTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected Tokenizer<? extends Token> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         Segmentation segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.FullSegmentation);
         return new WordTokenizer(segmentation);
     }

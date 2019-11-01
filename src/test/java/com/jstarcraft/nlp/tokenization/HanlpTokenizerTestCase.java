@@ -4,10 +4,10 @@ import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.Segment;
 import com.jstarcraft.nlp.tokenization.hanlp.HanlpTokenizer;
 
-public class HanlpTokenizerTestCase extends TokenizerTestCase {
+public class HanlpTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected Tokenizer<? extends Token> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         Segment segment = HanLP.newSegment();
         segment.enableOffset(true);
         return new HanlpTokenizer(segment);

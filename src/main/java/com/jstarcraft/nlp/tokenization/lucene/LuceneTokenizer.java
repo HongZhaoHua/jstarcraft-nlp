@@ -3,9 +3,9 @@ package com.jstarcraft.nlp.tokenization.lucene;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class LuceneTokenizer implements Tokenizer<LuceneToken> {
+public class LuceneTokenizer implements NlpTokenizer<LuceneToken> {
 
     private Analyzer analyzer;
 

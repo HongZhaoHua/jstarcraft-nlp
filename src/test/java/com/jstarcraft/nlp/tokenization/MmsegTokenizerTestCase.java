@@ -7,10 +7,10 @@ import com.chenlb.mmseg4j.Dictionary;
 import com.chenlb.mmseg4j.MMSeg;
 import com.jstarcraft.nlp.tokenization.mmseg.MmsegTokenizer;
 
-public class MmsegTokenizerTestCase extends TokenizerTestCase {
+public class MmsegTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected Tokenizer<? extends Token> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         Dictionary dictionary = Dictionary.getInstance();
         ComplexSeg complex = new ComplexSeg(dictionary);
         MMSeg mmSeg = new MMSeg(new StringReader(""), complex);

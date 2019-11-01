@@ -4,9 +4,9 @@ import java.util.Iterator;
 
 import org.wltea.analyzer.core.Lexeme;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class IkToken implements Iterable<IkToken>, Iterator<IkToken>, Token {
+public class IkToken implements Iterable<IkToken>, Iterator<IkToken>, NlpToken {
 
     private Iterator<Lexeme> iterator;
 

@@ -2,12 +2,12 @@ package com.jstarcraft.nlp.tokenization.corenlp;
 
 import java.util.Iterator;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 
-public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpToken>, Token {
+public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpToken>, NlpToken {
 
     private Iterator<CoreLabel> iterator;
 

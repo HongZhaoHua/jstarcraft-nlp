@@ -2,9 +2,9 @@ package com.jstarcraft.nlp.tokenization.hanlp;
 
 import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class HanlpTokenizer implements Tokenizer<HanlpToken> {
+public class HanlpTokenizer implements NlpTokenizer<HanlpToken> {
 
     private Segment segment;
     

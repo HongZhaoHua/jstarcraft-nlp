@@ -2,11 +2,11 @@ package com.jstarcraft.nlp.tokenization.thulac;
 
 import java.util.List;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 import io.github.yizhiru.thulac4j.Segmenter;
 
-public class ThulacTokenizer implements Tokenizer<ThulacToken> {
+public class ThulacTokenizer implements NlpTokenizer<ThulacToken> {
 
     @Override
     public Iterable<ThulacToken> tokenize(CharSequence text) {

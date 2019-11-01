@@ -8,10 +8,10 @@ import org.lionsoul.jcseg.tokenizer.core.SegmentFactory;
 
 import com.jstarcraft.nlp.tokenization.jcseg.JcsegTokenizer;
 
-public class JcsegTokenizerTestCase extends TokenizerTestCase {
+public class JcsegTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected Tokenizer<? extends Token> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         try {
             // 自动查找jcseg.properties配置
             JcsegTaskConfig configuration = new JcsegTaskConfig(true);

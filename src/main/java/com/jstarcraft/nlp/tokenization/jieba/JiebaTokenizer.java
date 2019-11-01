@@ -3,9 +3,9 @@ package com.jstarcraft.nlp.tokenization.jieba;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.JiebaSegmenter.SegMode;
 import com.huaban.analysis.jieba.SegToken;
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class JiebaTokenizer implements Tokenizer<JiebaToken> {
+public class JiebaTokenizer implements NlpTokenizer<JiebaToken> {
 
     private JiebaSegmenter segmenter;
 

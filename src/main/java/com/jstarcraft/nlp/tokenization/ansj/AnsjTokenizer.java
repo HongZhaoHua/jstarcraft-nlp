@@ -3,9 +3,9 @@ package com.jstarcraft.nlp.tokenization.ansj;
 import org.ansj.domain.Result;
 import org.ansj.splitWord.Analysis;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class AnsjTokenizer implements Tokenizer<AnsjToken> {
+public class AnsjTokenizer implements NlpTokenizer<AnsjToken> {
 
     private Analysis analysis;
 

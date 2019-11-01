@@ -3,9 +3,9 @@ package com.jstarcraft.nlp.tokenization.hanlp;
 import java.util.Iterator;
 
 import com.hankcs.hanlp.seg.common.Term;
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class HanlpToken implements Iterable<HanlpToken>, Iterator<HanlpToken>, Token {
+public class HanlpToken implements Iterable<HanlpToken>, Iterator<HanlpToken>, NlpToken {
 
     private Iterator<Term> iterator;
 

@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class IkTokenizer implements Tokenizer<IkToken> {
+public class IkTokenizer implements NlpTokenizer<IkToken> {
 
     private IKSegmenter segmenter;
 

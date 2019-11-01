@@ -4,10 +4,10 @@ import org.ansj.splitWord.analysis.BaseAnalysis;
 
 import com.jstarcraft.nlp.tokenization.ansj.AnsjTokenizer;
 
-public class AnsjTokenizerTestCase extends TokenizerTestCase {
+public class AnsjTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected Tokenizer<? extends Token> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
        return new AnsjTokenizer(new BaseAnalysis());
     }
 

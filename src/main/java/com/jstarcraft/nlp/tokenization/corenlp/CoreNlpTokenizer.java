@@ -1,13 +1,13 @@
 package com.jstarcraft.nlp.tokenization.corenlp;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.Annotator;
 
-public class CoreNlpTokenizer implements Tokenizer<CoreNlpToken> {
+public class CoreNlpTokenizer implements NlpTokenizer<CoreNlpToken> {
 
     private Annotator annotator;
     

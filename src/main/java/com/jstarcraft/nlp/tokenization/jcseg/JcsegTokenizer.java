@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import org.lionsoul.jcseg.tokenizer.core.ISegment;
 import org.lionsoul.jcseg.tokenizer.core.IWord;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-public class JcsegTokenizer implements Tokenizer<JcsegToken> {
+public class JcsegTokenizer implements NlpTokenizer<JcsegToken> {
 
     private ISegment segment;
 

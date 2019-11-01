@@ -6,9 +6,9 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>, Token {
+public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>, NlpToken {
 
     private TokenStream stream;
 

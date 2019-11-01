@@ -2,10 +2,10 @@ package com.jstarcraft.nlp.tokenization.mynlp;
 
 import java.util.Iterator;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 import com.mayabot.nlp.segment.WordTerm;
 
-public class MynlpToken implements Iterable<MynlpToken>, Iterator<MynlpToken>, Token {
+public class MynlpToken implements Iterable<MynlpToken>, Iterator<MynlpToken>, NlpToken {
 
     private Iterator<WordTerm> iterator;
 

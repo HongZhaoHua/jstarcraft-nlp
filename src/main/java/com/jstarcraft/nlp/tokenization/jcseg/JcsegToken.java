@@ -4,9 +4,9 @@ import java.util.Iterator;
 
 import org.lionsoul.jcseg.tokenizer.core.IWord;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class JcsegToken implements Iterable<JcsegToken>, Iterator<JcsegToken>, Token {
+public class JcsegToken implements Iterable<JcsegToken>, Iterator<JcsegToken>, NlpToken {
 
     private Iterator<IWord> iterator;
 

@@ -1,10 +1,10 @@
 package com.jstarcraft.nlp.tokenization.mynlp;
 
-import com.jstarcraft.nlp.tokenization.Tokenizer;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 import com.mayabot.nlp.segment.Lexer;
 import com.mayabot.nlp.segment.Sentence;
 
-public class MynlpTokenizer implements Tokenizer<MynlpToken> {
+public class MynlpTokenizer implements NlpTokenizer<MynlpToken> {
 
     private Lexer lexer;
 

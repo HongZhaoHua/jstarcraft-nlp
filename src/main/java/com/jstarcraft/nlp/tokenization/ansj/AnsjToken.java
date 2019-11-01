@@ -4,9 +4,9 @@ import java.util.Iterator;
 
 import org.ansj.domain.Term;
 
-import com.jstarcraft.nlp.tokenization.Token;
+import com.jstarcraft.nlp.tokenization.NlpToken;
 
-public class AnsjToken implements Iterable<AnsjToken>, Iterator<AnsjToken>, Token {
+public class AnsjToken implements Iterable<AnsjToken>, Iterator<AnsjToken>, NlpToken {
 
     private Iterator<Term> iterator;
 

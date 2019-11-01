@@ -26,6 +26,6 @@ import org.junit.runners.Suite.SuiteClasses;
         WordTokenizerTestCase.class,
 
 })
-public class TokenizerTestSuite {
+public class NlpTokenizerTestSuite {
 
 }

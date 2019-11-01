@@ -18,19 +18,20 @@ import com.mayabot.nlp.segment.WordTerm;
 import com.mayabot.nlp.segment.WordTermIterableMode;
 
 /**
- * Tokenizer的实现依赖Mynlp的LexerReader具体实现。 Tokenizer 接口兼容lucene5.0+，至少到7+还是兼容的。
+ * MYNLP分词分词器
+ * 
+ * @author Birdy
  *
- * @author jimichan
  */
 final public class MynlpTokenizer extends Tokenizer {
 
-    // 词元
+    /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    // 位移
+    /** 位移 **/
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    // 距离
+    /** 距离 **/
     private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
-    // 词性
+    /** 词性 **/
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     private WordTermIterableMode mode = WordTermIterableMode.TOP;

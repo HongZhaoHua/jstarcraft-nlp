@@ -12,22 +12,24 @@ import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
 /**
- * IK分词器 Lucene Tokenizer适配器类 兼容Lucene 4.0版本
+ * IK分词器
+ * 
+ * @author Birdy
+ *
  */
-@SuppressWarnings("unused")
 public final class IkTokenizer extends Tokenizer {
+
+    /** 词元 **/
+    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
+    /** 位移 **/
+    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
+    /** 距离 **/
+    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
+    /** 词性 **/
+    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     // IK分词器实现
     private IKSegmenter _IKImplement;
-
-    // 词元
-    private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    // 位移
-    private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    // 距离
-    private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
-    // 词性
-    private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     // 记录最后一个词元的结束位置
     private int endPosition;

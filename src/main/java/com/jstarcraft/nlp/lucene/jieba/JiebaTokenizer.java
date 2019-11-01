@@ -14,21 +14,20 @@ import java.text.BreakIterator;
 import java.util.*;
 
 /**
- * Created by candowu on 2018/4/16. tokenizer Chinese sentence by Jieba java
- * https://github.com/huaban/jieba-analysis
+ * jieba分词器
+ * 
+ * @author Birdy
  *
- * Warning: this Tokenizer works depend on reset() method called for each field
- * this Tokenizer test pass with lucene 7.2.1
  */
 public class JiebaTokenizer extends SegmentingTokenizerBase {
 
-    // 词元
+    /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    // 位移
+    /** 位移 **/
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    // 距离
+    /** 距离 **/
     private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
-    // 词性
+    /** 词性 **/
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     /** used for breaking the text into sentences */

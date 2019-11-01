@@ -15,40 +15,20 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
 import org.lionsoul.jcseg.tokenizer.core.SegmentFactory;
 
 /**
- * <p>
- * here is the documentation from {@link org.apache.lucene.analysis.Tokenizer} A
- * Tokenizer is a TokenStream whose input is a Reader.
- * </p>
+ * Jcseg分词器
  * 
- * <p>
- * This is an abstract class; subclasses must override {@link #incrementToken()}
- * <p>
- * 
- * <p>
- * NOTE: Subclasses overriding {@link #incrementToken()} must call
- * {@link #clearAttributes()} before setting attributes
- * </p>
+ * @author Birdy
  *
- * <p>
- * lucene invoke Tokenizer#setReader(Reader input) to set the inputPending after
- * invoke the reset, global object input will be available
- * </p>
- * 
- * <p>
- * jcseg tokennizer for lucene on or after 5.1.0
- * </p>
- * 
- * @author chenxin<chenxin619315@gmail.com>
  */
 public class JcsegTokenizer extends Tokenizer {
 
-    // 词元
+    /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    // 位移
+    /** 位移 **/
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    // 距离
+    /** 距离 **/
     private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
-    // 词性
+    /** 词性 **/
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     // The default Jcseg segmentor

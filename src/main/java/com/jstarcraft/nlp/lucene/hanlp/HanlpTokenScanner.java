@@ -15,15 +15,21 @@ import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.utility.TextUtility;
 
+/**
+ * HanLP分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class HanlpTokenScanner extends Tokenizer {
 
-    // 词元
+    /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    // 位移
+    /** 位移 **/
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    // 距离
+    /** 距离 **/
     private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
-    // 词性
+    /** 词性 **/
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     private SegmentWrapper segment;

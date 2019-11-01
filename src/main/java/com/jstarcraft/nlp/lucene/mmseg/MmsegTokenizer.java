@@ -12,15 +12,21 @@ import com.chenlb.mmseg4j.MMSeg;
 import com.chenlb.mmseg4j.Seg;
 import com.chenlb.mmseg4j.Word;
 
+/**
+ * mmseg4j分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class MmsegTokenizer extends Tokenizer {
 
-    // 词元
+    /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
-    // 位移
+    /** 位移 **/
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
-    // 距离
+    /** 距离 **/
     private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
-    // 词性
+    /** 词性 **/
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     private ThreadLocal<MMSeg> mmSeg;

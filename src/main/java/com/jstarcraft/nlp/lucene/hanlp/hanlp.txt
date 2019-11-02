@@ -1,0 +1,2 @@
+HanLP词性标注集:
+http://www.hankcs.com/nlp/part-of-speech-tagging.html

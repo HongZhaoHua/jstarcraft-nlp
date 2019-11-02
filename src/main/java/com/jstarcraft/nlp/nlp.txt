@@ -54,6 +54,7 @@ https://github.com/hankcs/HanLP
 https://github.com/hankcs/hanlp-lucene-plugin
 
 IK分词:
+https://gitee.com/wltea/IK-Analyzer-2012FF
 https://github.com/yozhao/IKAnalyzer
 https://github.com/magese/ik-analyzer-solr
 

@@ -7,6 +7,7 @@ import java.util.Vector;
  * 更新扩展词典子线程类
  */
 public class UpdateThread implements Runnable {
+
     private static final long INTERVAL = 30000L; // 循环等待时间
     private Vector<UpdateJob> filterFactorys; // 更新任务集合
 

@@ -20,6 +20,7 @@ import java.util.*;
  * @author <a href="magese@live.cn">Magese</a>
  */
 public class IkTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware, UpdateThread.UpdateJob {
+
     private boolean useSmart;
     private ResourceLoader loader;
     private long lastUpdateTime = -1L;

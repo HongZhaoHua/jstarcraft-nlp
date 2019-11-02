@@ -30,6 +30,7 @@ import org.nlpcn.commons.lang.util.logging.Log;
 import org.nlpcn.commons.lang.util.logging.LogFactory;
 
 public class AnsjAnalyzer extends Analyzer {
+
     public static final Log LOG = LogFactory.getLog();
 
     /**
@@ -176,7 +177,6 @@ public class AnsjAnalyzer extends Analyzer {
         }
 
         return new AnsjTokenizer(analysis, filters, synonyms);
-
     }
 
 }

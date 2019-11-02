@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
  * @author 杨尚川
  */
 public class WordAnalyzer extends Analyzer {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(WordAnalyzer.class);
     private Segmentation segmentation = null;
 

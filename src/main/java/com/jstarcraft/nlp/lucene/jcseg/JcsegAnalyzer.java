@@ -15,6 +15,7 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
  * @author chenxin<chenxin619315@gmail.com>
  */
 public class JcsegAnalyzer extends Analyzer {
+
     private int mode;
     private JcsegTaskConfig config = null;
     private ADictionary dic = null;

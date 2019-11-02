@@ -3,13 +3,13 @@ package com.jstarcraft.nlp.tokenization;
 import org.junit.Assert;
 import org.junit.Test;
 
-public abstract class NlpTokenizerTestCase {
+public abstract class NlpIteratorTestCase {
 
-    protected abstract NlpTokenizer<? extends NlpToken> getTokenizer();
+    protected abstract NlpIterator<? extends NlpToken> getTokenizer();
 
     @Test
     public void testTokenize() {
-        NlpTokenizer<? extends NlpToken> tokenizer = getTokenizer();
+        NlpIterator<? extends NlpToken> tokenizer = getTokenizer();
         String text = "中华人民共和国(People's Republic of China),简称'中国'";
         StringBuilder buffer = new StringBuilder();
         Iterable<? extends NlpToken> tokens = tokenizer.tokenize(text);

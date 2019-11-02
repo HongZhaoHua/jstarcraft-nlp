@@ -3,13 +3,13 @@ package com.jstarcraft.nlp.tokenization.lucene;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 
-import com.jstarcraft.nlp.tokenization.NlpTokenizer;
+import com.jstarcraft.nlp.tokenization.NlpIterator;
 
-public class LuceneTokenizer implements NlpTokenizer<LuceneToken> {
+public class LuceneIterator implements NlpIterator<LuceneToken> {
 
     private Analyzer analyzer;
 
-    public LuceneTokenizer(Analyzer analyzer) {
+    public LuceneIterator(Analyzer analyzer) {
         this.analyzer = analyzer;
     }
 

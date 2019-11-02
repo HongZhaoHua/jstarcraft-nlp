@@ -5,13 +5,13 @@ import java.util.List;
 import org.apdplat.word.segmentation.Segmentation;
 import org.apdplat.word.segmentation.Word;
 
-import com.jstarcraft.nlp.tokenization.NlpTokenizer;
+import com.jstarcraft.nlp.tokenization.NlpIterator;
 
-public class WordTokenizer implements NlpTokenizer<WordToken> {
+public class WordIterator implements NlpIterator<WordToken> {
 
     private Segmentation segmentation;
 
-    public WordTokenizer(Segmentation segmentation) {
+    public WordIterator(Segmentation segmentation) {
         this.segmentation = segmentation;
     }
 

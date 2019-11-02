@@ -6,7 +6,7 @@ package com.jstarcraft.nlp.tokenization;
  * @author Birdy
  *
  */
-public interface NlpTokenizer<T extends NlpToken> {
+public interface NlpIterator<T extends NlpToken> {
 
     /**
      * 分词

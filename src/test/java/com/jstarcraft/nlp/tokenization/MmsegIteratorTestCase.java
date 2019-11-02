@@ -5,16 +5,16 @@ import java.io.StringReader;
 import com.chenlb.mmseg4j.ComplexSeg;
 import com.chenlb.mmseg4j.Dictionary;
 import com.chenlb.mmseg4j.MMSeg;
-import com.jstarcraft.nlp.tokenization.mmseg.MmsegTokenizer;
+import com.jstarcraft.nlp.tokenization.mmseg.MmsegIterator;
 
-public class MmsegTokenizerTestCase extends NlpTokenizerTestCase {
+public class MmsegIteratorTestCase extends NlpIteratorTestCase {
 
     @Override
-    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
+    protected NlpIterator<? extends NlpToken> getTokenizer() {
         Dictionary dictionary = Dictionary.getInstance();
         ComplexSeg complex = new ComplexSeg(dictionary);
         MMSeg mmSeg = new MMSeg(new StringReader(""), complex);
-        return new MmsegTokenizer(mmSeg);
+        return new MmsegIterator(mmSeg);
     }
 
 }

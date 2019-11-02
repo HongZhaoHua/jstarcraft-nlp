@@ -3,13 +3,13 @@ package com.jstarcraft.nlp.tokenization.ansj;
 import org.ansj.domain.Result;
 import org.ansj.splitWord.Analysis;
 
-import com.jstarcraft.nlp.tokenization.NlpTokenizer;
+import com.jstarcraft.nlp.tokenization.NlpIterator;
 
-public class AnsjTokenizer implements NlpTokenizer<AnsjToken> {
+public class AnsjIterator implements NlpIterator<AnsjToken> {
 
     private Analysis analysis;
 
-    public AnsjTokenizer(Analysis analysis) {
+    public AnsjIterator(Analysis analysis) {
         this.analysis = analysis;
     }
 

@@ -2,13 +2,13 @@ package com.jstarcraft.nlp.tokenization.hanlp;
 
 import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
-import com.jstarcraft.nlp.tokenization.NlpTokenizer;
+import com.jstarcraft.nlp.tokenization.NlpIterator;
 
-public class HanlpTokenizer implements NlpTokenizer<HanlpToken> {
+public class HanlpIterator implements NlpIterator<HanlpToken> {
 
     private Segment segment;
     
-    public HanlpTokenizer(Segment segment) {
+    public HanlpIterator(Segment segment) {
         this.segment = segment;
     }
     

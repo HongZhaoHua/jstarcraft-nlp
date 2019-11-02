@@ -1,0 +1,2 @@
+MyNLP采用的词性标注集:
+https://github.com/mayabot/mynlp/wiki/POS#%E8%AF%8D%E6%80%A7%E8%A1%A8

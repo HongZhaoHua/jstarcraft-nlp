@@ -55,6 +55,7 @@ https://github.com/lionsoul2014/jcseg/tree/master/jcseg-analyzer
 jieba分词:
 https://github.com/huaban/jieba-analysis
 https://github.com/yida-lxw/jieba-analysis
+https://github.com/huaban/elasticsearch-analysis-jieba
 https://github.com/candowu/jieba-lucene-analiysis
 
 mmseg4j分词:

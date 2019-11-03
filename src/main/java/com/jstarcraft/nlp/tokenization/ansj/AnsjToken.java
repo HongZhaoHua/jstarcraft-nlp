@@ -34,7 +34,7 @@ public class AnsjToken implements Iterable<AnsjToken>, Iterator<AnsjToken>, NlpT
 
     @Override
     public String getTerm() {
-        return term.getName().toLowerCase();
+        return term.getName();
     }
 
     @Override

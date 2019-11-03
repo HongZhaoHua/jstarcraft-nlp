@@ -44,6 +44,7 @@ public class JiebaTokenizer extends SegmentingTokenizerBase {
 
     /** Jieba Segmenter and tokens */
     private final JiebaSegmenter wordSegmenter = new JiebaSegmenter();
+
     private Iterator<SegToken> tokens;
 
     /** jieba segMode */

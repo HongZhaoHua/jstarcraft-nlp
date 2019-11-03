@@ -30,7 +30,14 @@ public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>
         this.offset = stream.getAttribute(OffsetAttribute.class);
         try {
             this.flag = this.stream.incrementToken();
+            if (!flag) {
+                this.stream.close();
+            }
         } catch (Exception exception) {
+            try {
+                this.stream.close();
+            } catch (Exception throwable) {
+            }
             throw new RuntimeException(exception);
         }
     }
@@ -52,7 +59,14 @@ public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>
             begin = offset.startOffset();
             end = offset.endOffset();
             flag = stream.incrementToken();
+            if (!flag) {
+                this.stream.close();
+            }
         } catch (Exception exception) {
+            try {
+                this.stream.close();
+            } catch (Exception throwable) {
+            }
             throw new RuntimeException(exception);
         }
         return this;

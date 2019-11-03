@@ -36,9 +36,11 @@ public class LuceneIterator implements NlpIterator<LuceneToken> {
         try {
             reader.accept(new StringReader(text.toString()));
             stream.reset();
+            // TODO 暂时由LuceneToken负责关闭stream
             LuceneToken iterable = new LuceneToken(stream);
             return iterable;
         } catch (Exception exception) {
+            exception.printStackTrace();
             throw new RuntimeException(exception);
         }
     }

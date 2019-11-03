@@ -6,6 +6,12 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
 
 import io.github.yizhiru.thulac4j.Segmenter;
 
+/**
+ * THULAC分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class ThulacIterator implements NlpIterator<ThulacToken> {
 
     @Override

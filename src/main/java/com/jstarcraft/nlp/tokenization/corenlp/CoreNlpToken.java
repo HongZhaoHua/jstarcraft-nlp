@@ -7,6 +7,12 @@ import com.jstarcraft.nlp.tokenization.NlpToken;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 
+/**
+ * CoreNLP词元
+ * 
+ * @author Birdy
+ *
+ */
 public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpToken>, NlpToken {
 
     private Iterator<CoreLabel> iterator;

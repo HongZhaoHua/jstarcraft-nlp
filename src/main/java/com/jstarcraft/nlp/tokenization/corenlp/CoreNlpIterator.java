@@ -10,14 +10,20 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.Annotator;
 
+/**
+ * CoreNLP分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class CoreNlpIterator implements NlpIterator<CoreNlpToken> {
 
     private Annotator annotator;
-    
+
     public CoreNlpIterator(Annotator annotator) {
         this.annotator = annotator;
     }
-    
+
     @Override
     public Iterable<CoreNlpToken> tokenize(CharSequence text) {
         Iterable<CoreLabel> iterator;

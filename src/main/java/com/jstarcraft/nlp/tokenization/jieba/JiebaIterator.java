@@ -5,6 +5,12 @@ import com.huaban.analysis.jieba.JiebaSegmenter.SegMode;
 import com.huaban.analysis.jieba.SegToken;
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 
+/**
+ * jieba分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class JiebaIterator implements NlpIterator<JiebaToken> {
 
     private JiebaSegmenter segmenter;

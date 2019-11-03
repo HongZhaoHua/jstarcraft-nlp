@@ -8,6 +8,12 @@ import org.lionsoul.jcseg.tokenizer.core.IWord;
 
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 
+/**
+ * Jcseg分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class JcsegIterator implements NlpIterator<JcsegToken> {
 
     private ISegment segment;

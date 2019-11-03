@@ -5,6 +5,12 @@ import java.util.Iterator;
 import com.hankcs.hanlp.seg.common.Term;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * HanLP词元
+ * 
+ * @author Birdy
+ *
+ */
 public class HanlpToken implements Iterable<HanlpToken>, Iterator<HanlpToken>, NlpToken {
 
     private Iterator<Term> iterator;

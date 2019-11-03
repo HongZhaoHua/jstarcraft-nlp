@@ -5,6 +5,12 @@ import java.util.Iterator;
 import com.chenlb.mmseg4j.Word;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * mmseg词元
+ * 
+ * @author Birdy
+ *
+ */
 public class MmsegToken implements Iterable<MmsegToken>, Iterator<MmsegToken>, NlpToken {
 
     private Iterator<Word> iterator;

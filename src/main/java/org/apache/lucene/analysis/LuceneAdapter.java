@@ -10,11 +10,11 @@ package org.apache.lucene.analysis;
  * @author Birdy
  *
  */
-public class LuceneAnalyzerAdapter extends Analyzer {
+public class LuceneAdapter extends Analyzer {
 
     private Analyzer analyzer;
 
-    public LuceneAnalyzerAdapter(Analyzer analyzer) {
+    public LuceneAdapter(Analyzer analyzer) {
         this.analyzer = analyzer;
     }
 

@@ -9,14 +9,12 @@ import org.apache.lucene.util.AttributeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jstarcraft.nlp.lucene.ansj.AnsjAnalyzer;
-
 import edu.stanford.nlp.pipeline.AnnotationPipeline;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
 public class CoreNlpTokenizerFactory extends TokenizerFactory {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AnsjAnalyzer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CoreNlpTokenizerFactory.class);
 
     private AnnotationPipeline pipeline;
 

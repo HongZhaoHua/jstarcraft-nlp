@@ -5,6 +5,12 @@ import org.ansj.splitWord.Analysis;
 
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 
+/**
+ * Ansj分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class AnsjIterator implements NlpIterator<AnsjToken> {
 
     private Analysis analysis;

@@ -8,6 +8,12 @@ import org.wltea.analyzer.core.Lexeme;
 
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 
+/**
+ * IK分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class IkIterator implements NlpIterator<IkToken> {
 
     private IKSegmenter segmenter;

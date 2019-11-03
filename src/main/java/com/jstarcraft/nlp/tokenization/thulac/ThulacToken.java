@@ -4,6 +4,12 @@ import java.util.Iterator;
 
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * THULAC词元
+ * 
+ * @author Birdy
+ *
+ */
 public class ThulacToken implements Iterable<ThulacToken>, Iterator<ThulacToken>, NlpToken {
 
     private Iterator<String> iterator;
@@ -13,7 +19,7 @@ public class ThulacToken implements Iterable<ThulacToken>, Iterator<ThulacToken>
     private String word;
 
     private int begin;
-    
+
     private int end;
 
     public ThulacToken(Iterator<String> iterator, String text) {

@@ -8,6 +8,12 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * Lucene词元
+ * 
+ * @author Birdy
+ *
+ */
 public class LuceneToken implements Iterable<LuceneToken>, Iterator<LuceneToken>, NlpToken {
 
     private TokenStream stream;

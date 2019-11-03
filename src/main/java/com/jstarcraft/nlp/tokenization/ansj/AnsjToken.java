@@ -6,6 +6,12 @@ import org.ansj.domain.Term;
 
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * Ansj词元
+ * 
+ * @author Birdy
+ *
+ */
 public class AnsjToken implements Iterable<AnsjToken>, Iterator<AnsjToken>, NlpToken {
 
     private Iterator<Term> iterator;

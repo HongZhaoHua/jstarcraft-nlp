@@ -6,12 +6,18 @@ import java.util.function.Consumer;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.Analyzer.TokenStreamComponents;
-import org.apache.lucene.analysis.LuceneAnalyzerAdapter;
+import org.apache.lucene.analysis.LuceneAdapter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
 
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 
+/**
+ * Lucene分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class LuceneIterator implements NlpIterator<LuceneToken> {
 
     private Consumer<Reader> reader;
@@ -19,7 +25,7 @@ public class LuceneIterator implements NlpIterator<LuceneToken> {
     private TokenStream stream;
 
     public LuceneIterator(Analyzer analyzer) {
-        try (LuceneAnalyzerAdapter lucene = new LuceneAnalyzerAdapter(analyzer)) {
+        try (LuceneAdapter lucene = new LuceneAdapter(analyzer)) {
             TokenStreamComponents component = lucene.createComponents("text");
             this.reader = component.getSource();
             this.stream = component.getTokenStream();

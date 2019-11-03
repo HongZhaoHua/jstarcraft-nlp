@@ -5,12 +5,18 @@ import java.util.Iterator;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 import com.mayabot.nlp.segment.WordTerm;
 
+/**
+ * MYNLP词元
+ * 
+ * @author Birdy
+ *
+ */
 public class MynlpToken implements Iterable<MynlpToken>, Iterator<MynlpToken>, NlpToken {
 
     private Iterator<WordTerm> iterator;
 
     private WordTerm word;
-    
+
     public MynlpToken(Iterator<WordTerm> iterator) {
         this.iterator = iterator;
     }

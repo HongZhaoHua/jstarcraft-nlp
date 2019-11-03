@@ -4,6 +4,12 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
 import com.mayabot.nlp.segment.Lexer;
 import com.mayabot.nlp.segment.Sentence;
 
+/**
+ * MYNLP分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class MynlpIterator implements NlpIterator<MynlpToken> {
 
     private Lexer lexer;

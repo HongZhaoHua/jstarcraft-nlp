@@ -6,6 +6,12 @@ import org.apdplat.word.segmentation.Word;
 
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * word词元
+ * 
+ * @author Birdy
+ *
+ */
 public class WordToken implements Iterable<WordToken>, Iterator<WordToken>, NlpToken {
 
     private Iterator<Word> iterator;

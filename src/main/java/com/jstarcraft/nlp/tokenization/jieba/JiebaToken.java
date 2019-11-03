@@ -5,12 +5,18 @@ import java.util.Iterator;
 import com.huaban.analysis.jieba.SegToken;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * jieba词元
+ * 
+ * @author Birdy
+ *
+ */
 public class JiebaToken implements Iterable<JiebaToken>, Iterator<JiebaToken>, NlpToken {
 
     private Iterator<SegToken> iterator;
 
     private SegToken token;
-    
+
     public JiebaToken(Iterator<SegToken> iterator) {
         this.iterator = iterator;
     }

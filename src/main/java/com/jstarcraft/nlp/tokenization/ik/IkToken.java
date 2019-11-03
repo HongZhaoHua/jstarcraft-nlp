@@ -6,12 +6,18 @@ import org.wltea.analyzer.core.Lexeme;
 
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * IK词元
+ * 
+ * @author Birdy
+ *
+ */
 public class IkToken implements Iterable<IkToken>, Iterator<IkToken>, NlpToken {
 
     private Iterator<Lexeme> iterator;
 
     private Lexeme lexeme;
-    
+
     public IkToken(Iterator<Lexeme> iterator) {
         this.iterator = iterator;
     }

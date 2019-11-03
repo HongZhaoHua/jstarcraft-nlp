@@ -7,6 +7,12 @@ import com.chenlb.mmseg4j.MMSeg;
 import com.chenlb.mmseg4j.Word;
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 
+/**
+ * mmseg分词器
+ * 
+ * @author Birdy
+ *
+ */
 public class MmsegIterator implements NlpIterator<MmsegToken> {
 
     private MMSeg mmSeg;

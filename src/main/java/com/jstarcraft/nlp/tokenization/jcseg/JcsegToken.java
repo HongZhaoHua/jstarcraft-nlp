@@ -6,6 +6,12 @@ import org.lionsoul.jcseg.tokenizer.core.IWord;
 
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
+/**
+ * Jcseg词元
+ * 
+ * @author Birdy
+ *
+ */
 public class JcsegToken implements Iterable<JcsegToken>, Iterator<JcsegToken>, NlpToken {
 
     private Iterator<IWord> iterator;

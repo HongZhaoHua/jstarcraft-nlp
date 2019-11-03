@@ -40,7 +40,6 @@ public class LuceneIterator implements NlpIterator<LuceneToken> {
             LuceneToken iterable = new LuceneToken(stream);
             return iterable;
         } catch (Exception exception) {
-            exception.printStackTrace();
             throw new RuntimeException(exception);
         }
     }

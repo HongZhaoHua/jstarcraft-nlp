@@ -1,14 +1,12 @@
 package com.jstarcraft.nlp.lucene;
 
 import java.text.BreakIterator;
-import java.util.Collections;
 import java.util.Iterator;
 
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.util.SegmentingTokenizerBase;
 
-import com.jstarcraft.core.utility.StringUtility;
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
@@ -45,12 +43,7 @@ public class LuceneTokenizer extends SegmentingTokenizerBase {
     @Override
     protected void setNextSentence(int sentenceBegin, int sentenceEnd) {
         String text = new String(buffer, sentenceBegin, sentenceEnd - sentenceBegin);
-        if (StringUtility.isBlank(text)) {
-            // 空格无需分词
-            iterator = Collections.EMPTY_LIST.iterator();
-        } else {
-            iterator = tokenizer.tokenize(text).iterator();
-        }
+        iterator = tokenizer.tokenize(text).iterator();
         length = text.length();
     }
 

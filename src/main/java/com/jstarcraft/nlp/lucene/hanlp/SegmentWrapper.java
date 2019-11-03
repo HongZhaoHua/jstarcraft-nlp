@@ -1,14 +1,14 @@
 package com.jstarcraft.nlp.lucene.hanlp;
 
-import com.hankcs.hanlp.seg.Segment;
-import com.hankcs.hanlp.seg.common.Term;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import com.hankcs.hanlp.seg.Segment;
+import com.hankcs.hanlp.seg.common.Term;
 
 /**
  * 将分词器包装起来,每次输出一个token

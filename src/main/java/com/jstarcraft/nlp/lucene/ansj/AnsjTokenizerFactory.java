@@ -1,16 +1,12 @@
 package com.jstarcraft.nlp.lucene.ansj;
 
+import java.util.Map;
+
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.util.TokenizerFactory;
 import org.apache.lucene.util.AttributeFactory;
-import org.nlpcn.commons.lang.util.logging.Log;
-import org.nlpcn.commons.lang.util.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.jstarcraft.nlp.lucene.word.WordAnalyzer;
-
-import java.util.Map;
 
 public class AnsjTokenizerFactory extends TokenizerFactory {
 

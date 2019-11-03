@@ -1,14 +1,19 @@
 package com.jstarcraft.nlp.lucene.hanlp;
 
-import com.hankcs.hanlp.dictionary.py.Pinyin;
-import com.hankcs.hanlp.dictionary.py.PinyinDictionary;
+import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Queue;
+
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 
-import java.io.IOException;
-import java.util.*;
+import com.hankcs.hanlp.dictionary.py.Pinyin;
+import com.hankcs.hanlp.dictionary.py.PinyinDictionary;
 
 /**
  * 拼音TokenFilter

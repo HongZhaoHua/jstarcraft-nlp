@@ -1,8 +1,8 @@
 package com.jstarcraft.nlp.lucene.hanlp;
 
-import com.hankcs.hanlp.dictionary.py.Pinyin;
-
 import java.util.List;
+
+import com.hankcs.hanlp.dictionary.py.Pinyin;
 
 /**
  * 拼音字符串

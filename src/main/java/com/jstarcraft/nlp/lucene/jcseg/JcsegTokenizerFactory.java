@@ -19,11 +19,13 @@ import org.slf4j.LoggerFactory;
  * @author chenxin<chenxin619315@gmail.com>
  */
 public class JcsegTokenizerFactory extends TokenizerFactory {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(JcsegTokenizerFactory.class);
 
     private int mode;
+
     private JcsegTaskConfig config = null;
+
     private ADictionary dic = null;
 
     /**

@@ -20,8 +20,8 @@ import com.chenlb.mmseg4j.Word;
  * @author Birdy
  *
  */
-public class MmsegTokenizer extends Tokenizer {
-    
+public final class MmsegTokenizer extends Tokenizer {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MmsegTokenizer.class);
 
     /** 词元 **/
@@ -41,14 +41,6 @@ public class MmsegTokenizer extends Tokenizer {
         mmSeg.set(new MMSeg(input, seg));
     }
 
-    public void reset() throws IOException {
-        super.reset();
-        // lucene 4.0
-        // org.apache.lucene.analysis.Tokenizer.setReader(Reader)
-        // setReader 自动被调用, input 自动被设置。
-        mmSeg.get().reset(input);
-    }
-
     /*
      * //lucene 2.9 以下 public Token next(Token reusableToken) throws IOException {
      * Token token = null; Word word = mmSeg.next(); if(word != null) { //lucene 2.3
@@ -64,7 +56,7 @@ public class MmsegTokenizer extends Tokenizer {
 
     // lucene 2.9/3.0
     @Override
-    public final boolean incrementToken() throws IOException {
+    public boolean incrementToken() throws IOException {
         clearAttributes();
         Word word = mmSeg.get().next();
         if (word != null) {
@@ -79,6 +71,15 @@ public class MmsegTokenizer extends Tokenizer {
             end();
             return false;
         }
+    }
+
+    @Override
+    public void reset() throws IOException {
+        super.reset();
+        // lucene 4.0
+        // org.apache.lucene.analysis.Tokenizer.setReader(Reader)
+        // setReader 自动被调用, input 自动被设置。
+        mmSeg.get().reset(input);
     }
 
 }

@@ -29,9 +29,17 @@ import org.slf4j.LoggerFactory;
  * @author Birdy
  *
  */
-public class WordTokenizer extends Tokenizer {
+public final class WordTokenizer extends Tokenizer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WordTokenizer.class);
+
+    private static final boolean FULL_PINYIN = WordConfTools.getBoolean("tagging.pinyin.full", false);
+
+    private static final boolean ACRONYM_PINYIN = WordConfTools.getBoolean("tagging.pinyin.acronym", false);
+
+    private static final boolean SYNONYM = WordConfTools.getBoolean("tagging.synonym", false);
+
+    private static final boolean ANTONYM = WordConfTools.getBoolean("tagging.antonym", false);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
@@ -42,15 +50,14 @@ public class WordTokenizer extends Tokenizer {
     /** 词性 **/
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
-    private static final boolean FULL_PINYIN = WordConfTools.getBoolean("tagging.pinyin.full", false);
-    private static final boolean ACRONYM_PINYIN = WordConfTools.getBoolean("tagging.pinyin.acronym", false);
-    private static final boolean SYNONYM = WordConfTools.getBoolean("tagging.synonym", false);
-    private static final boolean ANTONYM = WordConfTools.getBoolean("tagging.antonym", false);
-
     private Segmentation segmentation = null;
+
     private BufferedReader reader = null;
+
     private final Queue<Word> words = new LinkedTransferQueue<>();
+
     private final Queue<String> tokens = new LinkedTransferQueue<>();
+
     private int startOffset = 0;
 
     public WordTokenizer() {
@@ -147,7 +154,7 @@ public class WordTokenizer extends Tokenizer {
     }
 
     @Override
-    public final boolean incrementToken() throws IOException {
+    public boolean incrementToken() throws IOException {
         String token = getToken();
         if (token != null) {
             termAttribute.setEmpty().append(token);

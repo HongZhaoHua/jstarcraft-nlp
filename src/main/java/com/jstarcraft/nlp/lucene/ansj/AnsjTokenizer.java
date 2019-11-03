@@ -54,7 +54,7 @@ public final class AnsjTokenizer extends Tokenizer {
     }
 
     @Override
-    public final boolean incrementToken() throws IOException {
+    public boolean incrementToken() throws IOException {
         int position = 0;
         if (result == null) {
             parse();

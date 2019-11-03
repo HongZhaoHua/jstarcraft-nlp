@@ -9,6 +9,8 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import edu.stanford.nlp.io.IOUtils;
 import edu.stanford.nlp.ling.CoreAnnotations.CharacterOffsetBeginAnnotation;
@@ -30,7 +32,11 @@ import edu.stanford.nlp.util.CoreMap;
  * @author Birdy
  *
  */
-public class CoreNlpTokenizer extends Tokenizer {
+public final class CoreNlpTokenizer extends Tokenizer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CoreNlpTokenizer.class);
+
+    final static int SENTENCE_GAP = 10;
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
@@ -49,8 +55,6 @@ public class CoreNlpTokenizer extends Tokenizer {
 
     private int skippedTokens;
 
-    final static int SENTENCE_GAP = 10;
-
     public CoreNlpTokenizer(AnnotationPipeline pipeline) {
         this(DEFAULT_TOKEN_ATTRIBUTE_FACTORY, pipeline);
     }
@@ -61,15 +65,7 @@ public class CoreNlpTokenizer extends Tokenizer {
     }
 
     @Override
-    public void reset() throws IOException {
-        super.reset();
-        sentences = null;
-        tokens = null;
-        skippedTokens = -SENTENCE_GAP;
-    }
-
-    @Override
-    public final boolean incrementToken() {
+    public boolean incrementToken() {
         clearAttributes();
         while (tokens == null || !tokens.hasNext())
             if (!getNextSentence())
@@ -94,6 +90,14 @@ public class CoreNlpTokenizer extends Tokenizer {
         positionAttribute.setPositionIncrement(1 + skippedTokens);
         skippedTokens = 0;
         return true;
+    }
+
+    @Override
+    public void reset() throws IOException {
+        super.reset();
+        sentences = null;
+        tokens = null;
+        skippedTokens = -SENTENCE_GAP;
     }
 
     private boolean getNextSentence() {

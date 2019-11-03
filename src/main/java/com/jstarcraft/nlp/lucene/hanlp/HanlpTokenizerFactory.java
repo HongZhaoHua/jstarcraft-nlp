@@ -22,16 +22,27 @@ public class HanlpTokenizerFactory extends TokenizerFactory {
     private static final Logger LOGGER = LoggerFactory.getLogger(HanlpTokenizerFactory.class);
 
     private boolean enableIndexMode;
+
     private boolean enableNumberQuantifierRecognize;
+
     private boolean enableCustomDictionary;
+
     private boolean enableCustomDictionaryForcing;
+
     private boolean enableTranslatedNameRecognize;
+
     private boolean enableJapaneseNameRecognize;
+
     private boolean enableOrganizationRecognize;
+
     private boolean enablePlaceRecognize;
+
     private boolean enableNameRecognize;
+
     private boolean enableTraditionalChineseMode;
+
     private String algorithm;
+
     private Set<String> stopWordDictionary;
 
     /**

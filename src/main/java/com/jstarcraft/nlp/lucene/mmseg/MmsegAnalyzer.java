@@ -22,7 +22,7 @@ public class MmsegAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MmsegAnalyzer.class);
 
-    protected Dictionary dic;
+    private Dictionary dic;
 
     /**
      * @see Dictionary#getInstance()

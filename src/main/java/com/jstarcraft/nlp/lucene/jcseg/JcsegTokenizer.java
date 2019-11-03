@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * @author Birdy
  *
  */
-public class JcsegTokenizer extends Tokenizer {
+public final class JcsegTokenizer extends Tokenizer {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(JcsegTokenizer.class);
 
@@ -50,7 +50,7 @@ public class JcsegTokenizer extends Tokenizer {
     }
 
     @Override
-    final public boolean incrementToken() throws IOException {
+    public boolean incrementToken() throws IOException {
         /* Clear the attributes */
         clearAttributes();
 

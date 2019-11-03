@@ -17,11 +17,13 @@ import org.slf4j.LoggerFactory;
  * @author chenxin<chenxin619315@gmail.com>
  */
 public class JcsegAnalyzer extends Analyzer {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(JcsegAnalyzer.class);
 
     private int mode;
+
     private JcsegTaskConfig config = null;
+
     private ADictionary dic = null;
 
     /**

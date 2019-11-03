@@ -23,8 +23,8 @@ import com.hankcs.hanlp.utility.TextUtility;
  * @author Birdy
  *
  */
-public class HanlpTokenizer extends Tokenizer {
-    
+public final class HanlpTokenizer extends Tokenizer {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HanlpTokenizer.class);
 
     /** 词元 **/
@@ -37,6 +37,7 @@ public class HanlpTokenizer extends Tokenizer {
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
     private SegmentWrapper segment;
+
     private BinTrie<String> filter;
 
     /**
@@ -61,7 +62,7 @@ public class HanlpTokenizer extends Tokenizer {
     }
 
     @Override
-    final public boolean incrementToken() throws IOException {
+    public boolean incrementToken() throws IOException {
         clearAttributes();
         int position = 0;
         Term term;

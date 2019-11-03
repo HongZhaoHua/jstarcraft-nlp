@@ -20,7 +20,7 @@ import org.wltea.analyzer.core.Lexeme;
  *
  */
 public final class IkTokenizer extends Tokenizer {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(IkTokenizer.class);
 
     /** 词元 **/
@@ -92,6 +92,13 @@ public final class IkTokenizer extends Tokenizer {
         return false;
     }
 
+    @Override
+    public void end() {
+        // set final offset
+        int finalOffset = correctOffset(this.endPosition);
+        offsetAttribute.setOffset(finalOffset, finalOffset);
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -101,13 +108,6 @@ public final class IkTokenizer extends Tokenizer {
     public void reset() throws IOException {
         super.reset();
         _IKImplement.reset(input);
-    }
-
-    @Override
-    public final void end() {
-        // set final offset
-        int finalOffset = correctOffset(this.endPosition);
-        offsetAttribute.setOffset(finalOffset, finalOffset);
     }
 
 }

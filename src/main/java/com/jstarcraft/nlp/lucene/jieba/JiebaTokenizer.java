@@ -27,8 +27,11 @@ import com.huaban.analysis.jieba.SegToken;
  *
  */
 public class JiebaTokenizer extends SegmentingTokenizerBase {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(JiebaTokenizer.class);
+
+    /** used for breaking the text into sentences */
+    private static final BreakIterator sentenceProto = BreakIterator.getSentenceInstance(Locale.ROOT);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
@@ -38,9 +41,6 @@ public class JiebaTokenizer extends SegmentingTokenizerBase {
     private final PositionIncrementAttribute positionAttribute = addAttribute(PositionIncrementAttribute.class);
     /** 词性 **/
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
-
-    /** used for breaking the text into sentences */
-    private static final BreakIterator sentenceProto = BreakIterator.getSentenceInstance(Locale.ROOT);
 
     /** Jieba Segmenter and tokens */
     private final JiebaSegmenter wordSegmenter = new JiebaSegmenter();

@@ -29,10 +29,13 @@ import org.wltea.analyzer.dic.Dictionary;
 public class IkTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware, UpdateThread.UpdateJob {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(IkTokenizerFactory.class);
-    
+
     private boolean useSmart;
+
     private ResourceLoader loader;
+
     private long lastUpdateTime = -1L;
+
     private String conf = "ik.conf";
 
     public IkTokenizerFactory(Map<String, String> args) {

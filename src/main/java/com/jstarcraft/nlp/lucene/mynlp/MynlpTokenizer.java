@@ -25,8 +25,8 @@ import com.mayabot.nlp.segment.WordTermIterableMode;
  * @author Birdy
  *
  */
-public class MynlpTokenizer extends Tokenizer {
-    
+public final class MynlpTokenizer extends Tokenizer {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MynlpTokenizer.class);
 
     /** 词元 **/

@@ -13,6 +13,8 @@ import org.lionsoul.jcseg.tokenizer.core.IWord;
 import org.lionsoul.jcseg.tokenizer.core.JcsegException;
 import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
 import org.lionsoul.jcseg.tokenizer.core.SegmentFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Jcseg分词器
@@ -21,6 +23,8 @@ import org.lionsoul.jcseg.tokenizer.core.SegmentFactory;
  *
  */
 public class JcsegTokenizer extends Tokenizer {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(JcsegTokenizer.class);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);

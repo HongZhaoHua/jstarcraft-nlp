@@ -15,6 +15,8 @@ import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.StopFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.WordDictionary;
@@ -23,6 +25,8 @@ import com.huaban.analysis.jieba.WordDictionary;
  * Created by candowu on 2018/4/13.
  */
 public class JiebaAnalyzer extends Analyzer {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(JiebaAnalyzer.class);
 
     private static final String DEFAULT_STOPWORD_FILE = "stopwords.txt";
     private final CharArraySet stopWords;

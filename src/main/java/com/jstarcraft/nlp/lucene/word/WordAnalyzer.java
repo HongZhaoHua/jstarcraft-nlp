@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 public class WordAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WordAnalyzer.class);
+
     private Segmentation segmentation = null;
 
     public WordAnalyzer() {

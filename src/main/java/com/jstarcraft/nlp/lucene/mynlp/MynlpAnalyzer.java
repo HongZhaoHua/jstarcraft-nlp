@@ -1,13 +1,18 @@
 package com.jstarcraft.nlp.lucene.mynlp;
 
+import org.apache.lucene.analysis.Analyzer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.mayabot.nlp.segment.LexerReader;
 import com.mayabot.nlp.segment.WordTermIterableMode;
-import org.apache.lucene.analysis.Analyzer;
 
 /**
  * @author jimichan
  */
 public class MynlpAnalyzer extends Analyzer {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(MynlpAnalyzer.class);
 
     private MynlpTokenizer tokenizer;
 

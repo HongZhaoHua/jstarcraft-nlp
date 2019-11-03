@@ -5,12 +5,16 @@ import org.apache.lucene.analysis.util.TokenizerFactory;
 import org.apache.lucene.util.AttributeFactory;
 import org.nlpcn.commons.lang.util.logging.Log;
 import org.nlpcn.commons.lang.util.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.jstarcraft.nlp.lucene.word.WordAnalyzer;
 
 import java.util.Map;
 
 public class AnsjTokenizerFactory extends TokenizerFactory {
 
-    public final Log logger = LogFactory.getLog();
+    private static final Logger LOGGER = LoggerFactory.getLogger(AnsjTokenizerFactory.class);
 
     private Map<String, String> args;
 

@@ -7,6 +7,8 @@ import org.apache.lucene.analysis.LowerCaseFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.en.PorterStemFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.hankcs.hanlp.HanLP;
 
@@ -17,6 +19,8 @@ import com.hankcs.hanlp.HanLP;
  *
  */
 public class HanlpIndexAnalyzer extends Analyzer {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(HanlpIndexAnalyzer.class);
 
     private String algorithm;
     

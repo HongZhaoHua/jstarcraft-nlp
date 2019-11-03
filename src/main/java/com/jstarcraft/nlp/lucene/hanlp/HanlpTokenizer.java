@@ -9,6 +9,8 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.hankcs.hanlp.collection.trie.bintrie.BinTrie;
 import com.hankcs.hanlp.seg.Segment;
@@ -22,6 +24,8 @@ import com.hankcs.hanlp.utility.TextUtility;
  *
  */
 public class HanlpTokenizer extends Tokenizer {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(HanlpTokenizer.class);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);

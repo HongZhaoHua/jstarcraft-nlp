@@ -26,12 +26,12 @@ import org.apache.lucene.analysis.Tokenizer;
 import org.nlpcn.commons.lang.tire.domain.Forest;
 import org.nlpcn.commons.lang.tire.domain.SmartForest;
 import org.nlpcn.commons.lang.util.StringUtil;
-import org.nlpcn.commons.lang.util.logging.Log;
-import org.nlpcn.commons.lang.util.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AnsjAnalyzer extends Analyzer {
 
-    public static final Log LOG = LogFactory.getLog();
+    private static final Logger LOGGER = LoggerFactory.getLogger(AnsjAnalyzer.class);
 
     /**
      * dic equals user , query equals to
@@ -83,8 +83,8 @@ public class AnsjAnalyzer extends Analyzer {
      * @return
      */
     public static Tokenizer getTokenizer(Reader reader, Map<String, String> args) {
-        if (LOG.isDebugEnabled()) {
-            LOG.debug("to create tokenizer " + args);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("to create tokenizer " + args);
         }
         Analysis analysis = null;
 

@@ -7,6 +7,8 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.chenlb.mmseg4j.MMSeg;
 import com.chenlb.mmseg4j.Seg;
@@ -19,6 +21,8 @@ import com.chenlb.mmseg4j.Word;
  *
  */
 public class MmsegTokenizer extends Tokenizer {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(MmsegTokenizer.class);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);

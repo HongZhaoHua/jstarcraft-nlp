@@ -8,6 +8,8 @@ import java.util.TreeSet;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.util.TokenizerFactory;
 import org.apache.lucene.util.AttributeFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.corpus.io.IOUtil;
@@ -16,6 +18,8 @@ import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.TraditionalChineseTokenizer;
 
 public class HanlpTokenizerFactory extends TokenizerFactory {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(HanlpTokenizerFactory.class);
 
     private boolean enableIndexMode;
     private boolean enableNumberQuantifierRecognize;

@@ -1,12 +1,5 @@
 package com.jstarcraft.nlp.lucene.ik;
 
-import org.apache.lucene.analysis.Tokenizer;
-import org.apache.lucene.analysis.util.ResourceLoader;
-import org.apache.lucene.analysis.util.ResourceLoaderAware;
-import org.apache.lucene.analysis.util.TokenizerFactory;
-import org.apache.lucene.util.AttributeFactory;
-import org.wltea.analyzer.dic.Dictionary;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,13 +7,29 @@ import java.io.Reader;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import org.apache.lucene.analysis.Tokenizer;
+import org.apache.lucene.analysis.util.ResourceLoader;
+import org.apache.lucene.analysis.util.ResourceLoaderAware;
+import org.apache.lucene.analysis.util.TokenizerFactory;
+import org.apache.lucene.util.AttributeFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.wltea.analyzer.dic.Dictionary;
 
 /**
  * @author <a href="magese@live.cn">Magese</a>
  */
 public class IkTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware, UpdateThread.UpdateJob {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(IkTokenizerFactory.class);
+    
     private boolean useSmart;
     private ResourceLoader loader;
     private long lastUpdateTime = -1L;

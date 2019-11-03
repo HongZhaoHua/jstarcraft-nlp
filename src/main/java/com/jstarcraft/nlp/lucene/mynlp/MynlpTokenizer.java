@@ -8,6 +8,8 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.mayabot.nlp.segment.AtomIterator;
 import com.mayabot.nlp.segment.Lexer;
@@ -23,7 +25,9 @@ import com.mayabot.nlp.segment.WordTermIterableMode;
  * @author Birdy
  *
  */
-final public class MynlpTokenizer extends Tokenizer {
+public class MynlpTokenizer extends Tokenizer {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(MynlpTokenizer.class);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);

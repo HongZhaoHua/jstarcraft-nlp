@@ -2,7 +2,6 @@ package com.jstarcraft.nlp.lucene.jcseg;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.util.TokenizerFactory;
@@ -11,6 +10,8 @@ import org.lionsoul.jcseg.tokenizer.core.ADictionary;
 import org.lionsoul.jcseg.tokenizer.core.DictionaryFactory;
 import org.lionsoul.jcseg.tokenizer.core.JcsegException;
 import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Jcseg tokenizer factory class for solr
@@ -18,6 +19,8 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
  * @author chenxin<chenxin619315@gmail.com>
  */
 public class JcsegTokenizerFactory extends TokenizerFactory {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(JcsegTokenizerFactory.class);
 
     private int mode;
     private JcsegTaskConfig config = null;

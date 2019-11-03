@@ -1,5 +1,9 @@
 package com.jstarcraft.nlp.lucene.ansj;
 
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.ansj.domain.Result;
 import org.ansj.domain.Term;
 import org.ansj.recognition.impl.StopRecognition;
@@ -11,10 +15,8 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
-
-import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Ansj分词器
@@ -23,6 +25,8 @@ import java.util.List;
  *
  */
 public final class AnsjTokenizer extends Tokenizer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(AnsjTokenizer.class);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);

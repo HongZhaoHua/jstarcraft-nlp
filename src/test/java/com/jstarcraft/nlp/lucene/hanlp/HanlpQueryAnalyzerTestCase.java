@@ -92,7 +92,7 @@ public class HanlpQueryAnalyzerTestCase {
         Map<String, String> args = new TreeMap<>();
         args.put("enableTraditionalChineseMode", "true");
         args.put("enableNormalization", "true");
-        HanlpTokenScannerFactory factory = new HanlpTokenScannerFactory(args);
+        HanlpTokenizerFactory factory = new HanlpTokenizerFactory(args);
         Tokenizer tokenizer = factory.create();
         String text = "會辦台星保證最低價的原因？";
 

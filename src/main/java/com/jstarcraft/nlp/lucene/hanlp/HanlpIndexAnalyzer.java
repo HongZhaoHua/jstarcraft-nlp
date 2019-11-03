@@ -34,7 +34,7 @@ public class HanlpIndexAnalyzer extends Analyzer {
 
     @Override
     protected TokenStreamComponents createComponents(String fieldName) {
-        Tokenizer from = new HanlpTokenScanner(HanLP.newSegment(algorithm).enableIndexMode(true), filter);
+        Tokenizer from = new HanlpTokenizer(HanLP.newSegment(algorithm).enableIndexMode(true), filter);
         TokenStream to = new LowerCaseFilter(from);
         to = new PorterStemFilter(to);
         return new TokenStreamComponents(from, to);

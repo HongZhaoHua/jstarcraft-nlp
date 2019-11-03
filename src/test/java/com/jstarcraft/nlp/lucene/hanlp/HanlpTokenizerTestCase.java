@@ -15,13 +15,13 @@ import org.junit.Test;
 
 import com.hankcs.hanlp.HanLP;
 
-public class HanlpTokenScannerTestCase {
+public class HanlpTokenizerTestCase {
 
     Tokenizer tokenizer;
 
     @Before
     public void setUp() throws Exception {
-        tokenizer = new HanlpTokenScanner(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
+        tokenizer = new HanlpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
         tokenizer.setReader(new StringReader("林志玲亮相网友:确定不是波多野结衣？"));
         tokenizer.reset();
     }
@@ -43,7 +43,7 @@ public class HanlpTokenScannerTestCase {
     @Test
     public void testMultiText() throws Exception {
         String[] sentences = new String[] { "中华人民共和国", "地大物博" };
-        tokenizer = new HanlpTokenScanner(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
+        tokenizer = new HanlpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
         for (String sentence : sentences) {
             tokenizer.setReader(new StringReader(sentence));
             tokenizer.reset();

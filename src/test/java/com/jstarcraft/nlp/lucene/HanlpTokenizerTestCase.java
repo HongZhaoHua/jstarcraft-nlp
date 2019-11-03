@@ -6,7 +6,7 @@ import org.apache.lucene.analysis.Tokenizer;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.Segment;
-import com.jstarcraft.nlp.lucene.hanlp.HanlpTokenScanner;
+import com.jstarcraft.nlp.lucene.hanlp.HanlpTokenizer;
 
 public class HanlpTokenizerTestCase extends NlpTokenizerTestCase {
 
@@ -14,7 +14,7 @@ public class HanlpTokenizerTestCase extends NlpTokenizerTestCase {
     protected Tokenizer getTokenizer() {
         Segment segment = HanLP.newSegment();
         segment.enableOffset(true);
-        HanlpTokenScanner tokenizer = new HanlpTokenScanner(segment, Collections.EMPTY_SET);
+        HanlpTokenizer tokenizer = new HanlpTokenizer(segment, Collections.EMPTY_SET);
         return tokenizer;
     }
 

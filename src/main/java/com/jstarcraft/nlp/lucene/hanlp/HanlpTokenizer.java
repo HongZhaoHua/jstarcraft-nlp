@@ -21,7 +21,7 @@ import com.hankcs.hanlp.utility.TextUtility;
  * @author Birdy
  *
  */
-public class HanlpTokenScanner extends Tokenizer {
+public class HanlpTokenizer extends Tokenizer {
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
@@ -45,7 +45,7 @@ public class HanlpTokenScanner extends Tokenizer {
      * @param filter               停用词
      * @param enablePorterStemming 英文原型转换
      */
-    public HanlpTokenScanner(Segment segment, Set<String> filter) {
+    public HanlpTokenizer(Segment segment, Set<String> filter) {
         super();
         this.segment = new SegmentWrapper(this.input, segment);
         if (filter != null && filter.size() > 0) {

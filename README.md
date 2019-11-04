@@ -1,4 +1,4 @@
-# JStarCraft RNS
+# JStarCraft NLP
 
 ****
 

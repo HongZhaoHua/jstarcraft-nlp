@@ -68,7 +68,7 @@ https://github.com/yida-lxw/jieba-analysis
 https://github.com/huaban/elasticsearch-analysis-jieba
 https://github.com/candowu/jieba-lucene-analiysis
 
-mmseg4j分词:
+MMSEG分词:
 https://github.com/chenlb/mmseg4j-core
 https://github.com/chenlb/mmseg4j-solr
 https://github.com/medcl/elasticsearch-analysis-mmseg

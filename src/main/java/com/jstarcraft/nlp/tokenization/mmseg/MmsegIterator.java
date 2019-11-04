@@ -8,7 +8,7 @@ import com.chenlb.mmseg4j.Word;
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 
 /**
- * mmseg分词器
+ * MMSEG分词器
  * 
  * @author Birdy
  *

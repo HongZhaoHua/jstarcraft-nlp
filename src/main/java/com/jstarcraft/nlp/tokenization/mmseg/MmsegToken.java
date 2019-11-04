@@ -6,7 +6,7 @@ import com.chenlb.mmseg4j.Word;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
- * mmseg词元
+ * MMSEG词元
  * 
  * @author Birdy
  *

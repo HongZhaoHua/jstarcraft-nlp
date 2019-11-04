@@ -1,0 +1,2 @@
+自然语言处理之词性标注集:
+https://www.biaodianfu.com/pos-tagging-set.html

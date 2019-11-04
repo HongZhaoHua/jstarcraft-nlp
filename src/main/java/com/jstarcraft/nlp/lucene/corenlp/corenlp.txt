@@ -4,5 +4,8 @@ https://blog.csdn.net/l919898756/article/details/81670228
 Stanford Corenlp学习笔记——词性标注:
 https://www.cnblogs.com/tonglin0325/p/6850901.html
 
+Stanford 英文词性标注(Part-of-Speech)缩写查询:
+https://blog.csdn.net/songhk0209/article/details/78340014
+
 使用Standford coreNLP进行中文命名实体识别:
 https://www.cnblogs.com/sonofelice/p/8677001.html

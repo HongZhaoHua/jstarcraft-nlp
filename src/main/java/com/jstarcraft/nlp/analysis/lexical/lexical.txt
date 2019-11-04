@@ -1,2 +1,5 @@
+词性:
+https://baike.baidu.com/item/%E8%AF%8D%E6%80%A7/6860067?fr=aladdin
+
 自然语言处理之词性标注集:
 https://www.biaodianfu.com/pos-tagging-set.html

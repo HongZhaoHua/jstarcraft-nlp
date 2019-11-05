@@ -32,6 +32,20 @@
             <version>1.0</version>
         </dependency>
 
+        <!-- Lucene框架依赖 -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>8.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+            <version>8.2.0</version>
+        </dependency>
+
+        <!-- Ansj库依赖 -->
         <dependency>
             <groupId>org.ansj</groupId>
             <artifactId>ansj_seg</artifactId>
@@ -39,6 +53,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- CoreNLP库依赖 -->
         <dependency>
             <groupId>edu.stanford.nlp</groupId>
             <artifactId>stanford-corenlp</artifactId>
@@ -64,6 +79,7 @@
             </exclusions>
         </dependency>
 
+        <!-- HanLP库依赖 -->
         <dependency>
             <groupId>com.hankcs</groupId>
             <artifactId>hanlp</artifactId>
@@ -71,6 +87,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- IK库依赖 -->
         <dependency>
             <groupId>com.github.magese</groupId>
             <artifactId>ik-analyzer</artifactId>
@@ -92,6 +109,7 @@
             </exclusions>
         </dependency>
 
+        <!-- Jcseg库依赖 -->
         <dependency>
             <groupId>org.lionsoul</groupId>
             <artifactId>jcseg-core</artifactId>
@@ -99,6 +117,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- jieba库依赖 -->
         <dependency>
             <groupId>com.huaban</groupId>
             <artifactId>jieba-analysis</artifactId>
@@ -106,18 +125,7 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-core</artifactId>
-            <version>8.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-analyzers-common</artifactId>
-            <version>8.2.0</version>
-        </dependency>
-
+        <!-- MMSEG库依赖 -->
         <dependency>
             <groupId>com.chenlb.mmseg4j</groupId>
             <artifactId>mmseg4j-core</artifactId>
@@ -125,6 +133,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- MYNLP库依赖 -->
         <dependency>
             <groupId>com.mayabot.mynlp</groupId>
             <artifactId>mynlp-segment</artifactId>
@@ -132,13 +141,7 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>com.mayabot.mynlp.resource</groupId>
-            <artifactId>mynlp-resource-cws</artifactId>
-            <version>1.0.0</version>
-            <optional>true</optional>
-        </dependency>
-
+        <!-- THULAC库依赖 -->
         <dependency>
             <groupId>io.github.yizhiru</groupId>
             <artifactId>thulac4j</artifactId>
@@ -146,6 +149,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- word库依赖 -->
         <dependency>
             <groupId>org.apdplat</groupId>
             <artifactId>word</artifactId>
@@ -247,6 +251,13 @@
                     <artifactId>lucene-queries</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mayabot.mynlp.resource</groupId>
+            <artifactId>mynlp-resource-cws</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- 桥接器:Slf4j使用Log4j2 -->

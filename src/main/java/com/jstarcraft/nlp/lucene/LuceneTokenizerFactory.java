@@ -1,7 +1,7 @@
 package com.jstarcraft.nlp.lucene;
 
 import java.text.BreakIterator;
-import java.util.Collections;
+import java.util.Map;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.util.TokenizerFactory;
@@ -18,18 +18,24 @@ import com.jstarcraft.nlp.tokenization.NlpToken;
  * @author Birdy
  *
  */
-public class LuceneTokenizerFactory extends TokenizerFactory {
+public abstract class LuceneTokenizerFactory extends TokenizerFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LuceneTokenizerFactory.class);
 
+    /** 分句迭代器 */
     private BreakIterator iterator;
 
+    /** 分词迭代器 */
     private NlpIterator<? extends NlpToken> tokenizer;
 
-    public LuceneTokenizerFactory(BreakIterator iterator, NlpIterator<? extends NlpToken> tokenizer) {
-        super(Collections.EMPTY_MAP);
-        this.iterator = iterator;
-        this.tokenizer = tokenizer;
+    protected abstract BreakIterator getBreakIterator(Map<String, String> configuration);
+
+    protected abstract NlpIterator<? extends NlpToken> getNlpIterator(Map<String, String> configuration);
+
+    public LuceneTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
+        this.iterator = getBreakIterator(configuration);
+        this.tokenizer = getNlpIterator(configuration);
     }
 
     @Override

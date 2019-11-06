@@ -1,2 +1,5 @@
+在使用Hanlp配置自定义词典时遇到的问题:
+https://www.cnblogs.com/hufulinblog/p/10025933.html
+
 HanLP词性标注集:
 http://www.hankcs.com/nlp/part-of-speech-tagging.html

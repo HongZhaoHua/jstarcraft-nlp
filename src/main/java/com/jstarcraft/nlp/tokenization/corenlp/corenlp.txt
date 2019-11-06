@@ -1,3 +1,13 @@
+Standford NLP 教程:
+https://blog.csdn.net/u013378306/article/details/68064352
+https://stanfordnlp.github.io/CoreNLP/index.html
+
+Stanford Corenlp中文分词自定义词典(扩展词典):
+https://blog.csdn.net/u013578877/article/details/100011323
+
+coreNLP-java使用（中文）
+https://www.jianshu.com/p/77c29af0c574
+
 Stanford CoreNLP依存关系分析、词性标注及句子主语分析:
 https://blog.csdn.net/l919898756/article/details/81670228
 

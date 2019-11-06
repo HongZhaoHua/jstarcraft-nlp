@@ -24,15 +24,15 @@ public class MMSegTokenizerFactory extends TokenizerFactory implements ResourceL
     // protected dic for test
     protected Dictionary dic = null;
 
-    public MMSegTokenizerFactory(Map<String, String> args) {
-        super(args);
+    public MMSegTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
     }
 
-    private Seg newSeg(Map<String, String> args) {
+    private Seg newSeg(Map<String, String> configuration) {
         Seg seg = null;
         logger.info("create new Seg ...");
         // default max-word
-        String mode = args.get("mode");
+        String mode = configuration.get("mode");
         if ("simple".equals(mode)) {
             logger.info("use simple mode");
             seg = new SimpleSeg(dic);

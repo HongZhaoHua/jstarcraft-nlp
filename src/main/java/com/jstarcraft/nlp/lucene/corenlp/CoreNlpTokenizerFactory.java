@@ -1,6 +1,7 @@
 package com.jstarcraft.nlp.lucene.corenlp;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.apache.lucene.analysis.Tokenizer;
@@ -18,12 +19,13 @@ public class CoreNlpTokenizerFactory extends TokenizerFactory {
 
     private AnnotationPipeline pipeline;
 
-    public CoreNlpTokenizerFactory(Map<String, String> args) {
-        super(args);
-        Properties p = new Properties();
-        for (Map.Entry<String, String> ent : args.entrySet())
-            p.setProperty(ent.getKey(), ent.getValue());
-        pipeline = new StanfordCoreNLP(p);
+    public CoreNlpTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
+        Properties properties = new Properties();
+        for (Entry<String, String> term : configuration.entrySet()) {
+            properties.setProperty(term.getKey(), term.getValue());
+        }
+        pipeline = new StanfordCoreNLP(properties);
     }
 
     @Override

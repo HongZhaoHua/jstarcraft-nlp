@@ -23,17 +23,17 @@ public class WordTokenizerFactory extends TokenizerFactory {
 
     private Segmentation segmentation = null;
 
-    public WordTokenizerFactory(Map<String, String> args) {
-        super(args);
-        if (args != null) {
-            String conf = args.get("conf");
+    public WordTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
+        if (configuration != null) {
+            String conf = configuration.get("conf");
             if (conf != null) {
                 // 强制覆盖默认配置
                 WordConfTools.forceOverride(conf);
             } else {
                 LOGGER.info("没有指定conf参数");
             }
-            String algorithm = args.get("segAlgorithm");
+            String algorithm = configuration.get("segAlgorithm");
             if (algorithm != null) {
                 try {
                     SegmentationAlgorithm segmentationAlgorithm = SegmentationAlgorithm.valueOf(algorithm);

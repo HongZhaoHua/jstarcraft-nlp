@@ -12,16 +12,13 @@ public class AnsjTokenizerFactory extends TokenizerFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AnsjTokenizerFactory.class);
 
-    private Map<String, String> args;
-
-    public AnsjTokenizerFactory(Map<String, String> args) {
-        super(args);
-        this.args = args;
+    public AnsjTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
     }
 
     @Override
     public Tokenizer create(AttributeFactory factory) {
-        return AnsjAnalyzer.getTokenizer(null, args);
+        return AnsjAnalyzer.getTokenizer(null, getOriginalArgs());
     }
 
 }

@@ -38,10 +38,10 @@ public class IkTokenizerFactory extends TokenizerFactory implements ResourceLoad
 
     private String conf = "ik.conf";
 
-    public IkTokenizerFactory(Map<String, String> args) {
-        super(args);
-        String useSmartArg = args.get("useSmart");
-        String confArg = args.get("conf");
+    public IkTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
+        String useSmartArg = configuration.get("useSmart");
+        String confArg = configuration.get("conf");
         this.setUseSmart(Boolean.parseBoolean(useSmartArg));
         this.setConf(confArg);
     }

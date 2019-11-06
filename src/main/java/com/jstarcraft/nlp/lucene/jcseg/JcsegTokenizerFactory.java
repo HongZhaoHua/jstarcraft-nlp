@@ -36,10 +36,10 @@ public class JcsegTokenizerFactory extends TokenizerFactory {
      * 
      * @see TokenizerFactory#TokenizerFactory(Map)
      */
-    public JcsegTokenizerFactory(Map<String, String> args) throws IOException {
-        super(args);
+    public JcsegTokenizerFactory(Map<String, String> configuration) throws IOException {
+        super(configuration);
 
-        String _mode = args.get("mode");
+        String _mode = configuration.get("mode");
         if (_mode == null) {
             mode = JcsegTaskConfig.SEARCH_MODE;
         } else {

@@ -48,32 +48,32 @@ public class HanlpTokenizerFactory extends TokenizerFactory {
     /**
      * 初始化工厂类
      *
-     * @param args 通过这个Map保存xml中的配置项
+     * @param configuration 通过这个Map保存xml中的配置项
      */
-    public HanlpTokenizerFactory(Map<String, String> args) {
-        super(args);
-        enableIndexMode = getBoolean(args, "enableIndexMode", true);
-        enableNumberQuantifierRecognize = getBoolean(args, "enableNumberQuantifierRecognize", false);
-        enableCustomDictionary = getBoolean(args, "enableCustomDictionary", true);
-        enableCustomDictionaryForcing = getBoolean(args, "enableCustomDictionaryForcing", true);
-        enableTranslatedNameRecognize = getBoolean(args, "enableTranslatedNameRecognize", false);
-        enableJapaneseNameRecognize = getBoolean(args, "enableJapaneseNameRecognize", false);
-        enableOrganizationRecognize = getBoolean(args, "enableOrganizationRecognize", false);
-        enableNameRecognize = getBoolean(args, "enableNameRecognize", false);
-        enablePlaceRecognize = getBoolean(args, "enablePlaceRecognize", false);
-        enableTraditionalChineseMode = getBoolean(args, "enableTraditionalChineseMode", false);
-        HanLP.Config.Normalization = getBoolean(args, "enableNormalization", HanLP.Config.Normalization);
-        algorithm = getString(args, "algorithm", "viterbi");
-        Set<String> customDictionaryPathSet = getSet(args, "customDictionaryPath");
+    public HanlpTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
+        enableIndexMode = getBoolean(configuration, "enableIndexMode", true);
+        enableNumberQuantifierRecognize = getBoolean(configuration, "enableNumberQuantifierRecognize", false);
+        enableCustomDictionary = getBoolean(configuration, "enableCustomDictionary", true);
+        enableCustomDictionaryForcing = getBoolean(configuration, "enableCustomDictionaryForcing", true);
+        enableTranslatedNameRecognize = getBoolean(configuration, "enableTranslatedNameRecognize", false);
+        enableJapaneseNameRecognize = getBoolean(configuration, "enableJapaneseNameRecognize", false);
+        enableOrganizationRecognize = getBoolean(configuration, "enableOrganizationRecognize", false);
+        enableNameRecognize = getBoolean(configuration, "enableNameRecognize", false);
+        enablePlaceRecognize = getBoolean(configuration, "enablePlaceRecognize", false);
+        enableTraditionalChineseMode = getBoolean(configuration, "enableTraditionalChineseMode", false);
+        HanLP.Config.Normalization = getBoolean(configuration, "enableNormalization", HanLP.Config.Normalization);
+        algorithm = getString(configuration, "algorithm", "viterbi");
+        Set<String> customDictionaryPathSet = getSet(configuration, "customDictionaryPath");
         if (customDictionaryPathSet != null) {
             HanLP.Config.CustomDictionaryPath = customDictionaryPathSet.toArray(new String[0]);
         }
-        String stopWordDictionaryPath = get(args, "stopWordDictionaryPath");
+        String stopWordDictionaryPath = get(configuration, "stopWordDictionaryPath");
         if (stopWordDictionaryPath != null) {
             stopWordDictionary = new TreeSet<>();
             stopWordDictionary.addAll(IOUtil.readLineListWithLessMemory(stopWordDictionaryPath));
         }
-        if (getBoolean(args, "enableDebug", false)) {
+        if (getBoolean(configuration, "enableDebug", false)) {
             HanLP.Config.enableDebug();
         }
     }

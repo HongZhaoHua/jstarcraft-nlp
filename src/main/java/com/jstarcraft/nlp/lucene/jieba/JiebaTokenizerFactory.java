@@ -13,12 +13,12 @@ public class JiebaTokenizerFactory extends TokenizerFactory {
 
     private JiebaSegmenter.SegMode segMode;
 
-    public JiebaTokenizerFactory(Map<String, String> args) {
-        super(args);
-        if (null == args.get("segMode")) {
+    public JiebaTokenizerFactory(Map<String, String> configuration) {
+        super(configuration);
+        if (null == configuration.get("segMode")) {
             segMode = SegMode.SEARCH;
         } else {
-            segMode = JiebaSegmenter.SegMode.valueOf(args.get("segMode"));
+            segMode = JiebaSegmenter.SegMode.valueOf(configuration.get("segMode"));
         }
     }
 

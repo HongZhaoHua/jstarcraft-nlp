@@ -144,7 +144,8 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
             switch (proprety) {
             case "isBookRecognition":
                 // 图书识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {
                         BookRecognition recognition = new BookRecognition();
                         recognitions.add(recognition);
@@ -153,16 +154,18 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
                 break;
             case "isEmailRecognition":
                 // Email识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {
                         EmailRecognition recognition = new EmailRecognition();
                         recognitions.add(recognition);
                     }
                 }
                 break;
-            case "isIDCardRecognition":
+            case "isIdCardRecognition":
                 // 身份证识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {
                         IDCardRecognition recognition = new IDCardRecognition();
                         recognitions.add(recognition);
@@ -171,7 +174,8 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
                 break;
             case "isKilobitRecognition":
                 // 千位识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {
                         KilobitRecognition recognition = new KilobitRecognition();
                         recognitions.add(recognition);
@@ -180,7 +184,8 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
                 break;
             case "isNatureRecognition":
                 // 词性识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {
                         NatureRecognition recognition = new NatureRecognition();
                         recognitions.add(recognition);
@@ -189,8 +194,10 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
                 break;
             case "isStopRecognition":
                 // 停用词识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
-                    if (StringUtil.isNotBlank(configuration = configurations.get(StopLibrary.DEFAULT))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
+                    configuration = get(configurations, StopLibrary.DEFAULT);
+                    if (StringUtil.isNotBlank(configuration)) {
                         String[] keys = configuration.split(",");
                         for (String key : keys) {
                             StopRecognition recognition = StopLibrary.get(key.trim());
@@ -203,8 +210,10 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
                 break;
             case "isSynonymRecognition":
                 // 同义词识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
-                    if (StringUtil.isNotBlank(configuration = configurations.get(SynonymsLibrary.DEFAULT))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
+                    configuration = get(configurations, SynonymsLibrary.DEFAULT);
+                    if (StringUtil.isNotBlank(configuration)) {
                         String[] keys = configuration.split(",");
                         recognitions = new ArrayList<>(keys.length);
                         for (String key : keys) {
@@ -218,7 +227,8 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
                 break;
             case "isTimeRecognition":
                 // 时间识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {
                         TimeRecognition recognition = new TimeRecognition();
                         recognitions.add(recognition);
@@ -227,7 +237,8 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
                 break;
             case "isURLRecognition":
                 // URL识别
-                if (StringUtil.isNotBlank(configuration = configurations.get(proprety))) {
+                configuration = get(configurations, proprety);
+                if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {
                         URLRecognition recognition = new URLRecognition();
                         recognitions.add(recognition);

@@ -29,7 +29,10 @@ public abstract class NlpSegmentFactory extends TokenizerFactory {
     /** 分词迭代器 */
     private NlpTokenizer<? extends NlpToken> tokenizer;
 
-    protected abstract BreakIterator getBreakIterator(Map<String, String> configuration);
+    protected BreakIterator getBreakIterator(Map<String, String> configuration) {
+        // 统一装配分句迭代器
+        return null;
+    }
 
     protected abstract NlpTokenizer<? extends NlpToken> getNlpIterator(Map<String, String> configuration);
 

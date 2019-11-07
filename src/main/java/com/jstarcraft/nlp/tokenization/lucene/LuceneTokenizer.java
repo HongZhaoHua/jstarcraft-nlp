@@ -10,7 +10,7 @@ import org.apache.lucene.analysis.LuceneAdapter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
 
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 /**
  * Lucene分词器
@@ -18,13 +18,13 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
  * @author Birdy
  *
  */
-public class LuceneIterator implements NlpIterator<LuceneToken> {
+public class LuceneTokenizer implements NlpTokenizer<LuceneToken> {
 
     private Consumer<Reader> reader;
 
     private TokenStream stream;
 
-    public LuceneIterator(Analyzer analyzer) {
+    public LuceneTokenizer(Analyzer analyzer) {
         try (LuceneAdapter lucene = new LuceneAdapter(analyzer)) {
             TokenStreamComponents component = lucene.createComponents("text");
             this.reader = component.getSource();
@@ -32,7 +32,7 @@ public class LuceneIterator implements NlpIterator<LuceneToken> {
         }
     }
 
-    public LuceneIterator(Tokenizer tokenizer) {
+    public LuceneTokenizer(Tokenizer tokenizer) {
         this.reader = tokenizer::setReader;
         this.stream = tokenizer;
     }

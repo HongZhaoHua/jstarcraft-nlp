@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 /**
  * IK分词器
@@ -14,11 +14,11 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
  * @author Birdy
  *
  */
-public class IkIterator implements NlpIterator<IkToken> {
+public class IkTokenizer implements NlpTokenizer<IkToken> {
 
     private IKSegmenter segmenter;
 
-    public IkIterator(IKSegmenter segmenter) {
+    public IkTokenizer(IKSegmenter segmenter) {
         this.segmenter = segmenter;
     }
 

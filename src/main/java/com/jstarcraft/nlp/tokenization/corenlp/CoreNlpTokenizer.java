@@ -3,7 +3,7 @@ package com.jstarcraft.nlp.tokenization.corenlp;
 import java.util.Collections;
 
 import com.jstarcraft.core.utility.StringUtility;
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -16,11 +16,11 @@ import edu.stanford.nlp.pipeline.Annotator;
  * @author Birdy
  *
  */
-public class CoreNlpIterator implements NlpIterator<CoreNlpToken> {
+public class CoreNlpTokenizer implements NlpTokenizer<CoreNlpToken> {
 
     private Annotator annotator;
 
-    public CoreNlpIterator(Annotator annotator) {
+    public CoreNlpTokenizer(Annotator annotator) {
         this.annotator = annotator;
     }
 

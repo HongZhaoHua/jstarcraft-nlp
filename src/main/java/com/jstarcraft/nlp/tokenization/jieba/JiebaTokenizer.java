@@ -3,7 +3,7 @@ package com.jstarcraft.nlp.tokenization.jieba;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.JiebaSegmenter.SegMode;
 import com.huaban.analysis.jieba.SegToken;
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 /**
  * jieba分词器
@@ -11,13 +11,13 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
  * @author Birdy
  *
  */
-public class JiebaIterator implements NlpIterator<JiebaToken> {
+public class JiebaTokenizer implements NlpTokenizer<JiebaToken> {
 
     private JiebaSegmenter segmenter;
 
     private SegMode mode;
 
-    public JiebaIterator(JiebaSegmenter segmenter, SegMode mode) {
+    public JiebaTokenizer(JiebaSegmenter segmenter, SegMode mode) {
         this.segmenter = segmenter;
         this.mode = mode;
     }

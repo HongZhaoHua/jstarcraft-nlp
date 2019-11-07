@@ -3,7 +3,7 @@ package com.jstarcraft.nlp.tokenization.ansj;
 import org.ansj.domain.Result;
 import org.ansj.splitWord.Analysis;
 
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 /**
  * Ansj分词器
@@ -11,11 +11,11 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
  * @author Birdy
  *
  */
-public class AnsjIterator implements NlpIterator<AnsjToken> {
+public class AnsjTokenizer implements NlpTokenizer<AnsjToken> {
 
     private Analysis analysis;
 
-    public AnsjIterator(Analysis analysis) {
+    public AnsjTokenizer(Analysis analysis) {
         this.analysis = analysis;
     }
 

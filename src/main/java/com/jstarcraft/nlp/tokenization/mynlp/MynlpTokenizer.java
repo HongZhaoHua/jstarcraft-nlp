@@ -1,6 +1,6 @@
 package com.jstarcraft.nlp.tokenization.mynlp;
 
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 import com.mayabot.nlp.segment.Lexer;
 import com.mayabot.nlp.segment.Sentence;
 
@@ -10,11 +10,11 @@ import com.mayabot.nlp.segment.Sentence;
  * @author Birdy
  *
  */
-public class MynlpIterator implements NlpIterator<MynlpToken> {
+public class MynlpTokenizer implements NlpTokenizer<MynlpToken> {
 
     private Lexer lexer;
 
-    public MynlpIterator(Lexer lexer) {
+    public MynlpTokenizer(Lexer lexer) {
         this.lexer = lexer;
     }
 

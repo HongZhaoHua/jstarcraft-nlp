@@ -5,18 +5,18 @@ import org.apdplat.word.segmentation.SegmentationAlgorithm;
 import org.apdplat.word.segmentation.SegmentationFactory;
 import org.apdplat.word.util.WordConfTools;
 
-import com.jstarcraft.nlp.tokenization.word.WordIterator;
+import com.jstarcraft.nlp.tokenization.word.WordTokenizer;
 
-public class WordIteratorTestCase extends NlpIteratorTestCase {
+public class WordTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
-    protected NlpIterator<? extends NlpToken> getTokenizer() {
+    protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         // 保持标点符号
         WordConfTools.set("keep.punctuation", "true");
         // 保持空格
         WordConfTools.set("keep.whitespace", "true");
         Segmentation segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.FullSegmentation);
-        return new WordIterator(segmentation);
+        return new WordTokenizer(segmentation);
     }
 
 }

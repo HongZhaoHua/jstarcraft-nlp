@@ -8,7 +8,7 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.util.SegmentingTokenizerBase;
 import org.apache.lucene.util.AttributeFactory;
 
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -21,14 +21,14 @@ import com.jstarcraft.nlp.tokenization.NlpToken;
  * @author Birdy
  *
  */
-public class LuceneTokenizer extends SegmentingTokenizerBase {
+public class NlpSegmenter extends SegmentingTokenizerBase {
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
     /** 位移 **/
     private final OffsetAttribute offsetAttribute = addAttribute(OffsetAttribute.class);
     /** 分词器 */
-    private final NlpIterator<? extends NlpToken> tokenizer;
+    private final NlpTokenizer<? extends NlpToken> tokenizer;
     /** 迭代器 */
     private Iterator<? extends NlpToken> iterator;
 
@@ -36,12 +36,12 @@ public class LuceneTokenizer extends SegmentingTokenizerBase {
 
     private int length;
 
-    public LuceneTokenizer(BreakIterator iterator, NlpIterator<? extends NlpToken> tokenizer) {
+    public NlpSegmenter(BreakIterator iterator, NlpTokenizer<? extends NlpToken> tokenizer) {
         super(iterator);
         this.tokenizer = tokenizer;
     }
 
-    public LuceneTokenizer(AttributeFactory factory, BreakIterator iterator, NlpIterator<? extends NlpToken> tokenizer) {
+    public NlpSegmenter(AttributeFactory factory, BreakIterator iterator, NlpTokenizer<? extends NlpToken> tokenizer) {
         super(factory, iterator);
         this.tokenizer = tokenizer;
     }

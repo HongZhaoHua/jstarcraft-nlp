@@ -2,7 +2,7 @@ package com.jstarcraft.nlp.tokenization.thulac;
 
 import java.util.List;
 
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 import io.github.yizhiru.thulac4j.Segmenter;
 
@@ -12,7 +12,7 @@ import io.github.yizhiru.thulac4j.Segmenter;
  * @author Birdy
  *
  */
-public class ThulacIterator implements NlpIterator<ThulacToken> {
+public class ThulacTokenizer implements NlpTokenizer<ThulacToken> {
 
     @Override
     public Iterable<ThulacToken> tokenize(CharSequence text) {

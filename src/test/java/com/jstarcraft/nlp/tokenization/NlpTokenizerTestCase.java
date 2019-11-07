@@ -14,13 +14,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jstarcraft.core.utility.StringUtility;
-import com.jstarcraft.nlp.lucene.LuceneTokenizer;
+import com.jstarcraft.nlp.lucene.NlpSegmenter;
 
-public abstract class NlpIteratorTestCase {
+public abstract class NlpTokenizerTestCase {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(NlpIteratorTestCase.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NlpTokenizerTestCase.class);
 
-    protected abstract NlpIterator<? extends NlpToken> getTokenizer();
+    protected abstract NlpTokenizer<? extends NlpToken> getTokenizer();
 
     @Test
     public void testTokenize() throws Exception {
@@ -32,7 +32,7 @@ public abstract class NlpIteratorTestCase {
 
         for (String text : texts) {
             // 测试Iterator分词
-            NlpIterator<? extends NlpToken> iterator = getTokenizer();
+            NlpTokenizer<? extends NlpToken> iterator = getTokenizer();
             Iterable<? extends NlpToken> tokens = iterator.tokenize(text);
             for (NlpToken token : tokens) {
                 LOGGER.debug(StringUtility.format("term is {}, begin is {}, end is {}", token.getTerm(), token.getBegin(), token.getEnd()));
@@ -40,7 +40,7 @@ public abstract class NlpIteratorTestCase {
             }
 
             // 测试Lucene分词
-            try (Tokenizer tokenizer = new LuceneTokenizer(BreakIterator.getWordInstance(), iterator)) {
+            try (Tokenizer tokenizer = new NlpSegmenter(BreakIterator.getWordInstance(), iterator)) {
                 tokenizer.setReader(new StringReader(text));
                 tokenizer.reset();
                 while (tokenizer.incrementToken()) {

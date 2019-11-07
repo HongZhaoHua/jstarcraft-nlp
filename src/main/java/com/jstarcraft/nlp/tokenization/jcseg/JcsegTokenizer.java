@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import org.lionsoul.jcseg.tokenizer.core.ISegment;
 import org.lionsoul.jcseg.tokenizer.core.IWord;
 
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 /**
  * Jcseg分词器
@@ -14,11 +14,11 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
  * @author Birdy
  *
  */
-public class JcsegIterator implements NlpIterator<JcsegToken> {
+public class JcsegTokenizer implements NlpTokenizer<JcsegToken> {
 
     private ISegment segment;
 
-    public JcsegIterator(ISegment segment) {
+    public JcsegTokenizer(ISegment segment) {
         this.segment = segment;
     }
 

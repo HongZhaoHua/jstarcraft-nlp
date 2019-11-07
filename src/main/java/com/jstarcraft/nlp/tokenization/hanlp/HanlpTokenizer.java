@@ -2,7 +2,7 @@ package com.jstarcraft.nlp.tokenization.hanlp;
 
 import com.hankcs.hanlp.seg.Segment;
 import com.hankcs.hanlp.seg.common.Term;
-import com.jstarcraft.nlp.tokenization.NlpIterator;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 /**
  * HanLP分词器
@@ -10,11 +10,11 @@ import com.jstarcraft.nlp.tokenization.NlpIterator;
  * @author Birdy
  *
  */
-public class HanlpIterator implements NlpIterator<HanlpToken> {
+public class HanlpTokenizer implements NlpTokenizer<HanlpToken> {
 
     private Segment segment;
 
-    public HanlpIterator(Segment segment) {
+    public HanlpTokenizer(Segment segment) {
         this.segment = segment;
     }
 

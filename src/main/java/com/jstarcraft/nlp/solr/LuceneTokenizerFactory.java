@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.solr;
 
 import java.text.BreakIterator;
 import java.util.Map;
@@ -9,6 +9,7 @@ import org.apache.lucene.util.AttributeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jstarcraft.nlp.lucene.LuceneTokenizer;
 import com.jstarcraft.nlp.tokenization.NlpIterator;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 

@@ -2,6 +2,7 @@ package com.jstarcraft.nlp.tokenization;
 
 import java.io.StringReader;
 import java.text.BreakIterator;
+import java.util.Locale;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
@@ -31,28 +32,28 @@ public abstract class NlpTokenizerTestCase {
                 "中华人民共和国(People's Republic of China),简称'中国'" };
 
         for (String text : texts) {
-            // 测试Iterator分词
-            NlpTokenizer<? extends NlpToken> iterator = getTokenizer();
-            Iterable<? extends NlpToken> tokens = iterator.tokenize(text);
+            // 测试Tokenizer分词
+            NlpTokenizer<? extends NlpToken> tokenizer = getTokenizer();
+            Iterable<? extends NlpToken> tokens = tokenizer.tokenize(text);
             for (NlpToken token : tokens) {
-                LOGGER.debug(StringUtility.format("term is {}, begin is {}, end is {}", token.getTerm(), token.getBegin(), token.getEnd()));
+                LOGGER.debug(StringUtility.format("tokenizer:term is {}, begin is {}, end is {}", token.getTerm(), token.getBegin(), token.getEnd()));
                 Assert.assertEquals(token.getTerm().toLowerCase(), text.substring(token.getBegin(), token.getEnd()).toLowerCase());
             }
 
-            // 测试Lucene分词
-            try (Tokenizer tokenizer = new NlpSegmenter(BreakIterator.getWordInstance(), iterator)) {
-                tokenizer.setReader(new StringReader(text));
-                tokenizer.reset();
-                while (tokenizer.incrementToken()) {
+            // 测试Segmenter分词
+            try (Tokenizer segmenter = new NlpSegmenter(BreakIterator.getSentenceInstance(), tokenizer)) {
+                segmenter.setReader(new StringReader(text));
+                segmenter.reset();
+                while (segmenter.incrementToken()) {
                     // 词元
-                    CharTermAttribute term = tokenizer.getAttribute(CharTermAttribute.class);
+                    CharTermAttribute term = segmenter.getAttribute(CharTermAttribute.class);
                     // 偏移
-                    OffsetAttribute offset = tokenizer.getAttribute(OffsetAttribute.class);
+                    OffsetAttribute offset = segmenter.getAttribute(OffsetAttribute.class);
                     // 距离
-                    PositionIncrementAttribute position = tokenizer.getAttribute(PositionIncrementAttribute.class);
+                    PositionIncrementAttribute position = segmenter.getAttribute(PositionIncrementAttribute.class);
                     // 词性
-                    TypeAttribute type = tokenizer.getAttribute(TypeAttribute.class);
-                    LOGGER.debug(StringUtility.format("term is {}, begin is {}, end is {}", term, offset.startOffset(), offset.endOffset()));
+                    TypeAttribute type = segmenter.getAttribute(TypeAttribute.class);
+                    LOGGER.debug(StringUtility.format("segmenter:term is {}, begin is {}, end is {}", term, offset.startOffset(), offset.endOffset()));
                     Assert.assertEquals(term.toString().toLowerCase(), text.substring(offset.startOffset(), offset.endOffset()).toLowerCase());
                 }
             }

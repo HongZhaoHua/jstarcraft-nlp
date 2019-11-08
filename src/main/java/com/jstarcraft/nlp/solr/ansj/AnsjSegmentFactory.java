@@ -1,9 +1,11 @@
 package com.jstarcraft.nlp.solr.ansj;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.ansj.library.AmbiguityLibrary;
 import org.ansj.library.CrfLibrary;
@@ -123,12 +125,12 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
         configuration = get(configurations, "isNumRecognition");
         if (StringUtil.isNotBlank(configuration)) {
             analysis.setIsNumRecognition(Boolean.valueOf(configuration));
-        }
 
-        // 是否识别量词
-        configuration = get(configurations, "isQuantifierRecognition");
-        if (StringUtil.isNotBlank(configuration)) {
-            analysis.setIsQuantifierRecognition(Boolean.valueOf(configuration));
+            // 是否识别量词
+            configuration = get(configurations, "isQuantifierRecognition");
+            if (StringUtil.isNotBlank(configuration)) {
+                analysis.setIsQuantifierRecognition(Boolean.valueOf(configuration));
+            }
         }
 
         // 是否保留字符
@@ -139,11 +141,10 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
 
         // 识别器
         List<Recognition> recognitions = new LinkedList<>();
-
-        for (String proprety : configurations.keySet()) {
+        for (String proprety : new ArrayList<>(configurations.keySet())) {
             switch (proprety) {
             case "isBookRecognition":
-                // 图书识别
+                // 书籍识别
                 configuration = get(configurations, proprety);
                 if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {

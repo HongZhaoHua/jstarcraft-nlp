@@ -1,0 +1,2 @@
+solr6.3.0升级与IK动态词库自动加载:
+https://www.cnblogs.com/liang1101/articles/6395016.html

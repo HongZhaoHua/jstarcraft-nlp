@@ -64,7 +64,7 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
     }
 
     @Override
-    protected NlpTokenizer<? extends NlpToken> getNlpIterator(Map<String, String> configurations) {
+    protected NlpTokenizer<? extends NlpToken> getNlpTokenizer(Map<String, String> configurations) {
         Analysis analysis = null;
         String configuration = get(configurations, "ansjType", AnsjType.Base.name());
         switch (AnsjType.valueOf(configuration)) {
@@ -94,7 +94,7 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
             throw new IllegalArgumentException();
         }
 
-        // 用户自定义词典
+        // 自定义词典
         configuration = get(configurations, DicLibrary.DEFAULT);
         if (StringUtil.isNotBlank(configuration)) {
             String[] keys = configuration.split(",");
@@ -108,7 +108,7 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
             analysis.setForests(forests);
         }
 
-        // 用户自定义多义词
+        // 自定义多义词
         configuration = get(configurations, AmbiguityLibrary.DEFAULT);
         if (StringUtil.isNotBlank(configuration)) {
             Forest ambiguity = AmbiguityLibrary.get(configuration.trim());

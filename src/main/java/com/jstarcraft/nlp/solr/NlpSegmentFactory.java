@@ -66,12 +66,12 @@ public abstract class NlpSegmentFactory extends TokenizerFactory {
         return iterator;
     }
 
-    protected abstract NlpTokenizer<? extends NlpToken> getNlpIterator(Map<String, String> configurations);
+    protected abstract NlpTokenizer<? extends NlpToken> getNlpTokenizer(Map<String, String> configurations);
 
     public NlpSegmentFactory(Map<String, String> configurations) {
         super(configurations);
         this.iterator = getBreakIterator(configurations);
-        this.tokenizer = getNlpIterator(configurations);
+        this.tokenizer = getNlpTokenizer(configurations);
     }
 
     @Override

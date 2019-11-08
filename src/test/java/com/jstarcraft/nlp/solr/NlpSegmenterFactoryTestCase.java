@@ -1,30 +1,25 @@
 package com.jstarcraft.nlp.solr;
 
 import java.io.StringReader;
-import java.text.BreakIterator;
 
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
-import org.apache.lucene.analysis.util.TokenizerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jstarcraft.core.utility.StringUtility;
-import com.jstarcraft.nlp.lucene.NlpSegmenter;
-import com.jstarcraft.nlp.tokenization.NlpToken;
-import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 import com.jstarcraft.nlp.tokenization.NlpTokenizerTestCase;
 
 public abstract class NlpSegmenterFactoryTestCase {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NlpTokenizerTestCase.class);
 
-    protected abstract NlpSegmentFactory getSegmenterFactory();
+    protected abstract NlpSegmentFactory getSegmenterFactory() throws Exception;
 
     @Test
     public void testSegmentFactory() throws Exception {

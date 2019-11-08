@@ -33,16 +33,19 @@ public abstract class NlpSegmentFactory extends TokenizerFactory {
 
     protected BreakIterator getBreakIterator(Map<String, String> configurations) {
         // 统一装配分句迭代器
-        BreakIterator iterator = null;
+        String breakerLocale = get(configurations, "breakerLocale");
+        Locale locale = null;
+        if (StringUtility.isBlank(breakerLocale)) {
+            locale = Locale.getDefault();
+        } else {
+            locale = new Locale(breakerLocale);
+        }
+
         String breakerType = get(configurations, "breakerType");
-        if (StringUtility.isNotBlank(breakerType)) {
-            String breakerLocale = get(configurations, "breakerLocale");
-            Locale locale = null;
-            if (StringUtility.isBlank(breakerType)) {
-                locale = Locale.getDefault();
-            } else {
-                locale = new Locale(breakerLocale);
-            }
+        BreakIterator iterator = null;
+        if (StringUtility.isBlank(breakerType)) {
+            iterator = BreakIterator.getSentenceInstance(locale);
+        } else {
             switch (breakerType) {
             case "Character":
                 iterator = BreakIterator.getCharacterInstance(locale);

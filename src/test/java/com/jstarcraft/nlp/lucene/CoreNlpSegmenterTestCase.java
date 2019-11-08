@@ -11,7 +11,7 @@ import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 public class CoreNlpSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
-    protected Tokenizer getTokenizer() {
+    protected Tokenizer getSegmenter() {
         try {
             Properties properties = new Properties();
             properties.load(this.getClass().getResourceAsStream("/StanfordCoreNLP-chinese.properties"));

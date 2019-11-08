@@ -11,7 +11,7 @@ import com.jstarcraft.nlp.lucene.hanlp.HanlpTokenizer;
 public class HanlpSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
-    protected Tokenizer getTokenizer() {
+    protected Tokenizer getSegmenter() {
         Segment segment = HanLP.newSegment();
         segment.enableOffset(true);
         HanlpTokenizer tokenizer = new HanlpTokenizer(segment, Collections.EMPTY_SET);

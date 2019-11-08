@@ -9,7 +9,7 @@ import com.jstarcraft.nlp.lucene.mmseg.MmsegTokenizer;
 public class MmsegSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
-    protected Tokenizer getTokenizer() {
+    protected Tokenizer getSegmenter() {
         Dictionary dictionary = Dictionary.getInstance();
         ComplexSeg complex = new ComplexSeg(dictionary);
 //        MMSeg mmSeg = new MMSeg(new StringReader(""), complex);

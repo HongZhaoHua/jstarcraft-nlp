@@ -10,7 +10,7 @@ import com.jstarcraft.nlp.lucene.jcseg.JcsegTokenizer;
 public class JcsegSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
-    protected Tokenizer getTokenizer() {
+    protected Tokenizer getSegmenter() {
         try {
             // 自动查找jcseg.properties配置
             JcsegTaskConfig configuration = new JcsegTaskConfig(true);

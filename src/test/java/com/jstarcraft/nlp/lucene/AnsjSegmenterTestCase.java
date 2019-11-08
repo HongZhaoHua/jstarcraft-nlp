@@ -10,7 +10,7 @@ import com.jstarcraft.nlp.lucene.ansj.AnsjTokenizer;
 public class AnsjSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
-    protected Tokenizer getTokenizer() {
+    protected Tokenizer getSegmenter() {
         AnsjTokenizer tokenizer = new AnsjTokenizer(new BaseAnalysis(), Collections.EMPTY_LIST, Collections.EMPTY_LIST);
         return tokenizer;
     }

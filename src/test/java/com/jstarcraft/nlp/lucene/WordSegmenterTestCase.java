@@ -10,7 +10,7 @@ import com.jstarcraft.nlp.lucene.word.WordTokenizer;
 public class WordSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
-    protected Tokenizer getTokenizer() {
+    protected Tokenizer getSegmenter() {
         Segmentation segmentation = SegmentationFactory.getSegmentation(SegmentationAlgorithm.FullSegmentation);
         WordTokenizer tokenizer = new WordTokenizer(segmentation);
         return tokenizer;

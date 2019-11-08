@@ -53,7 +53,7 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
 
     // Ansj分词方式的区别
     // https://github.com/NLPchina/ansj_seg/wiki/%E5%88%86%E8%AF%8D%E6%96%B9%E5%BC%8F
-    static enum Type {
+    static enum AnsjType {
         Base, Dictionary, Index, Nlp, Query;
     }
 
@@ -64,8 +64,8 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
     @Override
     protected NlpTokenizer<? extends NlpToken> getNlpIterator(Map<String, String> configurations) {
         Analysis analysis = null;
-        String configuration = get(configurations, "type", Type.Base.name());
-        switch (Type.valueOf(configuration)) {
+        String configuration = get(configurations, "ansjType", AnsjType.Base.name());
+        switch (AnsjType.valueOf(configuration)) {
         case Base:
             analysis = new BaseAnalysis();
             break;

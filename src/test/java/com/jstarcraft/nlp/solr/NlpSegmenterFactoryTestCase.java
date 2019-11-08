@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.lucene;
+package com.jstarcraft.nlp.solr;
 
 import java.io.StringReader;
 
@@ -10,12 +10,12 @@ import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.junit.Assert;
 import org.junit.Test;
 
-public abstract class NlpSegmenterTestCase {
+public abstract class NlpSegmenterFactoryTestCase {
 
     protected abstract Tokenizer getSegmenter();
 
     @Test
-    public void testSegmenter() throws Exception {
+    public void testTokenize() throws Exception {
         Tokenizer segmenter = getSegmenter();
         String text = "中华人民共和国(People's Republic of China),简称'中国'";
         segmenter.setReader(new StringReader(text));

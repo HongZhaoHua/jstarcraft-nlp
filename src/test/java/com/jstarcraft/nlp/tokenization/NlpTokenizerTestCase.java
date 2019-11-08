@@ -30,7 +30,7 @@ public abstract class NlpTokenizerTestCase {
                 // 语句
                 "中华人民共和国(People's Republic of China),简称'中国'",
                 // 文本
-                "目标是提供一个完整的Java机器学习(Machine Learning/ML)框架,作为人工智能在学术界与工业界的桥梁. 让相关领域的研发人员能够在各种软硬件环境/数据结构/算法/模型之间无缝切换. 涵盖了从数据处理到模型的训练与评估各个环节,支持硬件加速和并行计算,是最快最全的Java机器学习库." };
+                "JStarCraft AI 1.0的目标是提供一个完整的Java机器学习(Machine Learning/ML)框架,作为人工智能在学术界与工业界的桥梁. 让相关领域的研发人员能够在各种软硬件环境/数据结构/算法/模型之间无缝切换. 涵盖了从数据处理到模型的训练与评估各个环节,支持硬件加速和并行计算,是最快最全的Java机器学习库." };
 
         for (String text : texts) {
             // 测试Tokenizer分词

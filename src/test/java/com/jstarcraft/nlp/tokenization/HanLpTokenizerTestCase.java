@@ -2,15 +2,15 @@ package com.jstarcraft.nlp.tokenization;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.Segment;
-import com.jstarcraft.nlp.tokenization.hanlp.HanlpTokenizer;
+import com.jstarcraft.nlp.tokenization.hanlp.HanLpTokenizer;
 
-public class HanlpTokenizerTestCase extends NlpTokenizerTestCase {
+public class HanLpTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
     protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         Segment segment = HanLP.newSegment();
         segment.enableOffset(true);
-        return new HanlpTokenizer(segment);
+        return new HanLpTokenizer(segment);
     }
 
 }

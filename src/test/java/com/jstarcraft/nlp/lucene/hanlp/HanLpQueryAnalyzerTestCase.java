@@ -27,7 +27,7 @@ import org.apache.lucene.store.Directory;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class HanlpQueryAnalyzerTestCase {
+public class HanLpQueryAnalyzerTestCase {
 
     @Test
     public void testCreateComponents() throws Exception {
@@ -36,7 +36,7 @@ public class HanlpQueryAnalyzerTestCase {
             System.out.print(text.charAt(i) + "" + i + " ");
         }
         System.out.println();
-        try(Analyzer analyzer = new HanlpQueryAnalyzer("viterbi")) {
+        try(Analyzer analyzer = new HanLpQueryAnalyzer("viterbi")) {
             TokenStream tokenStream = analyzer.tokenStream("field", text);
             tokenStream.reset();
             while (tokenStream.incrementToken()) {
@@ -54,7 +54,7 @@ public class HanlpQueryAnalyzerTestCase {
 
     @Test
     public void testIndexAndSearch() throws Exception {
-        Analyzer analyzer = new HanlpQueryAnalyzer("viterbi");////////////////////////////////////////////////////
+        Analyzer analyzer = new HanLpQueryAnalyzer("viterbi");////////////////////////////////////////////////////
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         Directory directory = new ByteBuffersDirectory();
@@ -92,7 +92,7 @@ public class HanlpQueryAnalyzerTestCase {
         Map<String, String> args = new TreeMap<>();
         args.put("enableTraditionalChineseMode", "true");
         args.put("enableNormalization", "true");
-        HanlpTokenizerFactory factory = new HanlpTokenizerFactory(args);
+        HanLpTokenizerFactory factory = new HanLpTokenizerFactory(args);
         Tokenizer tokenizer = factory.create();
         String text = "會辦台星保證最低價的原因？";
 

@@ -16,13 +16,13 @@ import com.hankcs.hanlp.tokenizer.TraditionalChineseTokenizer;
 import com.jstarcraft.nlp.solr.NlpSegmentFactory;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 import com.jstarcraft.nlp.tokenization.NlpTokenizer;
-import com.jstarcraft.nlp.tokenization.hanlp.HanlpTokenizer;
+import com.jstarcraft.nlp.tokenization.hanlp.HanLpTokenizer;
 
-public class HanlpSegmentFactory extends NlpSegmentFactory {
+public class HanLpSegmentFactory extends NlpSegmentFactory {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HanlpSegmentFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HanLpSegmentFactory.class);
 
-    public HanlpSegmentFactory(Map<String, String> configurations) {
+    public HanLpSegmentFactory(Map<String, String> configurations) {
         super(configurations);
     }
 
@@ -96,7 +96,7 @@ public class HanlpSegmentFactory extends NlpSegmentFactory {
             };
         }
 
-        HanlpTokenizer tokenizer = new HanlpTokenizer(segment);
+        HanLpTokenizer tokenizer = new HanLpTokenizer(segment);
         return tokenizer;
     }
 

@@ -11,18 +11,18 @@ import com.jstarcraft.nlp.tokenization.NlpToken;
  * @author Birdy
  *
  */
-public class HanlpToken implements Iterable<HanlpToken>, Iterator<HanlpToken>, NlpToken {
+public class HanLpToken implements Iterable<HanLpToken>, Iterator<HanLpToken>, NlpToken {
 
     private Iterator<Term> iterator;
 
     private Term term;
 
-    public HanlpToken(Iterator<Term> iterator) {
+    public HanLpToken(Iterator<Term> iterator) {
         this.iterator = iterator;
     }
 
     @Override
-    public Iterator<HanlpToken> iterator() {
+    public Iterator<HanLpToken> iterator() {
         return this;
     }
 
@@ -32,7 +32,7 @@ public class HanlpToken implements Iterable<HanlpToken>, Iterator<HanlpToken>, N
     }
 
     @Override
-    public HanlpToken next() {
+    public HanLpToken next() {
         term = iterator.next();
         return this;
     }

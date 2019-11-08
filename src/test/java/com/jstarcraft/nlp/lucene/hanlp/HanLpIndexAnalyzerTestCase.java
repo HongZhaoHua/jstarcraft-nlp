@@ -8,11 +8,11 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.junit.Test;
 
-import com.jstarcraft.nlp.lucene.hanlp.HanlpIndexAnalyzer;
+import com.jstarcraft.nlp.lucene.hanlp.HanLpIndexAnalyzer;
 
 import junit.framework.TestCase;
 
-public class HanlpIndexAnalyzerTestCase extends TestCase {
+public class HanLpIndexAnalyzerTestCase extends TestCase {
 
     @Test
     public void testCreateComponents() throws Exception {
@@ -21,7 +21,7 @@ public class HanlpIndexAnalyzerTestCase extends TestCase {
             System.out.print(text.charAt(i) + "" + i + " ");
         }
         System.out.println();
-        try (Analyzer analyzer = new HanlpIndexAnalyzer("viterbi")) {
+        try (Analyzer analyzer = new HanLpIndexAnalyzer("viterbi")) {
             TokenStream tokenStream = analyzer.tokenStream("field", text);
             tokenStream.reset();
             while (tokenStream.incrementToken()) {

@@ -18,7 +18,7 @@ import com.hankcs.hanlp.dictionary.py.PinyinDictionary;
 /**
  * 拼音TokenFilter
  */
-public final class HanlpPinyinTokenFilter extends TokenFilter {
+public final class HanLpPinyinTokenFilter extends TokenFilter {
 
     // 词性
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
@@ -27,20 +27,20 @@ public final class HanlpPinyinTokenFilter extends TokenFilter {
     // 是否保留原词
     private final boolean original;
     // 拼音转换器
-    private final Collection<HanlpPinyinConverter> converters;
+    private final Collection<HanLpPinyinConverter> converters;
     // 待输出拼音队列
     private final Queue<CharSequence> queue;
 
-    public HanlpPinyinTokenFilter(TokenStream input) {
+    public HanLpPinyinTokenFilter(TokenStream input) {
         // 默认全拼加首字母
-        this(input, new HanlpPinyinConverter.ToPinyinString(), new HanlpPinyinConverter.ToPinyinFirstCharString());
+        this(input, new HanLpPinyinConverter.ToPinyinString(), new HanLpPinyinConverter.ToPinyinFirstCharString());
     }
 
-    public HanlpPinyinTokenFilter(TokenStream input, HanlpPinyinConverter... converters) {
+    public HanLpPinyinTokenFilter(TokenStream input, HanLpPinyinConverter... converters) {
         this(input, true, Arrays.asList(converters));
     }
 
-    public HanlpPinyinTokenFilter(TokenStream input, boolean original, Collection<HanlpPinyinConverter> converters) {
+    public HanLpPinyinTokenFilter(TokenStream input, boolean original, Collection<HanLpPinyinConverter> converters) {
         super(input);
         this.original = original;
         this.converters = converters;
@@ -59,7 +59,7 @@ public final class HanlpPinyinTokenFilter extends TokenFilter {
             if (input.incrementToken()) {
                 String text = charTermAttribute.toString();
                 List<Pinyin> pinyin = PinyinDictionary.convertToPinyin(text);
-                for (HanlpPinyinConverter converter : converters) {
+                for (HanLpPinyinConverter converter : converters) {
                     CharSequence pinyinTerm = converter.convert(text, pinyin);
                     if (pinyinTerm != null && pinyinTerm.length() > 0) {
                         queue.offer(pinyinTerm);

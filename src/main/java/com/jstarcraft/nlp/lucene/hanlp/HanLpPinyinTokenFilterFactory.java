@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.util.TokenFilterFactory;
 
-public class HanlpPinyinTokenFilterFactory extends TokenFilterFactory {
+public class HanLpPinyinTokenFilterFactory extends TokenFilterFactory {
 
     private boolean original;
     private boolean pinyin;
@@ -18,7 +18,7 @@ public class HanlpPinyinTokenFilterFactory extends TokenFilterFactory {
      *
      * @param args 通过这个Map保存xml中的配置项
      */
-    public HanlpPinyinTokenFilterFactory(Map<String, String> args) {
+    public HanLpPinyinTokenFilterFactory(Map<String, String> args) {
         super(args);
         original = getBoolean(args, "original", true);
         pinyin = getBoolean(args, "pinyin", true);
@@ -27,14 +27,14 @@ public class HanlpPinyinTokenFilterFactory extends TokenFilterFactory {
 
     @Override
     public TokenStream create(TokenStream input) {
-        List<HanlpPinyinConverter> converters = new ArrayList<>();
+        List<HanLpPinyinConverter> converters = new ArrayList<>();
         if (pinyin) {
-            converters.add(new HanlpPinyinConverter.ToPinyinString());
+            converters.add(new HanLpPinyinConverter.ToPinyinString());
         }
         if (pinyinFirstChar) {
-            converters.add(new HanlpPinyinConverter.ToPinyinFirstCharString());
+            converters.add(new HanLpPinyinConverter.ToPinyinFirstCharString());
         }
-        return new HanlpPinyinTokenFilter(input, original, converters);
+        return new HanLpPinyinTokenFilter(input, original, converters);
     }
 
 }

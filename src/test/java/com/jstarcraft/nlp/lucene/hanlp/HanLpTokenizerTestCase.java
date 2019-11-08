@@ -15,13 +15,13 @@ import org.junit.Test;
 
 import com.hankcs.hanlp.HanLP;
 
-public class HanlpTokenizerTestCase {
+public class HanLpTokenizerTestCase {
 
     Tokenizer tokenizer;
 
     @Before
     public void setUp() throws Exception {
-        tokenizer = new HanlpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
+        tokenizer = new HanLpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
         tokenizer.setReader(new StringReader("林志玲亮相网友:确定不是波多野结衣？"));
         tokenizer.reset();
     }
@@ -43,7 +43,7 @@ public class HanlpTokenizerTestCase {
     @Test
     public void testMultiText() throws Exception {
         String[] sentences = new String[] { "中华人民共和国", "地大物博" };
-        tokenizer = new HanlpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
+        tokenizer = new HanLpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
         for (String sentence : sentences) {
             tokenizer.setReader(new StringReader(sentence));
             tokenizer.reset();
@@ -58,7 +58,7 @@ public class HanlpTokenizerTestCase {
         args.put("original", "true");
         args.put("pinyin", "false");
         args.put("pinyinFirstChar", "true");
-        HanlpPinyinTokenFilterFactory factory = new HanlpPinyinTokenFilterFactory(args);
+        HanLpPinyinTokenFilterFactory factory = new HanLpPinyinTokenFilterFactory(args);
         TokenStream tokenStream = factory.create(tokenizer);
         while (tokenStream.incrementToken()) {
             CharTermAttribute attribute = tokenizer.getAttribute(CharTermAttribute.class);

@@ -11,7 +11,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
         CoreNlpTokenizerTestCase.class,
 
-        HanlpTokenizerTestCase.class,
+        HanLpTokenizerTestCase.class,
 
         IkTokenizerTestCase.class,
 

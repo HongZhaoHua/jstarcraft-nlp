@@ -7,14 +7,14 @@ import com.hankcs.hanlp.dictionary.py.Pinyin;
 /**
  * 拼音字符串
  */
-public interface HanlpPinyinConverter {
+public interface HanLpPinyinConverter {
 
     CharSequence convert(String text, List<Pinyin> pinyin);
 
     /**
      * 全拼,HanLP.convertToPinyinString
      */
-    class ToPinyinString implements HanlpPinyinConverter {
+    class ToPinyinString implements HanLpPinyinConverter {
         private StringBuilder buffer = new StringBuilder(32);
 
         @Override
@@ -32,7 +32,7 @@ public interface HanlpPinyinConverter {
     /**
      * 首字母,HanLP.convertToPinyinFirstCharString
      */
-    class ToPinyinFirstCharString implements HanlpPinyinConverter {
+    class ToPinyinFirstCharString implements HanLpPinyinConverter {
         private StringBuilder buffer = new StringBuilder(32);
 
         @Override

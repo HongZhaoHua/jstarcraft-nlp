@@ -7,7 +7,7 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
 
 import com.jstarcraft.nlp.lucene.jcseg.JcsegTokenizer;
 
-public class JcsegTokenizerTestCase extends NlpTokenizerTestCase {
+public class JcsegSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
     protected Tokenizer getTokenizer() {

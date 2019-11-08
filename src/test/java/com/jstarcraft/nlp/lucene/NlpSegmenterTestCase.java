@@ -10,7 +10,7 @@ import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.junit.Assert;
 import org.junit.Test;
 
-public abstract class NlpTokenizerTestCase {
+public abstract class NlpSegmenterTestCase {
 
     protected abstract Tokenizer getTokenizer();
 

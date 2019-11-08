@@ -6,7 +6,7 @@ import com.chenlb.mmseg4j.ComplexSeg;
 import com.chenlb.mmseg4j.Dictionary;
 import com.jstarcraft.nlp.lucene.mmseg.MmsegTokenizer;
 
-public class MmsegTokenizerTestCase extends NlpTokenizerTestCase {
+public class MmsegSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
     protected Tokenizer getTokenizer() {

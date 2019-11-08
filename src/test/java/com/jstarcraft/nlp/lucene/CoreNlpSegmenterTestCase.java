@@ -8,7 +8,7 @@ import com.jstarcraft.nlp.lucene.corenlp.CoreNlpTokenizer;
 
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
-public class CoreNlpTokenizerTestCase extends NlpTokenizerTestCase {
+public class CoreNlpSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
     protected Tokenizer getTokenizer() {

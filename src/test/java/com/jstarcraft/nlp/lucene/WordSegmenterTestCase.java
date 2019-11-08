@@ -7,7 +7,7 @@ import org.apdplat.word.segmentation.SegmentationFactory;
 
 import com.jstarcraft.nlp.lucene.word.WordTokenizer;
 
-public class WordTokenizerTestCase extends NlpTokenizerTestCase {
+public class WordSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
     protected Tokenizer getTokenizer() {

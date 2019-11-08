@@ -7,7 +7,7 @@ import org.apache.lucene.analysis.Tokenizer;
 
 import com.jstarcraft.nlp.lucene.ansj.AnsjTokenizer;
 
-public class AnsjTokenizerTestCase extends NlpTokenizerTestCase {
+public class AnsjSegmenterTestCase extends NlpSegmenterTestCase {
 
     @Override
     protected Tokenizer getTokenizer() {

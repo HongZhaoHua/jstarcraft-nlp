@@ -1,7 +1,5 @@
 package com.jstarcraft.nlp.tokenization;
 
-import java.util.Collections;
-
 import org.ansj.splitWord.analysis.BaseAnalysis;
 
 import com.jstarcraft.nlp.tokenization.ansj.AnsjTokenizer;

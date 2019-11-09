@@ -18,6 +18,17 @@ import com.jstarcraft.nlp.tokenization.NlpToken;
 import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 import com.jstarcraft.nlp.tokenization.hanlp.HanLpTokenizer;
 
+/**
+ * HanLP工厂
+ * 
+ * <pre>
+ * HanLP配置说明
+ * https://github.com/hankcs/hanlp-lucene-plugin/blob/master/README.md#%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE
+ * </pre>
+ * 
+ * @author Birdy
+ *
+ */
 public class HanLpSegmentFactory extends NlpSegmentFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HanLpSegmentFactory.class);

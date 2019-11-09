@@ -1,11 +1,9 @@
 package com.jstarcraft.nlp.solr.ansj;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.ansj.library.AmbiguityLibrary;
 import org.ansj.library.CrfLibrary;
@@ -39,7 +37,7 @@ import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 import com.jstarcraft.nlp.tokenization.ansj.AnsjTokenizer;
 
 /**
- * Ansj分词工厂
+ * Ansj工厂
  * 
  * <pre>
  * Ansj配置说明

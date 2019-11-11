@@ -21,7 +21,7 @@
     * [设置依赖](#设置依赖)
     * [配置第三方框架](#配置第三方框架)
         * [配置Ansj](#配置Ansj)
-        * [配置Stanford CoreNLP](#配置Stanford CoreNLP)
+        * [配置Stanford CoreNLP](#配置Stanford-CoreNLP)
         * [配置HanLP](#配置HanLP)
         * [配置IK](#配置IK)
         * [配置Jcseg](#配置Jcseg)
@@ -158,7 +158,7 @@ compile group: 'com.jstarcraft', name: 'nlp', version: '1.0'
 | :----: | :----: | :----: |
 | 名称 | 功能 | 默认值 |
 
-###### 配置Stanford CoreNLP
+###### 配置Stanford-CoreNLP
 
 | 名称 | 功能 | 默认值 |
 | :----: | :----: | :----: |

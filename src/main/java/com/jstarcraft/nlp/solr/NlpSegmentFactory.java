@@ -21,7 +21,7 @@ import com.jstarcraft.nlp.tokenization.NlpTokenizer;
  * @author Birdy
  *
  */
-public abstract class NlpSegmentFactory extends TokenizerFactory {
+public abstract class NlpSegmentFactory<T> extends TokenizerFactory implements NlpFactory<T> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NlpSegmentFactory.class);
 

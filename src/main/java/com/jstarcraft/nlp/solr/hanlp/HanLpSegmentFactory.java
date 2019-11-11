@@ -29,7 +29,7 @@ import com.jstarcraft.nlp.tokenization.hanlp.HanLpTokenizer;
  * @author Birdy
  *
  */
-public class HanLpSegmentFactory extends NlpSegmentFactory {
+public class HanLpSegmentFactory extends NlpSegmentFactory<Segment> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HanLpSegmentFactory.class);
 
@@ -39,33 +39,7 @@ public class HanLpSegmentFactory extends NlpSegmentFactory {
 
     @Override
     protected NlpTokenizer<? extends NlpToken> getNlpTokenizer(Map<String, String> configurations) {
-        String algorithm = get(configurations, "algorithm", "viterbi");
-        Segment segment = HanLP.newSegment(algorithm);
-
-        // 设置模式
-        segment.enableIndexMode(getBoolean(configurations, "enableIndexMode", false));
-
-        segment.enableOffset(true);
-
-        // 是否识别数词和量词
-        segment.enableNumberQuantifierRecognize(getBoolean(configurations, "enableNumberQuantifierRecognize", false));
-
-        // 是否识别人名
-        segment.enableNameRecognize(getBoolean(configurations, "enableNameRecognize", false));
-
-        // 是否识别音译名
-        // TODO 考虑是否依赖enableNameRecognize
-        segment.enableTranslatedNameRecognize(getBoolean(configurations, "enableTranslatedNameRecognize", false));
-
-        // 是否识别日本名?
-        // TODO 考虑是否依赖enableNameRecognize
-        segment.enableJapaneseNameRecognize(getBoolean(configurations, "enableJapaneseNameRecognize", false));
-
-        // 是否识别组织名
-        segment.enableOrganizationRecognize(getBoolean(configurations, "enableOrganizationRecognize", false));
-
-        // 是否识别地名
-        segment.enablePlaceRecognize(getBoolean(configurations, "enablePlaceRecognize", false));
+        Segment segment = build(configurations);
 
         // 是否执行字符正规化(繁体->简体,全角->半角,大写->小写)
         HanLP.Config.Normalization = getBoolean(configurations, "enableNormalization", HanLP.Config.Normalization);
@@ -109,6 +83,38 @@ public class HanLpSegmentFactory extends NlpSegmentFactory {
 
         HanLpTokenizer tokenizer = new HanLpTokenizer(segment);
         return tokenizer;
+    }
+
+    @Override
+    public Segment build(Map<String, String> configurations) {
+        String algorithm = get(configurations, "algorithm", "viterbi");
+        Segment segment = HanLP.newSegment(algorithm);
+
+        // 设置模式
+        segment.enableIndexMode(getBoolean(configurations, "enableIndexMode", false));
+
+        segment.enableOffset(true);
+
+        // 是否识别数词和量词
+        segment.enableNumberQuantifierRecognize(getBoolean(configurations, "enableNumberQuantifierRecognize", false));
+
+        // 是否识别人名
+        segment.enableNameRecognize(getBoolean(configurations, "enableNameRecognize", false));
+
+        // 是否识别音译名
+        // TODO 考虑是否依赖enableNameRecognize
+        segment.enableTranslatedNameRecognize(getBoolean(configurations, "enableTranslatedNameRecognize", false));
+
+        // 是否识别日本名?
+        // TODO 考虑是否依赖enableNameRecognize
+        segment.enableJapaneseNameRecognize(getBoolean(configurations, "enableJapaneseNameRecognize", false));
+
+        // 是否识别组织名
+        segment.enableOrganizationRecognize(getBoolean(configurations, "enableOrganizationRecognize", false));
+
+        // 是否识别地名
+        segment.enablePlaceRecognize(getBoolean(configurations, "enablePlaceRecognize", false));
+        return segment;
     }
 
 }

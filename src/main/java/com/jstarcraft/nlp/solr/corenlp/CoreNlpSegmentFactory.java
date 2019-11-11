@@ -15,7 +15,7 @@ import com.jstarcraft.nlp.tokenization.corenlp.CoreNlpTokenizer;
 import edu.stanford.nlp.pipeline.Annotator;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
-public class CoreNlpSegmentFactory extends NlpSegmentFactory {
+public class CoreNlpSegmentFactory extends NlpSegmentFactory<Annotator> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CoreNlpSegmentFactory.class);
 
@@ -25,6 +25,13 @@ public class CoreNlpSegmentFactory extends NlpSegmentFactory {
 
     @Override
     protected NlpTokenizer<? extends NlpToken> getNlpTokenizer(Map<String, String> configurations) {
+        Annotator annotator = build(configurations);
+        CoreNlpTokenizer tokenizer = new CoreNlpTokenizer(annotator);
+        return tokenizer;
+    }
+
+    @Override
+    public Annotator build(Map<String, String> configurations) {
         Properties properties = new Properties();
         for (Entry<String, String> keyValue : configurations.entrySet()) {
             String key = keyValue.getKey();
@@ -32,8 +39,7 @@ public class CoreNlpSegmentFactory extends NlpSegmentFactory {
             properties.put(key, value);
         }
         Annotator annotator = new StanfordCoreNLP(properties);
-        CoreNlpTokenizer tokenizer = new CoreNlpTokenizer(annotator);
-        return tokenizer;
+        return annotator;
     }
 
 }

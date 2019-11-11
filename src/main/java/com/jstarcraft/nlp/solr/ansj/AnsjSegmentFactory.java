@@ -47,7 +47,7 @@ import com.jstarcraft.nlp.tokenization.ansj.AnsjTokenizer;
  * @author Birdy
  *
  */
-public class AnsjSegmentFactory extends NlpSegmentFactory {
+public class AnsjSegmentFactory extends NlpSegmentFactory<Analysis> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AnsjSegmentFactory.class);
 
@@ -63,80 +63,9 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
 
     @Override
     protected NlpTokenizer<? extends NlpToken> getNlpTokenizer(Map<String, String> configurations) {
-        Analysis analysis = null;
-        String configuration = get(configurations, "ansjType", AnsjType.Base.name());
-        switch (AnsjType.valueOf(configuration)) {
-        case Base:
-            analysis = new BaseAnalysis();
-            break;
-        case Dictionary:
-            analysis = new DicAnalysis();
-            break;
-        case Index:
-            analysis = new IndexAnalysis();
-            break;
-        case Nlp:
-            NlpAnalysis nlp = new NlpAnalysis();
-            configuration = get(configurations, CrfLibrary.DEFAULT);
-            if (StringUtil.isNotBlank(configuration)) {
-                // 自定义CRF模型
-                // https://github.com/NLPchina/ansj_seg/wiki/%E5%AE%9A%E5%88%B6%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84CRF%E6%A8%A1%E5%9E%8B
-                nlp.setCrfModel(CrfLibrary.get(configuration));
-            }
-            analysis = nlp;
-            break;
-        case Query:
-            analysis = new ToAnalysis();
-            break;
-        default:
-            throw new IllegalArgumentException();
-        }
+        Analysis analysis = build(configurations);
 
-        // 自定义词典
-        configuration = get(configurations, DicLibrary.DEFAULT);
-        if (StringUtil.isNotBlank(configuration)) {
-            String[] keys = configuration.split(",");
-            Forest[] forests = new Forest[keys.length];
-            for (int index = 0; index < forests.length; index++) {
-                if (StringUtil.isBlank(keys[index])) {
-                    continue;
-                }
-                forests[index] = DicLibrary.get(keys[index].trim());
-            }
-            analysis.setForests(forests);
-        }
-
-        // 自定义多义词
-        configuration = get(configurations, AmbiguityLibrary.DEFAULT);
-        if (StringUtil.isNotBlank(configuration)) {
-            Forest ambiguity = AmbiguityLibrary.get(configuration.trim());
-            analysis.setAmbiguityForest(ambiguity);
-        }
-
-        // 是否识别名称
-        configuration = get(configurations, "isNameRecognition");
-        if (StringUtil.isNotBlank(configuration)) {
-            analysis.setIsNameRecognition(Boolean.valueOf(configuration));
-        }
-
-        // 是否识别数词
-        configuration = get(configurations, "isNumRecognition");
-        if (StringUtil.isNotBlank(configuration)) {
-            analysis.setIsNumRecognition(Boolean.valueOf(configuration));
-
-            // 是否识别量词
-            configuration = get(configurations, "isQuantifierRecognition");
-            if (StringUtil.isNotBlank(configuration)) {
-                analysis.setIsQuantifierRecognition(Boolean.valueOf(configuration));
-            }
-        }
-
-        // 是否保留字符
-        configuration = get(configurations, "isRealName");
-        if (StringUtil.isNotBlank(configuration)) {
-            analysis.setIsRealName(Boolean.valueOf(configuration));
-        }
-
+        String configuration = null;
         // 识别器
         List<Recognition> recognitions = new LinkedList<>();
         for (String proprety : new ArrayList<>(configurations.keySet())) {
@@ -249,6 +178,84 @@ public class AnsjSegmentFactory extends NlpSegmentFactory {
 
         AnsjTokenizer tokenizer = new AnsjTokenizer(analysis, recognitions);
         return tokenizer;
+    }
+
+    @Override
+    public Analysis build(Map<String, String> configurations) {
+        Analysis analysis = null;
+        String configuration = get(configurations, "ansjType", AnsjType.Base.name());
+        switch (AnsjType.valueOf(configuration)) {
+        case Base:
+            analysis = new BaseAnalysis();
+            break;
+        case Dictionary:
+            analysis = new DicAnalysis();
+            break;
+        case Index:
+            analysis = new IndexAnalysis();
+            break;
+        case Nlp:
+            NlpAnalysis nlp = new NlpAnalysis();
+            configuration = get(configurations, CrfLibrary.DEFAULT);
+            if (StringUtil.isNotBlank(configuration)) {
+                // 自定义CRF模型
+                // https://github.com/NLPchina/ansj_seg/wiki/%E5%AE%9A%E5%88%B6%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84CRF%E6%A8%A1%E5%9E%8B
+                nlp.setCrfModel(CrfLibrary.get(configuration));
+            }
+            analysis = nlp;
+            break;
+        case Query:
+            analysis = new ToAnalysis();
+            break;
+        default:
+            throw new IllegalArgumentException();
+        }
+
+        configuration = get(configurations, DicLibrary.DEFAULT);
+        if (StringUtil.isNotBlank(configuration)) {
+            String[] keys = configuration.split(",");
+            Forest[] forests = new Forest[keys.length];
+            for (int index = 0; index < forests.length; index++) {
+                if (StringUtil.isBlank(keys[index])) {
+                    continue;
+                }
+                forests[index] = DicLibrary.get(keys[index].trim());
+            }
+            analysis.setForests(forests);
+        }
+
+        // 自定义多义词
+        configuration = get(configurations, AmbiguityLibrary.DEFAULT);
+        if (StringUtil.isNotBlank(configuration)) {
+            Forest ambiguity = AmbiguityLibrary.get(configuration.trim());
+            analysis.setAmbiguityForest(ambiguity);
+        }
+
+        // 是否识别名称
+        configuration = get(configurations, "isNameRecognition");
+        if (StringUtil.isNotBlank(configuration)) {
+            analysis.setIsNameRecognition(Boolean.valueOf(configuration));
+        }
+
+        // 是否识别数词
+        configuration = get(configurations, "isNumRecognition");
+        if (StringUtil.isNotBlank(configuration)) {
+            analysis.setIsNumRecognition(Boolean.valueOf(configuration));
+
+            // 是否识别量词
+            configuration = get(configurations, "isQuantifierRecognition");
+            if (StringUtil.isNotBlank(configuration)) {
+                analysis.setIsQuantifierRecognition(Boolean.valueOf(configuration));
+            }
+        }
+
+        // 是否保留字符
+        configuration = get(configurations, "isRealName");
+        if (StringUtil.isNotBlank(configuration)) {
+            analysis.setIsRealName(Boolean.valueOf(configuration));
+        }
+
+        return analysis;
     }
 
 }

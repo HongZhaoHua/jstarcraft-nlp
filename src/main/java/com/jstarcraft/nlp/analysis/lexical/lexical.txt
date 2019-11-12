@@ -3,3 +3,6 @@ https://baike.baidu.com/item/%E8%AF%8D%E6%80%A7/6860067?fr=aladdin
 
 自然语言处理之词性标注集:
 https://www.biaodianfu.com/pos-tagging-set.html
+
+Jcseg的词性对照:
+https://github.com/lionsoul2014/jcseg#%E7%9B%B8%E5%85%B3%E9%99%84%E5%BD%95

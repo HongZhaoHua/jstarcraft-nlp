@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
-import io.github.yizhiru.thulac4j.Segmenter;
+import io.github.yizhiru.thulac4j.SPChineseTokenizer;
+import io.github.yizhiru.thulac4j.term.TokenItem;
 
 /**
  * THULAC分词器
@@ -14,9 +15,15 @@ import io.github.yizhiru.thulac4j.Segmenter;
  */
 public class ThulacTokenizer implements NlpTokenizer<ThulacToken> {
 
+    private SPChineseTokenizer tokenizer;
+
+    public ThulacTokenizer(SPChineseTokenizer tokenizer) {
+        this.tokenizer = tokenizer;
+    }
+
     @Override
     public Iterable<ThulacToken> tokenize(CharSequence text) {
-        List<String> iterator = Segmenter.segment(text.toString());
+        List<TokenItem> iterator = tokenizer.tokenize(text.toString());
         ThulacToken iterable = new ThulacToken(iterator.iterator(), text.toString());
         return iterable;
     }

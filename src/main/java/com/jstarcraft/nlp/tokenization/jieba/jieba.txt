@@ -1,0 +1,2 @@
+中文分词工具jieba中的词性类型:
+https://www.cnblogs.com/adienhsuan/p/5674033.html

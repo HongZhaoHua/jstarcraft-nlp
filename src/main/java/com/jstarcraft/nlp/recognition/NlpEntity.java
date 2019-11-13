@@ -1,7 +1,7 @@
 package com.jstarcraft.nlp.recognition;
 
 /**
- * 实体
+ * NLP实体
  * 
  * @author Birdy
  *

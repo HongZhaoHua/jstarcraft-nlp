@@ -1,7 +1,7 @@
 package com.jstarcraft.nlp.tokenization;
 
 /**
- * 分词器
+ * NLP分词器
  * 
  * @author Birdy
  *

@@ -183,6 +183,7 @@ public class AnsjSegmentFactory extends NlpSegmentFactory<KeyValue<Analysis, Lis
                 break;
             case "isKilobitRecognition":
                 // 千位识别
+                // TODO 此识别器似乎有Bug?与EmailRecognition极度相似.
                 configuration = get(configurations, proprety);
                 if (StringUtil.isNotBlank(configuration)) {
                     if (Boolean.valueOf(configuration)) {

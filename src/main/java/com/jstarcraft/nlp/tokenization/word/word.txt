@@ -1,0 +1,2 @@
+词性标注:
+https://github.com/ysc/word/blob/master/src/main/resources/part_of_speech_des.txt

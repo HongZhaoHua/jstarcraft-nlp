@@ -1,5 +1,7 @@
 package com.jstarcraft.nlp.recognition;
 
+import com.jstarcraft.nlp.tokenization.NlpToken;
+
 /**
  * NLP识别器
  * 
@@ -7,5 +9,13 @@ package com.jstarcraft.nlp.recognition;
  *
  */
 public interface NlpRecognizer {
+
+    /**
+     * 识别
+     * 
+     * @param token
+     * @return
+     */
+    boolean recognize(NlpToken token);
 
 }

@@ -1,6 +1,6 @@
 package com.jstarcraft.nlp.dictionary.mmseg;
 
-import com.chenlb.mmseg4j.Dictionary;
+import com.chenlb.mmseg4j.CharNode;
 import com.jstarcraft.nlp.dictionary.NlpDictionary;
 
 /**
@@ -11,15 +11,15 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
  */
 public class MmsegDictionary implements NlpDictionary {
 
-    private Dictionary dictionary;
+    private CharNode node;
 
-    public MmsegDictionary(Dictionary dictionary) {
-        this.dictionary = dictionary;
+    public MmsegDictionary(CharNode node) {
+        this.node = node;
     }
 
     @Override
     public boolean contain(String text) {
-        return dictionary.match(text);
+        return node.indexOf(text.toCharArray(), -1, text.length()) > 0;
     }
 
 }

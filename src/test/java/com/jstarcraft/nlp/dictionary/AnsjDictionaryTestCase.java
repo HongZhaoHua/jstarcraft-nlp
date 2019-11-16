@@ -7,10 +7,11 @@ import com.jstarcraft.nlp.dictionary.ansj.AnsjDictionary;
 public class AnsjDictionaryTestCase extends NlpDictionaryTestCase {
 
     @Override
-    protected NlpDictionary getDictionary() {
+    protected NlpDictionary getDictionary(String... texts) {
         SmartForest<Boolean> forest = new SmartForest<Boolean>();
-        forest.add("中华", true);
-        forest.add("中华人民共和国", true);
+        for (String text : texts) {
+            forest.add(text, true);
+        }
         AnsjDictionary dictionary = new AnsjDictionary(forest);
         return dictionary;
     }

@@ -20,7 +20,7 @@ public class CoreNlpDictionary implements NlpDictionary {
 
     @Override
     public boolean contain(String text) {
-        return trie.containsKey(text);
+        return trie.containsKey(new String[] { text });
     }
 
 }

@@ -7,10 +7,11 @@ import com.jstarcraft.nlp.dictionary.ik.IkDictionary;
 public class IkDictionaryTestCase extends NlpDictionaryTestCase {
 
     @Override
-    protected NlpDictionary getDictionary() {
+    protected NlpDictionary getDictionary(String... texts) {
         IkSegment segment = new IkSegment();
-        segment.enableSegment("中华".toCharArray());
-        segment.enableSegment("中华人民共和国".toCharArray());
+        for (String text : texts) {
+            segment.enableSegment(text.toCharArray());
+        }
         IkDictionary dictionary = new IkDictionary(segment);
         return dictionary;
     }

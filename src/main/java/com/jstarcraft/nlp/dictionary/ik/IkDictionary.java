@@ -1,7 +1,7 @@
 package com.jstarcraft.nlp.dictionary.ik;
 
-import org.wltea.analyzer.dic.Dictionary;
 import org.wltea.analyzer.dic.Hit;
+import org.wltea.analyzer.dic.IkSegment;
 
 import com.jstarcraft.nlp.dictionary.NlpDictionary;
 
@@ -13,15 +13,15 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
  */
 public class IkDictionary implements NlpDictionary {
 
-    private Dictionary dictionary;
+    private IkSegment segment;
 
-    public IkDictionary(Dictionary dictionary) {
-        this.dictionary = dictionary;
+    public IkDictionary(IkSegment segment) {
+        this.segment = segment;
     }
 
     @Override
     public boolean contain(String text) {
-        Hit hit = dictionary.matchInMainDict(text.toCharArray());
+        Hit hit = segment.match(text.toCharArray());
         return hit.isMatch();
     }
 

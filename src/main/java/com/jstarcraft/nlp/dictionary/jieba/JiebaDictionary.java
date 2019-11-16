@@ -1,6 +1,8 @@
 package com.jstarcraft.nlp.dictionary.jieba;
 
-import com.huaban.analysis.jieba.WordDictionary;
+
+import com.huaban.analysis.jieba.Hit;
+import com.huaban.analysis.jieba.JiebaSegment;
 import com.jstarcraft.nlp.dictionary.NlpDictionary;
 
 /**
@@ -11,15 +13,16 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
  */
 public class JiebaDictionary implements NlpDictionary {
 
-    private WordDictionary dictionary;
+    private JiebaSegment segment;
 
-    public JiebaDictionary(WordDictionary dictionary) {
-        this.dictionary = dictionary;
+    public JiebaDictionary(JiebaSegment segment) {
+        this.segment = segment;
     }
 
     @Override
     public boolean contain(String text) {
-        return dictionary.containsWord(text);
+        Hit hit = segment.match(text.toCharArray());
+        return hit.isMatch();
     }
 
 }

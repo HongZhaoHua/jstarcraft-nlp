@@ -13,11 +13,11 @@ https://github.com/NLPchina/nlp-lang
 本项目目的在于构建一个标准化的NLP处理框架,提供企业级的API,以及各种推荐实现和测试包:
 https://github.com/cocolian/cocolian-nlp
 
-word2vec java版本的一个实现:
-https://github.com/NLPchina/Word2VEC_java
-
 中文自然语言处理工具集:
 https://github.com/kidden/nlp4han
+
+word2vec java版本的一个实现:
+https://github.com/NLPchina/Word2VEC_java
 
 中文分词工具探析:
 https://www.cnblogs.com/en-heng/p/6225117.html

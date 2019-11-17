@@ -4,6 +4,7 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
 import com.mayabot.nlp.collection.dat.DoubleArrayTrieStringIntMap;
 
 /**
+ * MYNLP词典
  * https://github.com/mayabot/mynlp/wiki/CustomDict
  * 
  * @author Birdy

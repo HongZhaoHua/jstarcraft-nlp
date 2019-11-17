@@ -6,6 +6,7 @@ import org.wltea.analyzer.dic.IkSegment;
 import com.jstarcraft.nlp.dictionary.NlpDictionary;
 
 /**
+ * IK词典
  * https://tool.oschina.net/uploads/apidocs/ikanalyzer/org/wltea/analyzer/dic/Dictionary.html
  * 
  * @author Birdy

@@ -10,6 +10,9 @@ https://blog.csdn.net/blueorris/article/details/96633591
 项目是一个基本包.封装了大多数nlp项目中常用工具:
 https://github.com/NLPchina/nlp-lang
 
+本项目目的在于构建一个标准化的NLP处理框架,提供企业级的API,以及各种推荐实现和测试包:
+https://github.com/cocolian/cocolian-nlp
+
 word2vec java版本的一个实现:
 https://github.com/NLPchina/Word2VEC_java
 

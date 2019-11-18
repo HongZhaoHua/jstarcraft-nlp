@@ -1,4 +1,6 @@
 语种识别
+ISO 639-1:
+https://baike.baidu.com/item/ISO%20639-1
 
 Language Detection Library for Java:
 https://github.com/optimaize/language-detector

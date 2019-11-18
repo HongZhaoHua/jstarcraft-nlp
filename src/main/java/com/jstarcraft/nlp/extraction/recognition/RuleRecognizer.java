@@ -1,5 +1,8 @@
 package com.jstarcraft.nlp.extraction.recognition;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -10,10 +13,16 @@ import com.jstarcraft.nlp.tokenization.NlpToken;
  */
 public class RuleRecognizer implements NlpRecognizer {
 
+    private Pattern pattern;
+
+    public RuleRecognizer(Pattern pattern) {
+        this.pattern = pattern;
+    }
+
     @Override
     public boolean recognize(NlpToken token) {
-        // TODO Auto-generated method stub
-        return false;
+        Matcher matcher = pattern.matcher(token.getTerm());
+        return matcher.matches();
     }
 
 }

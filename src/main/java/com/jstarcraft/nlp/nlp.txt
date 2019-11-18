@@ -1,3 +1,6 @@
+funNLP,收集很多github上的包,遂整理了一下,后续会不断更新:
+https://github.com/fighting41love/funNLP
+
 自然语言处理(NLP)一些任务的总结:
 https://www.jianshu.com/p/d80b065bdcf0
 

@@ -1,0 +1,7 @@
+语言检测
+
+Language Detection Library for Java:
+https://github.com/optimaize/language-detector
+
+This is a language detection library implemented in plain Java. (aliases: language identification, language guessing):
+https://github.com/shuyo/language-detection

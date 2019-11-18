@@ -1,4 +1,4 @@
-语言检测
+语种识别
 
 Language Detection Library for Java:
 https://github.com/optimaize/language-detector

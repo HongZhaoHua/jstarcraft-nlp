@@ -1,5 +1,7 @@
 package com.jstarcraft.nlp.tokenization;
 
+import com.jstarcraft.core.utility.KeyValue;
+
 /**
  * NLP词元
  * 
@@ -28,5 +30,14 @@ public interface NlpToken {
      * @return
      */
     int getEnd();
+
+    /**
+     * 获取词性
+     * 
+     * @return
+     */
+    default KeyValue<NlpTag, String> getTag() {
+        throw new UnsupportedOperationException();
+    }
 
 }

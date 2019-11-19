@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.extraction.recognition;
+package com.jstarcraft.nlp.extraction.entity.recognition;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

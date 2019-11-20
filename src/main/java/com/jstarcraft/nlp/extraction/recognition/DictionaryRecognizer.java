@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.extraction.entity.recognition;
+package com.jstarcraft.nlp.extraction.recognition;
 
 import com.jstarcraft.nlp.dictionary.NlpDictionary;
 import com.jstarcraft.nlp.tokenization.NlpToken;

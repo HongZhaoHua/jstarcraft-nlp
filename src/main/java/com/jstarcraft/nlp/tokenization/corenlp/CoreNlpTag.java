@@ -3,7 +3,7 @@ package com.jstarcraft.nlp.tokenization.corenlp;
 import com.jstarcraft.nlp.tokenization.NlpTag;
 
 /**
- * Ansj词性(核心)
+ * CoreNLP词性(核心)
  * 
  * @author Birdy
  *

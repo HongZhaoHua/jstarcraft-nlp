@@ -71,4 +71,8 @@ public enum JiebaTag {
         this.tag = tag;
     }
 
+    public NlpTag getTag() {
+        return tag;
+    }
+
 }

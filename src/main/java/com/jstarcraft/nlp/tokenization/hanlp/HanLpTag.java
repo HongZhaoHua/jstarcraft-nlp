@@ -69,4 +69,8 @@ public enum HanLpTag {
         this.tag = tag;
     }
 
+    public NlpTag getTag() {
+        return tag;
+    }
+
 }

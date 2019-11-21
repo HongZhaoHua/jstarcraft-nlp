@@ -59,12 +59,18 @@ public enum AnsjTag {
     /** 语气词-助词 */
     Y(NlpTag.U),
     /** 状态词-形容词 */
-    Z(NlpTag.A);
+    Z(NlpTag.A),
+    /** 未知 */
+    NULL(NlpTag.X);
 
     private final NlpTag tag;
 
     AnsjTag(NlpTag tag) {
         this.tag = tag;
+    }
+
+    public NlpTag getTag() {
+        return tag;
     }
 
 }

@@ -69,4 +69,8 @@ public enum ThulacTag {
         this.tag = tag;
     }
 
+    public NlpTag getTag() {
+        return tag;
+    }
+
 }

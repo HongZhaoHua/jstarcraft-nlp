@@ -69,4 +69,8 @@ public enum MynlpTag {
         this.tag = tag;
     }
 
+    public NlpTag getTag() {
+        return tag;
+    }
+
 }

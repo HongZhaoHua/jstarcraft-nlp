@@ -65,4 +65,8 @@ public enum WordTag {
         this.tag = tag;
     }
 
+    public NlpTag getTag() {
+        return tag;
+    }
+
 }

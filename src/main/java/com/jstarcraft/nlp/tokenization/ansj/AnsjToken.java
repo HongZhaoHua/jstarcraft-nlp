@@ -4,7 +4,11 @@ import java.util.Iterator;
 
 import org.ansj.domain.Term;
 
+import com.jstarcraft.core.utility.KeyValue;
+import com.jstarcraft.nlp.tokenization.NlpTag;
 import com.jstarcraft.nlp.tokenization.NlpToken;
+
+import it.unimi.dsi.fastutil.chars.Char2ObjectMap;
 
 /**
  * Ansj词元

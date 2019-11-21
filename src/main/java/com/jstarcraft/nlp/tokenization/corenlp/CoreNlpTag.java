@@ -49,64 +49,64 @@ public enum CoreNlpTag {
 
     /** 未知 */
     FW(NlpTag.X),
-    
+
     /** 叹词 */
     IJ(NlpTag.E),
-    
+
     /** 形容词 */
     JJ(NlpTag.A),
-    
+
     /** 介词 */
     LB(NlpTag.P),
-    
+
     /** 名词 */
     LC(NlpTag.N),
-    
+
     /** 量词 */
     M(NlpTag.Q),
-    
+
     /** 助词 */
     MSP(NlpTag.U),
-    
+
     /** 名词 */
     NN(NlpTag.N),
-    
+
     /** 名词 */
     NR(NlpTag.N),
-    
+
     /** 名词 */
     NT(NlpTag.N),
-    
+
     /** 数词 */
     OD(NlpTag.M),
-    
+
     /** 拟声词 */
     ON(NlpTag.O),
-    
+
     /** 介词 */
     P(NlpTag.P),
-    
+
     /** 代词 */
     PN(NlpTag.R),
-    
+
     /** 标点符号 */
     PU(NlpTag.W),
-    
+
     /** 介词 */
     SB(NlpTag.P),
-    
+
     /** 助词 */
     SP(NlpTag.U),
-    
+
     /** 形容词 */
     VA(NlpTag.A),
-    
+
     /** 动词 */
     VC(NlpTag.V),
-    
+
     /** 动词 */
     VE(NlpTag.V),
-    
+
     /** 动词 */
     VV(NlpTag.V),
 
@@ -116,6 +116,10 @@ public enum CoreNlpTag {
 
     CoreNlpTag(NlpTag tag) {
         this.tag = tag;
+    }
+
+    public NlpTag getTag() {
+        return tag;
     }
 
 }

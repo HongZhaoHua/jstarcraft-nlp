@@ -4,6 +4,9 @@ https://baike.baidu.com/item/%E8%AF%8D%E6%80%A7/6860067
 现代汉语语料库加工规范-词语切分与词性标注:
 https://www.cnblogs.com/yuanjiangw/p/7995210.html
 
+Penn Treebank:
+https://www.cnblogs.com/plwang1990/p/4168256.html
+
 中文句法标注,宾州树和北大规范详解:
 https://blog.csdn.net/qq_14840399/article/details/79550280
 

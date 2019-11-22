@@ -74,7 +74,7 @@ public enum WordTag {
     V(NlpTag.V),
 
     /** 英语 */
-    W(NlpTag.W),
+    W(NlpTag.X),
 
     /** 语气词-助词 */
     Y(NlpTag.U),

@@ -28,8 +28,8 @@ public enum ThulacTag {
     /** 方位词-名词 */
     F(NlpTag.N),
 
-    /** 学术词 */
-    G(NlpTag.N),
+    /** 语素 */
+    G(NlpTag.X),
 
     /** 前缀 */
     H(NlpTag.X),

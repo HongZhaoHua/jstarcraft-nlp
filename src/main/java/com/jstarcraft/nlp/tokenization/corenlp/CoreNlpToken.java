@@ -2,6 +2,8 @@ package com.jstarcraft.nlp.tokenization.corenlp;
 
 import java.util.Iterator;
 
+import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PennTreebank;
+import com.jstarcraft.nlp.tokenization.NlpTag;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
@@ -18,6 +20,8 @@ public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpTok
     private Iterator<CoreLabel> iterator;
 
     private String text;
+
+    private String nature;
 
     private Integer begin;
 
@@ -41,6 +45,7 @@ public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpTok
     public CoreNlpToken next() {
         CoreLabel label = iterator.next();
         text = label.get(CoreAnnotations.TextAnnotation.class);
+        nature = label.get(CoreAnnotations.PartOfSpeechAnnotation.class);
         begin = label.beginPosition();
         end = label.endPosition();
         return this;
@@ -59,6 +64,16 @@ public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpTok
     @Override
     public int getEnd() {
         return end;
+    }
+
+    @Override
+    public NlpTag getTag() {
+        return PennTreebank.getTag(nature);
+    }
+
+    @Override
+    public String getNature() {
+        return nature;
     }
 
 }

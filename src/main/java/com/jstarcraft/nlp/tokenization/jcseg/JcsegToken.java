@@ -4,6 +4,9 @@ import java.util.Iterator;
 
 import org.lionsoul.jcseg.tokenizer.core.IWord;
 
+import com.hankcs.hanlp.corpus.tag.Nature;
+import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
+import com.jstarcraft.nlp.tokenization.NlpTag;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -51,6 +54,21 @@ public class JcsegToken implements Iterable<JcsegToken>, Iterator<JcsegToken>, N
     @Override
     public int getEnd() {
         return getBegin() + getTerm().length();
+    }
+
+    @Override
+    public NlpTag getTag() {
+        String[] natures = word.getPartSpeech();
+        if (natures == null) {
+            return NlpTag.X;
+        }
+        return PekingUniversity.getTag(natures[0]);
+    }
+
+    @Override
+    public String getNature() {
+        String[] natures = word.getPartSpeech();
+        return natures[0];
     }
 
 }

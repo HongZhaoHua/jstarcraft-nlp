@@ -2,8 +2,11 @@ package com.jstarcraft.nlp.tokenization.ansj;
 
 import java.util.Iterator;
 
+import org.ansj.domain.Nature;
 import org.ansj.domain.Term;
 
+import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
+import com.jstarcraft.nlp.tokenization.NlpTag;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -51,6 +54,20 @@ public class AnsjToken implements Iterable<AnsjToken>, Iterator<AnsjToken>, NlpT
     @Override
     public int getEnd() {
         return getBegin() + getTerm().length();
+    }
+
+    @Override
+    public NlpTag getTag() {
+        Nature nature = term.natrue();
+        if (nature == Nature.NULL) {
+            return NlpTag.X;
+        }
+        return PekingUniversity.getTag(nature.natureStr);
+    }
+
+    @Override
+    public String getNature() {
+        return term.getNatureStr();
     }
 
 }

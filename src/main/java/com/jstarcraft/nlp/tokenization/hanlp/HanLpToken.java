@@ -2,7 +2,10 @@ package com.jstarcraft.nlp.tokenization.hanlp;
 
 import java.util.Iterator;
 
+import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.seg.common.Term;
+import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
+import com.jstarcraft.nlp.tokenization.NlpTag;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -50,6 +53,28 @@ public class HanLpToken implements Iterable<HanLpToken>, Iterator<HanLpToken>, N
     @Override
     public int getEnd() {
         return getBegin() + getTerm().length();
+    }
+
+    @Override
+    public NlpTag getTag() {
+        Nature nature = term.nature;
+        if (nature == Nature.begin) {
+            return NlpTag.X;
+        }
+        if (nature == Nature.end) {
+            return NlpTag.X;
+        }
+        /** 学术词 */
+        if (nature.firstChar() == 'g') {
+            return NlpTag.N;
+        }
+        return PekingUniversity.getTag(nature.toString());
+    }
+
+    @Override
+    public String getNature() {
+        Nature nature = term.nature;
+        return nature.toString();
     }
 
 }

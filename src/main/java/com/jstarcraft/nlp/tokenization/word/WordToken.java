@@ -2,8 +2,12 @@ package com.jstarcraft.nlp.tokenization.word;
 
 import java.util.Iterator;
 
+import org.apdplat.word.segmentation.PartOfSpeech;
 import org.apdplat.word.segmentation.Word;
 
+import com.hankcs.hanlp.corpus.tag.Nature;
+import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
+import com.jstarcraft.nlp.tokenization.NlpTag;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -60,6 +64,26 @@ public class WordToken implements Iterable<WordToken>, Iterator<WordToken>, NlpT
     @Override
     public int getEnd() {
         return end;
+    }
+
+    @Override
+    public NlpTag getTag() {
+        PartOfSpeech nature = word.getPartOfSpeech();
+        // 未知
+        if (nature == PartOfSpeech.I) {
+            return NlpTag.X;
+        }
+        // 英语
+        if (nature.getPos().equalsIgnoreCase("w")) {
+            return NlpTag.X;
+        }
+        return PekingUniversity.getTag(nature.getPos());
+    }
+
+    @Override
+    public String getNature() {
+        PartOfSpeech nature = word.getPartOfSpeech();
+        return nature.getPos();
     }
 
 }

@@ -1,6 +1,6 @@
 package com.jstarcraft.nlp.tokenization.jieba;
 
-import com.jstarcraft.nlp.tokenization.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
 
 /**
  * jieba词性(核心)

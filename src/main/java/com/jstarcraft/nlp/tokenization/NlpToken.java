@@ -1,6 +1,6 @@
 package com.jstarcraft.nlp.tokenization;
 
-import com.jstarcraft.core.utility.KeyValue;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
 
 /**
  * NLP词元

@@ -2,8 +2,8 @@ package com.jstarcraft.nlp.tokenization.mynlp;
 
 import java.util.Iterator;
 
-import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
-import com.jstarcraft.nlp.tokenization.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.PekingUniversityTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 import com.mayabot.nlp.segment.Nature;
 import com.mayabot.nlp.segment.WordTerm;
@@ -67,7 +67,7 @@ public class MynlpToken implements Iterable<MynlpToken>, Iterator<MynlpToken>, N
         if (nature == Nature.newWord) {
             return NlpTag.X;
         }
-        return PekingUniversity.getTag(nature.toString());
+        return PekingUniversityTagger.CHINESE_TAGGER.getTag(nature.toString());
     }
 
     @Override

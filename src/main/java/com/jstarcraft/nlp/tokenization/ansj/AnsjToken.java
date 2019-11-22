@@ -5,8 +5,8 @@ import java.util.Iterator;
 import org.ansj.domain.Nature;
 import org.ansj.domain.Term;
 
-import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
-import com.jstarcraft.nlp.tokenization.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.PekingUniversityTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -62,7 +62,7 @@ public class AnsjToken implements Iterable<AnsjToken>, Iterator<AnsjToken>, NlpT
         if (nature == Nature.NULL) {
             return NlpTag.X;
         }
-        return PekingUniversity.getTag(nature.natureStr);
+        return PekingUniversityTagger.CHINESE_TAGGER.getTag(nature.natureStr);
     }
 
     @Override

@@ -2,8 +2,8 @@ package com.jstarcraft.nlp.tokenization.corenlp;
 
 import java.util.Iterator;
 
-import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PennTreebank;
-import com.jstarcraft.nlp.tokenization.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.PennTreebankTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 import edu.stanford.nlp.ling.CoreAnnotations;
@@ -68,7 +68,7 @@ public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpTok
 
     @Override
     public NlpTag getTag() {
-        return PennTreebank.getTag(nature);
+        return PennTreebankTagger.CHINESE_TAGGER.getTag(nature);
     }
 
     @Override

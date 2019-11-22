@@ -6,8 +6,8 @@ import org.apdplat.word.segmentation.PartOfSpeech;
 import org.apdplat.word.segmentation.Word;
 
 import com.hankcs.hanlp.corpus.tag.Nature;
-import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
-import com.jstarcraft.nlp.tokenization.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.PekingUniversityTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -77,7 +77,7 @@ public class WordToken implements Iterable<WordToken>, Iterator<WordToken>, NlpT
         if (nature.getPos().equalsIgnoreCase("w")) {
             return NlpTag.X;
         }
-        return PekingUniversity.getTag(nature.getPos());
+        return PekingUniversityTagger.CHINESE_TAGGER.getTag(nature.getPos());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.tokenization;
+package com.jstarcraft.nlp.analysis.lexical.tag;
 
 /**
  * NLP词性(核心)

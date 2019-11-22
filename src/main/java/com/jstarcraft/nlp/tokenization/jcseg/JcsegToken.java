@@ -5,8 +5,8 @@ import java.util.Iterator;
 import org.lionsoul.jcseg.tokenizer.core.IWord;
 
 import com.hankcs.hanlp.corpus.tag.Nature;
-import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
-import com.jstarcraft.nlp.tokenization.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.PekingUniversityTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 /**
@@ -62,7 +62,7 @@ public class JcsegToken implements Iterable<JcsegToken>, Iterator<JcsegToken>, N
         if (natures == null) {
             return NlpTag.X;
         }
-        return PekingUniversity.getTag(natures[0]);
+        return PekingUniversityTagger.CHINESE_TAGGER.getTag(natures[0]);
     }
 
     @Override

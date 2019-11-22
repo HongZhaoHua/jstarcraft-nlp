@@ -2,8 +2,8 @@ package com.jstarcraft.nlp.tokenization.thulac;
 
 import java.util.Iterator;
 
-import com.jstarcraft.nlp.analysis.lexical.tag.chinses.PekingUniversity;
-import com.jstarcraft.nlp.tokenization.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
+import com.jstarcraft.nlp.analysis.lexical.tag.PekingUniversityTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;
 
 import io.github.yizhiru.thulac4j.term.TokenItem;
@@ -70,7 +70,7 @@ public class ThulacToken implements Iterable<ThulacToken>, Iterator<ThulacToken>
 
     @Override
     public NlpTag getTag() {
-        return PekingUniversity.getTag(nature);
+        return PekingUniversityTagger.CHINESE_TAGGER.getTag(nature);
     }
 
     @Override

@@ -95,6 +95,9 @@ MYNLP分词:
 https://github.com/mayabot/mynlp/
 https://github.com/mayabot/mynlp/tree/283aa86b2ac7c609151297cf8c39164f38c76489/modules/mynlp-lucene
 
+NLP4J分词:
+https://emorynlp.github.io/nlp4j/
+
 NLPIR分词:
 https://github.com/NLPIR-team/nlpir-analysis-cn-ictclas
 

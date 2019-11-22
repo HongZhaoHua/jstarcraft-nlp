@@ -133,11 +133,19 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- MYNLP库依赖 -->
+
         <dependency>
             <groupId>com.mayabot.mynlp</groupId>
             <artifactId>mynlp-segment</artifactId>
             <version>3.0.2</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- NLP4J库依赖 -->
+        <dependency>
+            <groupId>edu.emory.mathcs.nlp</groupId>
+            <artifactId>nlp4j-api</artifactId>
+            <version>1.1.3</version>
             <optional>true</optional>
         </dependency>
 

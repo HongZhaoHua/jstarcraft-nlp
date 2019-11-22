@@ -32,11 +32,20 @@ public interface NlpToken {
     int getEnd();
 
     /**
+     * 获取标注
+     * 
+     * @return
+     */
+    default NlpTag getTag() {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * 获取词性
      * 
      * @return
      */
-    default KeyValue<NlpTag, String> getTag() {
+    default String getNature() {
         throw new UnsupportedOperationException();
     }
 

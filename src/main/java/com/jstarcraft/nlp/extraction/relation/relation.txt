@@ -1,0 +1,2 @@
+基于依存句法分析的实体关系抽取:
+https://github.com/mengxiaoxu/entity_relation_extraction

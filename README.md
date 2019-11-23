@@ -84,6 +84,7 @@
     * 实体抽取(Entity Extraction)
     * 关系抽取(Relation Extraction)
     * 事件抽取(Event Extraction)
+    * 语言检测(Language Detection)
 * 7.文本聚类
 * 8.文本分类
 * 9.兼容Lucene,Solr,ElasticSearch

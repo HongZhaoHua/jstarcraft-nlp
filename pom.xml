@@ -133,7 +133,7 @@
             <optional>true</optional>
         </dependency>
 
-
+        <!--MYNLP库依赖 -->
         <dependency>
             <groupId>com.mayabot.mynlp</groupId>
             <artifactId>mynlp-segment</artifactId>
@@ -185,6 +185,13 @@
                     <artifactId>logback-classic</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- 语言检测框架依赖 -->
+        <dependency>
+            <groupId>com.optimaize.languagedetector</groupId>
+            <artifactId>language-detector</artifactId>
+            <version>0.6</version>
         </dependency>
 
         <!-- Test框架依赖 -->

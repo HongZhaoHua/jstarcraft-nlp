@@ -192,6 +192,7 @@
             <groupId>com.optimaize.languagedetector</groupId>
             <artifactId>language-detector</artifactId>
             <version>0.6</version>
+            <optional>true</optional>
         </dependency>
 
         <!-- Test框架依赖 -->

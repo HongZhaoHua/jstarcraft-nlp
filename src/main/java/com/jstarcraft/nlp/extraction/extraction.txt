@@ -31,5 +31,8 @@ https://www.cnblogs.com/chenchangwen/archive/2012/10/17/2727022.html
 详细地址正则表达式:
 https://www.cnblogs.com/wenbuzhu/p/10038864.html
 
+Python Regular Expression for python identifiers, street address, web domains, python integer literals, email addresses, and web addresses:
+https://github.com/henryang5/Regular-Expression-Exercises-
+
 手机号码归属地本地解析(Java):
 https://github.com/fengjiajie/phone-number-geo

@@ -31,6 +31,9 @@ https://github.com/kidden/nlp4han
 word2vec java版本的一个实现:
 https://github.com/NLPchina/Word2VEC_java
 
+Word2Vec实现了常用的词语相似度和句子相似度计算:
+https://github.com/jsksxs360/Word2Vec
+
 中文分词工具探析:
 https://www.cnblogs.com/en-heng/p/6225117.html
 https://www.cnblogs.com/en-heng/p/6234006.html

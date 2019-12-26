@@ -49,6 +49,9 @@ https://blog.csdn.net/rensihui/article/category/9026831
 all kinds of text classification models and more with deep learning:
 https://github.com/brightmart/text_classification
 
+THUCTC: 一个高效的中文文本分类工具:
+https://github.com/thunlp/THUCTC
+
 ****
 
 分词

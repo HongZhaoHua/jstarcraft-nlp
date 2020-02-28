@@ -1,0 +1,47 @@
+正则表达式图形化:
+https://regexper.com/
+
+A collection of common regular expressions bundled with an easy to use interface:
+https://github.com/madisonmay/CommonRegex
+
+CommonRegex port for Java:(设计较为优秀)
+https://github.com/talyssonoc/CommonRegexJava
+
+匹配url的正则表达式:
+https://www.cnblogs.com/xnn1993/p/7606189.html
+
+Java Regex Tutorial:
+https://howtodoinjava.com/java-regular-expression-tutorials/
+
+Regex Hub:
+https://github.com/lukehaas/RegexHub
+
+常用正则表达式 - 收集一些在平时项目开发中经常用到的正则表达式:
+https://github.com/cdoco/common-regex
+
+常用正则表达式收集:
+https://github.com/limingziqiang/functions#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%94%B6%E9%9B%86
+
+JAVA ISBN10 ISBN13 正则表达式:
+https://www.jianshu.com/p/719566fc8374
+
+根据地址截取省市区,正则表达式:
+https://blog.csdn.net/qq389203946/article/details/80656604
+
+地址省市区的正则表达式:
+https://www.cnblogs.com/chenchangwen/archive/2012/10/17/2727022.html
+
+详细地址正则表达式:
+https://www.cnblogs.com/wenbuzhu/p/10038864.html
+
+Python Regular Expression for python identifiers, street address, web domains, python integer literals, email addresses, and web addresses:
+https://github.com/henryang5/Regular-Expression-Exercises-
+
+Regex-based street address and street intersection parser for the United States:
+https://github.com/dugword/geo-streetaddress-us
+
+Australia Address Parser is a regex-based street address and street intersection parser for Australia. It's basic goal is parsing user-provided address strings into parts, thus identify the street type (that Google API is not providing):
+https://github.com/gordonlkc/autralia-address-parser
+
+手机号码归属地本地解析(Java):
+https://github.com/fengjiajie/phone-number-geo

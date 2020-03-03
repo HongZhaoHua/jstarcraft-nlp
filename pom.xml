@@ -38,7 +38,7 @@
         <!-- JStarCraft框架依赖 -->
         <dependency>
             <groupId>com.jstarcraft</groupId>
-            <artifactId>jstarcraft-core-storage</artifactId>
+            <artifactId>jstarcraft-core-common</artifactId>
             <version>1.0</version>
         </dependency>
 
@@ -47,12 +47,14 @@
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
             <version>8.2.0</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers-common</artifactId>
             <version>8.2.0</version>
+            <optional>true</optional>
         </dependency>
 
         <!-- Ansj库依赖 -->
@@ -217,6 +219,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>5.1.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queryparser</artifactId>
+            <version>8.2.0</version>
             <scope>test</scope>
         </dependency>
 

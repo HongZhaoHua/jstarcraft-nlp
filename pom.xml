@@ -205,6 +205,12 @@
             <artifactId>language-detector</artifactId>
             <version>0.6</version>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- Test框架依赖 -->

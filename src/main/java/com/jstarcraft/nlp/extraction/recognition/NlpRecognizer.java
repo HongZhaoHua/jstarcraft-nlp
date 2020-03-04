@@ -1,6 +1,6 @@
 package com.jstarcraft.nlp.extraction.recognition;
 
-import com.jstarcraft.nlp.tokenization.NlpToken;
+import java.util.List;
 
 /**
  * NLP识别器
@@ -13,9 +13,9 @@ public interface NlpRecognizer {
     /**
      * 识别
      * 
-     * @param token
+     * @param text
      * @return
      */
-    boolean recognize(NlpToken token);
+    List<String> recognize(String text);
 
 }

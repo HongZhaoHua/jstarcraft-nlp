@@ -9,8 +9,14 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.jstarcraft.core.utility.StringUtility;
 
 public abstract class NlpSegmenterTestCase {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(NlpSegmenterTestCase.class);
 
     protected abstract Tokenizer getSegmenter();
 
@@ -29,10 +35,7 @@ public abstract class NlpSegmenterTestCase {
             PositionIncrementAttribute position = segmenter.getAttribute(PositionIncrementAttribute.class);
             // 词性
             TypeAttribute type = segmenter.getAttribute(TypeAttribute.class);
-            System.out.println(term);
-//          System.err.println(token.getTerm());
-//          System.err.println(token.getBegin());
-//          System.err.println(token.getEnd());
+            LOGGER.debug(StringUtility.format("segmenter:term is {}, begin is {}, end is {}", term, offset.startOffset(), offset.endOffset()));
             Assert.assertEquals(term.toString().toLowerCase(), text.substring(offset.startOffset(), offset.endOffset()).toLowerCase());
         }
     }

@@ -54,7 +54,7 @@ public abstract class NlpTokenizerTestCase {
                     PositionIncrementAttribute position = segmenter.getAttribute(PositionIncrementAttribute.class);
                     // 词性
                     TypeAttribute type = segmenter.getAttribute(TypeAttribute.class);
-                    LOGGER.debug(StringUtility.format("segmenter:term is {}, begin is {}, end is {}", term, offset.startOffset(), offset.endOffset()));
+                    LOGGER.debug(StringUtility.format("tokenizer:term is {}, begin is {}, end is {}", term, offset.startOffset(), offset.endOffset()));
                     Assert.assertEquals(term.toString().toLowerCase(), text.substring(offset.startOffset(), offset.endOffset()).toLowerCase());
                 }
             }

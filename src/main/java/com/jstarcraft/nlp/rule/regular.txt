@@ -48,3 +48,6 @@ https://github.com/gordonlkc/autralia-address-parser
 
 手机号码归属地本地解析(Java):
 https://github.com/fengjiajie/phone-number-geo
+
+最新JS正则表达式验证手机号码（2019）:
+https://www.cnblogs.com/mr-Ou/p/11395612.html

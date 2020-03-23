@@ -1,3 +1,6 @@
+Java网页正文提取工具:
+https://www.jianshu.com/p/22098d1bd3e6
+
 Microsoft Recognizers Text Overview:
 https://github.com/Microsoft/Recognizers-Text
 

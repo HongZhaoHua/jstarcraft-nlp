@@ -7,5 +7,8 @@ https://github.com/zhegexiaohuozi/JsoupXpath
 The Jaxen XPath Engine for Java:
 https://github.com/jaxen-xpath/jaxen
 
+a xpath implementation base on JSoup, dom query mixed with xpath and cssQuery:
+https://github.com/virjar/sipsoup
+
 SAXON: The XSLT and XQuery Processor:
 http://saxon.sourceforge.net/

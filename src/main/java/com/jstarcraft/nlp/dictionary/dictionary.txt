@@ -1,2 +1,5 @@
 搜狗细胞词库:
 https://pinyin.sogou.com/dict/
+
+最新手机号段归属地数据库 高性能dat解析:
+https://blog.csdn.net/zengzhan/article/details/51975750

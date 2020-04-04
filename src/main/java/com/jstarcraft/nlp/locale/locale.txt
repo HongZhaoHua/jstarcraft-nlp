@@ -1,6 +1,9 @@
 每个国家对应的语言Locale和国家代码对照表:
 https://www.cnblogs.com/jacksoft/p/5771130.html
 
+Java国际化——Locale+数字格式:
+https://blog.csdn.net/PacosonSWJTU/article/details/50634653
+
 详解Java中用于国际化的locale类:
 https://www.jb51.net/article/85858.htm
 

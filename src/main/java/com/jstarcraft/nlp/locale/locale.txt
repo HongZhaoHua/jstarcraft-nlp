@@ -3,3 +3,6 @@ https://www.jb51.net/article/85858.htm
 
 Java的Locale类:
 https://www.jianshu.com/p/67787f73d21d
+
+Java平台的，Local对象，ResourceBundle对象:
+https://www.jianshu.com/p/3d6e1e92c176

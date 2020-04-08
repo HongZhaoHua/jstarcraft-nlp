@@ -115,21 +115,3 @@ https://github.com/dreamszl/thulac-lucene
 Java分布式分词组件 - word分词:
 https://github.com/ysc/word
 https://github.com/ysc/word/tree/a43cea6994b8c857495e1c9d27517a8ab7356d8a/src/main/java/org/apdplat/word
-
-****
-
-词性标注
-
-Stanford CoreNLP依存关系分析、词性标注及句子主语分析:
-https://blog.csdn.net/l919898756/article/details/81670228
-
-HanLP词性标注集:
-http://www.hankcs.com/nlp/part-of-speech-tagging.html#h2-8
-
-MyNLP采用的词性标注集:
-https://github.com/mayabot/mynlp/wiki/POS#%E8%AF%8D%E6%80%A7%E8%A1%A8
-
-****
-
-
-命名实体识别

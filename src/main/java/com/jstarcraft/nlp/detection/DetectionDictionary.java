@@ -14,8 +14,4 @@ public class DetectionDictionary {
 
     private NlpDictionary dictionary;
 
-    public void test() {
-
-    }
-
 }

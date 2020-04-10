@@ -14,4 +14,9 @@ public class DetectionDictionary {
 
     private NlpDictionary dictionary;
 
+    DetectionDictionary(String name, NlpDictionary dictionary) {
+        this.name = name;
+        this.dictionary = dictionary;
+    }
+
 }

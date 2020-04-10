@@ -11,7 +11,12 @@ import java.util.regex.Pattern;
 public class DetectionRegulation {
 
     private String name;
-    
+
     private Pattern pattern;
-    
+
+    DetectionRegulation(String name, Pattern pattern) {
+        this.name = name;
+        this.pattern = pattern;
+    }
+
 }

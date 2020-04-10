@@ -7,3 +7,9 @@ https://github.com/optimaize/language-detector
 
 This is a language detection library implemented in plain Java. (aliases: language identification, language guessing):
 https://github.com/shuyo/language-detection
+
+Natural language detection:(支持400多种语言)
+https://github.com/wooorm/franc
+
+Line counting and language identification tool:(编程语言)
+https://github.com/blackducksoftware/ohcount4j

@@ -11,7 +11,7 @@ import com.mayabot.nlp.segment.WordTermIterableMode;
  * @author jimichan
  */
 public class MynlpAnalyzer extends Analyzer {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MynlpAnalyzer.class);
 
     private MynlpTokenizer tokenizer;

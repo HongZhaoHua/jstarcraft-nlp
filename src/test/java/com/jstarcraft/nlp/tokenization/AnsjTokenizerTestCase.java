@@ -8,7 +8,7 @@ public class AnsjTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
     protected NlpTokenizer<? extends NlpToken> getTokenizer() {
-       return new AnsjTokenizer(new BaseAnalysis());
+        return new AnsjTokenizer(new BaseAnalysis());
     }
 
 }

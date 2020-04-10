@@ -25,5 +25,5 @@ public abstract class BloomFilterTestCase {
         }
         Assert.assertTrue(times < elments * probability);
     }
-    
+
 }

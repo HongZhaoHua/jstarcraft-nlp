@@ -43,7 +43,7 @@ public class GlobalBloomFilterTestCase extends BloomFilterTestCase {
         RKeys keys = redisson.getKeys();
         keys.flushdb();
     }
-    
+
     @Override
     protected BloomFilter getBloomFilter(int elments, float probability) {
         BloomFilter bloomFilter = new GlobalBloomFilter(redisson, "bloom", elments, probability);

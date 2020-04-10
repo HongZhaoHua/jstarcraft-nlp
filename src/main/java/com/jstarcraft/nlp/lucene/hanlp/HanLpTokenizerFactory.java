@@ -85,7 +85,8 @@ public class HanLpTokenizerFactory extends TokenizerFactory {
 
     @Override
     public Tokenizer create(AttributeFactory factory) {
-        Segment segment = HanLP.newSegment(algorithm).enableOffset(true).enableIndexMode(enableIndexMode).enableNameRecognize(enableNameRecognize).enableNumberQuantifierRecognize(enableNumberQuantifierRecognize).enableCustomDictionary(enableCustomDictionary).enableCustomDictionaryForcing(enableCustomDictionaryForcing).enableTranslatedNameRecognize(enableTranslatedNameRecognize).enableJapaneseNameRecognize(enableJapaneseNameRecognize).enableOrganizationRecognize(enableOrganizationRecognize).enablePlaceRecognize(enablePlaceRecognize);
+        Segment segment = HanLP.newSegment(algorithm).enableOffset(true).enableIndexMode(enableIndexMode).enableNameRecognize(enableNameRecognize).enableNumberQuantifierRecognize(enableNumberQuantifierRecognize).enableCustomDictionary(enableCustomDictionary).enableCustomDictionaryForcing(enableCustomDictionaryForcing).enableTranslatedNameRecognize(enableTranslatedNameRecognize).enableJapaneseNameRecognize(enableJapaneseNameRecognize).enableOrganizationRecognize(enableOrganizationRecognize)
+                .enablePlaceRecognize(enablePlaceRecognize);
         if (enableTraditionalChineseMode) {
             segment.enableIndexMode(false);
             Segment inner = segment;

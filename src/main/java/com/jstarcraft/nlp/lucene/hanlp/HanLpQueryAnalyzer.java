@@ -19,7 +19,7 @@ import com.hankcs.hanlp.HanLP;
  *
  */
 public class HanLpQueryAnalyzer extends Analyzer {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HanLpQueryAnalyzer.class);
 
     private String algorithm;

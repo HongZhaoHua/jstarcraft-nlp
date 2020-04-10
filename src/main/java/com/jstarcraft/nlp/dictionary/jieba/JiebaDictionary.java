@@ -1,6 +1,5 @@
 package com.jstarcraft.nlp.dictionary.jieba;
 
-
 import com.huaban.analysis.jieba.Hit;
 import com.huaban.analysis.jieba.JiebaSegment;
 import com.jstarcraft.nlp.dictionary.NlpDictionary;

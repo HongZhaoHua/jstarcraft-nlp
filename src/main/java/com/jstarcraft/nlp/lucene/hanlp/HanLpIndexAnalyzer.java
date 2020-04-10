@@ -19,11 +19,11 @@ import com.hankcs.hanlp.HanLP;
  *
  */
 public class HanLpIndexAnalyzer extends Analyzer {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HanLpIndexAnalyzer.class);
 
     private String algorithm;
-    
+
     private Set<String> filter;
 
     public HanLpIndexAnalyzer(String algorithm, Set<String> filter) {

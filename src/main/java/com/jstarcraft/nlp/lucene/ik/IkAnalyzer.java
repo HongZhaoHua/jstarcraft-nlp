@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 @SuppressWarnings("unused")
 public final class IkAnalyzer extends Analyzer {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(IkAnalyzer.class);
 
     private boolean useSmart;

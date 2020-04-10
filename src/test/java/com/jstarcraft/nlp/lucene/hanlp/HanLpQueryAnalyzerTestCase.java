@@ -36,7 +36,7 @@ public class HanLpQueryAnalyzerTestCase {
             System.out.print(text.charAt(i) + "" + i + " ");
         }
         System.out.println();
-        try(Analyzer analyzer = new HanLpQueryAnalyzer("viterbi")) {
+        try (Analyzer analyzer = new HanLpQueryAnalyzer("viterbi")) {
             TokenStream tokenStream = analyzer.tokenStream("field", text);
             tokenStream.reset();
             while (tokenStream.incrementToken()) {

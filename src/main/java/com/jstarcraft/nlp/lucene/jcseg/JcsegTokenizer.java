@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public final class JcsegTokenizer extends Tokenizer {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(JcsegTokenizer.class);
 
     /** 词元 **/

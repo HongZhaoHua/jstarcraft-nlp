@@ -1,5 +1,11 @@
 package org.wltea.analyzer.dic;
 
+/**
+ * IK分词适配器
+ * 
+ * @author Birdy
+ *
+ */
 public class IkSegment extends DictSegment {
 
     public IkSegment() {

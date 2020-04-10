@@ -1,5 +1,11 @@
 package com.huaban.analysis.jieba;
 
+/**
+ * jieba分词适配器
+ * 
+ * @author Birdy
+ *
+ */
 public class JiebaSegment extends DictSegment {
 
     public JiebaSegment() {

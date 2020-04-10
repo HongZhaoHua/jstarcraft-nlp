@@ -1,2 +1,2 @@
-A message-oriented middleware message broker written in Java that stores, routes, and forwards messages using AMQP.
-https://github.com/apache/qpid-broker-j
+Node.js globbing for amqp-like topics:
+https://github.com/davedoesdev/qlobber

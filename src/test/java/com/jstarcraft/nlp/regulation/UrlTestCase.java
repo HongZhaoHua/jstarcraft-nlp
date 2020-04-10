@@ -1,4 +1,4 @@
-package com.jstarcraft.nlp.rule;
+package com.jstarcraft.nlp.regulation;
 
 import java.net.URL;
 import java.util.regex.Matcher;

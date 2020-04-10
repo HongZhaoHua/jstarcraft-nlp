@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.ImmutableSet;
@@ -39,7 +39,7 @@ public class NgramFrequencyDataTest {
 
     private static NgramFrequencyData allThreeGrams;
 
-    @BeforeClass
+    @BeforeAll
     public static void init() throws IOException {
         allThreeGrams = forAll(3);
     }

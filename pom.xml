@@ -199,19 +199,7 @@
             </exclusions>
         </dependency>
 
-        <!-- 语言检测框架依赖 -->
-        <dependency>
-            <groupId>com.optimaize.languagedetector</groupId>
-            <artifactId>language-detector</artifactId>
-            <version>0.6</version>
-            <optional>true</optional>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!-- 语言检测框架依赖 <dependency> <groupId>com.optimaize.languagedetector</groupId> <artifactId>language-detector</artifactId> <version>0.6</version> <optional>true</optional> <exclusions> <exclusion> <groupId>com.google.guava</groupId> <artifactId>guava</artifactId> </exclusion> </exclusions> </dependency> -->
 
         <!-- Test框架依赖 -->
         <dependency>

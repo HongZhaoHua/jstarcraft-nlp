@@ -16,15 +16,16 @@
 
 package com.optimaize.langdetect.cybozu.util;
 
-import com.optimaize.langdetect.i18n.LdLocale;
+import java.util.Formatter;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import org.jetbrains.annotations.NotNull;
+
 import com.optimaize.langdetect.ngram.NgramExtractor;
 import com.optimaize.langdetect.ngram.NgramExtractors;
 import com.optimaize.langdetect.ngram.OldNgramExtractor;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Formatter;
-import java.util.List;
-import java.util.Map;
 
 /**
  * A place for sharing code.
@@ -97,7 +98,7 @@ public class Util {
         return maxp;
     }
 
-    public static String wordProbToString(double[] prob, List<LdLocale> langlist) {
+    public static String wordProbToString(double[] prob, List<Locale> langlist) {
         Formatter formatter = new Formatter();
         for (int j = 0; j < prob.length; ++j) {
             double p = prob[j];
@@ -110,12 +111,12 @@ public class Util {
 
     /**
      */
-    public static double[] makeInternalPrioMap(@NotNull Map<LdLocale, Double> langWeightingMap, @NotNull List<LdLocale> langlist) {
+    public static double[] makeInternalPrioMap(@NotNull Map<Locale, Double> langWeightingMap, @NotNull List<Locale> langlist) {
         assert !langWeightingMap.isEmpty();
         double[] priorMap = new double[langlist.size()];
         double sump = 0;
         for (int i = 0; i < priorMap.length; ++i) {
-            LdLocale lang = langlist.get(i);
+            Locale lang = langlist.get(i);
             if (langWeightingMap.containsKey(lang)) {
                 double p = langWeightingMap.get(lang);
                 assert p >= 0 : "Prior probability must be non-negative!";

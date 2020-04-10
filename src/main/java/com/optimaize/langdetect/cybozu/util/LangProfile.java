@@ -20,13 +20,13 @@
 
 package com.optimaize.langdetect.cybozu.util;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * {@link LangProfile} is a Language Profile Class. Users don't use this class

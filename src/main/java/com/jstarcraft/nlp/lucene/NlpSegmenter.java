@@ -8,8 +8,8 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.util.SegmentingTokenizerBase;
 import org.apache.lucene.util.AttributeFactory;
 
-import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 import com.jstarcraft.nlp.tokenization.NlpToken;
+import com.jstarcraft.nlp.tokenization.NlpTokenizer;
 
 /**
  * Lucene分词器

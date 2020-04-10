@@ -16,11 +16,17 @@
 
 package com.optimaize.langdetect.ngram;
 
-import com.google.common.collect.ImmutableList;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import com.google.common.collect.ImmutableList;
 
 /**
  * Class for extracting n-grams out of a text.

@@ -6,9 +6,7 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
-import org.junit.Test;
-
-import com.jstarcraft.nlp.lucene.hanlp.HanLpIndexAnalyzer;
+import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
 

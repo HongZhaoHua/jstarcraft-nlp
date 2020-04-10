@@ -10,9 +10,6 @@ import org.redisson.client.codec.Codec;
 import org.redisson.codec.JsonJacksonCodec;
 import org.redisson.config.Config;
 
-import com.jstarcraft.nlp.bloomfilter.BloomFilter;
-import com.jstarcraft.nlp.bloomfilter.GlobalBloomFilter;
-
 public class GlobalBloomFilterTestCase extends BloomFilterTestCase {
 
     private static Redisson redisson;

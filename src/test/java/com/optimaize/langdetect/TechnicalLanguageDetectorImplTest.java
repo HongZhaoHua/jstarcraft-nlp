@@ -16,12 +16,14 @@
 
 package com.optimaize.langdetect;
 
-import com.optimaize.langdetect.i18n.LdLocale;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Locale;
+
+import org.junit.jupiter.api.Test;
+
 import com.optimaize.langdetect.ngram.NgramExtractor;
 import com.optimaize.langdetect.profiles.LanguageProfileBuilder;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * These are the tests of the old detector from Shoyu. Running them against the
@@ -40,13 +42,13 @@ public class TechnicalLanguageDetectorImplTest {
         // building exactly like the old detector behaved.
         LanguageDetectorBuilder detectorBuilder = LanguageDetectorBuilder.create(NgramExtractor.gramLengths(1)).affixFactor(1.0).shortTextAlgorithm(0);
 
-        LanguageProfileBuilder profileBuilder = new LanguageProfileBuilder(LdLocale.fromString("en"));
+        LanguageProfileBuilder profileBuilder = new LanguageProfileBuilder(Locale.forLanguageTag("en"));
         add(detectorBuilder, profileBuilder, TRAINING_EN);
 
-        profileBuilder = new LanguageProfileBuilder(LdLocale.fromString("fr"));
+        profileBuilder = new LanguageProfileBuilder(Locale.forLanguageTag("fr"));
         add(detectorBuilder, profileBuilder, TRAINING_FR);
 
-        profileBuilder = new LanguageProfileBuilder(LdLocale.fromString("ja"));
+        profileBuilder = new LanguageProfileBuilder(Locale.forLanguageTag("ja"));
         add(detectorBuilder, profileBuilder, TRAINING_JA);
 
         return detectorBuilder.build();

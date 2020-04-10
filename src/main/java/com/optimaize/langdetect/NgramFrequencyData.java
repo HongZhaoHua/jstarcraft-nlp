@@ -16,12 +16,18 @@
 
 package com.optimaize.langdetect;
 
-import com.optimaize.langdetect.i18n.LdLocale;
-import com.optimaize.langdetect.profiles.LanguageProfile;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import com.optimaize.langdetect.profiles.LanguageProfile;
 
 /**
  * Contains frequency information for n-grams coming from multiple
@@ -55,7 +61,7 @@ public final class NgramFrequencyData {
      * Languages that don't know the n-gram have the value 0d.
      */
     @NotNull
-    private final List<LdLocale> langlist;
+    private final List<Locale> langlist;
 
     /**
      * @param gramLengths for example [1,2,3]
@@ -72,7 +78,7 @@ public final class NgramFrequencyData {
             throw new IllegalArgumentException("No gramLengths provided!");
 
         Map<String, double[]> wordLangProbMap = new HashMap<>();
-        List<LdLocale> langlist = new ArrayList<>();
+        List<Locale> langlist = new ArrayList<>();
         int langsize = languageProfiles.size();
 
         int index = -1;
@@ -100,19 +106,19 @@ public final class NgramFrequencyData {
         return new NgramFrequencyData(wordLangProbMap, langlist);
     }
 
-    private NgramFrequencyData(@NotNull Map<String, double[]> wordLangProbMap, @NotNull List<LdLocale> langlist) {
+    private NgramFrequencyData(@NotNull Map<String, double[]> wordLangProbMap, @NotNull List<Locale> langlist) {
         // not making immutable copies because I create them here (optimization).
         this.wordLangProbMap = Collections.unmodifiableMap(wordLangProbMap);
         this.langlist = Collections.unmodifiableList(langlist);
     }
 
     @NotNull
-    public List<LdLocale> getLanguageList() {
+    public List<Locale> getLanguageList() {
         return langlist;
     }
 
     @NotNull
-    public LdLocale getLanguage(int pos) {
+    public Locale getLanguage(int pos) {
         return langlist.get(pos);
     }
 

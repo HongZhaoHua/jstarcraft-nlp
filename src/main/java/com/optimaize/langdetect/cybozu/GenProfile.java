@@ -16,16 +16,22 @@
 
 package com.optimaize.langdetect.cybozu;
 
-import com.optimaize.langdetect.cybozu.util.TagExtractor;
-import com.optimaize.langdetect.cybozu.util.LangProfile;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.GZIPInputStream;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.*;
-import java.util.zip.GZIPInputStream;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.optimaize.langdetect.cybozu.util.LangProfile;
+import com.optimaize.langdetect.cybozu.util.TagExtractor;
 
 /**
  * Load Wikipedia's abstract XML as corpus and generate its language profile in

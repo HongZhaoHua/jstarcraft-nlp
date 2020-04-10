@@ -3,10 +3,7 @@ package com.jstarcraft.nlp.bloomfilter;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.junit.Test;
-
-import com.jstarcraft.core.common.hash.HashUtility;
-import com.jstarcraft.nlp.bloomfilter.LocalBloomFilter;
+import org.junit.jupiter.api.Test;
 
 public abstract class LocalBloomFilterTestCase extends BloomFilterTestCase {
 

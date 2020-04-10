@@ -16,9 +16,10 @@
 
 package com.optimaize.langdetect.cybozu.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Nakatani Shuyo
@@ -57,22 +58,28 @@ public class LangProfileTest {
         profile.omitLessFreq();
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public final void testAddIllegally1() {
-        LangProfile profile = new LangProfile(); // Illegal ( available for only JSONIC ) but ignore
-        profile.add("a");
+        Assertions.assertThrows(IllegalStateException.class, () -> {
+            LangProfile profile = new LangProfile(); // Illegal ( available for only JSONIC ) but ignore
+            profile.add("a");
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public final void testAddIllegally2() {
-        LangProfile profile = new LangProfile("en");
-        profile.add(""); // Illegal (string's length of parameter must be between 1 and 3)
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            LangProfile profile = new LangProfile("en");
+            profile.add(""); // Illegal (string's length of parameter must be between 1 and 3)
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public final void testAddIllegally3() {
-        LangProfile profile = new LangProfile("en");
-        profile.add("abcd"); // Illegal (string's length of parameter must be between 1 and 3)
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            LangProfile profile = new LangProfile("en");
+            profile.add("abcd"); // Illegal (string's length of parameter must be between 1 and 3)
+        });
     }
 
     /**
@@ -98,10 +105,12 @@ public class LangProfileTest {
         assertEquals(profile.getFreq().get("\u3050"), null); // omitted
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public final void testOmitLessFreqIllegally() {
-        LangProfile profile = new LangProfile();
-        profile.omitLessFreq();
+        Assertions.assertThrows(IllegalStateException.class, () -> {
+            LangProfile profile = new LangProfile();
+            profile.omitLessFreq();
+        });
     }
 
 }

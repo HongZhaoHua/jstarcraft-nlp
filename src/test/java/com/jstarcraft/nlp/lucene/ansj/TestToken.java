@@ -5,8 +5,6 @@ import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.ansj.library.DicLibrary;
-import org.ansj.library.SynonymsLibrary;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;

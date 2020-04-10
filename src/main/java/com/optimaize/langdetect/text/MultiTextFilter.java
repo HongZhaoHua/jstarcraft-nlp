@@ -16,11 +16,12 @@
 
 package com.optimaize.langdetect.text;
 
-import com.google.common.collect.ImmutableList;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+import com.google.common.collect.ImmutableList;
 
 /**
  * Groups multiple {@link com.optimaize.langdetect.text.TextFilter}s as one and

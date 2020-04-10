@@ -16,15 +16,17 @@
 
 package com.optimaize.langdetect.cybozu;
 
-import com.optimaize.langdetect.DetectedLanguage;
-import com.optimaize.langdetect.i18n.LdLocale;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import com.optimaize.langdetect.DetectedLanguage;
 
 /**
  * @author Nakatani Shuyo
@@ -34,23 +36,25 @@ public class DetectedLanguageTest {
 
     @Test
     public final void basic() {
-        DetectedLanguage lang = new DetectedLanguage(LdLocale.fromString("en"), 1.0);
+        DetectedLanguage lang = new DetectedLanguage(Locale.forLanguageTag("en"), 1.0);
         assertEquals(lang.getLocale().getLanguage(), "en");
         assertEquals(lang.getProbability(), 1.0, 0.0001);
         assertEquals(lang.toString(), "DetectedLanguage[en:1.0]");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public final void invalidProbability() {
-        new DetectedLanguage(LdLocale.fromString("en"), 1.1);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new DetectedLanguage(Locale.forLanguageTag("en"), 1.1);
+        });
     }
 
     @Test
     public final void comparable() {
         List<DetectedLanguage> list = new ArrayList<>();
-        list.add(new DetectedLanguage(LdLocale.fromString("en"), 1.0));
-        list.add(new DetectedLanguage(LdLocale.fromString("de"), 1.0));
-        list.add(new DetectedLanguage(LdLocale.fromString("fr"), 0.9));
+        list.add(new DetectedLanguage(Locale.forLanguageTag("en"), 1.0));
+        list.add(new DetectedLanguage(Locale.forLanguageTag("de"), 1.0));
+        list.add(new DetectedLanguage(Locale.forLanguageTag("fr"), 0.9));
         Collections.sort(list);
         assertEquals(list.get(0).getLocale().getLanguage(), "de"); // alphabetical de before en
         assertEquals(list.get(1).getLocale().getLanguage(), "en");

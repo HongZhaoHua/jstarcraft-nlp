@@ -1,10 +1,6 @@
 package com.jstarcraft.nlp.bloomfilter;
 
 import com.jstarcraft.core.common.hash.HashUtility;
-import com.jstarcraft.nlp.bloomfilter.BloomFilter;
-import com.jstarcraft.nlp.bloomfilter.IntegerBloomFilter;
-import com.jstarcraft.nlp.bloomfilter.LocalBloomFilter;
-import com.jstarcraft.nlp.bloomfilter.StringHashFamily;
 
 public class IntegerBloomFilterTestCase extends LocalBloomFilterTestCase {
 

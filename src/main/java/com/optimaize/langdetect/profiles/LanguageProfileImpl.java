@@ -16,12 +16,17 @@
 
 package com.optimaize.langdetect.profiles;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Iterables;
-import com.optimaize.langdetect.i18n.LdLocale;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Iterables;
 
 /**
  * <p>
@@ -33,7 +38,7 @@ import java.util.*;
 public final class LanguageProfileImpl implements LanguageProfile {
 
     @NotNull
-    private final LdLocale locale;
+    private final Locale locale;
     @NotNull
     private final Map<Integer, Map<String, Integer>> ngrams;
     @NotNull
@@ -72,7 +77,7 @@ public final class LanguageProfileImpl implements LanguageProfile {
     /**
      * Use the builder.
      */
-    LanguageProfileImpl(@NotNull LdLocale locale, @NotNull Map<Integer, Map<String, Integer>> ngrams) {
+    LanguageProfileImpl(@NotNull Locale locale, @NotNull Map<Integer, Map<String, Integer>> ngrams) {
         this.locale = locale;
         this.ngrams = ImmutableMap.copyOf(ngrams);
         this.stats = makeStats(ngrams);
@@ -104,7 +109,7 @@ public final class LanguageProfileImpl implements LanguageProfile {
 
     @NotNull
     @Override
-    public LdLocale getLocale() {
+    public Locale getLocale() {
         return locale;
     }
 

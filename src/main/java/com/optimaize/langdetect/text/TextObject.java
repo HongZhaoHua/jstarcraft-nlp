@@ -16,12 +16,13 @@
 
 package com.optimaize.langdetect.text;
 
-import com.optimaize.langdetect.cybozu.util.CharNormalizer;
-import com.google.common.annotations.Beta;
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.io.Reader;
+
+import org.jetbrains.annotations.NotNull;
+
+import com.google.common.annotations.Beta;
+import com.optimaize.langdetect.cybozu.util.CharNormalizer;
 
 /**
  * A convenient text object implementing CharSequence and Appendable.

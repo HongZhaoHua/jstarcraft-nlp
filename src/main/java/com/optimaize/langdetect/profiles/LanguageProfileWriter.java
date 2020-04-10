@@ -16,11 +16,16 @@
 
 package com.optimaize.langdetect.profiles;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.Map;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Writes a {@link LanguageProfile} to an output stream or file.

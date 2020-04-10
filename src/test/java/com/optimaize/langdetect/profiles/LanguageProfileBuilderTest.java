@@ -16,10 +16,16 @@
 
 package com.optimaize.langdetect.profiles;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
 import com.optimaize.langdetect.ngram.NgramExtractors;
-import com.optimaize.langdetect.text.*;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import com.optimaize.langdetect.text.CommonTextObjectFactories;
+import com.optimaize.langdetect.text.TextObject;
+import com.optimaize.langdetect.text.TextObjectFactory;
 
 /**
  * @author Fabian Kessler

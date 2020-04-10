@@ -1,11 +1,12 @@
 package com.jstarcraft.nlp.lucene.mynlp;
 
-import com.mayabot.nlp.segment.Lexers;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import com.mayabot.nlp.segment.Lexers;
 
 public class LuceneAnalyzerTest {
 

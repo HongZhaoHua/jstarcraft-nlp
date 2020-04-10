@@ -1,7 +1,7 @@
 package com.jstarcraft.nlp.dictionary;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class NlpDictionaryTestCase {
 

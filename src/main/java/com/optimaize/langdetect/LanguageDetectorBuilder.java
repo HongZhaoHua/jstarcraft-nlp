@@ -16,16 +16,17 @@
 
 package com.optimaize.langdetect;
 
-import com.google.common.base.Optional;
-import com.optimaize.langdetect.i18n.LdLocale;
-import com.optimaize.langdetect.ngram.NgramExtractor;
-import com.optimaize.langdetect.profiles.LanguageProfile;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.google.common.base.Optional;
+import com.optimaize.langdetect.ngram.NgramExtractor;
+import com.optimaize.langdetect.profiles.LanguageProfile;
 
 /**
  * Builder for {@link LanguageDetector}.
@@ -53,12 +54,12 @@ public class LanguageDetectorBuilder {
     private double minimalConfidence = 0.9999d;
 
     @Nullable
-    private Map<LdLocale, Double> langWeightingMap;
+    private Map<Locale, Double> langWeightingMap;
 
     @NotNull
     private final Set<LanguageProfile> languageProfiles = new HashSet<>();
     @NotNull
-    private final Set<LdLocale> langsAdded = new HashSet<>();
+    private final Set<Locale> langsAdded = new HashSet<>();
 
     public static LanguageDetectorBuilder create(@NotNull NgramExtractor ngramExtractor) {
         return new LanguageDetectorBuilder(ngramExtractor);
@@ -157,7 +158,7 @@ public class LanguageDetectorBuilder {
      * it does throw or ignore. String key = language, Double value = priority
      * (probably 0-1).
      */
-    public LanguageDetectorBuilder languagePriorities(@Nullable Map<LdLocale, Double> langWeightingMap) {
+    public LanguageDetectorBuilder languagePriorities(@Nullable Map<Locale, Double> langWeightingMap) {
         this.langWeightingMap = langWeightingMap;
         return this;
     }

@@ -16,14 +16,18 @@
 
 package com.optimaize.langdetect.profiles;
 
-import com.optimaize.langdetect.frma.LangProfileReader;
-import com.optimaize.langdetect.i18n.LdLocale;
-import org.jetbrains.annotations.NotNull;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
+
+import org.jetbrains.annotations.NotNull;
+
+import com.optimaize.langdetect.frma.LangProfileReader;
 
 /**
  * Reads {@link LanguageProfile}s.
@@ -99,7 +103,7 @@ public class LanguageProfileReader {
     }
 
     @NotNull
-    public LanguageProfile readBuiltIn(@NotNull LdLocale locale) throws IOException {
+    public LanguageProfile readBuiltIn(@NotNull Locale locale) throws IOException {
         String filename = makeProfileFileName(locale);
         String path = makePathForClassLoader(PROFILES_DIR, filename);
         try (InputStream in = LanguageProfileReader.class.getClassLoader().getResourceAsStream(path)) {
@@ -111,14 +115,14 @@ public class LanguageProfileReader {
     }
 
     @NotNull
-    private String makeProfileFileName(@NotNull LdLocale locale) {
-        return locale.toString();
+    private String makeProfileFileName(@NotNull Locale locale) {
+        return locale.toLanguageTag();
     }
 
     @NotNull
-    public List<LanguageProfile> readBuiltIn(@NotNull Collection<LdLocale> languages) throws IOException {
+    public List<LanguageProfile> readBuiltIn(@NotNull Collection<Locale> languages) throws IOException {
         List<String> profileNames = new ArrayList<>();
-        for (LdLocale locale : languages) {
+        for (Locale locale : languages) {
             profileNames.add(makeProfileFileName(locale));
         }
         return read(LanguageProfileReader.class.getClassLoader(), PROFILES_DIR, profileNames);
@@ -137,7 +141,7 @@ public class LanguageProfileReader {
      */
     public List<LanguageProfile> readAllBuiltIn() throws IOException {
         List<LanguageProfile> loaded = new ArrayList<>();
-        for (LdLocale locale : BuiltInLanguages.getLanguages()) {
+        for (Locale locale : BuiltInLanguages.getLanguages()) {
             loaded.add(readBuiltIn(locale));
         }
         return loaded;
@@ -190,7 +194,7 @@ public class LanguageProfileReader {
             return false;
         }
         try {
-            LdLocale.fromString(fileName);
+            Locale.forLanguageTag(fileName);
             return true;
         } catch (Exception e) {
             return false;

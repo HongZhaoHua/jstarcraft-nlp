@@ -16,11 +16,11 @@
 
 package com.optimaize.langdetect.profiles;
 
-import com.optimaize.langdetect.i18n.LdLocale;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A language profile knows the locale (language), and contains the n-grams and
@@ -47,7 +47,7 @@ import java.util.Map;
 public interface LanguageProfile {
 
     @NotNull
-    LdLocale getLocale();
+    Locale getLocale();
 
     /**
      * Tells what the n in n-grams are used here. Example: [1,2,3]

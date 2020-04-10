@@ -25,13 +25,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import org.hamcrest.CoreMatchers;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.ImmutableList;
-import com.optimaize.langdetect.i18n.LdLocale;
 
 /**
  * @author Fabian Kessler
@@ -117,14 +117,14 @@ public class LanguageProfileReaderTest {
 
     private void verify_readAllBuiltIn(List<LanguageProfile> profiles) {
         assertEquals(profiles.size(), 71); // adjust this number when adding more languages
-        Set<LdLocale> allLangs = new HashSet<>();
+        Set<Locale> allLangs = new HashSet<>();
         for (LanguageProfile profile : profiles) {
             assertFalse("Duplicate language: " + profile.getLocale(), allLangs.contains(profile.getLocale()));
             allLangs.add(profile.getLocale());
         }
-        assertTrue(allLangs.contains(LdLocale.fromString("de")));
-        assertTrue(allLangs.contains(LdLocale.fromString("zh-CN")));
-        assertTrue(allLangs.contains(LdLocale.fromString("zh-TW")));
+        assertTrue(allLangs.contains(Locale.forLanguageTag("de")));
+        assertTrue(allLangs.contains(Locale.forLanguageTag("zh-CN")));
+        assertTrue(allLangs.contains(Locale.forLanguageTag("zh-TW")));
     }
 
     @Test

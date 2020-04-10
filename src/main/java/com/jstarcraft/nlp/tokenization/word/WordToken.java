@@ -5,7 +5,6 @@ import java.util.Iterator;
 import org.apdplat.word.segmentation.PartOfSpeech;
 import org.apdplat.word.segmentation.Word;
 
-import com.hankcs.hanlp.corpus.tag.Nature;
 import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
 import com.jstarcraft.nlp.analysis.lexical.tag.PekingUniversityTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;

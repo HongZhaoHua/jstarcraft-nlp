@@ -16,95 +16,95 @@
 
 package com.optimaize.langdetect.profiles;
 
-import com.google.common.collect.ImmutableList;
-import com.optimaize.langdetect.i18n.LdLocale;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import com.google.common.collect.ImmutableList;
 
 /**
  * @author Nicole Torres
  */
 public class BuiltInLanguages {
 
-    private static final List<LdLocale> languages;
+    private static final List<Locale> languages;
     private static final List<String> shortTextLanguages;
 
     static {
-        List<LdLocale> names = new ArrayList<>();
+        List<Locale> names = new ArrayList<>();
 
         // sorted alphabetically
-        names.add(LdLocale.fromString("af"));
-        names.add(LdLocale.fromString("an"));
-        names.add(LdLocale.fromString("ar"));
-        names.add(LdLocale.fromString("ast"));
-        names.add(LdLocale.fromString("be"));
-        names.add(LdLocale.fromString("bg"));
-        names.add(LdLocale.fromString("bn"));
-        names.add(LdLocale.fromString("br"));
-        names.add(LdLocale.fromString("ca"));
-        names.add(LdLocale.fromString("cs"));
-        names.add(LdLocale.fromString("cy"));
-        names.add(LdLocale.fromString("da"));
-        names.add(LdLocale.fromString("de"));
-        names.add(LdLocale.fromString("el"));
-        names.add(LdLocale.fromString("en"));
-        names.add(LdLocale.fromString("es"));
-        names.add(LdLocale.fromString("et"));
-        names.add(LdLocale.fromString("eu"));
-        names.add(LdLocale.fromString("fa"));
-        names.add(LdLocale.fromString("fi"));
-        names.add(LdLocale.fromString("fr"));
-        names.add(LdLocale.fromString("ga"));
-        names.add(LdLocale.fromString("gl"));
-        names.add(LdLocale.fromString("gu"));
-        names.add(LdLocale.fromString("he"));
-        names.add(LdLocale.fromString("hi"));
-        names.add(LdLocale.fromString("hr"));
-        names.add(LdLocale.fromString("ht"));
-        names.add(LdLocale.fromString("hu"));
-        names.add(LdLocale.fromString("id"));
-        names.add(LdLocale.fromString("is"));
-        names.add(LdLocale.fromString("it"));
-        names.add(LdLocale.fromString("ja"));
-        names.add(LdLocale.fromString("km"));
-        names.add(LdLocale.fromString("kn"));
-        names.add(LdLocale.fromString("ko"));
-        names.add(LdLocale.fromString("lt"));
-        names.add(LdLocale.fromString("lv"));
-        names.add(LdLocale.fromString("mk"));
-        names.add(LdLocale.fromString("ml"));
-        names.add(LdLocale.fromString("mr"));
-        names.add(LdLocale.fromString("ms"));
-        names.add(LdLocale.fromString("mt"));
-        names.add(LdLocale.fromString("ne"));
-        names.add(LdLocale.fromString("nl"));
-        names.add(LdLocale.fromString("no"));
-        names.add(LdLocale.fromString("oc"));
-        names.add(LdLocale.fromString("pa"));
-        names.add(LdLocale.fromString("pl"));
-        names.add(LdLocale.fromString("pt"));
-        names.add(LdLocale.fromString("ro"));
-        names.add(LdLocale.fromString("ru"));
-        names.add(LdLocale.fromString("sk"));
-        names.add(LdLocale.fromString("sl"));
-        names.add(LdLocale.fromString("so"));
-        names.add(LdLocale.fromString("sq"));
-        names.add(LdLocale.fromString("sr"));
-        names.add(LdLocale.fromString("sv"));
-        names.add(LdLocale.fromString("sw"));
-        names.add(LdLocale.fromString("ta"));
-        names.add(LdLocale.fromString("te"));
-        names.add(LdLocale.fromString("th"));
-        names.add(LdLocale.fromString("tl"));
-        names.add(LdLocale.fromString("tr"));
-        names.add(LdLocale.fromString("uk"));
-        names.add(LdLocale.fromString("ur"));
-        names.add(LdLocale.fromString("vi"));
-        names.add(LdLocale.fromString("wa"));
-        names.add(LdLocale.fromString("yi"));
-        names.add(LdLocale.fromString("zh-CN"));
-        names.add(LdLocale.fromString("zh-TW"));
+        names.add(Locale.forLanguageTag("af"));
+        names.add(Locale.forLanguageTag("an"));
+        names.add(Locale.forLanguageTag("ar"));
+        names.add(Locale.forLanguageTag("ast"));
+        names.add(Locale.forLanguageTag("be"));
+        names.add(Locale.forLanguageTag("bg"));
+        names.add(Locale.forLanguageTag("bn"));
+        names.add(Locale.forLanguageTag("br"));
+        names.add(Locale.forLanguageTag("ca"));
+        names.add(Locale.forLanguageTag("cs"));
+        names.add(Locale.forLanguageTag("cy"));
+        names.add(Locale.forLanguageTag("da"));
+        names.add(Locale.forLanguageTag("de"));
+        names.add(Locale.forLanguageTag("el"));
+        names.add(Locale.forLanguageTag("en"));
+        names.add(Locale.forLanguageTag("es"));
+        names.add(Locale.forLanguageTag("et"));
+        names.add(Locale.forLanguageTag("eu"));
+        names.add(Locale.forLanguageTag("fa"));
+        names.add(Locale.forLanguageTag("fi"));
+        names.add(Locale.forLanguageTag("fr"));
+        names.add(Locale.forLanguageTag("ga"));
+        names.add(Locale.forLanguageTag("gl"));
+        names.add(Locale.forLanguageTag("gu"));
+        names.add(Locale.forLanguageTag("he"));
+        names.add(Locale.forLanguageTag("hi"));
+        names.add(Locale.forLanguageTag("hr"));
+        names.add(Locale.forLanguageTag("ht"));
+        names.add(Locale.forLanguageTag("hu"));
+        names.add(Locale.forLanguageTag("id"));
+        names.add(Locale.forLanguageTag("is"));
+        names.add(Locale.forLanguageTag("it"));
+        names.add(Locale.forLanguageTag("ja"));
+        names.add(Locale.forLanguageTag("km"));
+        names.add(Locale.forLanguageTag("kn"));
+        names.add(Locale.forLanguageTag("ko"));
+        names.add(Locale.forLanguageTag("lt"));
+        names.add(Locale.forLanguageTag("lv"));
+        names.add(Locale.forLanguageTag("mk"));
+        names.add(Locale.forLanguageTag("ml"));
+        names.add(Locale.forLanguageTag("mr"));
+        names.add(Locale.forLanguageTag("ms"));
+        names.add(Locale.forLanguageTag("mt"));
+        names.add(Locale.forLanguageTag("ne"));
+        names.add(Locale.forLanguageTag("nl"));
+        names.add(Locale.forLanguageTag("no"));
+        names.add(Locale.forLanguageTag("oc"));
+        names.add(Locale.forLanguageTag("pa"));
+        names.add(Locale.forLanguageTag("pl"));
+        names.add(Locale.forLanguageTag("pt"));
+        names.add(Locale.forLanguageTag("ro"));
+        names.add(Locale.forLanguageTag("ru"));
+        names.add(Locale.forLanguageTag("sk"));
+        names.add(Locale.forLanguageTag("sl"));
+        names.add(Locale.forLanguageTag("so"));
+        names.add(Locale.forLanguageTag("sq"));
+        names.add(Locale.forLanguageTag("sr"));
+        names.add(Locale.forLanguageTag("sv"));
+        names.add(Locale.forLanguageTag("sw"));
+        names.add(Locale.forLanguageTag("ta"));
+        names.add(Locale.forLanguageTag("te"));
+        names.add(Locale.forLanguageTag("th"));
+        names.add(Locale.forLanguageTag("tl"));
+        names.add(Locale.forLanguageTag("tr"));
+        names.add(Locale.forLanguageTag("uk"));
+        names.add(Locale.forLanguageTag("ur"));
+        names.add(Locale.forLanguageTag("vi"));
+        names.add(Locale.forLanguageTag("wa"));
+        names.add(Locale.forLanguageTag("yi"));
+        names.add(Locale.forLanguageTag("zh-CN"));
+        names.add(Locale.forLanguageTag("zh-TW"));
 
         languages = ImmutableList.copyOf(names);
     }
@@ -137,7 +137,7 @@ public class BuiltInLanguages {
      * 
      * @return immutable
      */
-    public static List<LdLocale> getLanguages() {
+    public static List<Locale> getLanguages() {
         return languages;
     }
 

@@ -1,10 +1,7 @@
 package com.jstarcraft.nlp.bloomfilter.bit;
 
 import org.junit.Assert;
-import org.junit.Test;
-
-import com.jstarcraft.nlp.bloomfilter.bit.IntegerMap;
-import com.jstarcraft.nlp.bloomfilter.bit.LongMap;
+import org.junit.jupiter.api.Test;
 
 public class BitMapTestCase {
 

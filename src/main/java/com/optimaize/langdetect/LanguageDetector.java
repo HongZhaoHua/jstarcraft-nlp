@@ -16,10 +16,10 @@
 
 package com.optimaize.langdetect;
 
-import com.google.common.base.Optional;
-import com.optimaize.langdetect.i18n.LdLocale;
-
 import java.util.List;
+import java.util.Locale;
+
+import com.google.common.base.Optional;
 
 /**
  * Guesses the language of an input string or text.
@@ -53,7 +53,7 @@ public interface LanguageDetector {
      *             {@link com.optimaize.langdetect.text.TextObject}.
      * @return The language if confident, absent if unknown or not confident enough.
      */
-    Optional<LdLocale> detect(CharSequence text);
+    Optional<Locale> detect(CharSequence text);
 
     /**
      * Returns all languages with at least some likeliness.

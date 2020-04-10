@@ -16,15 +16,21 @@
 
 package com.optimaize.langdetect.frma;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.zip.GZIPInputStream;
+
 import com.optimaize.langdetect.cybozu.util.LangProfile;
 import com.optimaize.langdetect.cybozu.util.Util;
 import com.optimaize.langdetect.text.CommonTextObjectFactories;
 import com.optimaize.langdetect.text.TextObject;
 import com.optimaize.langdetect.text.TextObjectFactory;
-
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.zip.GZIPInputStream;
 
 /**
  * Generate a language profile from any given text file.

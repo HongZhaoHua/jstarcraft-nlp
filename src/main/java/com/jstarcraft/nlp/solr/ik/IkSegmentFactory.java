@@ -2,17 +2,6 @@ package com.jstarcraft.nlp.solr.ik;
 
 import java.util.Map;
 
-import org.ansj.library.AmbiguityLibrary;
-import org.ansj.library.CrfLibrary;
-import org.ansj.library.DicLibrary;
-import org.ansj.recognition.impl.BookRecognition;
-import org.ansj.splitWord.analysis.BaseAnalysis;
-import org.ansj.splitWord.analysis.DicAnalysis;
-import org.ansj.splitWord.analysis.IndexAnalysis;
-import org.ansj.splitWord.analysis.NlpAnalysis;
-import org.ansj.splitWord.analysis.ToAnalysis;
-import org.nlpcn.commons.lang.tire.domain.Forest;
-import org.nlpcn.commons.lang.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wltea.analyzer.core.IKSegmenter;

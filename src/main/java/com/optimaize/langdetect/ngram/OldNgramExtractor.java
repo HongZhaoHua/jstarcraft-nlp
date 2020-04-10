@@ -16,12 +16,13 @@
 
 package com.optimaize.langdetect.ngram;
 
-import com.optimaize.langdetect.cybozu.util.NGram;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.optimaize.langdetect.cybozu.util.NGram;
 
 /**
  * @author Nakatani Shuyo

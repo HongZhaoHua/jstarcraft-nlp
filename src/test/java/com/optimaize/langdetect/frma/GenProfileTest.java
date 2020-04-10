@@ -27,7 +27,7 @@ import java.nio.charset.Charset;
 import java.util.Map;
 
 import org.hamcrest.CoreMatchers;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.optimaize.langdetect.cybozu.util.LangProfile;
 

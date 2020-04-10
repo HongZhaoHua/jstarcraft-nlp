@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 import org.lionsoul.jcseg.tokenizer.core.IWord;
 
-import com.hankcs.hanlp.corpus.tag.Nature;
 import com.jstarcraft.nlp.analysis.lexical.tag.NlpTag;
 import com.jstarcraft.nlp.analysis.lexical.tag.PekingUniversityTagger;
 import com.jstarcraft.nlp.tokenization.NlpToken;

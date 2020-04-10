@@ -16,24 +16,36 @@
 
 package com.optimaize.langdetect.cybozu;
 
-import com.optimaize.langdetect.frma.LangProfileWriter;
-import com.optimaize.langdetect.cybozu.util.LangProfile;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import com.google.common.base.Optional;
 import com.optimaize.langdetect.DetectedLanguage;
 import com.optimaize.langdetect.LanguageDetector;
 import com.optimaize.langdetect.LanguageDetectorBuilder;
-import com.optimaize.langdetect.i18n.LdLocale;
+import com.optimaize.langdetect.cybozu.util.LangProfile;
+import com.optimaize.langdetect.frma.LangProfileWriter;
 import com.optimaize.langdetect.ngram.NgramExtractors;
 import com.optimaize.langdetect.profiles.LanguageProfile;
 import com.optimaize.langdetect.profiles.LanguageProfileReader;
 import com.optimaize.langdetect.text.CommonTextObjectFactories;
 import com.optimaize.langdetect.text.TextObject;
 import com.optimaize.langdetect.text.TextObjectFactory;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.io.*;
-import java.util.*;
 
 /**
  * LangDetect Command Line Interface.
@@ -252,7 +264,7 @@ public class CommandLineInterface {
                     String text = line.substring(idx + 1);
 
                     TextObject textObject = textObjectFactory.forText(text);
-                    Optional<LdLocale> lang = languageDetector.detect(textObject);
+                    Optional<Locale> lang = languageDetector.detect(textObject);
                     if (!result.containsKey(correctLang))
                         result.put(correctLang, new ArrayList<String>());
                     if (lang.isPresent()) {

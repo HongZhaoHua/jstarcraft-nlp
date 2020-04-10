@@ -16,11 +16,14 @@
 
 package com.optimaize.langdetect.frma;
 
-import com.optimaize.langdetect.cybozu.util.LangProfile;
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.Map;
+
+import com.optimaize.langdetect.cybozu.util.LangProfile;
 
 /**
  * Writes a {@link LangProfile} to an output stream (file).

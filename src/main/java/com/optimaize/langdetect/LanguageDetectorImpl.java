@@ -16,16 +16,22 @@
 
 package com.optimaize.langdetect;
 
-import com.optimaize.langdetect.cybozu.util.Util;
-import com.google.common.base.Optional;
-import com.optimaize.langdetect.i18n.LdLocale;
-import com.optimaize.langdetect.ngram.NgramExtractor;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Random;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import com.google.common.base.Optional;
+import com.optimaize.langdetect.cybozu.util.Util;
+import com.optimaize.langdetect.ngram.NgramExtractor;
 
 /**
  *
@@ -105,7 +111,7 @@ public final class LanguageDetectorImpl implements LanguageDetector {
     /**
      * Use the {@link LanguageDetectorBuilder}.
      */
-    LanguageDetectorImpl(@NotNull NgramFrequencyData ngramFrequencyData, double alpha, Optional<Long> seed, int shortTextAlgorithm, double prefixFactor, double suffixFactor, double probabilityThreshold, double minimalConfidence, @Nullable Map<LdLocale, Double> langWeightingMap, @NotNull NgramExtractor ngramExtractor) {
+    LanguageDetectorImpl(@NotNull NgramFrequencyData ngramFrequencyData, double alpha, Optional<Long> seed, int shortTextAlgorithm, double prefixFactor, double suffixFactor, double probabilityThreshold, double minimalConfidence, @Nullable Map<Locale, Double> langWeightingMap, @NotNull NgramExtractor ngramExtractor) {
         if (alpha < 0d || alpha > 1d)
             throw new IllegalArgumentException("alpha must be between 0 and 1, but was: " + alpha);
         if (prefixFactor < 0d || prefixFactor > 10d)
@@ -132,7 +138,7 @@ public final class LanguageDetectorImpl implements LanguageDetector {
     }
 
     @Override
-    public Optional<LdLocale> detect(CharSequence text) {
+    public Optional<Locale> detect(CharSequence text) {
         List<DetectedLanguage> probabilities = getProbabilities(text);
         if (probabilities.isEmpty()) {
             return Optional.absent();

@@ -16,18 +16,19 @@
 
 package com.optimaize.langdetect;
 
-import com.google.common.collect.ImmutableSet;
-import com.optimaize.langdetect.i18n.LdLocale;
-import com.optimaize.langdetect.profiles.LanguageProfile;
-import com.optimaize.langdetect.profiles.LanguageProfileReader;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.Test;
+
+import com.google.common.collect.ImmutableSet;
+import com.optimaize.langdetect.profiles.LanguageProfile;
+import com.optimaize.langdetect.profiles.LanguageProfileReader;
 
 /**
  * Some rudimentary tests for NgramFrequencyData.
@@ -58,7 +59,7 @@ public class NgramFrequencyDataTest {
     public void constantOrder() throws Exception {
         // expect constant order:
         int pos = 0;
-        for (LdLocale locale : allThreeGrams.getLanguageList()) {
+        for (Locale locale : allThreeGrams.getLanguageList()) {
             assertEquals(allThreeGrams.getLanguage(pos), locale);
             pos++;
         }

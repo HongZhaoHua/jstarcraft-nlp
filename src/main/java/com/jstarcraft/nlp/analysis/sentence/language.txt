@@ -1,9 +1,18 @@
 语种识别
-ISO 639-1:
+ISO 639:
 https://baike.baidu.com/item/ISO%20639-1
+https://baike.baidu.com/item/ISO_639-2
+https://baike.baidu.com/item/ISO%20639-3
 
 ISO 639 语言码:
 https://www.jianshu.com/p/bffb35c97492
+
+ISO 15924:
+https://www.beichengjiu.com/geography/172296.html
+https://www.beichengjiu.com/geography/172297.html
+
+BCP 47 语言标记句法浅析:
+
 
 文本语言检测之language-detection:
 https://www.jianshu.com/p/9611a048f970

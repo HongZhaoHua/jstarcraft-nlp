@@ -199,7 +199,7 @@ public class LanguageDetectorBuilder {
     public LanguageDetector build() throws IllegalStateException {
         if (languageProfiles.isEmpty())
             throw new IllegalStateException();
-        return new LanguageDetectorImpl(NgramFrequencyData.create(languageProfiles, ngramExtractor.getGramLengths()), alpha, seed, shortTextAlgorithm, prefixFactor, suffixFactor, probabilityThreshold, minimalConfidence, langWeightingMap, ngramExtractor);
+        return new LanguageDetector(NgramFrequencyData.create(languageProfiles, ngramExtractor.getGramLengths()), alpha, seed, shortTextAlgorithm, prefixFactor, suffixFactor, probabilityThreshold, minimalConfidence, langWeightingMap, ngramExtractor);
     }
 
 }

@@ -2,6 +2,9 @@
 ISO 639-1:
 https://baike.baidu.com/item/ISO%20639-1
 
+ISO 639 语言码:
+
+
 文本语言检测之language-detection:
 https://www.jianshu.com/p/9611a048f970
 

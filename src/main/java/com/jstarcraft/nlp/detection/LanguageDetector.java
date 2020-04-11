@@ -26,9 +26,9 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
  */
 public class LanguageDetector {
 
-    private final static int DEFAULT_MAXIMUM = 2048;
+    private final static int DEFAULT_MINIMUM = 0;
 
-    private final static int DEFAULT_MINIMUM = 10;
+    private final static int DEFAULT_MAXIMUM = 1024;
 
     private final static int DEFAULT_DIFFERENCE = 300;
 
@@ -42,19 +42,19 @@ public class LanguageDetector {
     /** 检测词典 */
     private Map<String, Set<DetectionTrie>> tires;
 
-    private int maximum;
-
     private int minimum;
 
+    private int maximum;
+
     public LanguageDetector(Map<String, DetectionPattern> patterns, Map<String, Set<DetectionTrie>> tires) {
-        this(patterns, tires, DEFAULT_MAXIMUM, DEFAULT_MINIMUM);
+        this(patterns, tires, DEFAULT_MINIMUM, DEFAULT_MAXIMUM);
     }
 
-    public LanguageDetector(Map<String, DetectionPattern> patterns, Map<String, Set<DetectionTrie>> tires, int maximum, int minimum) {
+    public LanguageDetector(Map<String, DetectionPattern> patterns, Map<String, Set<DetectionTrie>> tires, int minimum, int maximum) {
         this.patterns = patterns;
         this.tires = tires;
-        this.maximum = maximum;
         this.minimum = minimum;
+        this.maximum = maximum;
     }
 
     /**

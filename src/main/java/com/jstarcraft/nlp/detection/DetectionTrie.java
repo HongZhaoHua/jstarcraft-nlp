@@ -83,13 +83,13 @@ public class DetectionTrie {
                 LinkedHashMap<String, String> languages = scriptTerm.getValue();
                 for (Entry<String, String> languageTerm : languages.entrySet()) {
                     String language = languageTerm.getKey();
-                    String[] dictionary = languageTerm.getValue().split("|");
+                    String[] dictionary = languageTerm.getValue().split("\\|");
                     int weight = 0;
                     TreeMap<String, Integer> tree = new TreeMap<>();
                     for (String word : dictionary) {
                         tree.put(word, weight++);
                     }
-                    ITrie<Integer> trie = new DoubleArrayTrie<>(tree);
+                    DoubleArrayTrie<Integer> trie = new DoubleArrayTrie<>(tree);
                     DetectionTrie detection = new DetectionTrie(language, trie);
                     tries.add(detection);
                 }

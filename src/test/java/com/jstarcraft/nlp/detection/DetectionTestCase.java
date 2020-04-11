@@ -18,7 +18,7 @@ public class DetectionTestCase {
      * @param size
      */
     @ParameterizedTest
-    @CsvSource({ "regulation-82.json,20", "regulation-187.json,37", "regulation-406.json,37" })
+    @CsvSource({ "regulation-82.json,20", "regulation-187.json,30", "regulation-406.json,37" })
     public void testLoadPattern(String path, int size) {
         try (InputStream stream = DetectionPattern.class.getResourceAsStream(path)) {
             Map<String, DetectionPattern> regulations = DetectionPattern.loadPatterns(stream);
@@ -35,7 +35,7 @@ public class DetectionTestCase {
      * @param size
      */
     @ParameterizedTest
-    @CsvSource({ "dictionary-82.json,4", "dictionary-187.json,10", "dictionary-406.json,10" })
+    @CsvSource({ "dictionary-82.json,4", "dictionary-187.json,7", "dictionary-406.json,10" })
     public void testLoadTrie(String path, int size) {
         try (InputStream stream = DetectionTrie.class.getResourceAsStream(path)) {
             Map<String, Set<DetectionTrie>> dictionaries = DetectionTrie.loadTries(stream);
@@ -48,7 +48,7 @@ public class DetectionTestCase {
     @Test
     public void testDetectLanguage() {
         LanguageDetector detector = new LanguageDetector(DetectionPattern.LANGUAGE_187, DetectionTrie.LANGUAGE_187);
-        
+
         System.out.println(detector.detectLanguage("目标是提供一个通用的Java核心编程框架,作为搭建其它框架或者项目的基础."));
         System.out.println(detector.detectLanguage("Alle menslike wesens word vry"));
         System.out.println(detector.detectLanguage("এটি একটি ভাষা একক IBM স্ক্রিপ্ট"));

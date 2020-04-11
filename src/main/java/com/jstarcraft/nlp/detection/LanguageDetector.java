@@ -109,6 +109,7 @@ public class LanguageDetector {
             if (difference == null) {
                 difference = DEFAULT_DIFFERENCE;
             }
+            difference = tuple.getIntValue() - difference - 1;
             if (difference < 0) {
                 difference = -difference;
             }

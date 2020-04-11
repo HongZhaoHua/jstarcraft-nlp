@@ -3,13 +3,19 @@ package com.jstarcraft.nlp.detection;
 import java.util.Locale;
 import java.util.Objects;
 
-public class LocaleLanguage implements Comparable<LocaleLanguage> {
+/**
+ * 检测语言
+ * 
+ * @author Birdy
+ *
+ */
+public class DetectionLanguage implements Comparable<DetectionLanguage> {
 
     private Locale locale;
 
     private double score;
 
-    LocaleLanguage(Locale locale, double score) {
+    DetectionLanguage(Locale locale, double score) {
         this.locale = locale;
         this.score = score;
     }
@@ -27,6 +33,11 @@ public class LocaleLanguage implements Comparable<LocaleLanguage> {
     }
 
     @Override
+    public String toString() {
+        return "DetectionLanguage [locale=" + locale.toLanguageTag() + ", score=" + score + "]";
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(locale, score);
     }
@@ -39,12 +50,12 @@ public class LocaleLanguage implements Comparable<LocaleLanguage> {
             return false;
         if (getClass() != object.getClass())
             return false;
-        LocaleLanguage that = (LocaleLanguage) object;
+        DetectionLanguage that = (DetectionLanguage) object;
         return this.score == that.score && Objects.equals(this.locale, that.locale);
     }
 
     @Override
-    public int compareTo(LocaleLanguage that) {
+    public int compareTo(DetectionLanguage that) {
         if (this == that) {
             return 0;
         }

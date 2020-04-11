@@ -41,6 +41,12 @@
             <artifactId>jstarcraft-core-common</artifactId>
             <version>1.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>com.jstarcraft</groupId>
+            <artifactId>jstarcraft-ai-math</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <!-- Lucene框架依赖 -->
         <dependency>

@@ -8,15 +8,23 @@ import java.util.regex.Pattern;
  * @author Birdy
  *
  */
-public class DetectionRegulation {
+public class DetectionPattern {
 
     private String name;
 
     private Pattern pattern;
 
-    DetectionRegulation(String name, Pattern pattern) {
+    DetectionPattern(String name, Pattern pattern) {
         this.name = name;
         this.pattern = pattern;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Pattern getPattern() {
+        return pattern;
     }
 
 }

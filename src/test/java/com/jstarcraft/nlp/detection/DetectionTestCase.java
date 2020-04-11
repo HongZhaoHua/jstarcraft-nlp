@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
-import org.apache.commons.text.StringEscapeUtils;
 import org.junit.Assert;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -18,7 +17,6 @@ import com.hankcs.hanlp.collection.trie.ITrie;
 import com.jstarcraft.core.common.conversion.json.JsonUtility;
 import com.jstarcraft.core.common.reflection.TypeUtility;
 import com.jstarcraft.core.utility.StringUtility;
-import com.jstarcraft.nlp.dictionary.hanlp.HanLpDictionary;
 
 public class DetectionTestCase {
 
@@ -31,12 +29,12 @@ public class DetectionTestCase {
     @ParameterizedTest
     @CsvSource({ "dictionary-82.json,4", "dictionary-187.json,10", "dictionary-406.json,10" })
     public void testLoadDictionary(String path, int size) {
-        try (InputStream stream = DetectionDictionary.class.getResourceAsStream(path); DataInputStream buffer = new DataInputStream(stream)) {
+        try (InputStream stream = DetectionTire.class.getResourceAsStream(path); DataInputStream buffer = new DataInputStream(stream)) {
             byte[] data = new byte[buffer.available()];
             buffer.readFully(data);
             String json = new String(data, StringUtility.CHARSET);
             // 兼容\x转义ASCII字符
-            json = StringEscapeUtils.unescapeJava(json);
+            json = StringUtility.unescapeJava(json);
             Type type = TypeUtility.parameterize(LinkedHashMap.class, String.class, String.class);
             type = TypeUtility.parameterize(LinkedHashMap.class, String.class, LinkedHashMap.class);
             LinkedHashMap<String, LinkedHashMap<String, String>> dictionaries = JsonUtility.string2Object(json, type);
@@ -55,8 +53,7 @@ public class DetectionTestCase {
                         tree.put(word, weight++);
                     }
                     trie.build(tree);
-                    HanLpDictionary dictionary = new HanLpDictionary(trie);
-                    DetectionDictionary detection = new DetectionDictionary(language, dictionary);
+                    DetectionTire detection = new DetectionTire(language, trie);
                 }
             }
         } catch (Exception exception) {
@@ -73,12 +70,12 @@ public class DetectionTestCase {
     @ParameterizedTest
     @CsvSource({ "regulation-82.json,20", "regulation-187.json,37", "regulation-406.json,37" })
     public void testLoadRegulation(String path, int size) {
-        try (InputStream stream = DetectionRegulation.class.getResourceAsStream(path); DataInputStream buffer = new DataInputStream(stream)) {
+        try (InputStream stream = DetectionPattern.class.getResourceAsStream(path); DataInputStream buffer = new DataInputStream(stream)) {
             byte[] data = new byte[buffer.available()];
             buffer.readFully(data);
             String json = new String(data, StringUtility.CHARSET);
             // 兼容\x转义ASCII字符
-            json = StringEscapeUtils.unescapeJava(json);
+            json = StringUtility.unescapeJava(json);
             Type type = TypeUtility.parameterize(LinkedHashMap.class, String.class, String.class);
             LinkedHashMap<String, String> regulations = JsonUtility.string2Object(json, type);
             Assert.assertEquals(size, regulations.size());
@@ -87,7 +84,7 @@ public class DetectionTestCase {
                 String language = languageTerm.getKey();
                 String regulation = languageTerm.getValue();
                 Pattern pattern = Pattern.compile(regulation, Pattern.MULTILINE);
-                DetectionRegulation detection = new DetectionRegulation(language, pattern);
+                DetectionPattern detection = new DetectionPattern(language, pattern);
             }
         } catch (Exception exception) {
             throw new IllegalArgumentException(exception);

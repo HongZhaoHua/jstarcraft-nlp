@@ -48,10 +48,11 @@ public class DetectionTestCase {
                 for (Entry<String, String> languageTerm : languages.entrySet()) {
                     String language = languageTerm.getKey();
                     String[] words = languageTerm.getValue().split("|");
-                    ITrie<Object> trie = new DoubleArrayTrie<>();
-                    TreeMap<String, Object> tree = new TreeMap<>();
+                    int weight = 0;
+                    ITrie<Integer> trie = new DoubleArrayTrie<>();
+                    TreeMap<String, Integer> tree = new TreeMap<>();
                     for (String word : words) {
-                        tree.put(word, null);
+                        tree.put(word, weight++);
                     }
                     trie.build(tree);
                     HanLpDictionary dictionary = new HanLpDictionary(trie);

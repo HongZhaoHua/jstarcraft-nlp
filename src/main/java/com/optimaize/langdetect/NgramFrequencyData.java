@@ -30,13 +30,10 @@ import org.jetbrains.annotations.Nullable;
 import com.optimaize.langdetect.profiles.LanguageProfile;
 
 /**
- * Contains frequency information for n-grams coming from multiple
- * {@link LanguageProfile}s.
+ * Contains frequency information for n-grams coming from multiple {@link LanguageProfile}s.
  *
  * <p>
- * For each n-gram string it knows the locales (languages) in which it occurs,
- * and how frequent it occurs in those languages in relation to other n-grams of
- * the same length in those same languages.
+ * For each n-gram string it knows the locales (languages) in which it occurs, and how frequent it occurs in those languages in relation to other n-grams of the same length in those same languages.
  * </p>
  *
  * <p>
@@ -48,27 +45,20 @@ import com.optimaize.langdetect.profiles.LanguageProfile;
 public final class NgramFrequencyData {
 
     /**
-     * Key = ngram Value = array with probabilities per loaded language, in the same
-     * order as {@code langlist}.
+     * Key = ngram Value = array with probabilities per loaded language, in the same order as {@code langlist}.
      */
     @NotNull
     private final Map<String, double[]> wordLangProbMap;
 
     /**
-     * All the loaded languages, in exactly the same order as the data is in the
-     * double[] in wordLangProbMap. Example: if wordLangProbMap has an entry for the
-     * n-gram "foo" then for each locale in this langlist here it has a value there.
-     * Languages that don't know the n-gram have the value 0d.
+     * All the loaded languages, in exactly the same order as the data is in the double[] in wordLangProbMap. Example: if wordLangProbMap has an entry for the n-gram "foo" then for each locale in this langlist here it has a value there. Languages that don't know the n-gram have the value 0d.
      */
     @NotNull
     private final List<Locale> langlist;
 
     /**
      * @param gramLengths for example [1,2,3]
-     * @throws java.lang.IllegalArgumentException if languageProfiles or gramLengths
-     *                                            is empty, or if one of the
-     *                                            languageProfiles does not have the
-     *                                            grams of the required sizes.
+     * @throws java.lang.IllegalArgumentException if languageProfiles or gramLengths is empty, or if one of the languageProfiles does not have the grams of the required sizes.
      */
     @NotNull
     public static NgramFrequencyData create(@NotNull Collection<LanguageProfile> languageProfiles, @NotNull Collection<Integer> gramLengths) throws IllegalArgumentException {
@@ -125,11 +115,7 @@ public final class NgramFrequencyData {
     /**
      * Don't modify this data structure! (Can't make array immutable...)
      * 
-     * @return null if no language profile knows that ngram. entries are 0 for
-     *         languages that don't know that ngram at all. The array is in the
-     *         order of the {@link #getLanguageList()} language list, and has
-     *         exactly that size. impl note: this way the caller can handle it more
-     *         efficient than returning an empty array.
+     * @return null if no language profile knows that ngram. entries are 0 for languages that don't know that ngram at all. The array is in the order of the {@link #getLanguageList()} language list, and has exactly that size. impl note: this way the caller can handle it more efficient than returning an empty array.
      */
     @Nullable
     public double[] getProbabilities(String ngram) {

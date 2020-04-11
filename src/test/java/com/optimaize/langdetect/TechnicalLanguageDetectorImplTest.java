@@ -26,8 +26,7 @@ import com.optimaize.langdetect.ngram.NgramExtractor;
 import com.optimaize.langdetect.profiles.LanguageProfileBuilder;
 
 /**
- * These are the tests of the old detector from Shoyu. Running them against the
- * new detector from Fabian.
+ * These are the tests of the old detector from Shoyu. Running them against the new detector from Fabian.
  *
  * @author Nakatani Shuyo
  * @author Fabian Kessler

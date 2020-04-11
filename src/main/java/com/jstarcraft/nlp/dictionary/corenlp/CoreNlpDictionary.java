@@ -6,7 +6,10 @@ import edu.stanford.nlp.ling.tokensregex.matcher.TrieMap;
 
 /**
  * CoreNLP词典
+ * 
+ * <pre>
  * https://github.com/stanfordnlp/CoreNLP/blob/eb43d5d9150de97f8061fa06b838f1d021586789/test/src/edu/stanford/nlp/ling/tokensregex/matcher/TrieMapTest.java
+ * </pre>
  * 
  * @author Birdy
  *

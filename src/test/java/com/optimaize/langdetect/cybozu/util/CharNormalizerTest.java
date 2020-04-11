@@ -55,8 +55,7 @@ public class CharNormalizerTest {
     }
 
     /**
-     * Test method for {@link CharNormalizer#normalize(char)} with CJK Kanji
-     * characters
+     * Test method for {@link CharNormalizer#normalize(char)} with CJK Kanji characters
      */
     @Test
     public final void testNormalizeWithCJKKanji() {
@@ -88,8 +87,7 @@ public class CharNormalizerTest {
     }
 
     /**
-     * This test is not part of the automated tests, enable and run it manually to
-     * debug.
+     * This test is not part of the automated tests, enable and run it manually to debug.
      */
 //    @Test
     public void testBenchmarkGermanText() {

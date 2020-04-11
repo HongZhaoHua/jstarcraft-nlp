@@ -21,12 +21,10 @@ import java.util.Locale;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Holds information about a detected language: the locale (language) and the
- * probability.
+ * Holds information about a detected language: the locale (language) and the probability.
  *
  * <p>
- * Comparable: the "better" one comes before the worse. First order by
- * probability descending (1 to 0). Then order by language ascending (a to z).
+ * Comparable: the "better" one comes before the worse. First order by probability descending (1 to 0). Then order by language ascending (a to z).
  * </p>
  *
  * <p>

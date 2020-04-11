@@ -39,8 +39,7 @@ public final class JcsegTokenizer extends Tokenizer {
     private final ISegment segmentor;
 
     /**
-     * field level offset tracker for multiple-value field like the Array field in
-     * Elasticseach or Solr
+     * field level offset tracker for multiple-value field like the Array field in Elasticseach or Solr
      */
     private int fieldOffset = 0;
 

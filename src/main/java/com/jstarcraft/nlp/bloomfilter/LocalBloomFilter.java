@@ -48,9 +48,7 @@ public abstract class LocalBloomFilter implements BloomFilter {
     }
 
     /**
-     * Calculates the optimal size <i>size</i> of the bloom filter in bits given
-     * <i>expectedElements</i> (expected number of elements in bloom filter) and
-     * <i>falsePositiveProbability</i> (tolerable false positive rate).
+     * Calculates the optimal size <i>size</i> of the bloom filter in bits given <i>expectedElements</i> (expected number of elements in bloom filter) and <i>falsePositiveProbability</i> (tolerable false positive rate).
      *
      * @param n Expected number of elements inserted in the bloom filter
      * @param p Tolerable false positive rate
@@ -61,9 +59,7 @@ public abstract class LocalBloomFilter implements BloomFilter {
     }
 
     /**
-     * Calculates the optimal <i>hashes</i> (number of hash function) given
-     * <i>expectedElements</i> (expected number of elements in bloom filter) and
-     * <i>size</i> (size of bloom filter in bits).
+     * Calculates the optimal <i>hashes</i> (number of hash function) given <i>expectedElements</i> (expected number of elements in bloom filter) and <i>size</i> (size of bloom filter in bits).
      *
      * @param m The size of the bloom filter in bits.
      * @param n Expected number of elements inserted in the bloom filter
@@ -74,13 +70,11 @@ public abstract class LocalBloomFilter implements BloomFilter {
     }
 
     /**
-     * Calculates the amount of elements a Bloom filter for which the given
-     * configuration of size and hashes is optimal.
+     * Calculates the amount of elements a Bloom filter for which the given configuration of size and hashes is optimal.
      *
      * @param m The size of the bloom filter in bits.
      * @param k number of hashes
-     * @return amount of elements a Bloom filter for which the given configuration
-     *         of size and hashes is optimal.
+     * @return amount of elements a Bloom filter for which the given configuration of size and hashes is optimal.
      */
     public static int optimalElements(int m, int k) {
         return (int) Math.ceil((Math.log(2) * m) / k);

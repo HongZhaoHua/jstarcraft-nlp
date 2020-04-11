@@ -34,8 +34,7 @@ import com.optimaize.langdetect.profiles.LanguageProfileReader;
 import com.optimaize.langdetect.text.CommonTextObjectFactories;
 
 /**
- * Uses all built-in language profiles and tests some simple clean phrases as
- * well as longer texts against them with expected outcome.
+ * Uses all built-in language profiles and tests some simple clean phrases as well as longer texts against them with expected outcome.
  *
  * @author Fabian Kessler
  */

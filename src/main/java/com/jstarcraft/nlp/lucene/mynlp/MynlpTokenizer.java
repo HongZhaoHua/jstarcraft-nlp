@@ -107,16 +107,11 @@ public final class MynlpTokenizer extends Tokenizer {
     }
 
     /**
-     * This method is called by a consumer before it begins consumption using
-     * {@link #incrementToken()}.
+     * This method is called by a consumer before it begins consumption using {@link #incrementToken()}.
      * <p>
-     * Resets this stream to a clean state. Stateful implementations must implement
-     * this method so that they can be reused, just as if they had been created
-     * fresh.
+     * Resets this stream to a clean state. Stateful implementations must implement this method so that they can be reused, just as if they had been created fresh.
      * <p>
-     * If you override this method, always call {@code super.reset()}, otherwise
-     * some internal state will not be correctly reset (e.g., {@link Tokenizer} will
-     * throw {@link IllegalStateException} on further usage).
+     * If you override this method, always call {@code super.reset()}, otherwise some internal state will not be correctly reset (e.g., {@link Tokenizer} will throw {@link IllegalStateException} on further usage).
      */
     @Override
     public void reset() throws IOException {

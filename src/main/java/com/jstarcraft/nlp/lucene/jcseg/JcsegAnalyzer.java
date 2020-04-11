@@ -11,11 +11,7 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Jcseg analyzer for lucene with version on or after 5.0
- * 
- * @author chenxin<chenxin619315@gmail.com>
- */
+@Deprecated
 public class JcsegAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JcsegAnalyzer.class);
@@ -27,8 +23,7 @@ public class JcsegAnalyzer extends Analyzer {
     private ADictionary dic = null;
 
     /**
-     * initialize the analyzer with the specified mode And Jcseg will look for the
-     * default configuration file
+     * initialize the analyzer with the specified mode And Jcseg will look for the default configuration file
      * 
      * @param mode tokenizer mode
      * @see org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig

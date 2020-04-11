@@ -17,9 +17,7 @@
 package com.optimaize.langdetect.text;
 
 /**
- * Contains some standard
- * {@link com.optimaize.langdetect.text.TextObjectFactory}s ready to use for
- * common use cases.
+ * Contains some standard {@link com.optimaize.langdetect.text.TextObjectFactory}s ready to use for common use cases.
  *
  * @author Fabian Kessler
  */

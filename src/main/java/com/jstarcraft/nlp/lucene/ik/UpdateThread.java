@@ -3,9 +3,7 @@ package com.jstarcraft.nlp.lucene.ik;
 import java.io.IOException;
 import java.util.Vector;
 
-/**
- * 更新扩展词典子线程类
- */
+@Deprecated
 public class UpdateThread implements Runnable {
 
     private static final long INTERVAL = 30000L; // 循环等待时间

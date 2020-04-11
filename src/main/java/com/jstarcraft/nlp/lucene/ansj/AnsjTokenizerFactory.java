@@ -8,6 +8,7 @@ import org.apache.lucene.util.AttributeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Deprecated
 public class AnsjTokenizerFactory extends TokenizerFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AnsjTokenizerFactory.class);

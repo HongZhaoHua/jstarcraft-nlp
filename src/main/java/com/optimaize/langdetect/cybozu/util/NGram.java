@@ -23,8 +23,7 @@ import org.jetbrains.annotations.Nullable;
  *
  * Users don't use this class directly.
  *
- * TODO this class treats a word as "upper case" if the first 2 characters are
- * upper case. That seems like a simplification, would need documentation.
+ * TODO this class treats a word as "upper case" if the first 2 characters are upper case. That seems like a simplification, would need documentation.
  *
  * @author Nakatani Shuyo
  */
@@ -65,8 +64,7 @@ public class NGram {
     }
 
     /**
-     * TODO this method has some weird, undocumented behavior to ignore ngrams with
-     * upper case.
+     * TODO this method has some weird, undocumented behavior to ignore ngrams with upper case.
      *
      * Get n-Gram
      * 

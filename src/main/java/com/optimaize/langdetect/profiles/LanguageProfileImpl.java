@@ -46,23 +46,19 @@ public final class LanguageProfileImpl implements LanguageProfile {
 
     private static class Stats {
         /**
-         * Key = gram length (1-3 or so). Value = number of all occurrences of these
-         * grams combined.
+         * Key = gram length (1-3 or so). Value = number of all occurrences of these grams combined.
          */
         @NotNull
         private final Map<Integer, Long> numOccurrences;
 
         /**
-         * Key = gram length (1-3 or so). Value = number of occurrences of the n-gram
-         * that occurs the least often. this can be 1, or larger if a cutoff was applied
-         * to remove infrequent grams.
+         * Key = gram length (1-3 or so). Value = number of occurrences of the n-gram that occurs the least often. this can be 1, or larger if a cutoff was applied to remove infrequent grams.
          */
         @NotNull
         private final Map<Integer, Long> minGramCounts;
 
         /**
-         * Key = gram length (1-3 or so). Value = number of occurrences of the n-gram
-         * that occurs the most often.
+         * Key = gram length (1-3 or so). Value = number of occurrences of the n-gram that occurs the most often.
          */
         @NotNull
         private final Map<Integer, Long> maxGramCounts;

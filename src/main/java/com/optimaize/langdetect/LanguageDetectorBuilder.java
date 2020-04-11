@@ -105,12 +105,9 @@ public class LanguageDetectorBuilder {
     }
 
     /**
-     * To weight n-grams that are on the left border of a word differently from
-     * n-grams in the middle of words, assign a value here.
+     * To weight n-grams that are on the left border of a word differently from n-grams in the middle of words, assign a value here.
      *
-     * Affixes (prefixes and suffixes) often distinguish the specific features of
-     * languages. Giving a value greater than 1.0 weights these n-grams higher. A
-     * 2.0 weights them double.
+     * Affixes (prefixes and suffixes) often distinguish the specific features of languages. Giving a value greater than 1.0 weights these n-grams higher. A 2.0 weights them double.
      *
      * Defaults to 1.0, which means don't use this feature.
      * 
@@ -133,9 +130,7 @@ public class LanguageDetectorBuilder {
     }
 
     /**
-     * {@link LanguageDetector#getProbabilities} does not return languages with less
-     * probability than this. The default currently is 0.1 (the old hardcoded
-     * value), but don't rely on it, if you need to be sure then set one.
+     * {@link LanguageDetector#getProbabilities} does not return languages with less probability than this. The default currently is 0.1 (the old hardcoded value), but don't rely on it, if you need to be sure then set one.
      */
     public LanguageDetectorBuilder probabilityThreshold(double probabilityThreshold) {
         this.probabilityThreshold = probabilityThreshold;
@@ -143,9 +138,7 @@ public class LanguageDetectorBuilder {
     }
 
     /**
-     * {@link LanguageDetector#detect} returns a language if the best detected
-     * language has at least this probability. The default currently is 0.9999d, but
-     * don't rely on it, if you need to be sure then set one.
+     * {@link LanguageDetector#detect} returns a language if the best detected language has at least this probability. The default currently is 0.9999d, but don't rely on it, if you need to be sure then set one.
      */
     public LanguageDetectorBuilder minimalConfidence(double minimalConfidence) {
         this.minimalConfidence = minimalConfidence;
@@ -153,10 +146,7 @@ public class LanguageDetectorBuilder {
     }
 
     /**
-     * TODO document exactly. Also explain how it influences the results. Maybe
-     * check for unsupported languages at some point, or not, but document whether
-     * it does throw or ignore. String key = language, Double value = priority
-     * (probably 0-1).
+     * TODO document exactly. Also explain how it influences the results. Maybe check for unsupported languages at some point, or not, but document whether it does throw or ignore. String key = language, Double value = priority (probably 0-1).
      */
     public LanguageDetectorBuilder languagePriorities(@Nullable Map<Locale, Double> langWeightingMap) {
         this.langWeightingMap = langWeightingMap;
@@ -164,8 +154,7 @@ public class LanguageDetectorBuilder {
     }
 
     /**
-     * @throws IllegalStateException if a profile for the same language was added
-     *                               already (must be a userland bug).
+     * @throws IllegalStateException if a profile for the same language was added already (must be a userland bug).
      */
     public LanguageDetectorBuilder withProfile(LanguageProfile languageProfile) throws IllegalStateException {
         if (langsAdded.contains(languageProfile.getLocale())) {
@@ -182,8 +171,7 @@ public class LanguageDetectorBuilder {
     }
 
     /**
-     * @throws IllegalStateException if a profile for the same language was added
-     *                               already (must be a userland bug).
+     * @throws IllegalStateException if a profile for the same language was added already (must be a userland bug).
      */
     public LanguageDetectorBuilder withProfiles(Iterable<LanguageProfile> languageProfiles) throws IllegalStateException {
         for (LanguageProfile languageProfile : languageProfiles) {
@@ -193,8 +181,7 @@ public class LanguageDetectorBuilder {
     }
 
     /**
-     * @throws IllegalStateException if no LanguageProfile was {@link #withProfile
-     *                               added}.
+     * @throws IllegalStateException if no LanguageProfile was {@link #withProfile added}.
      */
     public LanguageDetector build() throws IllegalStateException {
         if (languageProfiles.isEmpty())

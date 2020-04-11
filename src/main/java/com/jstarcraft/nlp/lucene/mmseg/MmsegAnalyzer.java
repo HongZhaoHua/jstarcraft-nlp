@@ -3,7 +3,6 @@ package com.jstarcraft.nlp.lucene.mmseg;
 import java.io.File;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.core.SimpleAnalyzer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,13 +10,7 @@ import com.chenlb.mmseg4j.Dictionary;
 import com.chenlb.mmseg4j.MaxWordSeg;
 import com.chenlb.mmseg4j.Seg;
 
-/**
- * 默认使用 max-word
- *
- * @see {@link SimpleAnalyzer}, {@link ComplexAnalyzer}, {@link MaxWordAnalyzer}
- *
- * @author chenlb
- */
+@Deprecated
 public class MmsegAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MmsegAnalyzer.class);

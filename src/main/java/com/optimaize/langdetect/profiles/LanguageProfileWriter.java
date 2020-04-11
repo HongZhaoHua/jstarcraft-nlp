@@ -78,8 +78,7 @@ public class LanguageProfileWriter {
     }
 
     /**
-     * Writes a {@link LanguageProfile} to a folder using the language name as the
-     * file name.
+     * Writes a {@link LanguageProfile} to a folder using the language name as the file name.
      *
      * @param fullPath Must be an existing writable directory path.
      * @throws java.io.IOException if such a file name exists already.

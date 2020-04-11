@@ -22,8 +22,7 @@ import com.optimaize.langdetect.cybozu.util.CharNormalizer;
  * Runs through the {@link CharNormalizer}.
  *
  * @author Fabian Kessler
- * @deprecated can't be used because it would be a big loss to not inline this
- *             code.
+ * @deprecated can't be used because it would be a big loss to not inline this code.
  */
 public class CharNormalizerTextFilterImpl implements TextFilter {
 

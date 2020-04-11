@@ -34,8 +34,7 @@ import com.optimaize.langdetect.cybozu.util.LangProfile;
 import com.optimaize.langdetect.cybozu.util.TagExtractor;
 
 /**
- * Load Wikipedia's abstract XML as corpus and generate its language profile in
- * JSON format.
+ * Load Wikipedia's abstract XML as corpus and generate its language profile in JSON format.
  * 
  * @author Nakatani Shuyo
  */

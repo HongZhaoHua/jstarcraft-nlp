@@ -7,7 +7,10 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
 
 /**
  * IK词典
+ * 
+ * <pre>
  * https://tool.oschina.net/uploads/apidocs/ikanalyzer/org/wltea/analyzer/dic/Dictionary.html
+ * </pre>
  * 
  * @author Birdy
  *

@@ -7,9 +7,7 @@ import org.slf4j.LoggerFactory;
 import com.mayabot.nlp.segment.LexerReader;
 import com.mayabot.nlp.segment.WordTermIterableMode;
 
-/**
- * @author jimichan
- */
+@Deprecated
 public class MynlpAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MynlpAnalyzer.class);

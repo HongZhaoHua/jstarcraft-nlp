@@ -23,9 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wltea.analyzer.dic.Dictionary;
 
-/**
- * @author <a href="magese@live.cn">Magese</a>
- */
+@Deprecated
 public class IkTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware, UpdateThread.UpdateJob {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(IkTokenizerFactory.class);
@@ -52,8 +50,7 @@ public class IkTokenizerFactory extends TokenizerFactory implements ResourceLoad
     }
 
     /**
-     * 通知方法，用于获取工厂使用的资源文件路径等信息，实现与{@link ResourceLoaderAware#inform(ResourceLoader)}
-     * 当该方法被调用时，将当前实例注册到更新任务中
+     * 通知方法，用于获取工厂使用的资源文件路径等信息，实现与{@link ResourceLoaderAware#inform(ResourceLoader)} 当该方法被调用时，将当前实例注册到更新任务中
      *
      * @param resourceLoader 类路径资源加载实例
      * @throws IOException IO读写异常

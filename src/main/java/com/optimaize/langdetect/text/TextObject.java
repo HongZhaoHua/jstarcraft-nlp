@@ -27,22 +27,15 @@ import com.optimaize.langdetect.cybozu.util.CharNormalizer;
 /**
  * A convenient text object implementing CharSequence and Appendable.
  *
- * This is an ideal object to use for learning text to create
- * {@link com.optimaize.langdetect.profiles.LanguageProfile}s, as well as to
- * pass it in to {@link com.optimaize.langdetect.LanguageDetector#detect}.
+ * This is an ideal object to use for learning text to create {@link com.optimaize.langdetect.profiles.LanguageProfile}s, as well as to pass it in to {@link com.optimaize.langdetect.LanguageDetector#detect}.
  *
  * To get one, use a TextObjectFactory (through a TextObjectFactoryBuilder).
  *
- * Example use: //create the factory once: TextObjectFactory textObjectFactory =
- * new TextObjectFactoryBuilder() .withTextFilter(UrlTextFilter.getInstance())
- * .build(); //then create as many text objects as you like: TextObject
- * inputText = textObjectFactory.create().append("deutsche Text").append("
- * ").append("blah blah");
+ * Example use: //create the factory once: TextObjectFactory textObjectFactory = new TextObjectFactoryBuilder() .withTextFilter(UrlTextFilter.getInstance()) .build(); //then create as many text objects as you like: TextObject inputText = textObjectFactory.create().append("deutsche Text").append(" ").append("blah blah");
  *
  * All append() methods go through the {@code textFilter}.
  *
- * Equals/hashCode are not implemented as of now on purpose. You may want to
- * call toString() and compare that.
+ * Equals/hashCode are not implemented as of now on purpose. You may want to call toString() and compare that.
  *
  * @author Fabian Kessler
  */
@@ -67,9 +60,7 @@ public class TextObject implements CharSequence, Appendable {
     }
 
     /**
-     * Append the target text for language detection. This method read the text from
-     * specified input reader. If the total size of target text exceeds the limit
-     * size, the rest is ignored.
+     * Append the target text for language detection. This method read the text from specified input reader. If the total size of target text exceeds the limit size, the rest is ignored.
      *
      * @param reader the input reader (BufferedReader as usual)
      * @throws java.io.IOException Can't read the reader.
@@ -84,8 +75,7 @@ public class TextObject implements CharSequence, Appendable {
     }
 
     /**
-     * Append the target text for language detection. If the total size of target
-     * text exceeds the limit size , the rest is cut down.
+     * Append the target text for language detection. If the total size of target text exceeds the limit size , the rest is cut down.
      *
      * @param text the target text to append
      */

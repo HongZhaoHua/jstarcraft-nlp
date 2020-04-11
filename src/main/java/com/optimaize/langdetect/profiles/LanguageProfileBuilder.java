@@ -67,11 +67,7 @@ public class LanguageProfileBuilder {
     }
 
     /**
-     * @param minimalFrequency 1-n, the default is 1. n-grams that occurred less
-     *                         often in the text are removed. This really should be
-     *                         set to something higher. Try to play with the number
-     *                         until you get a profile file of satisfying size, that
-     *                         produces good language detection results.
+     * @param minimalFrequency 1-n, the default is 1. n-grams that occurred less often in the text are removed. This really should be set to something higher. Try to play with the number until you get a profile file of satisfying size, that produces good language detection results.
      */
     public LanguageProfileBuilder minimalFrequency(int minimalFrequency) {
         if (minimalFrequency < 1)
@@ -101,8 +97,7 @@ public class LanguageProfileBuilder {
     }
 
     /**
-     * If the builder already has this ngram, the given frequency is added to the
-     * current count.
+     * If the builder already has this ngram, the given frequency is added to the current count.
      */
     public LanguageProfileBuilder addGram(String ngram, int frequency) {
         Map<String, Integer> map = ngrams.get(ngram.length());

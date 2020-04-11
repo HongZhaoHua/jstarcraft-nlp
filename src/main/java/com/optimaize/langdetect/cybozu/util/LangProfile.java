@@ -29,15 +29,11 @@ import java.util.Set;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * {@link LangProfile} is a Language Profile Class. Users don't use this class
- * directly.
+ * {@link LangProfile} is a Language Profile Class. Users don't use this class directly.
  *
  * TODO split into builder and immutable class.
  *
- * TODO currently this only makes n-grams with the space before a word included.
- * no n-gram with the space after the word. Example: "foo" creates " fo" as
- * 3gram, but not "oo ". Either this is a bug, or if intended then needs
- * documentation.
+ * TODO currently this only makes n-grams with the space before a word included. no n-gram with the space after the word. Example: "foo" creates " fo" as 3gram, but not "oo ". Either this is a bug, or if intended then needs documentation.
  * 
  * @author Nakatani Shuyo
  * @deprecated replaced by LanguageProfile
@@ -48,22 +44,16 @@ public class LangProfile implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * n-grams that occur less than this often can be removed using omitLessFreq().
-     * This number can change, see LESS_FREQ_RATIO.
+     * n-grams that occur less than this often can be removed using omitLessFreq(). This number can change, see LESS_FREQ_RATIO.
      */
     private static final int MINIMUM_FREQ = 2;
 
     /**
      * Explanation by example:
      *
-     * If the most frequent n-gram occurs 1 mio times, then 1'000'000 / this
-     * (100'000) = 10. 10 is larger than MINIMUM_FREQ (2), thus MINIMUM_FREQ remains
-     * at 2. All n-grams that occur less than 2 times can be removed as noise using
-     * omitLessFreq().
+     * If the most frequent n-gram occurs 1 mio times, then 1'000'000 / this (100'000) = 10. 10 is larger than MINIMUM_FREQ (2), thus MINIMUM_FREQ remains at 2. All n-grams that occur less than 2 times can be removed as noise using omitLessFreq().
      *
-     * If the most frequent n-gram occurs 5000 times, then 5'000 / this (100'000) =
-     * 0.05. 0.05 is smaller than MINIMUM_FREQ (2), thus MINIMUM_FREQ becomes 0. No
-     * n-grams are removed because of insignificance when calling omitLessFreq().
+     * If the most frequent n-gram occurs 5000 times, then 5'000 / this (100'000) = 0.05. 0.05 is smaller than MINIMUM_FREQ (2), thus MINIMUM_FREQ becomes 0. No n-grams are removed because of insignificance when calling omitLessFreq().
      */
     private static final int LESS_FREQ_RATIO = 100000;
 
@@ -78,12 +68,7 @@ public class LangProfile implements Serializable {
     private Map<String, Integer> freq = new HashMap<>();
 
     /**
-     * Tells how many occurrences of n-grams exist per gram length. When making
-     * 1grams, 2grams and 3grams (currently) then this contains 3 entries where
-     * element 0 = number occurrences of 1-grams element 1 = number occurrences of
-     * 2-grams element 2 = number occurrences of 3-grams Example: if there are 57
-     * 1-grams (English language has about that many) and the training text is
-     * fairly long, then this number is in the millions.
+     * Tells how many occurrences of n-grams exist per gram length. When making 1grams, 2grams and 3grams (currently) then this contains 3 entries where element 0 = number occurrences of 1-grams element 1 = number occurrences of 2-grams element 2 = number occurrences of 3-grams Example: if there are 57 1-grams (English language has about that many) and the training text is fairly long, then this number is in the millions.
      */
     private int[] nWords = new int[NGram.N_GRAM];
 
@@ -123,17 +108,11 @@ public class LangProfile implements Serializable {
     }
 
     /**
-     * Removes ngrams that occur fewer times than MINIMUM_FREQ to get rid of rare
-     * ngrams.
+     * Removes ngrams that occur fewer times than MINIMUM_FREQ to get rid of rare ngrams.
      *
-     * Also removes ascii ngrams if the total number of ascii ngrams is less than
-     * one third of the total. This is done because non-latin text (such as Chinese)
-     * often has some latin noise in between.
+     * Also removes ascii ngrams if the total number of ascii ngrams is less than one third of the total. This is done because non-latin text (such as Chinese) often has some latin noise in between.
      *
-     * TODO split the 2 cleaning to separate methods. TODO distinguish ascii/latin,
-     * currently it looks for latin only, should include characters with diacritics,
-     * eg Vietnamese. TODO current code counts ascii, but removes any latin. is that
-     * desired? if so then this needs documentation.
+     * TODO split the 2 cleaning to separate methods. TODO distinguish ascii/latin, currently it looks for latin only, should include characters with diacritics, eg Vietnamese. TODO current code counts ascii, but removes any latin. is that desired? if so then this needs documentation.
      */
     public void omitLessFreq() {
         if (name == null)

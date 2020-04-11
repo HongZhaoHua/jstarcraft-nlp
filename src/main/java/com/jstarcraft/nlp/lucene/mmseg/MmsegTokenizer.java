@@ -42,16 +42,8 @@ public final class MmsegTokenizer extends Tokenizer {
     }
 
     /*
-     * //lucene 2.9 以下 public Token next(Token reusableToken) throws IOException {
-     * Token token = null; Word word = mmSeg.next(); if(word != null) { //lucene 2.3
-     * reusableToken.clear(); reusableToken.setTermBuffer(word.getSen(),
-     * word.getWordOffset(), word.getLength());
-     * reusableToken.setStartOffset(word.getStartOffset());
-     * reusableToken.setEndOffset(word.getEndOffset());
-     * reusableToken.setType(word.getType()); token = reusableToken; //lucene 2.4
-     * //token = reusableToken.reinit(word.getSen(), word.getWordOffset(),
-     * word.getLength(), word.getStartOffset(), word.getEndOffset(),
-     * word.getType()); } return token; }
+     * //lucene 2.9 以下 public Token next(Token reusableToken) throws IOException { Token token = null; Word word = mmSeg.next(); if(word != null) { //lucene 2.3 reusableToken.clear(); reusableToken.setTermBuffer(word.getSen(), word.getWordOffset(), word.getLength()); reusableToken.setStartOffset(word.getStartOffset()); reusableToken.setEndOffset(word.getEndOffset()); reusableToken.setType(word.getType()); token = reusableToken; //lucene 2.4 //token = reusableToken.reinit(word.getSen(),
+     * word.getWordOffset(), word.getLength(), word.getStartOffset(), word.getEndOffset(), word.getType()); } return token; }
      */
 
     // lucene 2.9/3.0

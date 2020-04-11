@@ -39,11 +39,9 @@ import com.optimaize.langdetect.text.TextObject;
 import com.optimaize.langdetect.text.TextObjectFactory;
 
 /**
- * Performs k-fold cross-validation. See
- * https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation
+ * Performs k-fold cross-validation. See https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation
  *
- * This is meant to be run as a maintenance program, or for debugging. It's not
- * used in production by this library. Use the unit test.
+ * This is meant to be run as a maintenance program, or for debugging. It's not used in production by this library. Use the unit test.
  *
  * @author Robert Erdin
  */
@@ -62,8 +60,7 @@ public class LanguageProfileValidator {
     private TextObject inputSample;
 
     /**
-     * Set the k parameter to select into how many parts to partition the original
-     * sample. Default is 10.
+     * Set the k parameter to select into how many parts to partition the original sample. Default is 10.
      * 
      * @param k Minimum: 3
      */
@@ -76,8 +73,7 @@ public class LanguageProfileValidator {
     }
 
     /**
-     * Adds all {@link LanguageProfile}s that are available when calling
-     * {@link LanguageProfileReader#readAllBuiltIn()}.
+     * Adds all {@link LanguageProfile}s that are available when calling {@link LanguageProfileReader#readAllBuiltIn()}.
      */
     public LanguageProfileValidator loadAllBuiltInLanguageProfiles() throws IOException {
         this.languageProfiles.addAll(new LanguageProfileReader().readAllBuiltIn());
@@ -101,8 +97,7 @@ public class LanguageProfileValidator {
     }
 
     /**
-     * Sets the {@link LanguageProfileBuilder} which will be used to create the
-     * {@link LanguageProfile} during the validation.
+     * Sets the {@link LanguageProfileBuilder} which will be used to create the {@link LanguageProfile} during the validation.
      */
     public LanguageProfileValidator setLanguageProfileBuilder(LanguageProfileBuilder languageProfileBuilder) {
         this.languageProfileBuilder = languageProfileBuilder;
@@ -118,11 +113,9 @@ public class LanguageProfileValidator {
     }
 
     /**
-     * Use for languages that don't use whitespaces to denominate word boundaries.
-     * Default is false.
+     * Use for languages that don't use whitespaces to denominate word boundaries. Default is false.
      * 
-     * @param breakWords set true is you want to break sample into truly equal
-     *                   sizes.
+     * @param breakWords set true is you want to break sample into truly equal sizes.
      */
     public LanguageProfileValidator setBreakWords(boolean breakWords) {
         this.breakWords = breakWords;
@@ -130,8 +123,7 @@ public class LanguageProfileValidator {
     }
 
     /**
-     * Remove potential LanguageProfiles, e.g. in combination with
-     * {@link #loadAllBuiltInLanguageProfiles()}.
+     * Remove potential LanguageProfiles, e.g. in combination with {@link #loadAllBuiltInLanguageProfiles()}.
      * 
      * @param isoString the ISO string of the LanguageProfile to be removed.
      */

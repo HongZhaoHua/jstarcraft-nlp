@@ -23,23 +23,18 @@ import java.util.Map;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * A language profile knows the locale (language), and contains the n-grams and
- * some statistics.
+ * A language profile knows the locale (language), and contains the n-grams and some statistics.
  *
  * <p>
  * It is built from a training text that should be fairly large and clean.
  * </p>
  *
  * <p>
- * It contains the n-grams from the training text in the desired gram sizes (eg
- * 2 and 3-grams), with possible text filters applied for cleaning. Also, rarely
- * occurring n-grams may have been cut to reduce the noise and index size. Use a
- * {@link LanguageProfileBuilder}.
+ * It contains the n-grams from the training text in the desired gram sizes (eg 2 and 3-grams), with possible text filters applied for cleaning. Also, rarely occurring n-grams may have been cut to reduce the noise and index size. Use a {@link LanguageProfileBuilder}.
  * </p>
  *
  * <p>
- * The profile may be created at runtime on-the-fly, or it may be loaded from a
- * previously generated text file (see OldLangProfileConverter).
+ * The profile may be created at runtime on-the-fly, or it may be loaded from a previously generated text file (see OldLangProfileConverter).
  * </p>
  *
  * @author Fabian Kessler
@@ -59,20 +54,15 @@ public interface LanguageProfile {
 
     /**
      * @param gram for example "a" or "foo".
-     * @return 0-n, also zero if this profile does not use n-grams of that length
-     *         (for example if no 4-grams are made).
+     * @return 0-n, also zero if this profile does not use n-grams of that length (for example if no 4-grams are made).
      */
     int getFrequency(String gram);
 
     /**
-     * Tells how many different n-grams there are for a certain n-gram size. For
-     * example the English language has about 57 different 1-grams, whereas Chinese
-     * in Hani has thousands.
+     * Tells how many different n-grams there are for a certain n-gram size. For example the English language has about 57 different 1-grams, whereas Chinese in Hani has thousands.
      * 
      * @param gramLength 1-n
-     * @return 0-n, returns zero if no such n-grams were made (for example if no
-     *         4-grams were made), or if all the training text did not contain such
-     *         long words.
+     * @return 0-n, returns zero if no such n-grams were made (for example if no 4-grams were made), or if all the training text did not contain such long words.
      */
     int getNumGrams(int gramLength);
 
@@ -84,22 +74,17 @@ public interface LanguageProfile {
     int getNumGrams();
 
     /**
-     * Tells how often all n-grams of a certain length occurred, combined. This
-     * returns a much larger number than {@link #getNumGrams}.
+     * Tells how often all n-grams of a certain length occurred, combined. This returns a much larger number than {@link #getNumGrams}.
      * 
      * @param gramLength 1-n
-     * @return 0-n, returns zero if no such n-grams were made (for example if no
-     *         4-grams were made), or if all the training text did not contain such
-     *         long words.
+     * @return 0-n, returns zero if no such n-grams were made (for example if no 4-grams were made), or if all the training text did not contain such long words.
      */
     long getNumGramOccurrences(int gramLength);
 
     /**
-     * Tells how often the n-gram with the lowest amount of occurrences used in this
-     * profile occurred.
+     * Tells how often the n-gram with the lowest amount of occurrences used in this profile occurred.
      *
-     * Most likely there were n-grams with less (unless the returned number is 1),
-     * but they were eliminated in order to keep the profile reasonably small.
+     * Most likely there were n-grams with less (unless the returned number is 1), but they were eliminated in order to keep the profile reasonably small.
      *
      * This is the opposite of getMaxGramCount().
      *
@@ -109,8 +94,7 @@ public interface LanguageProfile {
     long getMinGramCount(int gramLength);
 
     /**
-     * Tells how often the n-gram with the highest amount of occurrences used in
-     * this profile occurred.
+     * Tells how often the n-gram with the highest amount of occurrences used in this profile occurred.
      *
      * This is the opposite of getMinGramCount().
      *

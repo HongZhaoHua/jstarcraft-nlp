@@ -5,7 +5,10 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
 
 /**
  * MMSEG词典
+ * 
+ * <pre>
  * https://github.com/chenlb/mmseg4j-core/blob/db3d304c717d3cd0ed1e86117c785d46167103c1/src/test/java/com/chenlb/mmseg4j/MyTest.java
+ * </pre>
  * 
  * @author Birdy
  *

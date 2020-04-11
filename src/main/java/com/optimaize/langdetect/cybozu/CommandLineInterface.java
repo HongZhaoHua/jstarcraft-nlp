@@ -59,8 +59,7 @@ import com.optimaize.langdetect.text.TextObjectFactory;
  * </p>
  *
  * <p>
- * TODO after my recent changes switching to the new Detector this code is
- * untested. -Fabian
+ * TODO after my recent changes switching to the new Detector this code is untested. -Fabian
  * </p>
  *
  * @author Nakatani Shuyo
@@ -133,8 +132,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * Returns the double, or the default is absent. Throws if the double is
-     * specified but invalid.
+     * Returns the double, or the default is absent. Throws if the double is specified but invalid.
      */
     private double getParamDouble(String key, double defaultValue) {
         String value = values.get(key);

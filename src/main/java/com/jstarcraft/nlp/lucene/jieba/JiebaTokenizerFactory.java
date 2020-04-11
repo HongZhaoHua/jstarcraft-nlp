@@ -9,6 +9,7 @@ import org.apache.lucene.util.AttributeFactory;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.JiebaSegmenter.SegMode;
 
+@Deprecated
 public class JiebaTokenizerFactory extends TokenizerFactory {
 
     private JiebaSegmenter.SegMode segMode;

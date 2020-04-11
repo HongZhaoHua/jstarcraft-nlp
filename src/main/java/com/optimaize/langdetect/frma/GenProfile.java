@@ -35,8 +35,7 @@ import com.optimaize.langdetect.text.TextObjectFactory;
 /**
  * Generate a language profile from any given text file.
  *
- * TODO this is copy/paste from the other class with the same name. Check if
- * code can be re-used. Rename to something meaningful.
+ * TODO this is copy/paste from the other class with the same name. Check if code can be re-used. Rename to something meaningful.
  * 
  * @author François ROLAND
  */
@@ -45,8 +44,7 @@ public class GenProfile {
     private static final TextObjectFactory textObjectFactory = CommonTextObjectFactories.forIndexing();
 
     /**
-     * Loads a text file and generate a language profile from its content. The input
-     * text file is supposed to be encoded in UTF-8.
+     * Loads a text file and generate a language profile from its content. The input text file is supposed to be encoded in UTF-8.
      * 
      * @param lang     target language name.
      * @param textFile input text file.

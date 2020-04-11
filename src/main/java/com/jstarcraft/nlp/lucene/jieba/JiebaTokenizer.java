@@ -55,9 +55,7 @@ public class JiebaTokenizer extends SegmentingTokenizerBase {
     private int sentenceEnd = 0;
 
     /**
-     * used for sentence witch length > 1024 if sentence length greater than 1024,
-     * setNextSentence method parameter sentenceStart will be 0 fieldIdCounter is
-     * filed id counter, curFieldId
+     * used for sentence witch length > 1024 if sentence length greater than 1024, setNextSentence method parameter sentenceStart will be 0 fieldIdCounter is filed id counter, curFieldId
      */
     private long fieldIdCounter = 0;
     private static long MAX_FIELD_ID = 1000000;
@@ -98,8 +96,7 @@ public class JiebaTokenizer extends SegmentingTokenizerBase {
         // need order SegTokens by startOffset
         Collections.sort(segTokenList, new Comparator<SegToken>() {
             /**
-             * @return a negative integer, zero, or a positive integer as the first argument
-             *         is less than, equal to, or greater than the second.
+             * @return a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second.
              * @param o1
              * @param o2
              */

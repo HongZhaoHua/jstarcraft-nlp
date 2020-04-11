@@ -20,8 +20,7 @@ import com.optimaize.langdetect.text.CommonTextObjectFactories;
 import com.optimaize.langdetect.text.TextObjectFactory;
 
 /**
- * {@link TagExtractor} is a class which extracts inner texts of specified tag.
- * Users don't use this class directly.
+ * {@link TagExtractor} is a class which extracts inner texts of specified tag. Users don't use this class directly.
  * 
  * @author Nakatani Shuyo
  */

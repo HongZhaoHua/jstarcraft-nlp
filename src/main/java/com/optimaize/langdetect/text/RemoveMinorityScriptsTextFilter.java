@@ -24,8 +24,7 @@ import java.util.Set;
 /**
  * Removes text written in scripts that are not the dominant script of the text.
  *
- * TODO this does not do special handling for Japanese (3 scripts) and Korean (2
- * scripts), they should be counted together and kept.
+ * TODO this does not do special handling for Japanese (3 scripts) and Korean (2 scripts), they should be counted together and kept.
  *
  * @author Fabian Kessler
  */
@@ -34,14 +33,11 @@ public class RemoveMinorityScriptsTextFilter implements TextFilter {
     private final double threshold;
 
     /**
-     * If a script has less than this fraction of content compared to the most used
-     * one, its text is removed.
+     * If a script has less than this fraction of content compared to the most used one, its text is removed.
      *
-     * Example: Latin 10%, Cyrillic 80%, Common 10% (punctuation n'stuff). Now 10 is
-     * put in relation to 80.
+     * Example: Latin 10%, Cyrillic 80%, Common 10% (punctuation n'stuff). Now 10 is put in relation to 80.
      *
-     * @param threshold 0-1, suggested value is 0.3. If smaller then removed, equal
-     *                  remains.
+     * @param threshold 0-1, suggested value is 0.3. If smaller then removed, equal remains.
      */
     public static RemoveMinorityScriptsTextFilter forThreshold(double threshold) {
         return new RemoveMinorityScriptsTextFilter(threshold);

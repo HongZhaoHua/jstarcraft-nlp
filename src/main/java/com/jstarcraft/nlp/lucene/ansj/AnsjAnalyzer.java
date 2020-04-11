@@ -29,6 +29,7 @@ import org.nlpcn.commons.lang.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Deprecated
 public class AnsjAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AnsjAnalyzer.class);

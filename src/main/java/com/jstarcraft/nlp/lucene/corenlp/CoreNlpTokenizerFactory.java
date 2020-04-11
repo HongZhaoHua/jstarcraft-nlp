@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import edu.stanford.nlp.pipeline.AnnotationPipeline;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
+@Deprecated
 public class CoreNlpTokenizerFactory extends TokenizerFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CoreNlpTokenizerFactory.class);

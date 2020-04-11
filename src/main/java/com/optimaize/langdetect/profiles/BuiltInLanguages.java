@@ -132,8 +132,7 @@ public class BuiltInLanguages {
     }
 
     /**
-     * Returns the languages for which the library provides full profiles. Full
-     * provides are generated from regular text, usually Wikipedia abstracts.
+     * Returns the languages for which the library provides full profiles. Full provides are generated from regular text, usually Wikipedia abstracts.
      * 
      * @return immutable
      */
@@ -142,9 +141,7 @@ public class BuiltInLanguages {
     }
 
     /**
-     * Returns the languages for which the library provides profiles created from
-     * short text. Twitter was used as source by @shuyo. Much less languages have
-     * short text profiles as of now.
+     * Returns the languages for which the library provides profiles created from short text. Twitter was used as source by @shuyo. Much less languages have short text profiles as of now.
      * 
      * @return immutable
      */

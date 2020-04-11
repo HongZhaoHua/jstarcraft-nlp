@@ -57,17 +57,14 @@ public class NgramExtractor {
     }
 
     /**
-     * To ensure having border grams, this character is added to the left and right
-     * of the text.
+     * To ensure having border grams, this character is added to the left and right of the text.
      *
      * <p>
-     * Example: when textPadding is a space ' ' then a text input "foo" becomes "
-     * foo ", ensuring that n-grams like " f" are created.
+     * Example: when textPadding is a space ' ' then a text input "foo" becomes " foo ", ensuring that n-grams like " f" are created.
      * </p>
      *
      * <p>
-     * If the text already has such a character in that position (eg starts with),
-     * it is not added there.
+     * If the text already has such a character in that position (eg starts with), it is not added there.
      * </p>
      *
      * @param textPadding for example a space ' '.
@@ -96,8 +93,7 @@ public class NgramExtractor {
      * </p>
      *
      * @param text
-     * @return The grams, empty if the input was empty or if none for that
-     *         gramLength fits.
+     * @return The grams, empty if the input was empty or if none for that gramLength fits.
      */
     @NotNull
     public List<String> extractGrams(@NotNull CharSequence text) {
@@ -132,8 +128,7 @@ public class NgramExtractor {
     }
 
     /**
-     * @return Key = ngram, value = count The order is as the n-grams appeared first
-     *         in the string.
+     * @return Key = ngram, value = count The order is as the n-grams appeared first in the string.
      *
      */
     @NotNull
@@ -169,9 +164,7 @@ public class NgramExtractor {
     }
 
     /**
-     * This is trying to be smart. It also depends on script (alphabet less than
-     * ideographic). So I'm not sure how good it really is. Just trying to prevent
-     * array copies... and for Latin it seems to work fine.
+     * This is trying to be smart. It also depends on script (alphabet less than ideographic). So I'm not sure how good it really is. Just trying to prevent array copies... and for Latin it seems to work fine.
      */
     private static int guessNumDistinctiveGrams(int textLength, int gramLength) {
         switch (gramLength) {

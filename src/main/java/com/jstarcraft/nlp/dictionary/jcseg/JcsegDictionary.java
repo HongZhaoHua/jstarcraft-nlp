@@ -7,7 +7,10 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
 
 /**
  * Jcseg词典
+ * 
+ * <pre>
  * https://github.com/lionsoul2014/jcseg#jcseg%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91
+ * </pre>
  * 
  * @author Birdy
  *

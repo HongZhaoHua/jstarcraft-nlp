@@ -42,8 +42,7 @@ public class LanguageProfileReaderTest {
     private static final File PROFILE_DIR = new File(new File(new File(new File("src"), "main"), "resources"), "languages");
 
     /*
-     * In case someone creates new language profiles then these numbers need to be
-     * adjusted.
+     * In case someone creates new language profiles then these numbers need to be adjusted.
      */
 
     @Test

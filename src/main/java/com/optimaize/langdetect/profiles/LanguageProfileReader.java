@@ -60,10 +60,8 @@ public class LanguageProfileReader {
      * This is usually used to load built-in profiles, shipped with the jar.
      * </p>
      *
-     * @param classLoader      the ClassLoader to load the profiles from. Use
-     *                         {@code MyClass.class.getClassLoader()}
-     * @param profileDirectory profile directory path inside the classpath. The
-     *                         default profiles are in "languages".
+     * @param classLoader      the ClassLoader to load the profiles from. Use {@code MyClass.class.getClassLoader()}
+     * @param profileDirectory profile directory path inside the classpath. The default profiles are in "languages".
      * @param profileFileNames for example ["en", "fr", "de"].
      */
     public List<LanguageProfile> read(ClassLoader classLoader, String profileDirectory, Collection<String> profileFileNames) throws IOException {
@@ -86,17 +84,14 @@ public class LanguageProfileReader {
     }
 
     /**
-     * Same as {@link #read(ClassLoader, String, java.util.Collection)} using the
-     * class loader of this class.
+     * Same as {@link #read(ClassLoader, String, java.util.Collection)} using the class loader of this class.
      */
     public List<LanguageProfile> read(String profileDirectory, Collection<String> profileFileNames) throws IOException {
         return read(LanguageProfileReader.class.getClassLoader(), profileDirectory, profileFileNames);
     }
 
     /**
-     * Same as {@link #read(ClassLoader, String, java.util.Collection)} using the
-     * class loader of this class, and the default profiles directory of this
-     * library.
+     * Same as {@link #read(ClassLoader, String, java.util.Collection)} using the class loader of this class, and the default profiles directory of this library.
      */
     public List<LanguageProfile> read(Collection<String> profileFileNames) throws IOException {
         return read(LanguageProfileReader.class.getClassLoader(), PROFILES_DIR, profileFileNames);
@@ -136,8 +131,7 @@ public class LanguageProfileReader {
     }
 
     /**
-     * Reads all built-in language profiles from the "languages" folder (shipped
-     * with the jar).
+     * Reads all built-in language profiles from the "languages" folder (shipped with the jar).
      */
     public List<LanguageProfile> readAllBuiltIn() throws IOException {
         List<LanguageProfile> loaded = new ArrayList<>();

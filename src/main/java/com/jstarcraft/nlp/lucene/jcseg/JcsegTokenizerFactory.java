@@ -13,11 +13,7 @@ import org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Jcseg tokenizer factory class for solr
- * 
- * @author chenxin<chenxin619315@gmail.com>
- */
+@Deprecated
 public class JcsegTokenizerFactory extends TokenizerFactory {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JcsegTokenizerFactory.class);
@@ -29,8 +25,7 @@ public class JcsegTokenizerFactory extends TokenizerFactory {
     private ADictionary dic = null;
 
     /**
-     * set the mode arguments in the schema.xml configuration file to change the
-     * segment mode for Jcseg
+     * set the mode arguments in the schema.xml configuration file to change the segment mode for Jcseg
      * 
      * @throws IOException
      * 

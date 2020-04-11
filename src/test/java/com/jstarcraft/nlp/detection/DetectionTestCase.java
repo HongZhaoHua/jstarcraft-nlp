@@ -4,11 +4,13 @@ import java.io.DataInputStream;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -20,6 +22,12 @@ import com.jstarcraft.core.utility.StringUtility;
 
 public class DetectionTestCase {
 
+    @Test
+    public void test() {
+        Locale locale = Locale.forLanguageTag("Deva");
+        System.out.println(locale.toLanguageTag());
+    }
+
     /**
      * 测试装载语种检测词典
      * 
@@ -28,7 +36,7 @@ public class DetectionTestCase {
      */
     @ParameterizedTest
     @CsvSource({ "dictionary-82.json,4", "dictionary-187.json,10", "dictionary-406.json,10" })
-    public void testLoadDictionary(String path, int size) {
+    public void testLoadTrie(String path, int size) {
         try (InputStream stream = DetectionTire.class.getResourceAsStream(path); DataInputStream buffer = new DataInputStream(stream)) {
             byte[] data = new byte[buffer.available()];
             buffer.readFully(data);
@@ -69,7 +77,7 @@ public class DetectionTestCase {
      */
     @ParameterizedTest
     @CsvSource({ "regulation-82.json,20", "regulation-187.json,37", "regulation-406.json,37" })
-    public void testLoadRegulation(String path, int size) {
+    public void testLoadPattern(String path, int size) {
         try (InputStream stream = DetectionPattern.class.getResourceAsStream(path); DataInputStream buffer = new DataInputStream(stream)) {
             byte[] data = new byte[buffer.available()];
             buffer.readFully(data);
@@ -82,6 +90,7 @@ public class DetectionTestCase {
 
             for (Entry<String, String> languageTerm : regulations.entrySet()) {
                 String language = languageTerm.getKey();
+
                 String regulation = languageTerm.getValue();
                 Pattern pattern = Pattern.compile(regulation, Pattern.MULTILINE);
                 DetectionPattern detection = new DetectionPattern(language, pattern);

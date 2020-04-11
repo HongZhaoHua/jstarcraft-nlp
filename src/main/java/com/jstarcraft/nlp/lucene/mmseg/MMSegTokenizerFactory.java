@@ -16,6 +16,7 @@ import com.chenlb.mmseg4j.MaxWordSeg;
 import com.chenlb.mmseg4j.Seg;
 import com.chenlb.mmseg4j.SimpleSeg;
 
+@Deprecated
 public class MMSegTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware {
 
     private static final Logger logger = LoggerFactory.getLogger(MMSegTokenizerFactory.class);

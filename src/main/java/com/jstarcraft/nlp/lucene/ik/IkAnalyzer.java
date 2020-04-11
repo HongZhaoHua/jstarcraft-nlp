@@ -5,10 +5,7 @@ import org.apache.lucene.analysis.Tokenizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * IK分词器，Lucene Analyzer接口实现
- */
-@SuppressWarnings("unused")
+@Deprecated
 public final class IkAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(IkAnalyzer.class);

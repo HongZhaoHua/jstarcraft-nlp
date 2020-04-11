@@ -21,9 +21,7 @@ import org.slf4j.LoggerFactory;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.WordDictionary;
 
-/**
- * Created by candowu on 2018/4/13.
- */
+@Deprecated
 public class JiebaAnalyzer extends Analyzer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JiebaAnalyzer.class);
@@ -45,8 +43,7 @@ public class JiebaAnalyzer extends Analyzer {
     }
 
     /**
-     * use for add user dictionary and stop words, user dictionary need with .dict
-     * suffix, stop words with file name: stopwords.txt
+     * use for add user dictionary and stop words, user dictionary need with .dict suffix, stop words with file name: stopwords.txt
      * 
      * @param userDictPath
      */

@@ -41,8 +41,7 @@ public class TextObjectFactoryBuilder {
      * Adds the given TextFilter to be run on {@link TextObject#append} methods.
      *
      * <p>
-     * Note that the order of filters. may be important. They are executed in the
-     * same order as they are passed in here.
+     * Note that the order of filters. may be important. They are executed in the same order as they are passed in here.
      * </p>
      */
     public TextObjectFactoryBuilder withTextFilter(TextFilter textFilter) {

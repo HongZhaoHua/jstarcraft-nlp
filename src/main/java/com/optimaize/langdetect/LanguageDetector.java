@@ -41,11 +41,7 @@ import com.optimaize.langdetect.ngram.NgramExtractor;
  * </p>
  *
  * <p>
- * This detector cannot handle well: Short input text, can work or give wrong
- * results. Text written in multiple languages. It likely returns the language
- * for the most prominent text. It's not made for that. Text written in
- * languages for which the detector has no profile loaded. It may just return
- * other similar languages.
+ * This detector cannot handle well: Short input text, can work or give wrong results. Text written in multiple languages. It likely returns the language for the most prominent text. It's not made for that. Text written in languages for which the detector has no profile loaded. It may just return other similar languages.
  * </p>
  *
  * @author Fabian Kessler
@@ -79,12 +75,9 @@ public final class LanguageDetector {
     private static final int N_TRIAL = 7;
 
     /**
-     * This is used when no custom seed was passed in. By using the same seed for
-     * different calls, the results are consistent also.
+     * This is used when no custom seed was passed in. By using the same seed for different calls, the results are consistent also.
      *
-     * Changing this number means that users of the library might suddenly see other
-     * results after updating. So don't change it hastily. I chose a prime number
-     * *clueless*. See https://github.com/optimaize/language-detector/issues/14
+     * Changing this number means that users of the library might suddenly see other results after updating. So don't change it hastily. I chose a prime number *clueless*. See https://github.com/optimaize/language-detector/issues/14
      */
     private static final long DEFAULT_SEED = 41L;
 
@@ -201,8 +194,7 @@ public final class LanguageDetector {
     }
 
     /**
-     * This is the original algorithm used for all text length. It is inappropriate
-     * for short text.
+     * This is the original algorithm used for all text length. It is inappropriate for short text.
      */
     private double[] detectBlockLongText(List<String> ngrams) {
         assert !ngrams.isEmpty();
@@ -231,8 +223,7 @@ public final class LanguageDetector {
     }
 
     /**
-     * Initialize the map of language probabilities. If there is the specified prior
-     * map, use it as initial map.
+     * Initialize the map of language probabilities. If there is the specified prior map, use it as initial map.
      * 
      * @return initialized map of language probabilities
      */
@@ -280,8 +271,7 @@ public final class LanguageDetector {
     }
 
     /**
-     * Returns the detected languages sorted by probabilities descending. Languages
-     * with less probability than PROB_THRESHOLD are ignored.
+     * Returns the detected languages sorted by probabilities descending. Languages with less probability than PROB_THRESHOLD are ignored.
      */
     @NotNull
     private List<DetectedLanguage> sortProbability(double[] prob) {

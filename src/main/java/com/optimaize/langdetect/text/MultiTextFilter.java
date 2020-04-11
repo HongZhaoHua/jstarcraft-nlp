@@ -24,8 +24,7 @@ import org.jetbrains.annotations.Nullable;
 import com.google.common.collect.ImmutableList;
 
 /**
- * Groups multiple {@link com.optimaize.langdetect.text.TextFilter}s as one and
- * runs them in the given order.
+ * Groups multiple {@link com.optimaize.langdetect.text.TextFilter}s as one and runs them in the given order.
  *
  * @author Fabian Kessler
  */

@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 
 import com.hankcs.hanlp.collection.trie.ITrie;
 import com.jstarcraft.ai.math.algorithm.text.CharacterNgram;
-import com.jstarcraft.core.utility.KeyValue;
 import com.jstarcraft.core.utility.StringUtility;
 
 import it.unimi.dsi.fastutil.objects.Object2BooleanMap;
@@ -28,85 +27,65 @@ public class LanguageDetector {
 
     private final static Pattern replace = Pattern.compile("[\\u0021-\\u0040\\s]+");
 
-    /* Maximum sample length. */
     private final static int DEFAULT_MAXIMUM = 2048;
 
-    /* Minimum sample length. */
     private final static int DEFAULT_MINIMUM = 10;
 
-    /*
-     * The maximum distance to add when a given trigram does not exist in a trigram
-     * dictionary.
-     */
     private final static int DEFAULT_DIFFERENCE = 300;
 
-    /** 检测词典 */
-    private Map<String, Set<DetectionTire>> dictionaries;
-
     /** 检测规则 */
-    private Map<String, DetectionPattern> regulations;
+    private Map<String, DetectionPattern> patterns;
+
+    /** 检测词典 */
+    private Map<String, Set<DetectionTire>> tires;
 
     private int maximum;
 
     private int minimum;
 
-    private int difference;
-
-    public LanguageDetector(Map<String, Set<DetectionTire>> dictionaries, Map<String, DetectionPattern> regulations) {
-        this(dictionaries, regulations, DEFAULT_MAXIMUM, DEFAULT_MINIMUM, DEFAULT_DIFFERENCE);
+    public LanguageDetector(Map<String, DetectionPattern> patterns, Map<String, Set<DetectionTire>> tires) {
+        this(patterns, tires, DEFAULT_MAXIMUM, DEFAULT_MINIMUM);
     }
 
-    public LanguageDetector(Map<String, Set<DetectionTire>> dictionaries, Map<String, DetectionPattern> regulations, int maximum, int minimum) {
-        this(dictionaries, regulations, maximum, minimum, DEFAULT_DIFFERENCE);
-    }
-
-    public LanguageDetector(Map<String, Set<DetectionTire>> dictionaries, Map<String, DetectionPattern> regulations, int maximum, int minimum, int difference) {
-        this.dictionaries = dictionaries;
-        this.regulations = regulations;
+    public LanguageDetector(Map<String, DetectionPattern> patterns, Map<String, Set<DetectionTire>> tires, int maximum, int minimum) {
+        this.patterns = patterns;
+        this.tires = tires;
         this.maximum = maximum;
         this.minimum = minimum;
-        this.difference = difference;
     }
 
-    public LocaleLanguage detectLanguage(String text, Object2BooleanMap<Locale> options) {
-        return null;
+    /**
+     * 检测语言
+     * 
+     * @param text
+     * @param options
+     * @return
+     */
+    public LocaleLanguage detectLanguage(String text, Object2BooleanMap<String> options) {
+        SortedSet<LocaleLanguage> locales = detectLanguages(text, options);
+        return locales.isEmpty() ? null : locales.first();
     }
 
-    KeyValue<String, Integer> getScript(String text) {
-        int count = -1;
-        String script = null;
-
-        for (DetectionPattern regulation : regulations.values()) {
-            Pattern pattern = regulation.getPattern();
-            Matcher matcher = pattern.matcher(text);
-            int occurrence = 0;
-            while (matcher.find()) {
-                occurrence++;
-            }
-            if (occurrence > count) {
-                count = occurrence;
-                script = regulation.getName();
-            }
-        }
-
-        return new KeyValue<>(script, count);
-    }
-
-    boolean allow(String language, Set<Locale> writes, Set<Locale> blacks) {
-        // TODO
+    /**
+     * 检验语言
+     * 
+     * @param language
+     * @param writes
+     * @param blacks
+     * @return
+     */
+    boolean checkLanguage(String language, Set<String> writes, Set<String> blacks) {
         if (writes.isEmpty() && blacks.isEmpty()) {
             return true;
         }
-
         return writes.contains(language) && !blacks.contains(language);
     }
 
-    double getDistance(Object2IntMap<CharSequence> tuples, ITrie<Integer> model) {
+    double getScore(Object2IntMap<CharSequence> tuples, ITrie<Integer> trie) {
         double score = 0D;
         Integer difference;
-
         for (Object2IntMap.Entry<CharSequence> tuple : tuples.object2IntEntrySet()) {
-            difference = model.get(tuple.getKey().toString());
+            difference = trie.get(tuple.getKey().toString());
             if (difference == null) {
                 difference = DEFAULT_DIFFERENCE;
             }
@@ -118,18 +97,7 @@ public class LanguageDetector {
         return score;
     }
 
-    void getDistances(SortedSet<LocaleLanguage> locales, Object2IntMap<CharSequence> tuples, Set<DetectionTire> languages, Set<Locale> writes, Set<Locale> blacks) {
-        for (DetectionTire dictionary : languages) {
-            String language = dictionary.getName();
-            if (allow(language, writes, blacks)) {
-                double score = getDistance(tuples, dictionary.getTrie());
-                LocaleLanguage locale = new LocaleLanguage(Locale.forLanguageTag(language), score);
-                locales.add(locale);
-            }
-        }
-    }
-
-    void normalize(String text, SortedSet<LocaleLanguage> locales) {
+    void normalizeScores(String text, SortedSet<LocaleLanguage> locales) {
         double minimum = locales.first().getScore();
         double maximum = text.length() * DEFAULT_DIFFERENCE - minimum;
         for (LocaleLanguage locale : locales) {
@@ -139,13 +107,20 @@ public class LanguageDetector {
         }
     }
 
-    public SortedSet<LocaleLanguage> detectLanguages(String text, Object2BooleanMap<Locale> options) {
+    /**
+     * 检测语言
+     * 
+     * @param text
+     * @param options
+     * @return
+     */
+    public SortedSet<LocaleLanguage> detectLanguages(String text, Object2BooleanMap<String> options) {
         SortedSet<LocaleLanguage> locales = new TreeSet<>();
 
         // 白名单,黑名单
-        HashSet<Locale> writes = new HashSet<>();
-        HashSet<Locale> blacks = new HashSet<>();
-        for (Object2BooleanMap.Entry<Locale> option : options.object2BooleanEntrySet()) {
+        HashSet<String> writes = new HashSet<>();
+        HashSet<String> blacks = new HashSet<>();
+        for (Object2BooleanMap.Entry<String> option : options.object2BooleanEntrySet()) {
             if (option.getBooleanValue()) {
                 writes.add(option.getKey());
             } else {
@@ -155,7 +130,7 @@ public class LanguageDetector {
 
         int size = text.length();
         if (size < minimum) {
-            return null;
+            return locales;
         }
         if (size > maximum) {
             text = text.substring(0, maximum);
@@ -165,36 +140,57 @@ public class LanguageDetector {
         /*
          * Get the script which characters occur the most in `value`.
          */
-        KeyValue<String, Integer> script = getScript(text);
-        if (script.getKey() == null || script.getValue() <= 0) {
+        int count = -1;
+        String script = null;
+        for (DetectionPattern regulation : patterns.values()) {
+            Pattern pattern = regulation.getPattern();
+            Matcher matcher = pattern.matcher(text);
+            int match = 0;
+            while (matcher.find()) {
+                match++;
+            }
+            if (match > count) {
+                count = match;
+                script = regulation.getName();
+            }
+        }
+        if (script == null || count <= 0) {
             return locales;
         }
 
         /* One languages exists for the most-used script. */
-        Set<DetectionTire> languages = dictionaries.get(script.getKey());
-        if (languages == null) {
+        Set<DetectionTire> dictionaries = tires.get(script);
+        if (dictionaries == null) {
             /*
-             * If no matches occured, such as a digit only string, or because the language
-             * is ignored, exit with `und`.
+             * If no matches occured, such as a digit only string, or because the language is ignored, exit with `und`.
              */
-            if (!allow(script.getKey(), writes, blacks)) {
+            if (!checkLanguage(script, writes, blacks)) {
                 return locales;
             }
-            locales.add(new LocaleLanguage(Locale.forLanguageTag(script.getKey()), 1D));
+            locales.add(new LocaleLanguage(Locale.forLanguageTag(script), 1D));
             return locales;
         }
 
+        /*
+         * Get all distances for a given script, and normalize the distance values.
+         */
         text = replace.matcher(text).replaceAll(StringUtility.SPACE);
         CharacterNgram ngram = new CharacterNgram(3, text);
         Object2IntMap<CharSequence> tuples = new Object2IntOpenHashMap<>();
         for (CharSequence character : ngram) {
-            int count = tuples.getInt(character);
+            count = tuples.getInt(character);
             tuples.put(character, count + 1);
         }
-
-        getDistances(locales, tuples, languages, writes, blacks);
+        for (DetectionTire dictionary : dictionaries) {
+            String language = dictionary.getName();
+            if (checkLanguage(language, writes, blacks)) {
+                double score = getScore(tuples, dictionary.getTrie());
+                LocaleLanguage locale = new LocaleLanguage(Locale.forLanguageTag(language), score);
+                locales.add(locale);
+            }
+        }
         if (!locales.isEmpty()) {
-            normalize(text, locales);
+            normalizeScores(text, locales);
         }
         return locales;
     }

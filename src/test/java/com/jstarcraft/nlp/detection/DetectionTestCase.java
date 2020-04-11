@@ -51,7 +51,7 @@ public class DetectionTestCase {
         Assert.assertEquals("eng", detector.detectLanguage("The goal is to provide a general Java core programming framework").getLocale().toLanguageTag());
         Assert.assertEquals("cmn", detector.detectLanguage("目标是提供一个通用的Java核心编程框架").getLocale().toLanguageTag());
         Assert.assertEquals("fra", detector.detectLanguage("L'objectif est de fournir un cadre de programmation de base commun pour Java").getLocale().toLanguageTag());
-        Assert.assertEquals("spa", detector.detectLanguage("El objetivo es ofrecer un marco común de programación básica Java").getLocale().toLanguageTag());
+        Assert.assertEquals("spa", detector.detectLanguage("El objetivo es ofrecer un marco").getLocale().toLanguageTag());
         Assert.assertEquals("por", detector.detectLanguage("O objetivo é fornecer um Quadro geral de programação do núcleo Java").getLocale().toLanguageTag());
         Assert.assertEquals("rus", detector.detectLanguage("Цель заключается в том, чтобы создать общую базу программирования Java").getLocale().toLanguageTag());
         Assert.assertEquals("arb", detector.detectLanguage("الهدف هو توفير إطار البرمجة جافا الأساسية المشتركة").getLocale().toLanguageTag());

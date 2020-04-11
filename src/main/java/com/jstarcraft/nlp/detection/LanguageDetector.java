@@ -108,10 +108,11 @@ public class LanguageDetector {
             difference = trie.get(tuple.getKey().toString());
             if (difference == null) {
                 difference = DEFAULT_DIFFERENCE;
-            }
-            difference = tuple.getIntValue() - difference - 1;
-            if (difference < 0) {
-                difference = -difference;
+            } else {
+                difference = tuple.getIntValue() - difference - 1;
+                if (difference < 0) {
+                    difference = -difference;
+                }
             }
             score += difference;
         }
@@ -211,7 +212,7 @@ public class LanguageDetector {
         /*
          * Get all distances for a given script, and normalize the distance values.
          */
-        text = REPLACE.matcher(text).replaceAll(StringUtility.SPACE);
+        text = REPLACE.matcher(text).replaceAll(StringUtility.SPACE).toLowerCase();
         CharacterNgram ngram = new CharacterNgram(3, text);
         Object2IntMap<CharSequence> tuples = new Object2IntOpenHashMap<>();
         for (CharSequence character : ngram) {

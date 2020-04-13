@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import it.unimi.dsi.fastutil.objects.Object2BooleanMap;
+import it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap;
+
 public class DetectionTestCase {
 
     /**
@@ -45,8 +48,11 @@ public class DetectionTestCase {
         }
     }
 
+    /**
+     * 测试已知语种
+     */
     @Test
-    public void testDetectLanguage() {
+    public void testKnowedLanguage() {
         LanguageDetector detector = new LanguageDetector(DetectionPattern.LANGUAGE_187, DetectionTrie.LANGUAGE_187);
         Assert.assertEquals("eng", detector.detectLanguage("The goal is to provide a general Java core programming framework").getLocale().toLanguageTag());
         Assert.assertEquals("cmn", detector.detectLanguage("目标是提供一个通用的Java核心编程框架").getLocale().toLanguageTag());
@@ -58,6 +64,28 @@ public class DetectionTestCase {
         Assert.assertEquals("deu", detector.detectLanguage("Das Ziel ist es, einen allgemeinen Java-Core-Programmrahmen bereitzustellen").getLocale().toLanguageTag());
         Assert.assertEquals("jpn", detector.detectLanguage("目標は汎用Javaコアプログラミングフレームを提供することです。").getLocale().toLanguageTag());
         Assert.assertEquals("hin", detector.detectLanguage("लक्ष्य यह है कि सामान्य जावा कोर प्रोग्रामिंग फ्रेमवर्क प्रदान करना है").getLocale().toLanguageTag());
+    }
+
+    /**
+     * 测试未知语种
+     */
+    @Test
+    public void testUnknowedLanguage() {
+        LanguageDetector detector = new LanguageDetector(DetectionPattern.LANGUAGE_187, DetectionTrie.LANGUAGE_187);
+        {
+            // 指定白名单
+            Object2BooleanMap<String> options = new Object2BooleanOpenHashMap<>();
+            options.put("eng", true);
+            DetectionLanguage language = detector.detectLanguage("目标是提供一个通用的Java核心编程框架", options);
+            Assert.assertNull(language);
+        }
+        {
+            // 指定黑名单
+            Object2BooleanMap<String> options = new Object2BooleanOpenHashMap<>();
+            options.put("cmn", false);
+            DetectionLanguage language = detector.detectLanguage("目标是提供一个通用的Java核心编程框架", options);
+            Assert.assertNull(language);
+        }
     }
 
 }

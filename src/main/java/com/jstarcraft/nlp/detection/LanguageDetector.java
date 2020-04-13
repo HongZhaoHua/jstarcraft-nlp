@@ -1,5 +1,6 @@
 package com.jstarcraft.nlp.detection;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
@@ -25,6 +26,8 @@ import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
  *
  */
 public class LanguageDetector {
+
+    public final static DetectionLanguage UND = new DetectionLanguage(Locale.forLanguageTag(StringUtility.EMPTY), 1D);
 
     private final static int DEFAULT_MINIMUM = 0;
 
@@ -155,24 +158,26 @@ public class LanguageDetector {
     public SortedSet<DetectionLanguage> detectLanguages(String text, Object2BooleanMap<String> options) {
         SortedSet<DetectionLanguage> locales = new TreeSet<>();
 
+        // 最小长度限制
+        int size = text.length();
+        if (size < minimum) {
+            return locales;
+        }
+        // 最大长度限制
+        if (size > maximum) {
+            text = text.substring(0, maximum);
+            size = maximum;
+        }
+
         // 白名单,黑名单
-        HashSet<String> writes = new HashSet<>();
-        HashSet<String> blacks = new HashSet<>();
+        Set<String> writes = options.size() == 0 ? Collections.EMPTY_SET : new HashSet<>();
+        Set<String> blacks = options.size() == 0 ? Collections.EMPTY_SET : new HashSet<>();
         for (Object2BooleanMap.Entry<String> option : options.object2BooleanEntrySet()) {
             if (option.getBooleanValue()) {
                 writes.add(option.getKey());
             } else {
                 blacks.add(option.getKey());
             }
-        }
-
-        int size = text.length();
-        if (size < minimum) {
-            return locales;
-        }
-        if (size > maximum) {
-            text = text.substring(0, maximum);
-            size = maximum;
         }
 
         /*

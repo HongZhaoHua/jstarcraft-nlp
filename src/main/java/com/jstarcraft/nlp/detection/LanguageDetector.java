@@ -217,7 +217,8 @@ public class LanguageDetector {
         /*
          * Get all distances for a given script, and normalize the distance values.
          */
-        text = REPLACE.matcher(text).replaceAll(StringUtility.SPACE).toLowerCase();
+        // 前后补空格是为了N-Gram处理
+        text = StringUtility.SPACE + REPLACE.matcher(text).replaceAll(StringUtility.SPACE).toLowerCase() + StringUtility.SPACE;
         CharacterNgram ngram = new CharacterNgram(3, text);
         Object2IntMap<CharSequence> tuples = new Object2IntOpenHashMap<>();
         for (CharSequence character : ngram) {

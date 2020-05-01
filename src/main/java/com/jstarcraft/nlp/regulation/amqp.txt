@@ -1,2 +1,0 @@
-Node.js globbing for amqp-like topics:
-https://github.com/davedoesdev/qlobber

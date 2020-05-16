@@ -1,9 +1,9 @@
 package com.jstarcraft.nlp.bloomfilter;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.redisson.Redisson;
 import org.redisson.api.RKeys;
 import org.redisson.client.codec.Codec;
@@ -14,7 +14,7 @@ public class GlobalBloomFilterTestCase extends BloomFilterTestCase {
 
     private static Redisson redisson;
 
-    @BeforeClass
+    @BeforeAll
     public static void beforeClass() {
         // 注意此处的编解码器
         Codec codec = new JsonJacksonCodec();
@@ -24,18 +24,18 @@ public class GlobalBloomFilterTestCase extends BloomFilterTestCase {
         redisson = (Redisson) Redisson.create(configuration);
     }
 
-    @AfterClass
+    @AfterAll
     public static void afterClass() {
         redisson.shutdown();
     }
 
-    @Before
+    @BeforeEach
     public void beforeTest() {
         RKeys keys = redisson.getKeys();
         keys.flushdb();
     }
 
-    @After
+    @AfterEach
     public void afterTest() {
         RKeys keys = redisson.getKeys();
         keys.flushdb();

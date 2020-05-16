@@ -7,8 +7,8 @@ public class LongBloomFilterTestCase extends LocalBloomFilterTestCase {
     @Override
     protected BloomFilter getBloomFilter(int elments, float probability) {
         random.setSeed(0L);
-        int bits = LocalBloomFilter.optimalBits(elments, probability);
-        int hashs = LocalBloomFilter.optimalHashs(bits, elments);
+        int bits = BloomFilter.optimalBits(elments, probability);
+        int hashs = BloomFilter.optimalHashs(bits, elments);
         StringHashFamily hashFamily = (random) -> {
             int seed = random.nextInt();
             return (data) -> {

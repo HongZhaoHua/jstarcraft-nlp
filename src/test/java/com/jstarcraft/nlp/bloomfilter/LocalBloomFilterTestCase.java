@@ -13,10 +13,10 @@ public abstract class LocalBloomFilterTestCase extends BloomFilterTestCase {
     public void testOptimal() {
         int elments = 1000;
         float probability = 0.001F;
-        int bits = LocalBloomFilter.optimalBits(elments, probability);
-        int hashs = LocalBloomFilter.optimalHashs(bits, elments);
-        Assert.assertEquals(997, LocalBloomFilter.optimalElements(bits, hashs));
-        Assert.assertEquals(9.998266E-4F, LocalBloomFilter.optimalProbability(bits, elments, hashs), 0F);
+        int bits = BloomFilter.optimalBits(elments, probability);
+        int hashs = BloomFilter.optimalHashs(bits, elments);
+        Assert.assertEquals(997, BloomFilter.optimalElements(bits, hashs));
+        Assert.assertEquals(9.998266E-4F, BloomFilter.optimalProbability(bits, elments, hashs), 0F);
     }
 
 }

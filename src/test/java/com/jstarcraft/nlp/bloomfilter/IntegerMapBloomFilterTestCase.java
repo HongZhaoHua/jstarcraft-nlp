@@ -2,7 +2,7 @@ package com.jstarcraft.nlp.bloomfilter;
 
 import com.jstarcraft.core.common.hash.HashUtility;
 
-public class IntegerBloomFilterTestCase extends LocalBloomFilterTestCase {
+public class IntegerMapBloomFilterTestCase extends LocalBloomFilterTestCase {
 
 	@Override
 	protected BloomFilter getBloomFilter(int elments, float probability) {
@@ -15,7 +15,7 @@ public class IntegerBloomFilterTestCase extends LocalBloomFilterTestCase {
 				return HashUtility.murmur2StringHash32(seed, data);
 			};
 		};
-		BloomFilter bloomFilter = new IntegerBloomFilter(bits, hashFamily, hashs, random);
+		BloomFilter bloomFilter = new IntegerMapBloomFilter(bits, hashFamily, hashs, random);
 		return bloomFilter;
 	}
 

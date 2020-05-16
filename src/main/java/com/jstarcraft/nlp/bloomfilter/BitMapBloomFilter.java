@@ -3,6 +3,12 @@ package com.jstarcraft.nlp.bloomfilter;
 import com.jstarcraft.core.common.hash.StringHashFunction;
 import com.jstarcraft.nlp.bloomfilter.bit.BitMap;
 
+/**
+ * 基于BitMap的布隆过滤器
+ * 
+ * @author Birdy
+ *
+ */
 public abstract class BitMapBloomFilter extends LocalBloomFilter<BitMap> {
 
 	protected BitMapBloomFilter(BitMap bits, StringHashFunction... functions) {

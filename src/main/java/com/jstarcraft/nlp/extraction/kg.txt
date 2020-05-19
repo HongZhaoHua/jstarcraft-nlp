@@ -1,0 +1,8 @@
+什么是知识图谱:
+https://zhuanlan.zhihu.com/p/71128505
+
+知识图谱是什么:
+http://www.woshipm.com/it/2627356.html
+
+东南大学<知识图谱>研究生课程:
+https://github.com/npubird/KnowledgeGraphCourse

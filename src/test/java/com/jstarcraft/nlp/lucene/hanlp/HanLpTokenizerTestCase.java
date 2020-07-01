@@ -11,6 +11,7 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.hankcs.hanlp.HanLP;
@@ -20,6 +21,7 @@ public class HanLpTokenizerTestCase {
     Tokenizer tokenizer;
 
     @Before
+    @BeforeEach
     public void setUp() throws Exception {
         tokenizer = new HanLpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
         tokenizer.setReader(new StringReader("林志玲亮相网友:确定不是波多野结衣？"));
@@ -56,7 +58,7 @@ public class HanLpTokenizerTestCase {
     public void testPinyinTokenFilter() throws Exception {
         Map<String, String> args = new HashMap<>();
         args.put("original", "true");
-        args.put("pinyin", "false");
+        args.put("pinyin", "true");
         args.put("pinyinFirstChar", "true");
         HanLpPinyinTokenFilterFactory factory = new HanLpPinyinTokenFilterFactory(args);
         TokenStream tokenStream = factory.create(tokenizer);

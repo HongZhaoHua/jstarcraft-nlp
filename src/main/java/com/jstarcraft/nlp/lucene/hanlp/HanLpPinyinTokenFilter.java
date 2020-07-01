@@ -11,6 +11,7 @@ import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+import org.springframework.core.convert.converter.Converter;
 
 import com.hankcs.hanlp.dictionary.py.Pinyin;
 import com.hankcs.hanlp.dictionary.py.PinyinDictionary;
@@ -27,20 +28,15 @@ public final class HanLpPinyinTokenFilter extends TokenFilter {
     // 是否保留原词
     private final boolean original;
     // 拼音转换器
-    private final Collection<HanLpPinyinConverter> converters;
+    private final Collection<Converter<List<Pinyin>, CharSequence>> converters;
     // 待输出拼音队列
     private final Queue<CharSequence> queue;
 
-    public HanLpPinyinTokenFilter(TokenStream input) {
-        // 默认全拼加首字母
-        this(input, new HanLpPinyinConverter.ToPinyinString(), new HanLpPinyinConverter.ToPinyinFirstCharString());
+    public HanLpPinyinTokenFilter(TokenStream input, boolean original, Converter<List<Pinyin>, CharSequence>... converters) {
+        this(input, original, Arrays.asList(converters));
     }
 
-    public HanLpPinyinTokenFilter(TokenStream input, HanLpPinyinConverter... converters) {
-        this(input, true, Arrays.asList(converters));
-    }
-
-    public HanLpPinyinTokenFilter(TokenStream input, boolean original, Collection<HanLpPinyinConverter> converters) {
+    public HanLpPinyinTokenFilter(TokenStream input, boolean original, Collection<Converter<List<Pinyin>, CharSequence>> converters) {
         super(input);
         this.original = original;
         this.converters = converters;
@@ -59,8 +55,8 @@ public final class HanLpPinyinTokenFilter extends TokenFilter {
             if (input.incrementToken()) {
                 String text = charTermAttribute.toString();
                 List<Pinyin> pinyin = PinyinDictionary.convertToPinyin(text);
-                for (HanLpPinyinConverter converter : converters) {
-                    CharSequence pinyinTerm = converter.convert(text, pinyin);
+                for (Converter<List<Pinyin>, CharSequence> converter : converters) {
+                    CharSequence pinyinTerm = converter.convert(pinyin);
                     if (pinyinTerm != null && pinyinTerm.length() > 0) {
                         queue.offer(pinyinTerm);
                     }

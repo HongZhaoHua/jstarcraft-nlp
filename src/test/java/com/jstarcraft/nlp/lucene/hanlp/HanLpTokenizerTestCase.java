@@ -58,8 +58,8 @@ public class HanLpTokenizerTestCase {
     public void testPinyinTokenFilter() throws Exception {
         Map<String, String> args = new HashMap<>();
         args.put("original", "true");
-        args.put("pinyin", "true");
-        args.put("pinyinFirstChar", "true");
+        args.put("full", "true");
+        args.put("first", "true");
         HanLpPinyinTokenFilterFactory factory = new HanLpPinyinTokenFilterFactory(args);
         TokenStream tokenStream = factory.create(tokenizer);
         while (tokenStream.incrementToken()) {

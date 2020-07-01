@@ -6,12 +6,17 @@ import java.util.Map;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.util.TokenFilterFactory;
+import org.springframework.core.convert.converter.Converter;
+
+import com.hankcs.hanlp.dictionary.py.Pinyin;
 
 public class HanLpPinyinTokenFilterFactory extends TokenFilterFactory {
 
     private boolean original;
-    private boolean pinyin;
-    private boolean pinyinFirstChar;
+
+    private boolean full;
+
+    private boolean first;
 
     /**
      * 初始化工厂类
@@ -21,18 +26,18 @@ public class HanLpPinyinTokenFilterFactory extends TokenFilterFactory {
     public HanLpPinyinTokenFilterFactory(Map<String, String> args) {
         super(args);
         original = getBoolean(args, "original", true);
-        pinyin = getBoolean(args, "pinyin", true);
-        pinyinFirstChar = getBoolean(args, "pinyinFirstChar", true);
+        full = getBoolean(args, "full", true);
+        first = getBoolean(args, "first", true);
     }
 
     @Override
     public TokenStream create(TokenStream input) {
-        List<HanLpPinyinConverter> converters = new ArrayList<>();
-        if (pinyin) {
-            converters.add(new HanLpPinyinConverter.ToPinyinString());
+        List<Converter<List<Pinyin>, CharSequence>> converters = new ArrayList<>(5);
+        if (first) {
+            converters.add(new FirstPinyinConverter());
         }
-        if (pinyinFirstChar) {
-            converters.add(new HanLpPinyinConverter.ToPinyinFirstCharString());
+        if (full) {
+            converters.add(new FullPinyinConverter());
         }
         return new HanLpPinyinTokenFilter(input, original, converters);
     }

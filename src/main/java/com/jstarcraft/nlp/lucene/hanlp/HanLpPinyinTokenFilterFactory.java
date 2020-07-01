@@ -14,20 +14,20 @@ public class HanLpPinyinTokenFilterFactory extends TokenFilterFactory {
 
     private boolean original;
 
-    private boolean full;
-
     private boolean first;
+
+    private boolean full;
 
     /**
      * 初始化工厂类
      *
-     * @param args 通过这个Map保存xml中的配置项
+     * @param configuration 通过这个Map保存xml中的配置项
      */
-    public HanLpPinyinTokenFilterFactory(Map<String, String> args) {
-        super(args);
-        original = getBoolean(args, "original", true);
-        full = getBoolean(args, "full", true);
-        first = getBoolean(args, "first", true);
+    public HanLpPinyinTokenFilterFactory(Map<String, String> configuration) {
+        super(configuration);
+        original = getBoolean(configuration, "original", true);
+        first = getBoolean(configuration, "first", true);
+        full = getBoolean(configuration, "full", true);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class HanLpTokenizerTestCase {
     @BeforeEach
     public void setUp() throws Exception {
         tokenizer = new HanLpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
-        tokenizer.setReader(new StringReader("林志玲亮相网友:确定不是波多野结衣？"));
+        tokenizer.setReader(new StringReader("一套涵盖核心编程,人工智能,数字图像处理,自然语言处理,推荐与搜索,云服务领域的Java框架"));
         tokenizer.reset();
     }
 

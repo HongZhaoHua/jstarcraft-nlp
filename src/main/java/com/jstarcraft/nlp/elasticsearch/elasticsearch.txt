@@ -1,2 +1,5 @@
 Elasticsearch 插件详解及实践:
 https://blog.luojilab.com/2019/08/11/big-data/elasticsearch
+
+Elasticsearch 插件开发-自定义分词方法:
+https://blog.csdn.net/frankcheng5143/article/details/82870319

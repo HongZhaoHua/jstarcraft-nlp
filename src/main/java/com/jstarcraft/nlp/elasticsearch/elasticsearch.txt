@@ -3,3 +3,9 @@ https://blog.luojilab.com/2019/08/11/big-data/elasticsearch
 
 Elasticsearch 插件开发-自定义分词方法:
 https://blog.csdn.net/frankcheng5143/article/details/82870319
+
+ES插件安装&&分词:
+https://www.jianshu.com/p/d2afc19cafbd
+
+Elasticsearch分词插件——IK Analysis:
+https://www.jianshu.com/p/f7634252ff9a

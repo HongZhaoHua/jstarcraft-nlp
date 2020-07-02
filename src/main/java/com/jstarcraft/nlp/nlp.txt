@@ -76,11 +76,13 @@ https://github.com/yaoguangluo/Deta_Parser
 HanLP分词:
 https://github.com/hankcs/HanLP
 https://github.com/hankcs/hanlp-lucene-plugin
+https://github.com/AnyListen/elasticsearch-analysis-hanlp
 
 IK分词:
 https://gitee.com/wltea/IK-Analyzer-2012FF
 https://github.com/yozhao/IKAnalyzer
 https://github.com/magese/ik-analyzer-solr
+https://github.com/medcl/elasticsearch-analysis-ik
 
 Jcseg分词:
 https://github.com/lionsoul2014/jcseg

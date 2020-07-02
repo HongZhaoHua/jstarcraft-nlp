@@ -76,6 +76,7 @@ https://github.com/yaoguangluo/Deta_Parser
 HanLP分词:
 https://github.com/hankcs/HanLP
 https://github.com/hankcs/hanlp-lucene-plugin
+https://github.com/KennFalcon/elasticsearch-analysis-hanlp
 https://github.com/AnyListen/elasticsearch-analysis-hanlp
 
 IK分词:

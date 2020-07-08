@@ -2,6 +2,9 @@ Tika教程:
 https://www.yiibai.com/tika
 https://www.1ju.org/tika/index
 
+使用Tika进行文档解析抽取:
+https://blog.csdn.net/yangang1223/article/details/101367870
+
 Java网页正文提取工具:
 https://www.jianshu.com/p/22098d1bd3e6
 

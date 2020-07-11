@@ -206,27 +206,6 @@
             </exclusions>
         </dependency>
 
-        <!-- 信息抽取框架依赖 -->
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-core</artifactId>
-            <version>1.24.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-langdetect</artifactId>
-            <version>1.24.1</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tika</groupId>
-            <artifactId>tika-parsers</artifactId>
-            <version>1.24.1</version>
-            <optional>true</optional>
-        </dependency>
-
         <!-- Test框架依赖 -->
         <dependency>
             <groupId>org.junit.platform</groupId>

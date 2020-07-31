@@ -39,6 +39,8 @@ public class LanguageDetector {
 
     private final static Pattern REPLACE = Pattern.compile("[\\u0021-\\u0040\\s]+");
 
+    private Set<Locale> languages;
+
     /** 检测规则 */
     private Map<String, DetectionPattern> patterns;
 
@@ -54,10 +56,51 @@ public class LanguageDetector {
     }
 
     public LanguageDetector(Map<String, DetectionPattern> patterns, Map<String, Set<DetectionTrie>> tires, int minimum, int maximum) {
+        HashSet<String> languages = new HashSet<>();
+        languages.addAll(patterns.keySet());
+        languages.removeAll(tires.keySet());
+        for (Set<DetectionTrie> dictionaries : tires.values()) {
+            for (DetectionTrie dictionary : dictionaries) {
+                languages.add(dictionary.getName());
+            }
+        }
+        this.languages = new HashSet<>(languages.size());
+        for (String language : languages) {
+            this.languages.add(Locale.forLanguageTag(language));
+        }
         this.patterns = patterns;
         this.tires = tires;
         this.minimum = minimum;
         this.maximum = maximum;
+    }
+
+    /**
+     * 获取支持语言
+     * 
+     * @return
+     */
+    public Set<Locale> getLanguages() {
+        return Collections.unmodifiableSet(languages);
+    }
+
+    /**
+     * 是否支持语言
+     * 
+     * @param language
+     * @return
+     */
+    public boolean hasLanguage(Locale language) {
+        return languages.contains(language);
+    }
+
+    /**
+     * 是否支持语言
+     * 
+     * @param language
+     * @return
+     */
+    public boolean hasLanguage(String language) {
+        return hasLanguage(Locale.forLanguageTag(language));
     }
 
     /**
@@ -205,7 +248,8 @@ public class LanguageDetector {
         Set<DetectionTrie> dictionaries = tires.get(script);
         if (dictionaries == null) {
             /*
-             * If no matches occured, such as a digit only string, or because the language is ignored, exit with `und`.
+             * If no matches occured, such as a digit only string, or because the language
+             * is ignored, exit with `und`.
              */
             if (!checkLanguage(script, writes, blacks)) {
                 return locales;

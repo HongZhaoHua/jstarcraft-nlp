@@ -5,6 +5,9 @@ https://www.1ju.org/tika/index
 使用Tika进行文档解析抽取:
 https://blog.csdn.net/yangang1223/article/details/101367870
 
+Tika提取文档调研测试:
+https://blog.csdn.net/lkbbbb123/article/details/106797150
+
 Java网页正文提取工具:
 https://www.jianshu.com/p/22098d1bd3e6
 

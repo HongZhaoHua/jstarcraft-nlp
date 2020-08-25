@@ -1,0 +1,2 @@
+词干提取 – Stemming | 词形还原 – Lemmatisation:
+https://easyai.tech/ai-definition/stemming-lemmatisation

@@ -3,7 +3,6 @@ package com.jstarcraft.nlp.bloomfilter;
 import java.util.Random;
 
 import com.jstarcraft.core.common.hash.StringHashFunction;
-import com.jstarcraft.nlp.bloomfilter.bit.BitMap;
 
 public abstract class LocalBloomFilter<T> implements BloomFilter {
 

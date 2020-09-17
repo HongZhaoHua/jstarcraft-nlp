@@ -49,8 +49,8 @@ https://github.com/gordonlkc/autralia-address-parser
 国内外手机号码正则表达式:
 https://blog.51cto.com/9886022/2089497
 
-手机号码归属地本地解析(Java):
-https://github.com/fengjiajie/phone-number-geo
+ChinaMobilePhoneNumberRegex 一组匹配中国大陆手机号码的正则表达式:
+https://github.com/VincentSit/ChinaMobilePhoneNumberRegex
 
 手机号段正则表达式 (2019-01 最新):
 https://cloud.tencent.com/developer/article/1380931

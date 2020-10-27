@@ -56,11 +56,11 @@ public class HanLpTokenizerTestCase {
 
     @Test
     public void testPinyinTokenFilter() throws Exception {
-        Map<String, String> args = new HashMap<>();
-        args.put("original", "true");
-        args.put("full", "true");
-        args.put("first", "true");
-        HanLpPinyinTokenFilterFactory factory = new HanLpPinyinTokenFilterFactory(args);
+        Map<String, String> arguments = new HashMap<>();
+        arguments.put("original", "true");
+        arguments.put("full", "true");
+        arguments.put("first", "true");
+        HanLpPinyinTokenFilterFactory factory = new HanLpPinyinTokenFilterFactory(arguments);
         TokenStream tokenStream = factory.create(tokenizer);
         while (tokenStream.incrementToken()) {
             CharTermAttribute attribute = tokenizer.getAttribute(CharTermAttribute.class);

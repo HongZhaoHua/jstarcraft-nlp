@@ -1,6 +1,9 @@
 最新手机号段归属地数据库 高性能dat解析:
 https://blog.csdn.net/zengzhan/article/details/51975750
 
+根据手机号确定手机号运营商即归属地, 支持包括虚拟运营商的中国大陆手机号查询.:
+https://github.com/EeeMt/phone-number-geo
+
 手机号码归属地本地解析(Java):
 https://github.com/fengjiajie/phone-number-geo
 

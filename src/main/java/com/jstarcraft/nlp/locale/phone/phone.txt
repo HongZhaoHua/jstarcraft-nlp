@@ -1,0 +1,11 @@
+最新手机号段归属地数据库 高性能dat解析:
+https://blog.csdn.net/zengzhan/article/details/51975750
+
+手机号码归属地本地解析(Java):
+https://github.com/fengjiajie/phone-number-geo
+
+Java开发实现国际手机号及归属地的判断:
+https://blog.csdn.net/weixin_45192992/article/details/106332447
+
+Java获取手机号归属地信息:
+https://segmentfault.com/a/1190000021303601

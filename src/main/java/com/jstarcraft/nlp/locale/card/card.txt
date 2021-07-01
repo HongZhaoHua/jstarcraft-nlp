@@ -1,0 +1,14 @@
+全国各地行政区划代码及身份证号前6位查询:
+http://www.tcmap.com.cn/list/daima_list.html
+
+校验身份证是否合法，获取身份证详细信息:
+https://github.com/navyxie/idcard
+
+中国身份证号验证、获取身份证号信息、升级 15 位身份证号为 18 位、伪造符合校验的身份证号。:
+https://github.com/guanguans/id-validator
+
+中华人民共和国行政区划代码/身份证地址码:
+https://github.com/jxlwqq/address-code-of-china
+
+一个基于「公民身份号码」规则获取身份证号码中包含的基础信息组件（PHP）:
+https://github.com/medz/id-card-of-china

@@ -1,20 +1,2 @@
 搜狗细胞词库:
 https://pinyin.sogou.com/dict/
-
-最新手机号段归属地数据库 高性能dat解析:
-https://blog.csdn.net/zengzhan/article/details/51975750
-
-手机号码归属地本地解析(Java):
-https://github.com/fengjiajie/phone-number-geo
-
-Java开发实现国际手机号及归属地的判断:
-https://blog.csdn.net/weixin_45192992/article/details/106332447
-
-Java获取手机号归属地信息:
-https://segmentfault.com/a/1190000021303601
-
-ip2region - 准确率99.9%的离线IP地址定位库，0.0x毫秒级查询，ip2region.db数据库只有数MB，提供了java,php,c,python,nodejs,golang,c#等查询绑定和Binary,B树,内存三种查询算法:
-https://github.com/lionsoul2014/ip2region
-
-最新县及县以上1980年以来历史行政区划代码大全（截止2020年7月31日）:
-http://www.zxinc.org/gb2260.htm

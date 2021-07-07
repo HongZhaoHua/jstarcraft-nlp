@@ -10,12 +10,18 @@ import org.redisson.client.codec.Codec;
 import org.redisson.codec.JsonJacksonCodec;
 import org.redisson.config.Config;
 
+import redis.embedded.RedisServer;
+
 public class GlobalBloomFilterTestCase extends BloomFilterTestCase {
+
+    private static RedisServer redis;
 
     private static Redisson redisson;
 
     @BeforeAll
     public static void beforeClass() {
+        redis = RedisServer.builder().port(6379).setting("maxmemory 1024M").build();
+        redis.start();
         // 注意此处的编解码器
         Codec codec = new JsonJacksonCodec();
         Config configuration = new Config();
@@ -27,6 +33,7 @@ public class GlobalBloomFilterTestCase extends BloomFilterTestCase {
     @AfterAll
     public static void afterClass() {
         redisson.shutdown();
+        redis.stop();
     }
 
     @BeforeEach

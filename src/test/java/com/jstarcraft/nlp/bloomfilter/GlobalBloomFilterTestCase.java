@@ -20,7 +20,7 @@ public class GlobalBloomFilterTestCase extends BloomFilterTestCase {
 
     @BeforeAll
     public static void beforeClass() {
-        redis = RedisServer.builder().port(6379).setting("maxmemory 1024M").build();
+        redis = RedisServer.builder().port(6379).setting("maxmemory 64M").build();
         redis.start();
         // 注意此处的编解码器
         Codec codec = new JsonJacksonCodec();

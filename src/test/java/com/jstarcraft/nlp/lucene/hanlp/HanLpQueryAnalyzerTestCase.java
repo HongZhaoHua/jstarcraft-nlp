@@ -54,7 +54,7 @@ public class HanLpQueryAnalyzerTestCase {
 
     @Test
     public void testIndexAndSearch() throws Exception {
-        Analyzer analyzer = new HanLpQueryAnalyzer("viterbi");////////////////////////////////////////////////////
+        Analyzer analyzer = new HanLpIndexAnalyzer("viterbi");////////////////////////////////////////////////////
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         Directory directory = new ByteBuffersDirectory();
@@ -77,7 +77,7 @@ public class HanLpQueryAnalyzerTestCase {
 
         IndexReader ireader = DirectoryReader.open(directory);
         IndexSearcher isearcher = new IndexSearcher(ireader);
-        QueryParser parser = new QueryParser("content", analyzer);
+        QueryParser parser = new QueryParser("content", new HanLpQueryAnalyzer("viterbi"));
         Query query = parser.parse("和服");
         ScoreDoc[] hits = isearcher.search(query, 300000).scoreDocs;
         Assert.assertEquals(1, hits.length);

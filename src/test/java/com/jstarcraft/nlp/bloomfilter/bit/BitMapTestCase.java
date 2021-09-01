@@ -4,6 +4,29 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 public class BitMapTestCase {
+    
+    @Test
+    public void testByteMap() {
+        IntegerMap bits = new IntegerMap(Byte.SIZE);
+        Assert.assertEquals(Byte.SIZE, bits.capacity());
+        Assert.assertEquals(0, bits.size());
+        for (int index = 0; index < Byte.SIZE; index++) {
+            Assert.assertFalse(bits.get(index));
+            bits.set(index);
+            Assert.assertTrue(bits.get(index));
+            bits.unset(index);
+            Assert.assertFalse(bits.get(index));
+        }
+
+        bits.set(0);
+        Assert.assertEquals(1, bits.size());
+        bits.set(0);
+        Assert.assertEquals(1, bits.size());
+        bits.unset(Byte.SIZE - 1);
+        Assert.assertEquals(1, bits.size());
+        bits.unset(0);
+        Assert.assertEquals(0, bits.size());
+    }
 
     @Test
     public void testIntegerMap() {

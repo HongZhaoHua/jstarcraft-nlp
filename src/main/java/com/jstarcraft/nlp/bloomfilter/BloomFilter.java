@@ -1,5 +1,7 @@
 package com.jstarcraft.nlp.bloomfilter;
 
+import java.util.Collection;
+
 /**
  * 布隆过滤器
  * 
@@ -8,7 +10,23 @@ package com.jstarcraft.nlp.bloomfilter;
  */
 public interface BloomFilter {
 
+    default int getBits(Collection<String> datas) {
+        int hit = 0;
+        for (String data : datas) {
+            if (getBit(data)) {
+                hit++;
+            }
+        }
+        return hit;
+    }
+
     boolean getBit(String data);
+
+    default void putBits(Collection<String> datas) {
+        for (String data : datas) {
+            putBit(data);
+        }
+    }
 
     void putBit(String data);
 

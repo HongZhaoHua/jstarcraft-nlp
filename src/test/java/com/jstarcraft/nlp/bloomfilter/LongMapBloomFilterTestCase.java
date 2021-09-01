@@ -1,6 +1,7 @@
 package com.jstarcraft.nlp.bloomfilter;
 
 import com.jstarcraft.core.common.hash.HashUtility;
+import com.jstarcraft.nlp.bloomfilter.local.LongMapBloomFilter;
 
 public class LongMapBloomFilterTestCase extends LocalBloomFilterTestCase {
 

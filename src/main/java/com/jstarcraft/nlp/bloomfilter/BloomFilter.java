@@ -26,7 +26,7 @@ public interface BloomFilter {
      * @return the optimal size <i>size</i> of the bloom filter in bits
      */
     public static int optimalBits(int n, float p) {
-        return (int) Math.ceil(-1 * (n * Math.log(p)) / Math.pow(Math.log(2), 2));
+        return (int) Math.floor(-1 * (n * Math.log(p)) / Math.pow(Math.log(2), 2));
     }
 
     /**
@@ -39,7 +39,7 @@ public interface BloomFilter {
      * @return the optimal amount of hash functions hashes
      */
     public static int optimalHashs(int m, int n) {
-        return (int) Math.ceil((Math.log(2) * m) / n);
+        return Math.max(1, (int) Math.round((Math.log(2) * m) / n));
     }
 
     /**

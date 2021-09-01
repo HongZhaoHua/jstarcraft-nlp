@@ -13,33 +13,30 @@ import com.jstarcraft.core.common.hash.StringHashFunction;
  */
 public class BitNumberBloomFilter extends LocalBloomFilter<BigInteger> {
 
-	private int capacity;
+    public BitNumberBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
+        super(bitSize, new BigInteger(new byte[bitSize / Byte.SIZE + (bitSize % Byte.SIZE == 0 ? 0 : 1)]), getFunctions(hashFamily, hashSize, random));
+    }
 
-	public BitNumberBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
-		super(new BigInteger(new byte[bitSize / Byte.SIZE + (bitSize % Byte.SIZE == 0 ? 0 : 1)]), getFunctions(hashFamily, hashSize, random));
-		this.capacity = bitSize;
-	}
+    @Override
+    public boolean getBit(String data) {
+        for (StringHashFunction function : functions) {
+            int hash = function.hash(data);
+            int index = Math.abs(hash % capacity);
+            if (!bits.testBit(index)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public boolean getBit(String data) {
-		for (StringHashFunction function : functions) {
-			int hash = function.hash(data);
-			int index = Math.abs(hash % capacity);
-			if (!bits.testBit(index)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	@Override
-	public void putBit(String data) {
-		for (StringHashFunction function : functions) {
-			int hash = function.hash(data);
-			int index = Math.abs(hash % capacity);
-			// TODO 每次都是拷贝,不建议使用.
-			bits = bits.setBit(index);
-		}
-	}
+    @Override
+    public void putBit(String data) {
+        for (StringHashFunction function : functions) {
+            int hash = function.hash(data);
+            int index = Math.abs(hash % capacity);
+            // TODO 每次都是拷贝,不建议使用.
+            bits = bits.setBit(index);
+        }
+    }
 
 }

@@ -13,7 +13,7 @@ import com.jstarcraft.nlp.bloomfilter.bit.ByteMap;
 public class ByteMapBloomFilter extends BitMapBloomFilter<byte[]> {
 
     public ByteMapBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
-        super(new ByteMap(bitSize), getFunctions(hashFamily, hashSize, random));
+        super(bitSize, new ByteMap(bitSize), getFunctions(hashFamily, hashSize, random));
     }
 
 }

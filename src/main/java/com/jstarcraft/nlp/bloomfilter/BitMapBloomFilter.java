@@ -11,31 +11,31 @@ import com.jstarcraft.nlp.bloomfilter.bit.BitMap;
  */
 public abstract class BitMapBloomFilter<T> extends LocalBloomFilter<BitMap<T>> {
 
-	protected BitMapBloomFilter(BitMap<T> bits, StringHashFunction... functions) {
-		super(bits, functions);
-	}
+    protected BitMapBloomFilter(int capacity, BitMap<T> bits, StringHashFunction... functions) {
+        super(capacity, bits, functions);
+    }
 
-	@Override
-	public boolean getBit(String data) {
-		int capacity = bits.capacity();
-		for (StringHashFunction function : functions) {
-			int hash = function.hash(data);
-			int index = Math.abs(hash % capacity);
-			if (!bits.get(index)) {
-				return false;
-			}
-		}
-		return true;
-	}
+    @Override
+    public boolean getBit(String data) {
+        int capacity = bits.capacity();
+        for (StringHashFunction function : functions) {
+            int hash = function.hash(data);
+            int index = Math.abs(hash % capacity);
+            if (!bits.get(index)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public void putBit(String data) {
-		int capacity = bits.capacity();
-		for (StringHashFunction function : functions) {
-			int hash = function.hash(data);
-			int index = Math.abs(hash % capacity);
-			bits.set(index);
-		}
-	}
+    @Override
+    public void putBit(String data) {
+        int capacity = bits.capacity();
+        for (StringHashFunction function : functions) {
+            int hash = function.hash(data);
+            int index = Math.abs(hash % capacity);
+            bits.set(index);
+        }
+    }
 
 }

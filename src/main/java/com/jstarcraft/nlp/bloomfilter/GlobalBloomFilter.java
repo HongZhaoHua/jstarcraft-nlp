@@ -40,10 +40,12 @@ public class GlobalBloomFilter implements BloomFilter {
         bloomFilter.add(data);
     }
 
+    @Override
     public int bitSize() {
         return (int) bloomFilter.getSize();
     }
     
+    @Override
     public int hashSize() {
         return (int) bloomFilter.getHashIterations();
     }

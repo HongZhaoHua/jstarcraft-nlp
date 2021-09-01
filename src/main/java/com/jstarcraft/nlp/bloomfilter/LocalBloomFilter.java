@@ -6,6 +6,8 @@ import com.jstarcraft.core.common.hash.StringHashFunction;
 
 public abstract class LocalBloomFilter<T> implements BloomFilter {
 
+    protected int capacity;
+    
 	protected T bits;
 
 	protected StringHashFunction[] functions;
@@ -18,9 +20,20 @@ public abstract class LocalBloomFilter<T> implements BloomFilter {
 		return functions;
 	}
 
-	protected LocalBloomFilter(T bits, StringHashFunction... functions) {
+	protected LocalBloomFilter(int capacity, T bits, StringHashFunction... functions) {
+	    this.capacity = capacity;
 		this.bits = bits;
 		this.functions = functions;
 	}
+	
+	@Override
+	public int bitSize() {
+	    return capacity;
+	}
+
+	@Override
+	public int hashSize() {
+        return functions.length;
+    }
 
 }

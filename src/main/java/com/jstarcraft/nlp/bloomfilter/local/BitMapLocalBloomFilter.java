@@ -10,9 +10,9 @@ import com.jstarcraft.nlp.bloomfilter.bit.BitMap;
  * @author Birdy
  *
  */
-public abstract class BitMapBloomFilter<T> extends LocalBloomFilter<BitMap<T>> {
+public abstract class BitMapLocalBloomFilter<T> extends LocalBloomFilter<BitMap<T>> {
 
-    protected BitMapBloomFilter(int capacity, BitMap<T> bits, StringHashFunction... functions) {
+    protected BitMapLocalBloomFilter(int capacity, BitMap<T> bits, StringHashFunction... functions) {
         super(capacity, bits, functions);
     }
 

@@ -1,9 +1,9 @@
 package com.jstarcraft.nlp.bloomfilter;
 
 import com.jstarcraft.core.common.hash.HashUtility;
-import com.jstarcraft.nlp.bloomfilter.local.ByteMapBloomFilter;
+import com.jstarcraft.nlp.bloomfilter.local.ByteMapLocalBloomFilter;
 
-public class ByteMapBloomFilterTestCase extends LocalBloomFilterTestCase {
+public class ByteMapBloomLocalFilterTestCase extends LocalBloomFilterTestCase {
 
     @Override
     protected BloomFilter getBloomFilter(int elments, float probability) {
@@ -16,7 +16,7 @@ public class ByteMapBloomFilterTestCase extends LocalBloomFilterTestCase {
                 return HashUtility.murmur2StringHash32(seed, data);
             };
         };
-        BloomFilter bloomFilter = new ByteMapBloomFilter(bits, hashFamily, hashs, random);
+        BloomFilter bloomFilter = new ByteMapLocalBloomFilter(bits, hashFamily, hashs, random);
         return bloomFilter;
     }
 

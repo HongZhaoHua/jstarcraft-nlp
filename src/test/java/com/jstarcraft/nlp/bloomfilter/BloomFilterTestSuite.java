@@ -11,15 +11,15 @@ import com.jstarcraft.nlp.bloomfilter.bit.BitMapTestCase;
 
         BitMapTestCase.class,
 
-        BitSetBloomFilterTestCase.class,
+        BitSetLocalBloomFilterTestCase.class,
 
         GlobalBloomFilterTestCase.class,
         
-        ByteMapBloomFilterTestCase.class,
+        ByteMapBloomLocalFilterTestCase.class,
 
-        IntegerMapBloomFilterTestCase.class,
+        IntegerMapLocalBloomFilterTestCase.class,
 
-        LongMapBloomFilterTestCase.class,
+        LongMapLocalBloomFilterTestCase.class,
 
 })
 public class BloomFilterTestSuite {

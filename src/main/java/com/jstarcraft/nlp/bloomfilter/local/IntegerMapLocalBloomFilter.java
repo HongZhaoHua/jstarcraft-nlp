@@ -11,9 +11,9 @@ import com.jstarcraft.nlp.bloomfilter.bit.IntegerMap;
  * @author Birdy
  *
  */
-public class IntegerMapBloomFilter extends BitMapBloomFilter<int[]> {
+public class IntegerMapLocalBloomFilter extends BitMapLocalBloomFilter<int[]> {
 
-    public IntegerMapBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
+    public IntegerMapLocalBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
         super(bitSize, new IntegerMap(bitSize), getFunctions(hashFamily, hashSize, random));
     }
 

@@ -13,9 +13,9 @@ import com.jstarcraft.nlp.bloomfilter.StringHashFamily;
  * @author Birdy
  *
  */
-public class BitSetBloomFilter extends LocalBloomFilter<BitSet> {
+public class BitSetLocalBloomFilter extends LocalBloomFilter<BitSet> {
 
-    public BitSetBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
+    public BitSetLocalBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
         super(bitSize, new BitSet(bitSize), getFunctions(hashFamily, hashSize, random));
     }
 

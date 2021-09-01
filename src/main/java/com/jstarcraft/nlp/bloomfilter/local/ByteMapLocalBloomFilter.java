@@ -11,9 +11,9 @@ import com.jstarcraft.nlp.bloomfilter.bit.ByteMap;
  * @author Birdy
  *
  */
-public class ByteMapBloomFilter extends BitMapBloomFilter<byte[]> {
+public class ByteMapLocalBloomFilter extends BitMapLocalBloomFilter<byte[]> {
 
-    public ByteMapBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
+    public ByteMapLocalBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
         super(bitSize, new ByteMap(bitSize), getFunctions(hashFamily, hashSize, random));
     }
 

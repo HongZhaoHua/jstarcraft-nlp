@@ -11,9 +11,9 @@ import com.jstarcraft.nlp.bloomfilter.bit.LongMap;
  * @author Birdy
  *
  */
-public class LongMapBloomFilter extends BitMapBloomFilter<long[]> {
+public class LongMapLocalBloomFilter extends BitMapLocalBloomFilter<long[]> {
 
-	public LongMapBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
+	public LongMapLocalBloomFilter(int bitSize, StringHashFamily hashFamily, int hashSize, Random random) {
 		super(bitSize, new LongMap(bitSize), getFunctions(hashFamily, hashSize, random));
 	}
 

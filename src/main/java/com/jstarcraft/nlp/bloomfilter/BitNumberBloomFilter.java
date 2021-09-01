@@ -21,7 +21,7 @@ public class BitNumberBloomFilter extends LocalBloomFilter<BigInteger> {
 	}
 
 	@Override
-	public boolean get(String data) {
+	public boolean getBit(String data) {
 		for (StringHashFunction function : functions) {
 			int hash = function.hash(data);
 			int index = Math.abs(hash % capacity);
@@ -33,7 +33,7 @@ public class BitNumberBloomFilter extends LocalBloomFilter<BigInteger> {
 	}
 
 	@Override
-	public void put(String data) {
+	public void putBit(String data) {
 		for (StringHashFunction function : functions) {
 			int hash = function.hash(data);
 			int index = Math.abs(hash % capacity);

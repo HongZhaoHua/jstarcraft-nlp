@@ -15,11 +15,11 @@ public abstract class BloomFilterTestCase {
         int times = 0;
         for (int index = 0; index < elments; index++) {
             String data = String.valueOf(index);
-            if (bloomFilter.get(data)) {
+            if (bloomFilter.getBit(data)) {
                 times++;
             }
-            bloomFilter.put(data);
-            Assert.assertTrue(bloomFilter.get(data));
+            bloomFilter.putBit(data);
+            Assert.assertTrue(bloomFilter.getBit(data));
         }
         Assert.assertTrue(times < elments * probability);
     }

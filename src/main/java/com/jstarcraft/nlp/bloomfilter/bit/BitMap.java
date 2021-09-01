@@ -6,7 +6,7 @@ package com.jstarcraft.nlp.bloomfilter.bit;
  *
  */
 // TODO 考虑实现Int2BooleanMap接口
-public interface BitMap {
+public interface BitMap<T> {
 
     boolean get(int index);
 
@@ -17,5 +17,7 @@ public interface BitMap {
     int capacity();
 
     int size();
+    
+    T bits();
 
 }

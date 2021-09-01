@@ -8,9 +8,9 @@ package com.jstarcraft.nlp.bloomfilter;
  */
 public interface BloomFilter {
 
-	boolean get(String data);
+	boolean getBit(String data);
 
-	void put(String data);
+	void putBit(String data);
 
 	/**
 	 * Calculates the optimal size <i>size</i> of the bloom filter in bits given

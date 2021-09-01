@@ -9,14 +9,14 @@ import com.jstarcraft.nlp.bloomfilter.bit.BitMap;
  * @author Birdy
  *
  */
-public abstract class BitMapBloomFilter extends LocalBloomFilter<BitMap> {
+public abstract class BitMapBloomFilter<T> extends LocalBloomFilter<BitMap<T>> {
 
-	protected BitMapBloomFilter(BitMap bits, StringHashFunction... functions) {
+	protected BitMapBloomFilter(BitMap<T> bits, StringHashFunction... functions) {
 		super(bits, functions);
 	}
 
 	@Override
-	public boolean get(String data) {
+	public boolean getBit(String data) {
 		int capacity = bits.capacity();
 		for (StringHashFunction function : functions) {
 			int hash = function.hash(data);
@@ -29,7 +29,7 @@ public abstract class BitMapBloomFilter extends LocalBloomFilter<BitMap> {
 	}
 
 	@Override
-	public void put(String data) {
+	public void putBit(String data) {
 		int capacity = bits.capacity();
 		for (StringHashFunction function : functions) {
 			int hash = function.hash(data);

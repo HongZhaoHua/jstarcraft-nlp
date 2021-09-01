@@ -5,7 +5,7 @@ package com.jstarcraft.nlp.bloomfilter.bit;
  * @author Birdy
  *
  */
-public class LongMap implements BitMap {
+public class LongMap implements BitMap<long[]> {
 
     private long[] bits;
 
@@ -56,6 +56,11 @@ public class LongMap implements BitMap {
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public long[] bits() {
+        return bits;
     }
 
 }

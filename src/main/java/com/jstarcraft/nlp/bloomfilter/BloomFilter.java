@@ -10,6 +10,8 @@ import java.util.Collection;
  */
 public interface BloomFilter {
 
+    boolean getBit(String data);
+
     default int getBits(Collection<String> datas) {
         int hit = 0;
         for (String data : datas) {
@@ -20,15 +22,13 @@ public interface BloomFilter {
         return hit;
     }
 
-    boolean getBit(String data);
+    void putBit(String data);
 
     default void putBits(Collection<String> datas) {
         for (String data : datas) {
             putBit(data);
         }
     }
-
-    void putBit(String data);
 
     int bitSize();
 

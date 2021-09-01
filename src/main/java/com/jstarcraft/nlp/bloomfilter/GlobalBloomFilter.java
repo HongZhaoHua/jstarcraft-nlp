@@ -13,18 +13,18 @@ import org.redisson.client.codec.ByteArrayCodec;
  */
 public class GlobalBloomFilter implements BloomFilter {
 
-    private RBloomFilter<String> bloomFilter;
+    private RBloomFilter<String> bits;
 
     private RBucket<byte[]> bytes;
 
     public GlobalBloomFilter(Redisson redisson, String name) {
-        this.bloomFilter = redisson.getBloomFilter(name);
+        this.bits = redisson.getBloomFilter(name);
         this.bytes = redisson.getBucket(name, ByteArrayCodec.INSTANCE);
     }
 
     public GlobalBloomFilter(Redisson redisson, String name, int elments, float probability) {
-        this.bloomFilter = redisson.getBloomFilter(name);
-        if (!this.bloomFilter.tryInit(elments, probability)) {
+        this.bits = redisson.getBloomFilter(name);
+        if (!this.bits.tryInit(elments, probability)) {
             throw new RuntimeException("布隆过滤器冲突");
         }
         this.bytes = redisson.getBucket(name, ByteArrayCodec.INSTANCE);
@@ -32,22 +32,22 @@ public class GlobalBloomFilter implements BloomFilter {
 
     @Override
     public boolean getBit(String data) {
-        return bloomFilter.contains(data);
+        return bits.contains(data);
     }
 
     @Override
     public void putBit(String data) {
-        bloomFilter.add(data);
+        bits.add(data);
     }
 
     @Override
     public int bitSize() {
-        return (int) bloomFilter.getSize();
+        return (int) bits.getSize();
     }
     
     @Override
     public int hashSize() {
-        return (int) bloomFilter.getHashIterations();
+        return (int) bits.getHashIterations();
     }
 
     public byte[] getBytes() {

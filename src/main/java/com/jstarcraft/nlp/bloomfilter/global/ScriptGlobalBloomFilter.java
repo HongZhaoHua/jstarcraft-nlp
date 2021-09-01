@@ -29,7 +29,6 @@ public class ScriptGlobalBloomFilter implements BloomFilter {
     static {
         StringBuilder buffer = new StringBuilder();
 
-        // 尝试设置奖品break
         buffer.setLength(0);
         buffer.append("local count = 0;");
         buffer.append("local size = #ARGV;");
@@ -50,7 +49,6 @@ public class ScriptGlobalBloomFilter implements BloomFilter {
         buffer.append("return count..'';");
         getBitLua = buffer.toString();
 
-        // 尝试获取奖品
         buffer.setLength(0);
         buffer.append("local count = 0;");
         buffer.append("local size = #ARGV;");

@@ -34,6 +34,12 @@ https://github.com/NLPchina/Word2VEC_java
 Word2Vec实现了常用的词语相似度和句子相似度计算:
 https://github.com/jsksxs360/Word2Vec
 
+NLP 中文形近字相似度算法开源实现:
+https://blog.csdn.net/ryo1060732496/article/details/121481035
+
+The hanzi similar tool.(汉字相似度计算工具。中文形近字算法):
+https://github.com/houbb/nlp-hanzi-similar
+
 中文分词工具探析:
 https://www.cnblogs.com/en-heng/p/6225117.html
 https://www.cnblogs.com/en-heng/p/6234006.html
@@ -95,6 +101,9 @@ https://github.com/yida-lxw/jieba-analysis
 https://github.com/huaban/elasticsearch-analysis-jieba
 https://github.com/candowu/jieba-lucene-analiysis
 
+结巴分词 java 高性能实现，优雅易用的 api 设计，性能优于 huaban jieba 分词:
+https://blog.csdn.net/ryo1060732496/article/details/103907811
+
 MMSEG分词:
 https://github.com/chenlb/mmseg4j-core
 https://github.com/chenlb/mmseg4j-solr
@@ -109,6 +118,9 @@ https://emorynlp.github.io/nlp4j/
 
 NLPIR分词:
 https://github.com/NLPIR-team/nlpir-analysis-cn-ictclas
+
+Opencc4j 支持中文繁简体转换，考虑到词组级别:
+https://github.com/houbb/opencc4j
 
 THULAC分词:
 https://github.com/thunlp/THULAC-Java

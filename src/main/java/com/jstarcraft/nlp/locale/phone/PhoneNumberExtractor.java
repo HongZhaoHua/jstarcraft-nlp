@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 /**
  * 手机号码抽取器
@@ -49,11 +48,6 @@ public class PhoneNumberExtractor {
             int dataVersion = byteBuffer.getInt();
             indexAreaOffset = byteBuffer.getInt();
             phoneRecordCount = (dataByteArray.length - indexAreaOffset) / INDEX_SEGMENT_LENGTH;
-
-            // print data version
-            // System.out.println(dataVersion);
-            // print record count
-            // System.out.println(phoneRecordCount);
         }
     }
 
@@ -117,11 +111,4 @@ public class PhoneNumberExtractor {
         return null;
     }
 
-    public static void main(String[] args) {
-        PhoneNumberExtractor phoneNumberGeo = new PhoneNumberExtractor();
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()) {
-            System.out.println(phoneNumberGeo.lookup(scanner.next()));
-        }
-    }
 }

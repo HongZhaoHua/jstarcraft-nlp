@@ -105,7 +105,7 @@ public class PhoneNumberExtractor {
                 String[] infoSegments = infoString.split("\\|");
 
                 PhoneNumber phoneNumberInfo = new PhoneNumber();
-                phoneNumberInfo.setPhoneNumber(phoneNumber);
+                phoneNumberInfo.setNumber(phoneNumber);
                 phoneNumberInfo.setProvince(infoSegments[0]);
                 phoneNumberInfo.setCity(infoSegments[1]);
                 phoneNumberInfo.setZipCode(infoSegments[2]);

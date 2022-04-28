@@ -8,26 +8,31 @@ package com.jstarcraft.nlp.locale.phone;
  */
 public class PhoneNumber {
 
-    private String phoneNumber;
+    private String number;
+    /** 省份 */
     private String province;
+    /** 城市 */
     private String city;
-    private String zipCode;
+    /** 区号 */
     private String areaCode;
-    private String phoneType;
+    /** 邮编 */
+    private String zipCode;
+    /** 类型 */
+    private String type;
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getNumber() {
+        return number;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    void setNumber(String phoneNumber) {
+        this.number = phoneNumber;
     }
 
     public String getProvince() {
         return province;
     }
 
-    public void setProvince(String province) {
+    void setProvince(String province) {
         this.province = province;
     }
 
@@ -35,7 +40,7 @@ public class PhoneNumber {
         return city;
     }
 
-    public void setCity(String city) {
+    void setCity(String city) {
         this.city = city;
     }
 
@@ -43,7 +48,7 @@ public class PhoneNumber {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
@@ -51,20 +56,21 @@ public class PhoneNumber {
         return areaCode;
     }
 
-    public void setAreaCode(String areaCode) {
+    void setAreaCode(String areaCode) {
         this.areaCode = areaCode;
     }
 
     public String getPhoneType() {
-        return phoneType;
+        return type;
     }
 
-    public void setPhoneType(String phoneType) {
-        this.phoneType = phoneType;
+    void setPhoneType(String phoneType) {
+        this.type = phoneType;
     }
 
     @Override
     public String toString() {
-        return "PhoneNumberInfo{" + "phoneNumber='" + phoneNumber + '\'' + ", province='" + province + '\'' + ", city='" + city + '\'' + ", zipCode='" + zipCode + '\'' + ", areaCode='" + areaCode + '\'' + ", phoneType='" + phoneType + '\'' + '}';
+        return "PhoneNumber [number=" + number + ", province=" + province + ", city=" + city + ", areaCode=" + areaCode + ", zipCode=" + zipCode + ", phoneType=" + type + "]";
     }
+
 }

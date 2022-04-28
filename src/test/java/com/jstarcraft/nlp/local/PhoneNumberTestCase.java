@@ -21,8 +21,13 @@ public class PhoneNumberTestCase {
         PhoneNumberExtractor extractor = new PhoneNumberExtractor();
 
         PhoneNumber phone = extractor.lookup("13006150000");
-        System.out.println(phone.toString());
         assertEquals("PhoneNumber [number=13006150000, province=湖北, city=武汉, areaCode=027, zipCode=430000, phoneType=联通]", phone.toString());
+
+        phone = extractor.lookup("13308050000");
+        assertEquals("PhoneNumber [number=13308050000, province=四川, city=成都, areaCode=028, zipCode=610000, phoneType=电信]", phone.toString());
+
+        phone = extractor.lookup("13796000000");
+        assertEquals("PhoneNumber [number=13796000000, province=黑龙江, city=哈尔滨, areaCode=0451, zipCode=150000, phoneType=移动]", phone.toString());
 
         phone = extractor.lookup("12345678901");
         assertNull(phone);

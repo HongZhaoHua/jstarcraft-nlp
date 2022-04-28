@@ -58,13 +58,13 @@ public class PhoneNumberExtractor {
         byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
     }
 
-    public PhoneNumber lookup(String phoneNumber) {
-        if (phoneNumber == null || phoneNumber.length() > 11 || phoneNumber.length() < 7) {
+    public PhoneNumber lookup(String phone) {
+        if (phone == null || phone.length() > 11 || phone.length() < 7) {
             return null;
         }
         int phoneNumberPrefix;
         try {
-            phoneNumberPrefix = Integer.parseInt(phoneNumber.substring(0, 7));
+            phoneNumberPrefix = Integer.parseInt(phone.substring(0, 7));
         } catch (Exception e) {
             return null;
         }
@@ -84,26 +84,26 @@ public class PhoneNumberExtractor {
             } else if (currentPrefix < phoneNumberPrefix) {
                 left = middle + 1;
             } else {
-                int infoBeginOffset = byteBuffer.getInt();
+                int offset = byteBuffer.getInt();
                 int phoneType = byteBuffer.get();
 
-                int infoLength = -1;
-                for (int i = infoBeginOffset; i < indexAreaOffset; ++i) {
+                int length = -1;
+                for (int i = offset; i < indexAreaOffset; ++i) {
                     if (dataByteArray[i] == 0) {
-                        infoLength = i - infoBeginOffset;
+                        length = i - offset;
                         break;
                     }
                 }
 
-                String infoString = new String(dataByteArray, infoBeginOffset, infoLength, StandardCharsets.UTF_8);
-                String[] infoSegments = infoString.split("\\|");
+                String information = new String(dataByteArray, offset, length, StandardCharsets.UTF_8);
+                String[] segments = information.split("\\|");
 
                 PhoneNumber phoneNumberInfo = new PhoneNumber();
-                phoneNumberInfo.setNumber(phoneNumber);
-                phoneNumberInfo.setProvince(infoSegments[0]);
-                phoneNumberInfo.setCity(infoSegments[1]);
-                phoneNumberInfo.setZipCode(infoSegments[2]);
-                phoneNumberInfo.setAreaCode(infoSegments[3]);
+                phoneNumberInfo.setNumber(phone);
+                phoneNumberInfo.setProvince(segments[0]);
+                phoneNumberInfo.setCity(segments[1]);
+                phoneNumberInfo.setZipCode(segments[2]);
+                phoneNumberInfo.setAreaCode(segments[3]);
                 phoneNumberInfo.setPhoneType(PHONE_NUMBER_TYPE[phoneType]);
                 return phoneNumberInfo;
             }

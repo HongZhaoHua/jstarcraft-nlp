@@ -1,2 +1,11 @@
 ip2region - 准确率99.9%的离线IP地址定位库，0.0x毫秒级查询，ip2region.db数据库只有数MB，提供了java,php,c,python,nodejs,golang,c#等查询绑定和Binary,B树,内存三种查询算法:
 https://github.com/lionsoul2014/ip2region
+
+使用ip2region来完成城市定位（java）:
+https://blog.csdn.net/chenmingxu438521/article/details/103727449
+
+[喵咪开源软件推荐(3)]全球IP库-GeoLite2-City:
+https://developer.aliyun.com/article/770043
+
+GEOIP2（即GeoLite2免费地理位置数据） - 数据库下载与自动更新:
+https://limbopro.com/archives/15531.html

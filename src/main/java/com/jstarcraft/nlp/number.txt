@@ -1,0 +1,5 @@
+中文数字阿拉伯数字相互转换:
+https://juejin.cn/post/6854573214346149901
+
+实现中文汉字金额转换为阿拉伯数字金额（JAVA方式实现）:
+https://www.freesion.com/article/6857728824/

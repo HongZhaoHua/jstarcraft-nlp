@@ -1,11 +1,23 @@
+***** qqzeng-ip *****
+
 最新手机号段归属地数据库 高性能dat解析:
 https://blog.csdn.net/zengzhan/article/details/51975750
+
+***** phonedata *****
+
+手机号码归属地信息库、手机号归属地查询 phone.dat:
+https://github.com/xluohome/phonedata
 
 根据手机号确定手机号运营商即归属地, 支持包括虚拟运营商的中国大陆手机号查询.:
 https://github.com/EeeMt/phone-number-geo
 
 手机号码归属地本地解析(Java):
 https://github.com/fengjiajie/phone-number-geo
+
+***** libphonenumber *****
+
+Google's common Java, C++ and JavaScript library for parsing, formatting, and validating international phone numbers:
+https://github.com/google/libphonenumber
 
 Java开发实现国际手机号及归属地的判断:
 https://blog.csdn.net/weixin_45192992/article/details/106332447

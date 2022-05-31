@@ -9,3 +9,6 @@ https://developer.aliyun.com/article/770043
 
 GEOIP2（即GeoLite2免费地理位置数据） - 数据库下载与自动更新:
 https://limbopro.com/archives/15531.html
+
+GeoIP 简介:
+https://blog.csdn.net/zzhongcy/article/details/121247674

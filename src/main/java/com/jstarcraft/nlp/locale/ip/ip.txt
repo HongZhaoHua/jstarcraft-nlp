@@ -1,3 +1,7 @@
+如何获取 IP 、经纬度、时区一系列信息:
+https://wxnacy.com/2017/11/30/get-ip-location-timezone/
+https://timezonedb.com/
+
 ip2region - 准确率99.9%的离线IP地址定位库，0.0x毫秒级查询，ip2region.db数据库只有数MB，提供了java,php,c,python,nodejs,golang,c#等查询绑定和Binary,B树,内存三种查询算法:
 https://github.com/lionsoul2014/ip2region
 

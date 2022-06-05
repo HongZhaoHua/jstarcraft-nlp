@@ -10,7 +10,7 @@ import edu.stanford.nlp.pipeline.AnnotationPipeline;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.PropertiesUtils;
 
-public class CoreNlpTokenizerTest extends BaseTokenStreamTestCase {
+public class CoreNlpTokenizerTestCase extends BaseTokenStreamTestCase {
 
     /** Test splitting only */
     @Test

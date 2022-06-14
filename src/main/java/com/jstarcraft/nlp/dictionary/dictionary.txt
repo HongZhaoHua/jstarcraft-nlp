@@ -10,5 +10,8 @@ https://shurufa.baidu.com/dict
 打造拥有600万词库的windows原生输入法:
 https://zhuanlan.zhihu.com/p/416966473
 
+72万条京东淘宝天猫拼多多携程艺龙电商专用分词排序整理去重分词.zip:
+https://download.csdn.net/download/killsun/71973875
+
 搜狗细胞词库解析（仅提取词和词频）:
 https://blog.csdn.net/lovehuanhuan1314/article/details/119941378

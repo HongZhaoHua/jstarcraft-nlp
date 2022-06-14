@@ -1,2 +1,14 @@
+深蓝词库转换:
+https://github.com/studyzy/imewlconverter
+
 搜狗细胞词库:
 https://pinyin.sogou.com/dict/
+
+百度输入法:
+https://shurufa.baidu.com/dict
+
+打造拥有600万词库的windows原生输入法:
+https://zhuanlan.zhihu.com/p/416966473
+
+搜狗细胞词库解析（仅提取词和词频）:
+https://blog.csdn.net/lovehuanhuan1314/article/details/119941378

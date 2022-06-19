@@ -8,6 +8,7 @@ import java.util.Locale;
  * @author Birdy
  *
  */
+// TODO 考虑整合到JStarCraft Cloud Information
 public interface NlpAddress {
 
     /**

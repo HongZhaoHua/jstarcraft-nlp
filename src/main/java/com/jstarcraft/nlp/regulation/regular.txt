@@ -25,9 +25,6 @@ https://github.com/cdoco/common-regex
 常用正则表达式收集:
 https://github.com/limingziqiang/functions#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%94%B6%E9%9B%86
 
-国际书号ISBN编码规则及计算方法:
-https://www.sohu.com/a/388704161_120656704
-
 JAVA ISBN10 ISBN13 正则表达式:
 https://www.jianshu.com/p/719566fc8374
 

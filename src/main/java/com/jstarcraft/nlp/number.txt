@@ -2,4 +2,10 @@
 https://juejin.cn/post/6854573214346149901
 
 实现中文汉字金额转换为阿拉伯数字金额（JAVA方式实现）:
-https://www.freesion.com/article/6857728824/
+https://blog.csdn.net/gaoxing412836542/article/details/106302441
+
+JAVA 中文汉字转换阿拉伯数字（最终版，已修复了亿及亿以下的汉数字的转换，超过后的数字，暂时不支持）:
+https://blog.csdn.net/qq_45335996/article/details/124848463
+
+快速转化「中文数字」和「阿拉伯数字」～ (最新特性：分数，日期、温度等转化）:
+https://github.com/Ailln/cn2an

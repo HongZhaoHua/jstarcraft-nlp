@@ -14,6 +14,12 @@ https://www.jianshu.com/p/22098d1bd3e6
 Microsoft Recognizers Text Overview:
 https://github.com/Microsoft/Recognizers-Text
 
+xk-time 是时间转换，时间计算，时间格式化，时间解析，日历，时间cron表达式和时间NLP等的工具，使用Java8（JSR-310），线程安全，简单易用，多达70几种常用日期格式化模板，支持Java8时间类和Date，轻量级，无第三方依赖:
+https://github.com/xkzhangsan/xk-time
+
 时间词的抽取和转换:
 https://github.com/shinyke/Time-NLP
 https://github.com/zhanzecheng/Time_NLP
+
+时间语义解析:
+https://github.com/dongrixinyu/JioNLP

@@ -11,8 +11,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.hankcs.hanlp.collection.trie.ITrie;
-import com.jstarcraft.ai.math.algorithm.text.CharacterNgram;
 import com.jstarcraft.core.utility.StringUtility;
+import com.jstarcraft.nlp.algorithm.CharacterNgram;
 
 import it.unimi.dsi.fastutil.objects.Object2BooleanArrayMap;
 import it.unimi.dsi.fastutil.objects.Object2BooleanMap;

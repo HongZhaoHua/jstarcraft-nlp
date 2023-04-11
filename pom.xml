@@ -43,12 +43,6 @@
             <version>1.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.jstarcraft</groupId>
-            <artifactId>jstarcraft-ai-math</artifactId>
-            <version>1.0</version>
-        </dependency>
-
         <!-- 自然语言处理框架依赖 -->
 
         <!-- Lucene框架依赖 -->
@@ -64,6 +58,13 @@
             <artifactId>lucene-analyzers-common</artifactId>
             <version>8.6.2</version>
             <optional>true</optional>
+        </dependency>
+
+        <!-- 日期时间框架依赖 -->
+        <dependency>
+            <groupId>com.github.xkzhangsan</groupId>
+            <artifactId>xk-time</artifactId>
+            <version>3.2.4</version>
         </dependency>
 
         <!-- Ansj库依赖 -->

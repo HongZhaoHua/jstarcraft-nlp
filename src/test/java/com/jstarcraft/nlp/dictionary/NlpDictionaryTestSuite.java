@@ -9,9 +9,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
         AnsjDictionaryTestCase.class,
 
-        CoreNlpDictionaryTestCase.class,
+        CorenlpDictionaryTestCase.class,
 
-        HanLpDictionaryTestCase.class,
+        HanlpDictionaryTestCase.class,
 
         IkDictionaryTestCase.class,
 

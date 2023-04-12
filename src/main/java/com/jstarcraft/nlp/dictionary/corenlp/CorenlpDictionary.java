@@ -14,11 +14,11 @@ import edu.stanford.nlp.ling.tokensregex.matcher.TrieMap;
  * @author Birdy
  *
  */
-public class CoreNlpDictionary implements NlpDictionary {
+public class CorenlpDictionary implements NlpDictionary {
 
     private TrieMap<String, ?> trie;
 
-    public CoreNlpDictionary(TrieMap<String, ?> trie) {
+    public CorenlpDictionary(TrieMap<String, ?> trie) {
         this.trie = trie;
     }
 

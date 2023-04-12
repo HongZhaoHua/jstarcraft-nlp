@@ -2,7 +2,7 @@ package com.jstarcraft.nlp.tokenization;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.Segment;
-import com.jstarcraft.nlp.tokenization.hanlp.HanLpTokenizer;
+import com.jstarcraft.nlp.tokenization.hanlp.HanlpTokenizer;
 
 public class HanLpTokenizerTestCase extends NlpTokenizerTestCase {
 
@@ -10,7 +10,7 @@ public class HanLpTokenizerTestCase extends NlpTokenizerTestCase {
     protected NlpTokenizer<? extends NlpToken> getTokenizer() {
         Segment segment = HanLP.newSegment();
         segment.enableOffset(true);
-        return new HanLpTokenizer(segment);
+        return new HanlpTokenizer(segment);
     }
 
 }

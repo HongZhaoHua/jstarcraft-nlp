@@ -27,7 +27,7 @@ import org.apache.lucene.store.Directory;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-public class HanLpQueryAnalyzerTestCase {
+public class HanlpQueryAnalyzerTestCase {
 
     @Test
     public void testCreateComponents() throws Exception {
@@ -36,7 +36,7 @@ public class HanLpQueryAnalyzerTestCase {
             System.out.print(text.charAt(i) + "" + i + " ");
         }
         System.out.println();
-        try (Analyzer analyzer = new HanLpQueryAnalyzer("viterbi")) {
+        try (Analyzer analyzer = new HanlpQueryAnalyzer("viterbi")) {
             TokenStream tokenStream = analyzer.tokenStream("field", text);
             tokenStream.reset();
             while (tokenStream.incrementToken()) {
@@ -54,7 +54,7 @@ public class HanLpQueryAnalyzerTestCase {
 
     @Test
     public void testIndexAndSearch() throws Exception {
-        Analyzer analyzer = new HanLpIndexAnalyzer("viterbi");////////////////////////////////////////////////////
+        Analyzer analyzer = new HanlpIndexAnalyzer("viterbi");////////////////////////////////////////////////////
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         Directory directory = new ByteBuffersDirectory();
@@ -77,7 +77,7 @@ public class HanLpQueryAnalyzerTestCase {
 
         IndexReader ireader = DirectoryReader.open(directory);
         IndexSearcher isearcher = new IndexSearcher(ireader);
-        QueryParser parser = new QueryParser("content", new HanLpQueryAnalyzer("viterbi"));
+        QueryParser parser = new QueryParser("content", new HanlpQueryAnalyzer("viterbi"));
         Query query = parser.parse("和服");
         ScoreDoc[] hits = isearcher.search(query, 300000).scoreDocs;
         Assert.assertEquals(1, hits.length);
@@ -92,7 +92,7 @@ public class HanLpQueryAnalyzerTestCase {
         Map<String, String> args = new TreeMap<>();
         args.put("enableTraditionalChineseMode", "true");
         args.put("enableNormalization", "true");
-        HanLpTokenizerFactory factory = new HanLpTokenizerFactory(args);
+        HanlpTokenizerFactory factory = new HanlpTokenizerFactory(args);
         Tokenizer tokenizer = factory.create();
         String text = "會辦台星保證最低價的原因？";
 

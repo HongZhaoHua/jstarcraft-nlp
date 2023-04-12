@@ -19,7 +19,7 @@ import com.hankcs.hanlp.dictionary.py.PinyinDictionary;
 /**
  * 拼音TokenFilter
  */
-public final class HanLpPinyinTokenFilter extends TokenFilter {
+public final class HanlpPinyinTokenFilter extends TokenFilter {
 
     // 词性
     private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
@@ -32,11 +32,11 @@ public final class HanLpPinyinTokenFilter extends TokenFilter {
     // 待输出拼音队列
     private final Queue<CharSequence> queue;
 
-    public HanLpPinyinTokenFilter(TokenStream input, boolean original, Converter<List<Pinyin>, CharSequence>... converters) {
+    public HanlpPinyinTokenFilter(TokenStream input, boolean original, Converter<List<Pinyin>, CharSequence>... converters) {
         this(input, original, Arrays.asList(converters));
     }
 
-    public HanLpPinyinTokenFilter(TokenStream input, boolean original, Collection<Converter<List<Pinyin>, CharSequence>> converters) {
+    public HanlpPinyinTokenFilter(TokenStream input, boolean original, Collection<Converter<List<Pinyin>, CharSequence>> converters) {
         super(input);
         this.original = original;
         this.converters = converters;

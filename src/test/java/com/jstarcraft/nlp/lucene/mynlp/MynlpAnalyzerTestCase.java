@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import com.mayabot.nlp.segment.Lexers;
 
-public class LuceneAnalyzerTest {
+public class MynlpAnalyzerTestCase {
 
     @Test
     public void test1() throws Exception {

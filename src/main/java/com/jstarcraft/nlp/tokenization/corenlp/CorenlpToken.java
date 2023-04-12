@@ -15,7 +15,7 @@ import edu.stanford.nlp.ling.CoreLabel;
  * @author Birdy
  *
  */
-public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpToken>, NlpToken {
+public class CorenlpToken implements Iterable<CorenlpToken>, Iterator<CorenlpToken>, NlpToken {
 
     private Iterator<CoreLabel> iterator;
 
@@ -27,12 +27,12 @@ public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpTok
 
     private Integer end;
 
-    public CoreNlpToken(Iterator<CoreLabel> iterator) {
+    public CorenlpToken(Iterator<CoreLabel> iterator) {
         this.iterator = iterator;
     }
 
     @Override
-    public Iterator<CoreNlpToken> iterator() {
+    public Iterator<CorenlpToken> iterator() {
         return this;
     }
 
@@ -42,7 +42,7 @@ public class CoreNlpToken implements Iterable<CoreNlpToken>, Iterator<CoreNlpTok
     }
 
     @Override
-    public CoreNlpToken next() {
+    public CorenlpToken next() {
         CoreLabel label = iterator.next();
         text = label.get(CoreAnnotations.TextAnnotation.class);
         nature = label.get(CoreAnnotations.PartOfSpeechAnnotation.class);

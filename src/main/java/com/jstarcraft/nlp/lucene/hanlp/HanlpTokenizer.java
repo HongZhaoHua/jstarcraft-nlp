@@ -23,9 +23,9 @@ import com.hankcs.hanlp.utility.TextUtility;
  * @author Birdy
  *
  */
-public final class HanLpTokenizer extends Tokenizer {
+public final class HanlpTokenizer extends Tokenizer {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HanLpTokenizer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HanlpTokenizer.class);
 
     /** 词元 **/
     private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
@@ -50,7 +50,7 @@ public final class HanLpTokenizer extends Tokenizer {
      * @param filter               停用词
      * @param enablePorterStemming 英文原型转换
      */
-    public HanLpTokenizer(Segment segment, Set<String> filter) {
+    public HanlpTokenizer(Segment segment, Set<String> filter) {
         super();
         this.segment = new SegmentWrapper(this.input, segment);
         if (filter != null && filter.size() > 0) {

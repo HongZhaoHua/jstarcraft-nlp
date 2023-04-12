@@ -13,11 +13,11 @@ import com.jstarcraft.nlp.dictionary.NlpDictionary;
  * @author Birdy
  *
  */
-public class HanLpDictionary implements NlpDictionary {
+public class HanlpDictionary implements NlpDictionary {
 
     private ITrie<?> trie;
 
-    public HanLpDictionary(ITrie<?> trie) {
+    public HanlpDictionary(ITrie<?> trie) {
         this.trie = trie;
     }
 

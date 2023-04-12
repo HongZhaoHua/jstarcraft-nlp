@@ -5,9 +5,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 
-import com.jstarcraft.nlp.solr.corenlp.CoreNlpSegmentFactory;
+import com.jstarcraft.nlp.solr.corenlp.CorenlpSegmentFactory;
 
-public class CoreNlpSegmenterFactoryTestCase extends NlpSegmenterFactoryTestCase {
+public class CorenlpSegmenterFactoryTestCase extends NlpSegmenterFactoryTestCase {
 
     @Override
     protected NlpSegmentFactory getSegmenterFactory() throws Exception {
@@ -19,7 +19,7 @@ public class CoreNlpSegmenterFactoryTestCase extends NlpSegmenterFactoryTestCase
             String value = String.valueOf(keyValue.getValue());
             configurations.put(key, value);
         }
-        CoreNlpSegmentFactory factory = new CoreNlpSegmentFactory(configurations);
+        CorenlpSegmentFactory factory = new CorenlpSegmentFactory(configurations);
         return factory;
     }
 

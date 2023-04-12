@@ -16,16 +16,16 @@ import edu.stanford.nlp.pipeline.Annotator;
  * @author Birdy
  *
  */
-public class CoreNlpTokenizer implements NlpTokenizer<CoreNlpToken> {
+public class CorenlpTokenizer implements NlpTokenizer<CorenlpToken> {
 
     private Annotator annotator;
 
-    public CoreNlpTokenizer(Annotator annotator) {
+    public CorenlpTokenizer(Annotator annotator) {
         this.annotator = annotator;
     }
 
     @Override
-    public Iterable<CoreNlpToken> tokenize(CharSequence text) {
+    public Iterable<CorenlpToken> tokenize(CharSequence text) {
         Iterable<CoreLabel> iterator;
         if (StringUtility.isBlank(text)) {
             // 空格无需分词
@@ -35,7 +35,7 @@ public class CoreNlpTokenizer implements NlpTokenizer<CoreNlpToken> {
             annotator.annotate(annotation);
             iterator = annotation.get(CoreAnnotations.TokensAnnotation.class);
         }
-        CoreNlpToken iterable = new CoreNlpToken(iterator.iterator());
+        CorenlpToken iterable = new CorenlpToken(iterator.iterator());
         return iterable;
     }
 

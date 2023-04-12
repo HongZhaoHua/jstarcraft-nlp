@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
 
-public class HanLpIndexAnalyzerTestCase extends TestCase {
+public class HanlpIndexAnalyzerTestCase extends TestCase {
 
     @Test
     public void testCreateComponents() throws Exception {
@@ -19,7 +19,7 @@ public class HanLpIndexAnalyzerTestCase extends TestCase {
             System.out.print(text.charAt(i) + "" + i + " ");
         }
         System.out.println();
-        try (Analyzer analyzer = new HanLpIndexAnalyzer("viterbi")) {
+        try (Analyzer analyzer = new HanlpIndexAnalyzer("viterbi")) {
             TokenStream tokenStream = analyzer.tokenStream("field", text);
             tokenStream.reset();
             while (tokenStream.incrementToken()) {

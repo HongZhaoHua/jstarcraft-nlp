@@ -4,9 +4,9 @@ import java.util.TreeMap;
 
 import com.hankcs.hanlp.collection.trie.DoubleArrayTrie;
 import com.hankcs.hanlp.collection.trie.ITrie;
-import com.jstarcraft.nlp.dictionary.hanlp.HanLpDictionary;
+import com.jstarcraft.nlp.dictionary.hanlp.HanlpDictionary;
 
-public class HanLpDictionaryTestCase extends NlpDictionaryTestCase {
+public class HanlpDictionaryTestCase extends NlpDictionaryTestCase {
 
     @Override
     protected NlpDictionary getDictionary(String... texts) {
@@ -16,7 +16,7 @@ public class HanLpDictionaryTestCase extends NlpDictionaryTestCase {
             tree.put(text, null);
         }
         trie.build(tree);
-        HanLpDictionary dictionary = new HanLpDictionary(trie);
+        HanlpDictionary dictionary = new HanlpDictionary(trie);
         return dictionary;
     }
 

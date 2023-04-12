@@ -16,14 +16,14 @@ import org.junit.jupiter.api.Test;
 
 import com.hankcs.hanlp.HanLP;
 
-public class HanLpTokenizerTestCase {
+public class HanlpTokenizerTestCase {
 
     Tokenizer tokenizer;
 
     @Before
     @BeforeEach
     public void setUp() throws Exception {
-        tokenizer = new HanLpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
+        tokenizer = new HanlpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
         tokenizer.setReader(new StringReader("一套涵盖核心编程,人工智能,数字图像处理,自然语言处理,推荐与搜索,云服务领域的Java框架"));
         tokenizer.reset();
     }
@@ -45,7 +45,7 @@ public class HanLpTokenizerTestCase {
     @Test
     public void testMultiText() throws Exception {
         String[] sentences = new String[] { "中华人民共和国", "地大物博" };
-        tokenizer = new HanLpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
+        tokenizer = new HanlpTokenizer(HanLP.newSegment().enableJapaneseNameRecognize(true).enableIndexMode(true), null);
         for (String sentence : sentences) {
             tokenizer.setReader(new StringReader(sentence));
             tokenizer.reset();
@@ -60,7 +60,7 @@ public class HanLpTokenizerTestCase {
         arguments.put("original", "true");
         arguments.put("full", "true");
         arguments.put("first", "true");
-        HanLpPinyinTokenFilterFactory factory = new HanLpPinyinTokenFilterFactory(arguments);
+        HanlpPinyinTokenFilterFactory factory = new HanlpPinyinTokenFilterFactory(arguments);
         TokenStream tokenStream = factory.create(tokenizer);
         while (tokenStream.incrementToken()) {
             CharTermAttribute attribute = tokenizer.getAttribute(CharTermAttribute.class);

@@ -32,9 +32,9 @@ import edu.stanford.nlp.util.CoreMap;
  * @author Birdy
  *
  */
-public final class CoreNlpTokenizer extends Tokenizer {
+public final class CorenlpTokenizer extends Tokenizer {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CoreNlpTokenizer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CorenlpTokenizer.class);
 
     final static int SENTENCE_GAP = 10;
 
@@ -55,11 +55,11 @@ public final class CoreNlpTokenizer extends Tokenizer {
 
     private int skippedTokens;
 
-    public CoreNlpTokenizer(AnnotationPipeline pipeline) {
+    public CorenlpTokenizer(AnnotationPipeline pipeline) {
         this(DEFAULT_TOKEN_ATTRIBUTE_FACTORY, pipeline);
     }
 
-    public CoreNlpTokenizer(AttributeFactory factory, AnnotationPipeline pipeline) {
+    public CorenlpTokenizer(AttributeFactory factory, AnnotationPipeline pipeline) {
         super(factory);
         this.pipeline = pipeline;
     }

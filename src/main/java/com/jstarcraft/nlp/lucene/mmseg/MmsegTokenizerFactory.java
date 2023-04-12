@@ -17,15 +17,15 @@ import com.chenlb.mmseg4j.Seg;
 import com.chenlb.mmseg4j.SimpleSeg;
 
 @Deprecated
-public class MMSegTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware {
+public class MmsegTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware {
 
-    private static final Logger logger = LoggerFactory.getLogger(MMSegTokenizerFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(MmsegTokenizerFactory.class);
     /* 线程内共享 */
     private ThreadLocal<MmsegTokenizer> tokenizerLocal = new ThreadLocal<MmsegTokenizer>();
     // protected dic for test
     protected Dictionary dic = null;
 
-    public MMSegTokenizerFactory(Map<String, String> configuration) {
+    public MmsegTokenizerFactory(Map<String, String> configuration) {
         super(configuration);
     }
 

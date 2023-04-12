@@ -10,7 +10,7 @@ import org.springframework.core.convert.converter.Converter;
 
 import com.hankcs.hanlp.dictionary.py.Pinyin;
 
-public class HanLpPinyinTokenFilterFactory extends TokenFilterFactory {
+public class HanlpPinyinTokenFilterFactory extends TokenFilterFactory {
 
     private boolean original;
 
@@ -23,7 +23,7 @@ public class HanLpPinyinTokenFilterFactory extends TokenFilterFactory {
      *
      * @param configuration 通过这个Map保存xml中的配置项
      */
-    public HanLpPinyinTokenFilterFactory(Map<String, String> configuration) {
+    public HanlpPinyinTokenFilterFactory(Map<String, String> configuration) {
         super(configuration);
         original = getBoolean(configuration, "original", true);
         first = getBoolean(configuration, "first", true);
@@ -39,7 +39,7 @@ public class HanLpPinyinTokenFilterFactory extends TokenFilterFactory {
         if (full) {
             converters.add(new FullPinyinConverter());
         }
-        return new HanLpPinyinTokenFilter(input, original, converters);
+        return new HanlpPinyinTokenFilter(input, original, converters);
     }
 
 }

@@ -14,13 +14,13 @@ import edu.stanford.nlp.pipeline.AnnotationPipeline;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
 @Deprecated
-public class CoreNlpTokenizerFactory extends TokenizerFactory {
+public class CorenlpTokenizerFactory extends TokenizerFactory {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CoreNlpTokenizerFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CorenlpTokenizerFactory.class);
 
     private AnnotationPipeline pipeline;
 
-    public CoreNlpTokenizerFactory(Map<String, String> configuration) {
+    public CorenlpTokenizerFactory(Map<String, String> configuration) {
         super(configuration);
         Properties properties = new Properties();
         for (Entry<String, String> term : configuration.entrySet()) {
@@ -31,7 +31,7 @@ public class CoreNlpTokenizerFactory extends TokenizerFactory {
 
     @Override
     public Tokenizer create(AttributeFactory factory) {
-        return new CoreNlpTokenizer(factory, pipeline);
+        return new CorenlpTokenizer(factory, pipeline);
     }
 
 }

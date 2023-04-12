@@ -10,18 +10,18 @@ import com.jstarcraft.nlp.tokenization.NlpTokenizer;
  * @author Birdy
  *
  */
-public class HanLpTokenizer implements NlpTokenizer<HanLpToken> {
+public class HanlpTokenizer implements NlpTokenizer<HanlpToken> {
 
     private Segment segment;
 
-    public HanLpTokenizer(Segment segment) {
+    public HanlpTokenizer(Segment segment) {
         this.segment = segment;
     }
 
     @Override
-    public Iterable<HanLpToken> tokenize(CharSequence text) {
+    public Iterable<HanlpToken> tokenize(CharSequence text) {
         Iterable<Term> iterator = segment.seg(text.toString());
-        HanLpToken iterable = new HanLpToken(iterator.iterator());
+        HanlpToken iterable = new HanlpToken(iterator.iterator());
         return iterable;
     }
 

@@ -3,8 +3,6 @@ package com.xkzhangsan.time.utils;
 import java.util.function.Supplier;
 import java.util.regex.Pattern;
 
-import com.xkzhangsan.time.utils.BaseCache;
-
 /**
  * 正则缓存
  * 

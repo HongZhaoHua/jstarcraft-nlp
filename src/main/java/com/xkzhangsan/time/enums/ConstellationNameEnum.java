@@ -1,11 +1,11 @@
 package com.xkzhangsan.time.enums;
 
+import static com.xkzhangsan.time.constants.Constant.MONTHDAY_FORMAT_PRE;
+
 import java.time.MonthDay;
 import java.util.Objects;
 
 import com.xkzhangsan.time.constants.Constant;
-
-import static com.xkzhangsan.time.constants.Constant.MONTHDAY_FORMAT_PRE;
 
 /**
  * 星座名称枚举，包含英文全称，中文全称，时间范围

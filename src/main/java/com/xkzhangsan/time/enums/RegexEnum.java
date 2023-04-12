@@ -95,7 +95,7 @@ public enum RegexEnum {
 	 *  <p>
 	 *  正则：{@code  "\\d+(?=天[以之]?前)" }
 	 */
-	NormBaseRelatedDayBefore("\\d+(?=天[以之]?前)|(?!过去)\\d+(?=天)", 0, "几天前"),
+	NormBaseRelatedDayBefore("\\d+(?=天[以之]?前)", 0, "几天前"),
 	
 	
 	/**
@@ -103,7 +103,7 @@ public enum RegexEnum {
 	 *  <p>
 	 *  正则：{@code  "\\d+(?=天[以之]?后)" }
 	 */
-	NormBaseRelatedDayAfter("\\d+(?=天[以之]?后)|(?!未来)\\d+(?=天)", 0, "几天后"),
+	NormBaseRelatedDayAfter("\\d+(?=天[以之]?后)", 0, "几天后"),
 	
 	
 	/**

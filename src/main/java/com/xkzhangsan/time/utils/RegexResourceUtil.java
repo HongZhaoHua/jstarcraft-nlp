@@ -30,6 +30,7 @@ public class RegexResourceUtil {
 			ObjectInputStream in = new ObjectInputStream(
 	                new BufferedInputStream(new GZIPInputStream((resourceAsStream))));
 			Pattern p = (Pattern) in.readObject();
+			System.out.println(p.pattern());
 	        return Pattern.compile(p.pattern());
 		}
     }

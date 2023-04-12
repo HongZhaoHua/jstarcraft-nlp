@@ -47,11 +47,11 @@ public class NlpTestCase {
         segment.enablePartOfSpeechTagging(true);
 //        segment.enableCustomDictionary(false);
 
-        List<TimeNLP> timeNLPList = TimeNLPUtil.parse("未来五天购买的衣服的数量？");
-        System.out.println("未来五天购买的衣服的数量？");
+        List<TimeNLP> timeNLPList = TimeNLPUtil.parse("五个月后购买的衣服的数量？");
+        System.out.println("五个月后购买的衣服的数量？");
         System.out.println(timeNLPList);
 
-        System.out.println(segment.seg("最近五天购买的衣服的数量？"));
+//        System.out.println(segment.seg("最近五天购买的衣服的数量？"));
 //        System.out.println(segment.seg("最近五天购买的衣服有哪些？"));
     }
 

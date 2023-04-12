@@ -9,7 +9,6 @@ import com.hankcs.hanlp.collection.trie.DoubleArrayTrie;
 import com.hankcs.hanlp.corpus.tag.Nature;
 import com.hankcs.hanlp.dictionary.CoreDictionary.Attribute;
 import com.hankcs.hanlp.seg.Segment;
-import com.xkzhangsan.time.formatter.DateTimeFormatterUtil;
 import com.xkzhangsan.time.nlp.TimeNLP;
 import com.xkzhangsan.time.nlp.TimeNLPUtil;
 

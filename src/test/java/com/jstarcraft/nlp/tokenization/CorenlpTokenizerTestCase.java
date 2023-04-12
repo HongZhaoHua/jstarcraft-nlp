@@ -6,7 +6,7 @@ import com.jstarcraft.nlp.tokenization.corenlp.CorenlpTokenizer;
 
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 
-public class CoreNlpTokenizerTestCase extends NlpTokenizerTestCase {
+public class CorenlpTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
     protected NlpTokenizer<? extends NlpToken> getTokenizer() {

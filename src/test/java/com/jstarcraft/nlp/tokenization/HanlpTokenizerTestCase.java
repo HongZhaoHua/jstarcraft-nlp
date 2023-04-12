@@ -4,7 +4,7 @@ import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.Segment;
 import com.jstarcraft.nlp.tokenization.hanlp.HanlpTokenizer;
 
-public class HanLpTokenizerTestCase extends NlpTokenizerTestCase {
+public class HanlpTokenizerTestCase extends NlpTokenizerTestCase {
 
     @Override
     protected NlpTokenizer<? extends NlpToken> getTokenizer() {

@@ -9,9 +9,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
         AnsjTokenizerTestCase.class,
 
-        CoreNlpTokenizerTestCase.class,
+        CorenlpTokenizerTestCase.class,
 
-        HanLpTokenizerTestCase.class,
+        HanlpTokenizerTestCase.class,
 
         IkTokenizerTestCase.class,
 
